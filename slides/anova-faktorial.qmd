@@ -1,0 +1,436 @@
+---
+title: "ANOVA Faktorial"
+subtitle: "Statistik Dasar dalam Penelitian Psikologi"
+author: "Rizqy Amelia Zein"
+institute:
+  - "[_Departemen Psikologi Kepribadian dan Sosial, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
+date: today
+format:
+  unair-revealjs:
+    slide-number: true
+    progress: true
+    transition: slide
+    center: false
+execute:
+  eval: false
+  echo: true
+---
+
+## _Outline_
+
+* Mengapa ANOVA faktorial, bukan ANOVA satu jalur terpisah?
+* Desain faktorial dan notasi
+* *Main effects* dan *interaction effects*
+* Partisi varians dalam desain faktorial
+* Implementasi di jamovi
+* *Effect size* (η² dan ω²)
+* *Post-hoc tests*
+* Asumsi dan uji asumsi
+* *A priori* analisis *power*
+
+---
+
+## Mengapa ANOVA faktorial? {background-color="#14497F"}
+
+## Keterbatasan ANOVA satu jalur
+
+Bayangkan Alfonso ingin meneliti dua faktor sekaligus: **jenis makanan** (3 level) dan **jenis musik** (2 level) yang diberikan pada kucing. Ia bisa saja menjalankan dua ANOVA satu jalur terpisah:
+
+* ANOVA 1: efek jenis makanan pada durasi membaca
+* ANOVA 2: efek jenis musik pada durasi membaca
+
+**Masalahnya ada tiga:**
+
+1. **Inflasi *Type I error***: dua uji independen menggandakan peluang *false positive*
+2. **Kehilangan informasi**: apakah efek musik bergantung pada makanan yang diberikan? ANOVA terpisah tidak bisa menjawab ini
+3. **Inefisiensi**: satu analisis faktorial lebih *powerful* karena menggunakan seluruh data untuk setiap estimasi efek
+
+::: {.callout-important}
+**ANOVA faktorial memungkinkan kita menguji *main effects* dari setiap faktor dan — yang paling penting — *interaction effect* di antara keduanya, dalam satu analisis yang terintegrasi.**
+:::
+
+## Apa itu desain faktorial?
+
+Desain faktorial adalah desain penelitian di mana setiap partisipan mendapatkan **kombinasi perlakuan dari dua atau lebih faktor**, sehingga kita dapat mempelajari efek masing-masing faktor dan interaksinya.
+
+**Terminologi:**
+
+* **Faktor (*factor*)**: variabel independen yang dimanipulasi (mis. jenis musik, jenis makanan)
+* **Level**: kategori dalam satu faktor (mis. klasik vs campursari = 2 level)
+* **Sel (*cell*)**: satu kombinasi spesifik dari semua faktor
+
+**Notasi desain:** jumlah level setiap faktor dipisahkan tanda ×
+
+| Desain | Artinya |
+|---|---|
+| 2 × 2 | 2 faktor, masing-masing 2 level = 4 sel |
+| 3 × 2 | 2 faktor, 3 dan 2 level = 6 sel |
+| 2 × 3 × 2 | 3 faktor = 12 sel |
+
+---
+
+## Studi Alfonso: desain 3 × 2 {background-color="#14497F"}
+
+## Konteks penelitian Alfonso
+
+Alfonso ingin mengetahui apakah jenis makanan dan jenis musik yang diperdengarkan memengaruhi **durasi membaca kucing** (dalam detik).
+
+**Faktor dan levelnya:**
+
+:::: {.columns}
+::: {.column width="50%"}
+**Faktor A: Jenis Makanan** (3 level)
+
+* *Dry food*
+* *Wet food*
+* *Raw food*
+:::
+::: {.column width="50%"}
+**Faktor B: Jenis Musik** (2 level)
+
+* Musik klasik (*Frühlingsstimmen* — Strauss II)
+* Musik campursari (*Sewu Kutho* — Didi Kempot)
+:::
+::::
+
+Setiap kucing secara acak dialokasikan ke **satu** dari 6 sel (3 × 2 = 6 kombinasi).
+
+Dataset: **kucing-faktorial.omv**
+
+## Tabel desain 3 × 2
+
+Setiap sel berisi *mean* durasi membaca kucing pada kombinasi perlakuan tersebut:
+
+|             | Musik Klasik | Musik Campursari | **Total (baris)** |
+|:-----------:|:------------:|:----------------:|:-----------------:|
+| *Dry food*  | $\mu_{11}$ = 0.300 | $\mu_{12}$ = 0.600 | $\mu_{1\cdot}$ = 0.450 |
+| *Wet food*  | $\mu_{21}$ = 0.400 | $\mu_{22}$ = 1.033 | $\mu_{2\cdot}$ = 0.716 |
+| *Raw food*  | $\mu_{31}$ = 1.467 | $\mu_{32}$ = 1.500 | $\mu_{3\cdot}$ = 1.483 |
+| **Total (kolom)** | $\mu_{\cdot1}$ = 0.722 | $\mu_{\cdot2}$ = 1.044 | $\mu_{\cdot\cdot}$ = 0.833 |
+
+::: {.callout-note}
+*Mean* baris (*row means*) merangkum efek utama jenis makanan. *Mean* kolom (*column means*) merangkum efek utama jenis musik. *Mean* sel individual memungkinkan kita mendeteksi interaksi.
+:::
+
+## Memeriksa desain: *crosstabs*
+
+Sebelum analisis, periksa apakah desain seimbang (*balanced*):
+
+1. Klik menu *Exploration* {{< fa circle-arrow-right >}} *Descriptives*
+2. Periksa jumlah observasi per sel (*crosstabs*): **N per sel harus sama**
+
+**Desain seimbang vs tidak seimbang:**
+
+| | *Balanced* | *Unbalanced* |
+|---|---|---|
+| N per sel | Sama | Berbeda |
+| Analisis | Lebih mudah, SS ortogonal | Lebih kompleks — gunakan Tipe III SS |
+| Interpretasi | *Main effects* independen | Hati-hati pada interaksi |
+
+::: {.callout-tip}
+Pada studi Alfonso, setiap sel berisi **N = 5 kucing**, jadi desainnya *balanced*. Dalam studi *balanced*, efek jenis makanan dan jenis musik sepenuhnya **ortogonal** — estimasi satu efek tidak terpengaruh oleh efek yang lain.
+:::
+
+---
+
+## Hipotesis yang diuji {background-color="#14497F"}
+
+## Tiga pengujian hipotesis sekaligus
+
+ANOVA faktorial 2 faktor menguji **tiga hipotesis** secara bersamaan:
+
+**1. Efek utama Faktor A (jenis makanan):**
+
+$$H_0: \mu_{1\cdot} = \mu_{2\cdot} = \mu_{3\cdot}$$
+$$H_a: \text{setidaknya satu } \mu_{j\cdot} \text{ berbeda}$$
+
+**2. Efek utama Faktor B (jenis musik):**
+
+$$H_0: \mu_{\cdot1} = \mu_{\cdot2}$$
+$$H_a: \mu_{\cdot1} \neq \mu_{\cdot2}$$
+
+**3. Efek interaksi A × B:**
+
+$$H_0: \text{efek jenis makanan sama di semua level jenis musik (dan sebaliknya)}$$
+$$H_a: \text{efek jenis makanan bergantung pada level jenis musik}$$
+
+::: {.callout-important}
+**Interaksi selalu diinterpretasikan terlebih dahulu.** Jika interaksi signifikan, *main effects* tidak dapat diinterpretasikan secara independen — efek satu faktor berubah tergantung pada level faktor lain.
+:::
+
+## *Main effect* vs *interaction effect*
+
+**Efek utama (*main effect*):** efek rata-rata satu faktor, **dirata-rata** di semua level faktor lain.
+
+* Efek utama musik = perbedaan antara kolom klasik dan campursari, **dirata-rata** di semua jenis makanan
+* Efek utama makanan = perbedaan antara baris *dry*, *wet*, *raw food*, **dirata-rata** di semua jenis musik
+
+**Efek interaksi (*interaction effect*):** efek satu faktor **berubah** tergantung pada level faktor lain.
+
+::: {.callout-note}
+Contoh interaksi: "Efek musik klasik pada durasi membaca lebih besar pada kucing yang diberi *wet food* dibanding *dry food*."
+
+Tanpa interaksi: "Efek musik klasik sama untuk semua jenis makanan."
+:::
+
+## Mendeteksi interaksi secara visual
+
+Cara termudah mendeteksi interaksi: lihat **plot *estimated marginal means***
+
+* **Tanpa interaksi**: garis-garis pada plot **sejajar** (atau hampir sejajar)
+* **Dengan interaksi**: garis-garis pada plot **bersilangan** atau saling menjauh
+
+:::: {.columns}
+::: {.column width="50%"}
+**Tidak ada interaksi:**
+
+Peningkatan durasi membaca akibat musik klasik **sama** untuk semua jenis makanan → garis sejajar
+:::
+::: {.column width="50%"}
+**Ada interaksi:**
+
+Peningkatan akibat musik klasik **berbeda** tergantung makanan → garis bersilangan atau mengembang
+:::
+::::
+
+::: {.callout-tip}
+Interaksi yang bersilangan (*crossover interaction*) lebih kuat secara interpretasi dibanding interaksi yang tidak bersilangan (*ordinal interaction*) karena arah efek berubah.
+:::
+
+---
+
+## Partisi varians dalam desain faktorial {background-color="#14497F"}
+
+## Dekomposisi *Sum of Squares*
+
+Dalam ANOVA faktorial, total varians dipartisi menjadi empat komponen:
+
+$$SS_{\text{tot}} = SS_A + SS_B + SS_{A \times B} + SS_{\text{within}}$$
+
+| Sumber varians | Simbol | Interpretasi |
+|---|---|---|
+| Faktor A (makanan) | $SS_A$ | Variabilitas antar level makanan |
+| Faktor B (musik) | $SS_B$ | Variabilitas antar level musik |
+| Interaksi A × B | $SS_{A \times B}$ | Variabilitas sel yang tidak dijelaskan *main effects* |
+| Dalam sel (*within*) | $SS_w$ | Variabilitas individual dalam setiap sel |
+
+## Rasio F untuk setiap efek
+
+Setiap efek diuji dengan rasio F tersendiri menggunakan $MS_w$ yang sama sebagai penyebut:
+
+$$F_A = \frac{MS_A}{MS_w}, \quad F_B = \frac{MS_B}{MS_w}, \quad F_{A \times B} = \frac{MS_{A \times B}}{MS_w}$$
+
+**Degrees of freedom:**
+
+| Sumber | df |
+|---|---|
+| Faktor A (a level) | $a - 1$ |
+| Faktor B (b level) | $b - 1$ |
+| Interaksi A × B | $(a-1)(b-1)$ |
+| Dalam sel | $N - ab$ |
+| Total | $N - 1$ |
+
+Untuk desain 3 × 2 Alfonso dengan N = 30: $df_A$ = 2, $df_B$ = 1, $df_{A\times B}$ = 2, $df_w$ = 24.
+
+---
+
+## Implementasi di jamovi {background-color="#14497F"}
+
+## Langkah ANOVA faktorial di jamovi: *main effects* saja
+
+Buka dataset **kucing-faktorial.omv**, kemudian:
+
+1. Klik menu *ANOVA* {{< fa circle-arrow-right >}} ***ANOVA***
+2. Masukkan **durasi_membaca** ke *Dependent Variable*
+3. Masukkan **jenis_makanan** dan **jenis_musik** ke *Fixed Factors*
+4. Di menu *Model*, lihat kolom *Model Terms* — **hapus** suku interaksi `jenis_makanan*jenis_musik` untuk menguji *main effects* saja
+5. Di opsi *Effect Size*, centang **η²** dan **ω²**
+6. Di opsi *Assumption Checks*, centang semua opsi
+
+## Langkah lanjutan: *post-hoc* dan *marginal means*
+
+7. Di opsi *Post-Hoc Tests*, masukkan **jenis_makanan** dan **jenis_musik** secara terpisah
+8. Centang *Bonferroni* dan *Cohen's d* serta *Confidence Interval* 95%
+9. Di opsi *Estimated Marginal Means*:
+   - Masukkan **jenis_makanan** ke *Terms 1*
+   - Klik *Add New Term*, masukkan **jenis_musik** ke *Terms 2*
+10. Centang *Marginal means plot*, *Marginal means table*, dan *Observed scores*
+
+## Membaca hasil *main effects*
+
+**Tabel ANOVA (tanpa interaksi):**
+
+| Sumber | F | df | *p* | ω² |
+|---|---|---|---|---|
+| jenis_makanan | 48.1 | 2, 24 | < .001 | 0.553 |
+| jenis_musik | 9.83 | 1, 24 | .004 | 0.108 |
+| Residuals | — | 24 | — | — |
+
+**Interpretasi:**
+
+* Jenis makanan berpengaruh signifikan pada durasi membaca, *F*(2, 24) = 48.1, *p* < .001, ω² = 0.553 — efek besar
+* Jenis musik berpengaruh signifikan, *F*(1, 24) = 9.83, *p* = .004, ω² = 0.108 — efek sedang
+
+## Menguji efek interaksi di jamovi
+
+Untuk menguji interaksi, **jangan** hapus suku interaksi di menu *Model*:
+
+1. Kembali ke menu *Model* — pastikan `jenis_makanan*jenis_musik` **tetap ada** di *Model Terms*
+2. Di opsi *Estimated Marginal Means*, masukkan **jenis_makanan** dan **jenis_musik** ke ***Terms 1 yang sama*** (bukan dua *Terms* terpisah)
+3. Centang *Marginal means plot* — perhatikan apakah garis-garis sejajar atau bersilangan
+
+**Interpretasi tabel ANOVA dengan interaksi:**
+
+| Sumber | F | df | *p* | ω² |
+|---|---|---|---|---|
+| jenis_makanan | 44.9 | 2, 24 | < .001 | 0.527 |
+| jenis_musik | 9.17 | 1, 24 | .006 | 0.101 |
+| jenis_makanan × jenis_musik | 3.12 | 2, 24 | .063 | 0.050 |
+| Residuals | — | 24 | — | — |
+
+Interaksi: *F*(2, 24) = 3.12, *p* = .063 — **tidak signifikan** pada α = 0.05. *Main effects* dapat diinterpretasikan secara independen.
+
+---
+
+## *Effect size* untuk ANOVA faktorial {background-color="#14497F"}
+
+## Partial η² dan ω²
+
+Dalam ANOVA faktorial, umumnya dilaporkan ***partial* η²** (bukan η² total) karena ia mengukur proporsi varians yang dijelaskan oleh satu efek **setelah mempartisi efek lain**:
+
+$$\eta^2_p = \frac{SS_{\text{efek}}}{SS_{\text{efek}} + SS_w}$$
+
+$$\omega^2_p \approx \frac{SS_{\text{efek}} - df_{\text{efek}} \cdot MS_w}{SS_{\text{efek}} + SS_w + MS_w}$$
+
+::: {.callout-important}
+**η² total vs *partial* η²:** η² total membagi $SS_{\text{efek}}$ dengan $SS_{\text{tot}}$ — nilainya lebih kecil dan seluruh efek menjumlahkan ke 1 (atau kurang). *Partial* η² masing-masing efek bisa menjumlahkan melebihi 1, tetapi lebih mudah dibandingkan dengan konvensi Cohen (*kecil*: .01, *sedang*: .06, *besar*: .14).
+:::
+
+## Konvensi *effect size* untuk ANOVA
+
+| ω² (atau η²) | Interpretasi |
+|---|---|
+| 0.01 | Efek kecil |
+| 0.06 | Efek sedang |
+| 0.14 | Efek besar |
+
+Pada studi Alfonso:
+
+* Jenis makanan: ω² = 0.527 → **efek yang sangat besar**
+* Jenis musik: ω² = 0.101 → **efek sedang**
+* Interaksi: ω² = 0.050 → **efek kecil** (dan tidak signifikan)
+
+---
+
+## *Post-hoc tests* {background-color="#14497F"}
+
+## Kapan *post-hoc test* diperlukan?
+
+*Post-hoc test* diperlukan untuk faktor dengan **lebih dari 2 level** yang signifikan, untuk mengidentifikasi pasangan kelompok mana yang berbeda.
+
+* **Jenis makanan** (3 level, signifikan) → perlu *post-hoc*
+* **Jenis musik** (2 level, signifikan) → **tidak perlu** *post-hoc*, karena hanya ada satu perbandingan (klasik vs campursari)
+* **Interaksi** (tidak signifikan) → tidak perlu *simple effects* analysis
+
+## Hasil *post-hoc* jenis makanan (Bonferroni)
+
+| Perbandingan | Perbedaan *mean* | SE | Cohen's *d* | *p* (Bonferroni) |
+|---|---|---|---|---|
+| *Dry food* vs *Wet food* | −0.267 | 0.143 | −0.597 | .186 |
+| *Dry food* vs *Raw food* | **−1.033** | 0.143 | **−2.311** | **< .001** |
+| *Wet food* vs *Raw food* | **−0.767** | 0.143 | **−1.714** | **< .001** |
+
+**Interpretasi:**
+
+* *Dry food* dan *wet food* tidak berbeda secara signifikan (*p* = .186)
+* *Raw food* menghasilkan durasi membaca yang secara signifikan lebih lama dibanding *dry food* dan *wet food* (keduanya *p* < .001)
+
+::: {.callout-note}
+Jika interaksi signifikan, lakukan ***simple effects analysis*** (analisis efek satu faktor pada setiap level faktor lain) alih-alih *post-hoc* biasa. Ini bisa dilakukan di jamovi via menu *Simple Effects*.
+:::
+
+---
+
+## Asumsi ANOVA faktorial {background-color="#14497F"}
+
+## Asumsi yang harus dipenuhi
+
+ANOVA faktorial mewarisi asumsi ANOVA satu jalur dengan tambahan pertimbangan desain:
+
+| Asumsi | Cara memeriksa | Catatan |
+|---|---|---|
+| **Normalitas residual** | Q-Q plot residual | Robust jika N per sel ≥ 20 |
+| **Homogenitas varians** | Levene's test | Periksa per sel, bukan per faktor saja |
+| **Independensi observasi** | Desain penelitian | Sangat serius jika dilanggar |
+| **Desain seimbang** | Crosstabs N per sel | Jika tidak seimbang, gunakan Tipe III SS |
+
+::: {.callout-important}
+Dalam desain **tidak seimbang** (*unbalanced*), perbedaan antara *Type I*, *Type II*, dan *Type III Sum of Squares* menjadi krusial. jamovi secara *default* menggunakan **Tipe III SS** — yang tepat untuk hampir semua kasus dengan desain tidak seimbang.
+:::
+
+## Memeriksa homogenitas varians di jamovi
+
+Levene's test dalam ANOVA faktorial memeriksa homogenitas varians **di semua sel** (6 sel untuk desain 3 × 2), bukan hanya per faktor.
+
+Pada studi Alfonso:
+
+* Levene's *F*(5, 24) = 1.38, *p* = .270 → **asumsi homogenitas terpenuhi**
+
+Jika Levene's signifikan:
+
+* Interpretasi hasil dengan hati-hati
+* Pertimbangkan transformasi data (log, akar kuadrat)
+* Atau gunakan analisis alternatif yang robust terhadap heterogenitas varians
+
+---
+
+## *A priori* analisis *power* {background-color="#14497F"}
+
+## Menggunakan PANGEA untuk desain faktorial
+
+Untuk ANOVA faktorial, gunakan **PANGEA** (*Power ANalysis for GEneral Anova designs*) — aplikasi *online* yang lebih fleksibel dari G\*Power untuk desain kompleks.
+
+**Akses:** [jakewestfall.shinyapps.io/pangea/](https://jakewestfall.shinyapps.io/pangea/)
+
+**Atau gunakan G\*Power:**
+
+1. *Test family* {{< fa circle-arrow-right >}} ***F* tests**
+2. *Statistical test* {{< fa circle-arrow-right >}} *ANOVA: Fixed effects, main effects and interactions*
+3. *Type of power analysis* {{< fa circle-arrow-right >}} ***A priori***
+
+## Contoh: *power* untuk studi Alfonso lanjutan
+
+Alfonso ingin meneliti efek **pemberian vitamin** (Vitamin A, B, C, atau tanpa vitamin — 4 level) dan **pemberian vaksin** (divaksin vs tidak — 2 level) pada jumlah bulu kucing yang rontok.
+
+**Parameter:**
+
+* *Effect size f* = 0.15 (efek kecil, ia tidak terlalu yakin)
+* α = 0.05, *Power* = 0.90 ($\beta$ = 0.10)
+* Jumlah kelompok = 4 × 2 = **8 sel**
+
+**Di G\*Power:**
+
+Masukkan *Number of groups* = 8, *Effect size f* = 0.15, α = 0.05, *Power* = 0.90
+
+**Hasil: N total ≈ 440 (55 per sel)**
+
+::: {.callout-note}
+Desain faktorial membutuhkan sampel yang lebih besar karena jumlah sel meningkat secara multiplikatif. Pertimbangkan apakah interaksi benar-benar diperlukan — jika tidak, desain satu faktor mungkin lebih efisien.
+:::
+
+## Latihan: analisis ANOVA faktorial
+
+Seorang peneliti ingin menguji pengaruh **metode belajar** (ceramah, diskusi, *flipped classroom*) dan **waktu belajar** (pagi vs sore) terhadap **nilai ujian** mahasiswa.
+
+1. Buka dataset **nilai-ujian.omv** dan jalankan ANOVA faktorial 3 × 2
+2. Periksa desain: apakah *balanced*? Buat *crosstabs*
+3. Uji interaksi terlebih dahulu — apakah signifikan?
+4. Jika tidak signifikan, interpretasikan *main effects* secara independen
+5. Jalankan *post-hoc test* Bonferroni untuk faktor yang memiliki > 2 level dan signifikan
+6. Buat *estimated marginal means plot* — apakah garis-garisnya sejajar?
+
+Pertanyaan untuk didiskusikan:
+
+* Apa artinya jika interaksi signifikan dalam konteks ini?
+* Kapan *simple effects analysis* lebih tepat daripada *main effects* saja?
+* Bagaimana melaporkan hasil ANOVA faktorial dalam APA format?

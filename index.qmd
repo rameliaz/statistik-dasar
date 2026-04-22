@@ -1,0 +1,148 @@
+---
+title: "Statistik Dasar dalam Penelitian Psikologi"
+---
+
+Laman web ini berisi materi **Statistik Dasar dalam Penelitian Psikologi**.
+
+Materi berlisensi [<i class="fab fa-creative-commons"><i class="fa fa-universal-access"></i></i> BY 4.0](https://creativecommons.org/licenses/by/4.0/). **Materi bebas digunakan kembali namun wajib mengatribusi sumber aslinya**.
+
+
+::: {.callout-note}
+#### Unduh materi dalam bentuk PDF 
+Klik _navigation bar_ yang mengarah pada PDF materi, kemudian tekan `ctrl` dan `p` bersamaan. Setelah _window_ untuk _print_ muncul, pilih `Save to PDF` dan klik `Save`.
+:::
+
+## *Outline* materi
+
+### 1. [Statistik Deskriptif](slides/statistik-deskriptif.html)
+
+* Kenapa statistik?
+* Statistik deskriptif vs inferensial
+* Mengenal *software*: jamovi
+* Tendensi sentral: *mean*, median, dan modus
+* Variabilitas: *range*, IQR, varians, dan standar deviasi
+* Visualisasi data
+* Distribusi normal dan uji normalitas
+
+### 2. [Probabilitas](slides/probabilitas.html)
+
+* Apa itu probabilitas?
+* Dua pendekatan: *frequentist* vs *Bayesian*
+* Aturan dasar probabilitas
+* Distribusi probabilitas
+* Distribusi normal dan *z-score*
+* *Sampling distribution of the mean*
+* Jembatan menuju statistik inferensial
+
+### 3. [Mengestimasi Parameter Populasi](slides/estimasi-parameter.html)
+
+* Sampel, populasi, dan prosedur *sampling*
+* *The law of large numbers*
+* Distribusi *sampling* dan *Central Limit Theorem*
+* *Standard error of the mean* dan *standard error of proportion*
+* *Confidence interval*
+
+### 4. [Uji Hipotesis](slides/uji-hipotesis.html)
+
+* Logika dasar *Null Hypothesis Significance Testing* (NHST)
+* Hipotesis nol dan hipotesis alternatif
+* *Type I error* dan *Type II error*
+* *Statistical power* dan *effect size*
+* *A priori* analisis *power* dengan G\*Power
+
+### 5. [Analisis Data Kategorikal](slides/analisis-kategorikal.html)
+
+* Apa itu data kategorikal?
+* *Binomial test*
+* Uji chi-square (*χ²*)
+* *Fisher's exact test*
+* *McNemar's test* (data berpasangan)
+* *Effect size* untuk analisis kategorikal
+
+### 6. [*T-Test*](slides/t-test.html)
+
+* Apa itu *t-test*?
+* *One-sample t-test*
+* *Paired samples t-test*
+* *Independent samples t-test*
+* Asumsi, uji asumsi, dan alternatif non-parametrik
+* Analisis *power* untuk t-test
+
+### 7. [Korelasi](slides/korelasi.html)
+
+* Apa itu korelasi?
+* *Scatterplot* dan inspeksi visual
+* Koefisien korelasi Pearson (*r*) dan Spearman (non-parametrik)
+* Interpretasi kekuatan dan arah korelasi
+* Matriks korelasi
+* Analisis *power* untuk korelasi
+* Peringatan: korelasi bukan kausalitas
+
+### 8. [ANOVA](slides/anova.html)
+
+* Mengapa ANOVA, bukan t-test berulang?
+* Logika ANOVA: partisi varians dan rasio F
+* Implementasi di jamovi
+* *Effect size* (η² dan ω²) dan *post-hoc tests*
+* Asumsi, uji asumsi, dan *a priori* analisis *power*
+
+### 9. [ANCOVA](slides/ancova.html)
+
+* Apa itu ANCOVA dan mengapa kovariat penting?
+* Asumsi tambahan ANCOVA
+* Implementasi di jamovi
+* *Effect size*, *post-hoc tests*, dan *a priori* analisis *power*
+
+### 10. [Regresi Linear (*Ordinary Least Square*)](slides/regresi.html)
+
+* Inspeksi visual dengan *scatterplot*
+* Model regresi linear OLS dan persamaan garis regresi
+* Varians yang dapat dan tidak dapat dijelaskan oleh model (R²)
+* Menguji hipotesis dan *model fit*
+* Mengecek asumsi: normalitas residual, homoskedastisitas
+* Mendeteksi *outliers* dengan Cook's distance
+* Menulis hasil analisis regresi linear dalam manuskrip
+
+### 11. [Analisis Moderasi](slides/moderasi.html)
+
+* Konsep moderasi: apa dan kapan relevan?
+* Pendekatan 1 — suku interaksi dalam regresi OLS: *mean-centering*, *model comparison*, *estimated marginal means*
+* Pendekatan 2 — modul `medmod` di jamovi (berbasis `lavaan`): perbedaan estimasi OLS vs. *maximum likelihood*, *bootstrap* CI, efek kondisional, Johnson-Neyman (*floodlight*)
+* Kapan memilih OLS vs. `medmod`
+* Melaporkan hasil analisis moderasi
+
+### 12. [Analisis Mediasi](slides/mediasi.html)
+
+* Apa itu mediasi?
+* Model mediasi sederhana
+* Pendekatan Baron & Kenny vs. *bootstrapping*
+* Implementasi di jamovi (PROCESS)
+* Interpretasi *indirect effect*
+* Peringatan: mediasi dari data *cross-sectional*
+
+
+## Sumber belajar lainnya
+
+* [Learning Statistics with jamovi](https://www.learnstatswithjamovi.com/)
+* [Video tutorial jamovi dari Datalab](https://datalab.cc/tools/jamovi)
+
+## Sebelum mulai materi
+
+* Sebaiknya semua mahasiswa sudah memasang `jamovi` pada perangkatnya masing-masing, untuk menghindari terlalu banyaknya waktu untuk menyelesaikan *troubleshooting* instalasi ketika kuliah.
+* Mahasiswa sangat disarankan untuk menonton [video tutorial jamovi](https://datalab.cc/tools/jamovi) sebelum kuliah untuk belajar menavigasikan menu dan fitur yang ada dalam `jamovi`. Cukup hanya dengan menonton bagian *Welcome*, *Installing jamovi*, dan *Navigating jamovi* (total durasi kurang lebih hanya 7 menit).
+
+## Cara instalasi *module* `jamovi`
+
+Gunakan **jamovi versi stabil yang terbaru** (2.6.44) [untuk Windows](https://www.jamovi.org/downloads/jamovi-2.6.44.0-win-x64.exe) atau [MacOS](https://www.jamovi.org/download.html).
+
+Mohon untuk menyimak video cara mengelola *modules* di jamovi berikut ini. Di video ini saya mencontohkan cara instalasi _module_ GAMLj. Instalasi _modules_ yang lain mengikuti prosedur yang persis sama.
+
+{{< video https://www.youtube.com/watch?v=XWavBKgTEuU >}}
+
+## Tutorial jamovi + _modules_
+
+Saat ini, sudah cukup banyak tutorial jamovi yang tersedia. Salah satu yang paling populer dan komperhensif adalah tutorial di bawah ini ⬇️
+
+{{< video https://youtu.be/t0tQcs-E5Z4?si=wur9Er_M92zR-J2v >}}
+
+[Simak seluruh video tutorial di <i class="fa-brands fa-youtube"></i> _playlist_.](https://www.youtube.com/playlist?list=PLvYqRUmlLZUMJ0EUxuTAA1f407wmBQ1QX)

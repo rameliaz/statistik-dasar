@@ -1,0 +1,239 @@
+---
+title: "ANCOVA"
+subtitle: "Statistik Dasar dalam Penelitian Psikologi"
+author: "Rizqy Amelia Zein"
+institute:
+  - "[_Departemen Psikologi Kepribadian dan Sosial, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
+date: today
+format:
+  unair-revealjs:
+    slide-number: true
+    progress: true
+    transition: slide
+    center: false
+execute:
+  eval: false
+  echo: true
+---
+
+## _Outline_
+
+* Apa itu ANCOVA?
+* Mengapa kovariat penting?
+* Asumsi tambahan ANCOVA
+* Implementasi di jamovi
+* *Effect size* untuk ANCOVA
+* *Post-hoc tests*
+* *A priori* analisis *power*
+
+---
+
+## Apa itu ANCOVA? {background-color="#14497F"}
+
+## ANCOVA: ANOVA dengan kovariat
+
+*Analysis of Covariance* (ANCOVA) adalah **perluasan ANOVA** yang menambahkan satu atau lebih **kovariat** — variabel kontrol yang tidak dimanipulasi tetapi diduga berhubungan dengan variabel dependen.
+
+**Kovariat (*covariate*):**
+
+* Umumnya variabel berskala **interval atau rasio**
+* Tidak dimanipulasi peneliti (bukan faktor perlakuan)
+* Berhubungan dengan variabel dependen
+* Contoh: usia, baseline skor sebelum intervensi, nilai IQ, tingkat kekebalan tubuh
+
+::: {.callout-note}
+Secara matematis, ANCOVA adalah ANOVA yang menambahkan satu atau lebih prediktor kontinu ke dalam model. Ia memanfaatkan logika regresi untuk "memisahkan" pengaruh kovariat dari efek perlakuan.
+:::
+
+## Mengapa mengontrol kovariat?
+
+**Dua manfaat utama ANCOVA:**
+
+:::: {.columns}
+::: {.column width="50%"}
+**1. Mengurangi *error variance***
+
+Kovariat yang berkorelasi dengan dependen variabel akan "menjelaskan" sebagian variabilitas dalam variabel dependen — menyisakan lebih sedikit *noise* yang tidak terhitung, sehingga estimasi efek perlakuan menjadi **lebih presisi**.
+:::
+::: {.column width="50%"}
+**2. Mengontrol perbedaan awal**
+
+Meskipun kita sudah melakukan randomisasi, kelompok mungkin masih berbeda secara kebetulan pada variabel yang relevan. Mengontrol kovariat baseline memberikan estimasi efek perlakuan yang **lebih adil**.
+:::
+::::
+
+::: {.callout-important}
+**ANCOVA bukan pengganti randomisasi dalam penelitian eksperimental.** Ia paling tepat digunakan untuk mengontrol variabel yang diukur sebelum intervensi (*baseline covariates*), bukan untuk "menyesuaikan" perbedaan kelompok yang muncul akibat masalah desain penelitian.
+:::
+
+---
+
+## Studi Ferguso dengan kovariat {background-color="#14497F"}
+
+## Dataset cobaobat2: menambahkan kekebalan tubuh
+
+Kita kembali ke studi obat flu Ferguso, kini dengan satu tambahan: peneliti mengukur **tingkat kekebalan tubuh (*kekebalan*)** setiap peserta sebelum percobaan.
+
+* **Hipotesis**: orang dengan kekebalan tubuh lebih tinggi mungkin menunjukkan konsentrasi obat yang berbeda terlepas dari jenis obat yang dikonsumsi
+* **Kovariat**: *kekebalan* (variabel kontinu, interval)
+* **Faktor perlakuan**: *obat* (plasebo, mixagrip, flungalih)
+* **Variabel dependen**: *konsentrasi*
+
+Dataset: **cobaobat2.omv**
+
+## Visualisasi sebelum ANCOVA: *scatterplot*
+
+Sebelum menjalankan ANCOVA, periksa hubungan antara kovariat dan variabel dependen **secara visual** untuk setiap kelompok:
+
+1. Klik menu *Exploration* {{< fa circle-arrow-right >}} *Scatterplot*
+2. Masukkan **kekebalan** (X) vs **konsentrasi** (Y)
+3. Tambahkan **obat** sebagai variabel warna/grup
+4. Centang *Regression line* (linear) dan *Standard error*
+
+**Yang perlu diperiksa:**
+
+* Apakah ada hubungan positif/negatif antara kovariat dan dependen?
+* Apakah **kemiringan garis regresi** (*slope*) terlihat serupa antar kelompok? (asumsi homogenitas *slope*)
+
+---
+
+## Asumsi ANCOVA {background-color="#14497F"}
+
+## Asumsi tambahan di atas asumsi ANOVA
+
+ANCOVA mewarisi semua asumsi ANOVA (normalitas residual, homogenitas varians, independensi observasi), plus dua asumsi tambahan:
+
+:::: {.columns}
+::: {.column width="50%"}
+**1. Homogenitas *slope* regresi**
+
+*Slope* regresi antara kovariat dan variabel dependen harus **serupa** di semua kelompok perlakuan.
+
+Jika asumsi ini dilanggar (interaksi kovariat × perlakuan signifikan), ANCOVA biasa tidak tepat digunakan — perlu dipertimbangkan model dengan interaksi.
+:::
+::: {.column width="50%"}
+**2. Independensi kovariat dari faktor perlakuan**
+
+*Mean* kovariat harus **homogen** antar kelompok perlakuan — artinya, kovariat tidak berbeda antar kelompok secara sistematis.
+
+Periksa dengan membandingkan *mean* kovariat antar kelompok (secara deskriptif atau ANOVA satu arah pada kovariat).
+:::
+::::
+
+::: {.callout-important}
+**Jangan menggunakan kovariat yang diukur setelah intervensi dimulai (*post-treatment covariate*)** — ini bisa mengintroduksikan *bias* yang serius karena perlakuan mungkin sudah memengaruhi kovariat tersebut.
+:::
+
+---
+
+## Implementasi ANCOVA di jamovi {background-color="#14497F"}
+
+## Langkah ANCOVA di jamovi
+
+Buka dataset **cobaobat2.omv**, kemudian jalankan ANCOVA:
+
+1. Klik menu *ANOVA* {{< fa circle-arrow-right >}} ***ANCOVA***
+2. Masukkan **konsentrasi** ke *Dependent Variable*
+3. Masukkan **obat** ke *Fixed Factors*
+4. Masukkan **kekebalan** ke ***Covariates***
+5. Di opsi *Effect Size*, centang **ω²**
+6. Di opsi *Assumption Checks*, centang *Homogeneity test* dan *Q-Q plot of residuals*
+7. Di opsi *Post-Hoc Tests*, masukkan **obat** dan centang *Tukey* dan *Bonferroni*
+8. Di opsi *Estimated Marginal Means*, masukkan **obat** ke *Terms 1*
+
+## Membaca hasil ANCOVA
+
+**Tabel ANCOVA:**
+
+| Sumber | *SS* | df | *MS* | F | *p* | ω² |
+|---|---|---|---|---|---|---|
+| kekebalan | 0.291 | 1 | 0.291 | 3.49 | .083 | .049 |
+| obat | 2.732 | 2 | 1.366 | 16.40 | < .001 | **.601** |
+| Residuals | 1.166 | 14 | 0.083 | — | — | — |
+
+**Interpretasi:**
+
+* Kovariat *kekebalan* tidak signifikan (*p* = .083, ω² = .049) — efeknya kecil dan tidak meyakinkan
+* Faktor *obat* tetap signifikan (*F*(2,14) = 16.40, *p* < .001) bahkan setelah mengontrol kekebalan
+* ω² untuk *obat* = **0.601** — efek yang besar
+
+## Membandingkan ANOVA vs ANCOVA
+
+:::: {.columns}
+::: {.column width="50%"}
+**ANOVA (tanpa kovariat):**
+
+* *F*(2, 15) = 18.6, *p* < .001
+* ω² = 0.662
+* df residual = 15
+:::
+::: {.column width="50%"}
+**ANCOVA (dengan kovariat *kekebalan*):**
+
+* *F*(2, 14) = 16.40, *p* < .001
+* ω² = 0.601
+* df residual = 14
+:::
+::::
+
+::: {.callout-note}
+Dalam contoh ini, menambahkan kovariat **sedikit mengurangi** *effect size* dan df residual — karena kovariat *kekebalan* tidak berkorelasi kuat dengan *konsentrasi*. Kovariat yang **sangat berkorelasi** dengan variabel dependen akan secara substansial meningkatkan presisi estimasi.
+:::
+
+---
+
+## *Post-hoc tests* dan *estimated marginal means* {background-color="#14497F"}
+
+## Perbandingan berpasangan setelah mengontrol kovariat
+
+*Post-hoc test* dalam ANCOVA membandingkan ***estimated marginal means*** — *mean* yang sudah "disesuaikan" (*adjusted*) berdasarkan kovariat, bukan *mean* observasi mentah.
+
+**Hasil *post-hoc* (Bonferroni):**
+
+| Perbandingan | Selisih *mean* | SE | df | *t* | *p* (Bonferroni) |
+|---|---|---|---|---|---|
+| Plasebo vs Mixagrip | −0.174 | 0.174 | 14 | −1.00 | .998 |
+| Plasebo vs Flungalih | **−0.929** | 0.168 | 14 | **−5.52** | **< .001** |
+| Mixagrip vs Flungalih | **−0.755** | 0.182 | 14 | **−4.14** | **.003** |
+
+Kesimpulan: Flungalih signifikan lebih efektif dari plasebo dan mixagrip, bahkan setelah mengontrol perbedaan kekebalan tubuh antar peserta.
+
+---
+
+## *A priori* analisis *power* untuk ANCOVA {background-color="#14497F"}
+
+## G\*Power untuk ANCOVA
+
+ANCOVA menggunakan *F tests* yang sama dengan ANOVA, dengan parameter tambahan untuk **jumlah kovariat**.
+
+**Langkah di G\*Power:**
+
+1. *Test family* {{< fa circle-arrow-right >}} ***F* tests**
+2. *Statistical test* {{< fa circle-arrow-right >}} *ANCOVA: Fixed effects, main effects and interactions*
+3. *Type of power analysis* {{< fa circle-arrow-right >}} ***A priori***
+4. Masukkan: *Effect size f* = 0.2, α = 0.05, *Power* = 0.80
+5. Masukkan: *Number of groups* = 3, ***Number of covariates* = 1**
+6. Klik *Calculate*
+
+**Hasilnya berbeda dari ANOVA biasa** karena satu df digunakan untuk kovariat, sehingga diperlukan **sedikit lebih banyak sampel** dibanding ANOVA tanpa kovariat.
+
+::: {.callout-tip}
+Manfaat nyata ANCOVA dalam hal *power* terlihat ketika kovariat berkorelasi **kuat** dengan variabel dependen (*r* > 0.4). Dalam kondisi tersebut, ANCOVA dapat secara substansial mengurangi *error variance* dan meningkatkan *power* — bahkan dengan sampel yang lebih kecil dari ANOVA biasa.
+:::
+
+## Latihan: ANCOVA di jamovi
+
+Bayangkan kalian ingin meneliti efektivitas tiga program pengurangan stres (meditasi, olahraga aerobik, dan kontrol) terhadap skor stres akhir, dengan **skor stres awal** sebagai kovariat.
+
+1. Buka dataset **stres.omv**, kemudian jalankan ANCOVA:
+   - *Dependent*: **stres_akhir**
+   - *Fixed factor*: **program**
+   - *Covariate*: **stres_awal**
+2. Buat *scatterplot* **stres_awal** vs **stres_akhir** per kelompok — apakah *slope*-nya terlihat serupa?
+3. Bandingkan hasil ANCOVA dengan ANOVA yang mengabaikan **stres_awal**
+
+Pertanyaan untuk didiskusikan:
+
+* Mengapa mengontrol **stres_awal** penting dalam studi intervensi?
+* Apa perbedaan antara *mean* observasi dan *estimated marginal means* dalam konteks ini?
+* Kapan justru **tidak tepat** memasukkan suatu variabel sebagai kovariat?

@@ -1,0 +1,359 @@
+---
+title: "Uji Hipotesis"
+subtitle: "Statistik Dasar dalam Penelitian Psikologi"
+author: "Rizqy Amelia Zein"
+institute:
+  - "[_Departemen Psikologi Kepribadian dan Sosial, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
+date: today
+format:
+  unair-revealjs:
+    slide-number: true
+    progress: true
+    transition: slide
+    center: false
+execute:
+  eval: false
+  echo: true
+---
+
+## _Outline_
+
+* Logika dasar *Null Hypothesis Significance Testing* (NHST)
+* Hipotesis nol dan hipotesis alternatif
+* *Type I error* dan *Type II error*
+* *Statistical power*
+* *Effect size*
+* *A priori* analisis *power* dengan G\*Power
+
+---
+
+## Logika dasar pengujian hipotesis {background-color="#14497F"}
+
+## Masalah Esmeralda
+
+Esmeralda menjual permen yang konon bisa menyembuhkan diare. Kita ingin tahu: apakah permen itu benar-benar efektif, atau hanya efek plasebo belaka?
+
+**Logika uji hipotesis:**
+
+* Kita **tidak bisa membuktikan** bahwa permen itu efektif secara langsung
+* Yang bisa kita lakukan: **mengumpulkan bukti** untuk menolak kemungkinan bahwa permen itu *tidak* efektif
+* Jika bukti yang kita kumpulkan **sangat tidak mungkin** terjadi apabila permen itu tidak efektif, kita punya alasan untuk meragukan asumsi itu
+
+::: {.callout-note}
+Ini adalah logika *falsifikasionis* dari Karl Popper: kita tidak bisa membuktikan kebenaran suatu klaim, tetapi kita bisa menguji seberapa **tidak konsisten** data kita dengan asumsi bahwa klaim itu salah.
+:::
+
+## *Null Hypothesis Significance Testing* (NHST)
+
+**Prosedur standar NHST:**
+
+1. Tetapkan **hipotesis nol** ($H_0$): asumsi "tidak ada efek / tidak ada perbedaan"
+2. Tetapkan **hipotesis alternatif** ($H_1$): klaim yang ingin kita dukung
+3. Tentukan **tingkat signifikansi** (α) — biasanya 0.05
+4. Kumpulkan data dan hitung **statistik uji**
+5. Hitung ***p-value***: seberapa besar probabilitas mendapatkan data seperti yang kita amati (atau lebih ekstrem) **jika $H_0$ benar**
+6. Jika *p* < α → **tolak $H_0$** (hasil signifikan); jika *p* ≥ α → **gagal menolak $H_0$**
+
+::: {.callout-important}
+Perhatikan bahasa yang tepat: kita **"gagal menolak" $H_0$**, bukan "menerima $H_0$". Tidak menemukan bukti penolakan ≠ bukti tidak ada efek.
+:::
+
+## Hipotesis nol dan hipotesis alternatif
+
+**Hipotesis nol ($H_0$)**
+
+* Pernyataan tentang "status quo" — tidak ada perbedaan, tidak ada efek, tidak ada hubungan
+* Contoh: "Permen Esmeralda tidak lebih efektif dari plasebo dalam menyembuhkan diare"
+* NHST dirancang untuk **menguji $H_0$**, bukan $H_1$
+
+**Hipotesis alternatif ($H_1$)**
+
+* Pernyataan yang kita ingin dukung dengan data
+* Contoh: "Permen Esmeralda lebih efektif dari plasebo dalam menyembuhkan diare"
+
+:::: {.columns}
+::: {.column width="50%"}
+**Uji dua sisi (*two-tailed*)**
+
+$$H_1: \mu_1 \neq \mu_2$$
+
+* Kita tidak tahu arah efeknya
+* Lebih konservatif, lebih umum digunakan
+:::
+::: {.column width="50%"}
+**Uji satu sisi (*one-tailed*)**
+
+$$H_1: \mu_1 > \mu_2 \text{ atau } \mu_1 < \mu_2$$
+
+* Kita punya prediksi arah yang kuat secara teoritis
+* *Power* lebih tinggi, tapi klaim lebih sempit
+:::
+::::
+
+---
+
+## *Type I error* dan *Type II error* {background-color="#14497F"}
+
+## Dua jenis kesalahan dalam pengujian hipotesis
+
+Dalam pengujian hipotesis, ada empat kemungkinan hasil — dua di antaranya adalah **kesalahan**:
+
+|  | **$H_0$ benar** (permen tidak efektif) | **$H_0$ salah** (permen efektif) |
+|---|---|---|
+| **Tolak $H_0$** (uji mengatakan efektif) | *False Positive* / **Type I error** (α) | *True Positive* ✅ |
+| **Gagal menolak $H_0$** (uji mengatakan tidak efektif) | *True Negative* ✅ | *False Negative* / **Type II error** (β) |
+
+::: {.callout-important}
+Kita tidak pernah tahu hasil mana yang sebenarnya terjadi dalam penelitian nyata — kita hanya mengontrol **probabilitas** membuat kesalahan tersebut.
+:::
+
+## *Type I error* (α) — *False Positive*
+
+* Menolak $H_0$ padahal $H_0$ sebenarnya **benar**
+* Kita menyimpulkan ada efek, padahal sebenarnya **tidak ada**
+* Probabilitasnya dikontrol dengan **tingkat signifikansi (α)**
+* Jika α = 0.05 → kita menerima risiko 5% melakukan *false positive*
+
+**Contoh:**
+
+Kita menyimpulkan permen Esmeralda efektif menyembuhkan diare, padahal permen itu tidak lebih baik dari plasebo. Esmeralda untung, konsumen dirugikan.
+
+::: {.callout-note}
+Standar α = 0.05 bukan hukum alam — ini **konvensi** yang ditetapkan oleh Ronald Fisher. Beberapa bidang (fisika partikel, genomik) menggunakan α yang jauh lebih ketat (misalnya, 5 × 10⁻⁸).
+:::
+
+## *Type II error* (β) — *False Negative*
+
+* Gagal menolak $H_0$ padahal $H_0$ sebenarnya **salah**
+* Kita menyimpulkan tidak ada efek, padahal sebenarnya **ada**
+* Probabilitasnya disebut **β** — dikontrol secara tidak langsung melalui ukuran sampel
+
+**Contoh:**
+
+Studi kita menyimpulkan permen Esmeralda tidak efektif, padahal sebenarnya permen itu memang membantu. Esmeralda tidak bisa berjualan, padahal produknya bagus.
+
+::: {.callout-note}
+β dan α berada dalam hubungan ***trade-off***: menurunkan α (lebih ketat) akan meningkatkan β (lebih banyak *false negative*), dan sebaliknya. Untuk mengurangi keduanya sekaligus, satu-satunya cara adalah **memperbesar ukuran sampel**.
+:::
+
+## Ilustrasi numerik: *base rate* penting
+
+Bayangkan kita menguji **100 klaim berbeda**, di mana masing-masing punya peluang 50/50 untuk benar (50 klaim efektif, 50 tidak efektif).
+
+Dengan α = 0.05 dan *power* = 80% (β = 20%):
+
+| | **H₀ benar (50 klaim)** | **H₀ salah (50 klaim)** | **Total** |
+|---|---|---|---|
+| **Tolak H₀** | 2-3 (*false positive*) | 40 (*true positive*) | ~42-43 |
+| **Gagal tolak H₀** | ~48 (*true negative*) | 10 (*false negative*) | ~58 |
+
+::: {.callout-important}
+Dari ~42-43 hasil "signifikan", **2-3 di antaranya adalah kesalahan** (*false positive*). Semakin rendah *base rate* kebenaran klaim (misalnya bidang pre-clinical), semakin besar proporsi *false positive* di antara hasil signifikan — inilah salah satu akar *replication crisis*.
+:::
+
+---
+
+## *Statistical power* {background-color="#14497F"}
+
+## Apa itu *statistical power*?
+
+$$\text{Power} = 1 - \beta$$
+
+* ***Statistical power*** adalah probabilitas **mendeteksi efek yang nyata** apabila efek itu memang ada
+* *Power* = 0.80 berarti kita punya 80% kemungkinan menemukan efek yang signifikan, jika efek itu memang ada di populasi
+* Standar minimum yang diterima secara umum: ***power* ≥ 0.80** (Cohen, 1988)
+
+**Faktor yang memengaruhi *power*:**
+
+* **Ukuran sampel (n)** — semakin besar n, semakin tinggi *power*
+* **Ukuran efek** — semakin besar efek yang ingin dideteksi, semakin mudah dideteksi
+* **Tingkat signifikansi (α)** — menurunkan α juga menurunkan *power*
+* **Uji satu sisi vs dua sisi** — uji satu sisi memiliki *power* lebih tinggi
+
+::: {.callout-tip}
+*Power* yang rendah bukan hanya membuang-buang sumber daya (sampel terlalu kecil) — ia juga menghasilkan estimasi efek yang *inflated* (*winner's curse*): hanya efek yang besar secara kebetulan yang bisa melewati threshold signifikansi.
+:::
+
+## *Power* dan ukuran sampel: *trade-off*
+
+:::: {.columns}
+::: {.column width="50%"}
+**Meningkatkan *power* dengan:**
+
+* Memperbesar ukuran sampel
+* Menggunakan desain yang lebih efisien (within-subjects vs between-subjects)
+* Mengurangi *noise* pengukuran (reliabilitas instrumen tinggi)
+* Menggunakan uji satu sisi (jika ada justifikasi teoritis)
+:::
+::: {.column width="50%"}
+::: {.callout-important}
+**Jangan menambah sampel setelah melihat data (*optional stopping*)**
+
+Menambah sampel hanya ketika *p* mendekati 0.05 — lalu berhenti ketika signifikan — adalah bentuk ***p*-hacking** yang menggelembungkan *false positive rate* secara dramatis.
+:::
+:::
+::::
+
+---
+
+## *Effect size* {background-color="#14497F"}
+
+## Apa itu *effect size*?
+
+* *Effect size* mengukur **besaran efek atau perbedaan** secara praktis — terlepas dari signifikansi statistik
+* Statistik yang signifikan (*p* < 0.05) belum tentu bermakna secara **praktis**
+* Sebaliknya, efek yang bermakna secara praktis bisa saja tidak signifikan karena sampel **terlalu kecil**
+
+::: {.callout-important}
+**Signifikansi statistik ≠ signifikansi praktis**
+
+Dengan N yang sangat besar, perbedaan yang sangat kecil pun akan signifikan secara statistik. Selalu laporkan *effect size* bersama *p-value*.
+:::
+
+## Cohen's *d*
+
+Untuk membandingkan dua *mean* (t-test), ukuran efek yang paling umum adalah **Cohen's *d***:
+
+$$d = \frac{\bar{X}_1 - \bar{X}_2}{s_{\text{pooled}}}$$
+
+Di mana $s_{\text{pooled}}$ adalah standar deviasi yang digabungkan dari kedua kelompok.
+
+**Interpretasi (konvensi Cohen, 1988):**
+
+| Cohen's *d* | Interpretasi |
+|---|---|
+| 0.2 | Efek kecil (*small*) |
+| 0.5 | Efek sedang (*medium*) |
+| 0.8 | Efek besar (*large*) |
+
+::: {.callout-note}
+Cohen sendiri meminta agar *benchmark* ini **tidak digunakan secara mekanis** — besaran efek yang "kecil" bisa sangat bermakna di bidang kebijakan publik (misalnya vaksin yang mengurangi kematian 0.2%), tapi tidak berarti di konteks klinis. Selalu interpretasikan *d* dalam konteks bidang dan pertanyaan penelitian kalian.
+:::
+
+## *Effect size* lainnya
+
+| Ukuran efek | Digunakan untuk | Rentang nilai |
+|---|---|---|
+| Cohen's *d* | Perbedaan dua *mean* (t-test) | Tak terbatas, biasanya 0–3 |
+| η² (*eta-squared*) | ANOVA — proporsi varians yang dijelaskan | 0–1 |
+| ω² (*omega-squared*) | Alternatif η² yang lebih *unbiased* | 0–1 |
+| *r* Pearson | Korelasi dua variabel kontinu | -1 – +1 |
+| Cramér's V | Asosiasi dua variabel kategorikal | 0–1 |
+| *Odds ratio* (OR) | Perbandingan odds antar kelompok | 0–∞ |
+
+::: {.callout-tip}
+**Pelaporan standar APA (edisi ke-7)** mewajibkan pelaporan *effect size* untuk semua analisis inferensial. Jamovi secara *default* sudah menyediakan *effect size* — manfaatkan fitur ini.
+:::
+
+---
+
+## *A priori* analisis *power* {background-color="#14497F"}
+
+## Mengapa *a priori* analisis *power*?
+
+**Dua pendekatan analisis *power*:**
+
+* ***A priori*** (sebelum pengumpulan data): tentukan **berapa sampel yang dibutuhkan** untuk mendeteksi efek tertentu dengan *power* yang cukup
+* ***Post-hoc*** (setelah pengumpulan data): hitung *power* dari studi yang sudah selesai — hasilnya sering **menyesatkan** dan tidak direkomendasikan
+
+::: {.callout-important}
+**Hindari *post-hoc power analysis***
+
+*"Observed power"* yang dihitung setelah studi hanya mencerminkan ulang *p-value* — ia tidak memberikan informasi tambahan yang berguna. Lakukan analisis *power* **sebelum** mengumpulkan data.
+:::
+
+## G\*Power: alat analisis *power*
+
+**G\*Power** adalah program gratis untuk menghitung ukuran sampel dan *power* analisis.
+
+* Unduh di: [gpower.hhu.de](https://www.psychologie.hhu.de/arbeitsgruppen/allgemeine-psychologie-und-arbeitspsychologie/gpower)
+* Mendukung berbagai jenis uji: t-test, ANOVA, korelasi, regresi, $\chi^2$, dll.
+
+**Parameter yang perlu ditentukan:**
+
+| Parameter | Keterangan |
+|---|---|
+| *Effect size* | Besaran efek yang ingin dideteksi (dari literatur atau pertimbangan teoritis) |
+| α (*sig. level*) | Tingkat signifikansi (biasanya 0.05) |
+| *Power* (1-β) | Biasanya 0.80 atau 0.95 |
+| *Tails* | Satu sisi atau dua sisi |
+
+## Contoh: Rafael dan obat diare
+
+Rafael ingin menguji apakah obat diare barunya lebih efektif dari plasebo. Dari literatur, ia memperkirakan efek kecil (Cohen's *d* = 0.2). Ia menggunakan α = 0.05 dan menginginkan *power* 80%.
+
+**Langkah di G\*Power (*Independent Samples t-test*):**
+
+1. *Test family* {{< fa circle-arrow-right >}} *t tests*
+2. *Statistical test* {{< fa circle-arrow-right >}} *Means: Difference between two independent groups*
+3. *Type of power analysis* {{< fa circle-arrow-right >}} ***A priori***
+4. Masukkan: *Effect size d* = 0.2, α = 0.05, *Power* = 0.80, *Tails* = 2
+5. Klik *Calculate*
+
+**Hasil: N = 788 (394 per kelompok)**
+
+::: {.callout-note}
+Efek kecil membutuhkan sampel yang **sangat besar** untuk dideteksi. Ini menjelaskan mengapa banyak studi psikologi klasik dengan N < 100 hampir mustahil mendeteksi efek kecil yang sesungguhnya.
+:::
+
+## Contoh: Marimar dan hipnosis
+
+Marimar ingin menguji apakah sesi hipnosis mengurangi kecemasan mahasiswa sebelum ujian. Ia menggunakan desain *within-subjects* (sebelum dan sesudah hipnosis), memperkirakan efek sedang (Cohen's *d* = 0.5), dan menggunakan uji **satu sisi** karena hipnosis diprediksi **menurunkan** kecemasan.
+
+**Langkah di G\*Power (*Paired Samples t-test*):**
+
+1. *Test family* {{< fa circle-arrow-right >}} *t tests*
+2. *Statistical test* {{< fa circle-arrow-right >}} *Means: Difference between two dependent groups (matched pairs)*
+3. *Type of power analysis* {{< fa circle-arrow-right >}} ***A priori***
+4. Masukkan: *Effect size d* = 0.5, α = 0.05, *Power* = 0.80, *Tails* = **1**
+5. Klik *Calculate*
+
+**Hasil: N = 27**
+
+::: {.callout-tip}
+Desain *within-subjects* jauh lebih efisien — hanya perlu 27 orang dibanding 788 untuk efek dua kali lebih besar! Ini karena kita mengontrol variabilitas antar-individu dengan menggunakan orang yang sama sebagai kontrol mereka sendiri.
+:::
+
+## Latihan: Analisis *power* di G\*Power
+
+Kalian berencana meneliti perbedaan skor stres (*perceived stress scale*, PSS) antara mahasiswa yang tinggal di kos dan yang tinggal bersama keluarga di Surabaya.
+
+1. Buka G\*Power {{< fa circle-arrow-right >}} *t tests* {{< fa circle-arrow-right >}} *Means: Difference between two independent groups*
+2. Pilih *A priori* {{< fa circle-arrow-right >}} masukkan *d* = 0.3 (efek kecil-sedang), α = 0.05, *Power* = 0.80
+3. Bandingkan hasilnya dengan *d* = 0.5 dan *d* = 0.8 — apa yang berubah?
+4. Sekarang ubah *Power* dari 0.80 menjadi 0.95 — berapa sampel tambahan yang dibutuhkan?
+
+Pertanyaan untuk didiskusikan:
+
+* Dari mana kita tahu berapa *effect size* yang harus dimasukkan sebelum melakukan penelitian?
+* Apa konsekuensinya jika *effect size* yang kita perkirakan ternyata terlalu optimis (terlalu besar)?
+
+---
+
+## Ringkasan dan jembatan ke materi berikutnya {background-color="#14497F"}
+
+## Apa yang sudah kita pelajari
+
+:::: {.columns}
+::: {.column width="50%"}
+**Konsep inti NHST:**
+
+* $H_0$ vs $H_1$ — logika falsifikasi
+* *p-value* — probabilitas data di bawah $H_0$
+* α — probabilitas *false positive* yang kita toleransi
+* *Type I error* (α) vs *Type II error* (β)
+* *Power* = 1 - β
+:::
+::: {.column width="50%"}
+**Pelaporan yang baik:**
+
+* Selalu laporkan *effect size*
+* Lakukan analisis *power a priori*
+* Gunakan bahasa yang tepat: "gagal menolak" bukan "menerima $H_0$"
+* *p* < 0.05 ≠ efek penting secara praktis
+:::
+::::
+
+::: {.callout-tip}
+**Materi berikutnya** akan menerapkan logika NHST ini ke analisis konkret: *t-test* (perbedaan *mean*), analisis kategorikal ($\chi^2$), korelasi, ANOVA, dan regresi. Semua teknik itu hanyalah **spesialisasi** dari kerangka yang sama yang baru saja kita pelajari.
+:::

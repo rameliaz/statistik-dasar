@@ -1,0 +1,326 @@
+---
+title: "*T-Test*"
+subtitle: "Statistik Dasar dalam Penelitian Psikologi"
+author: "Rizqy Amelia Zein"
+institute:
+  - "[_Departemen Psikologi Kepribadian dan Sosial, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
+date: today
+format:
+  unair-revealjs:
+    slide-number: true
+    progress: true
+    transition: slide
+    center: false
+execute:
+  eval: false
+  echo: true
+---
+
+## _Outline_
+
+* Apa itu *t-test*?
+* *One-sample t-test*
+* *Paired samples t-test*
+* *Independent samples t-test*
+* Asumsi dan uji asumsi
+* Alternatif non-parametrik
+* Analisis *power* untuk t-test
+
+---
+
+## Apa itu *t-test*? {background-color="#14497F"}
+
+## Keluarga *t-test*
+
+*T-test* adalah kelompok uji statistik untuk **membandingkan *mean*** — satu kelompok dengan nilai tertentu, dua kondisi dalam kelompok yang sama, atau dua kelompok yang berbeda.
+
+| Jenis | Pertanyaan | Contoh |
+|---|---|---|
+| ***One-sample*** | Apakah *mean* sampel kita berbeda dari nilai referensi? | Apakah rata-rata IQ mahasiswa berbeda dari 100? |
+| ***Paired samples*** | Apakah ada perubahan sebelum-sesudah dalam kelompok yang sama? | Apakah sesi konseling menurunkan skor kecemasan? |
+| ***Independent samples*** | Apakah dua kelompok yang berbeda memiliki *mean* yang berbeda? | Apakah skor kepuasan hidup berbeda antara pria dan wanita? |
+
+::: {.callout-note}
+Semua t-test menggunakan **distribusi *t*** (Student's *t*), bukan distribusi normal — karena kita menggunakan standar deviasi **sampel** (bukan populasi) sebagai estimasi. Semakin besar n, semakin distribusi *t* mendekati distribusi normal.
+:::
+
+## Statistik uji *t*
+
+Logika dasar semua t-test:
+
+$$t = \frac{\text{perbedaan yang diamati}}{\text{standard error perbedaan}}$$
+
+Makin besar perbedaan relatif terhadap variabilitasnya → nilai *t* makin besar → *p-value* makin kecil.
+
+*Degrees of freedom* (df) menentukan bentuk distribusi *t*:
+
+* *One-sample*: df = n − 1
+* *Paired samples*: df = n − 1 (n = jumlah pasang)
+* *Independent samples*: df = n₁ + n₂ − 2 (atau Welch's df yang lebih kompleks)
+
+---
+
+## *One-sample t-test* {background-color="#14497F"}
+
+## Kasus Esmeralda dan ujian SAPSI
+
+Esmeralda mendapat nilai 60 pada ujian SAPSI (Skala Asesmen Psikologi Indonesia). Nilai rata-rata nasional untuk mahasiswa S1 Psikologi adalah μ = 55 (σ tidak diketahui).
+
+Pertanyaan: Apakah nilai Esmeralda **signifikan berbeda** dari rata-rata nasional?
+
+*One-sample t-test* membandingkan *mean* sampel kita dengan **nilai referensi** yang sudah diketahui:
+
+$$t = \frac{\bar{X} - \mu_0}{s / \sqrt{n}}$$
+
+Di mana $\mu_0$ adalah nilai referensi (nilai yang ingin kita bandingkan), dan $s/\sqrt{n}$ adalah *standard error of the mean*.
+
+::: {.callout-note}
+*One-sample t-test* jarang digunakan dalam penelitian psikologi karena kita jarang punya nilai referensi populasi yang pasti. Namun ia adalah fondasi konseptual yang penting untuk memahami t-test lainnya.
+:::
+
+## Latihan: *One-sample t-test* di jamovi
+
+Buka dataset **SAPSI.omv**, kemudian uji apakah *mean* skor SAPSI mahasiswa berbeda dari nilai referensi nasional (μ₀ = 55):
+
+1. Klik menu *T-Tests* {{< fa circle-arrow-right >}} *One Sample T-Test*
+2. Masukkan variabel **skor_sapsi** ke kolom *Dependent Variables*
+3. Di *Hypothesis*, masukkan nilai **55** sebagai *Test value*
+4. Centang *Effect size* (Cohen's *d*) dan *Descriptives*
+5. Centang *Confidence interval* untuk estimasi perbedaan
+
+Pertanyaan untuk didiskusikan:
+
+* Berapa nilai *t* dan *p-value* yang kalian peroleh?
+* Apakah hasilnya signifikan? Seberapa besar *effect size*-nya?
+
+---
+
+## *Paired samples t-test* {background-color="#14497F"}
+
+## Eksperimen kopi dan konsentrasi
+
+Peneliti ingin menguji apakah minum kopi meningkatkan konsentrasi mahasiswa sebelum ujian. Sebanyak 540 mahasiswa diukur skor konsentrasinya sebelum dan sesudah minum kopi.
+
+**Desain *within-subjects*:**
+
+* Pengukuran 1 (sebelum minum kopi): *baseline* konsentrasi
+* Pengukuran 2 (sesudah minum kopi): konsentrasi setelah intervensi
+* Setiap mahasiswa adalah "kontrol untuk dirinya sendiri"
+
+*Paired samples t-test* menghitung **selisih** tiap pasang pengukuran, lalu menguji apakah *mean* selisih berbeda dari nol:
+
+$$t = \frac{\bar{D}}{s_D / \sqrt{n}}$$
+
+Di mana $\bar{D}$ adalah *mean* selisih dan $s_D$ adalah standar deviasi selisih.
+
+## Hasil: apakah kopi membantu?
+
+**Hasil analisis:**
+
+* *t*(539) = 1.30, *p* = 0.903
+* Cohen's *d* = 0.055 (efek sangat kecil)
+* 95% CI untuk selisih *mean*: hampir mencakup nol
+
+::: {.callout-important}
+**Kesimpulan: Kopi tidak signifikan meningkatkan konsentrasi**
+
+Meski 540 mahasiswa adalah sampel yang besar, perbedaan rata-rata konsentrasi sebelum-sesudah minum kopi sangat kecil (*d* = 0.055) dan tidak signifikan (*p* = 0.903). Efek kopi mungkin **bervariasi antar individu** atau **tidak ada secara rata-rata**.
+:::
+
+::: {.callout-note}
+*p* = 0.903 bukan berarti kopi "terbukti tidak berguna" — kita hanya **gagal menemukan bukti** bahwa kopi berguna dalam kondisi eksperimen ini. Mungkin prosedur pengukuran, jenis kopi, atau waktu tunggu setelah minum kopi perlu dipertimbangkan.
+:::
+
+## Latihan: *Paired samples t-test* di jamovi
+
+Buka dataset **kopi.omv**, kemudian uji apakah minum kopi meningkatkan skor konsentrasi:
+
+1. Klik menu *T-Tests* {{< fa circle-arrow-right >}} *Paired Samples T-Test*
+2. Masukkan pasangan variabel: **konsentrasi_sebelum** dan **konsentrasi_sesudah**
+3. Centang *Effect size* (Cohen's *d*)
+4. Centang *Descriptives* dan *Confidence interval*
+5. Di *Assumption Checks*, centang *Normality test* (Shapiro-Wilk untuk selisih)
+
+Pertanyaan untuk didiskusikan:
+
+* Apakah asumsi normalitas terpenuhi untuk data selisih?
+* Bandingkan *mean* sebelum dan sesudah — ke arah mana perubahan terjadi?
+* Apakah *p-value* konsisten dengan nilai *d*?
+
+---
+
+## *Independent samples t-test* {background-color="#14497F"}
+
+## Jimat batu akik dan nilai ujian
+
+Peneliti iseng menguji apakah mahasiswa yang percaya pada jimat batu akik mendapat nilai ujian yang lebih tinggi. Sampel: 540 mahasiswa percaya jimat, 660 mahasiswa tidak percaya jimat.
+
+**Desain *between-subjects*:**
+
+* Kelompok 1: mahasiswa yang percaya batu akik membawa keberuntungan
+* Kelompok 2: mahasiswa yang tidak percaya
+* Variabel dependen: nilai ujian akhir semester
+
+*Independent samples t-test* (formula sederhana):
+
+$$t = \frac{\bar{X}_1 - \bar{X}_2}{s_{\text{pooled}} \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}$$
+
+## Hasil: signifikan tapi tidak bermakna?
+
+**Hasil analisis:**
+
+* *t*(1198) = −3.21, *p* < .001
+* Cohen's *d* = −0.186 (efek sangat kecil)
+* Kelompok percaya jimat rata-rata mendapat nilai **sedikit lebih rendah**
+
+::: {.callout-important}
+**Pelajaran penting: N besar mengungkap efek yang sangat kecil**
+
+Dengan N = 1200, bahkan perbedaan yang sangat kecil (*d* = 0.186) bisa signifikan secara statistik. Secara praktis, perbedaan nilai ujian antara dua kelompok ini **hampir tidak berarti**. Ini bukan artinya batu akik "terbukti berbahaya" — ini hanya menunjukkan ada korelasi kecil yang perlu dijelaskan lebih lanjut.
+:::
+
+::: {.callout-note}
+Dalam situasi seperti ini, selalu tanyakan: **"Berapa besar efeknya?"** bukan hanya "Apakah signifikan?" *p* < .001 dengan *d* = 0.186 jauh berbeda dari *p* < .001 dengan *d* = 0.8.
+:::
+
+## Latihan: *Independent samples t-test* di jamovi
+
+Buka dataset **jimat.omv**, kemudian uji perbedaan nilai ujian antara kelompok percaya dan tidak percaya jimat:
+
+1. Klik menu *T-Tests* {{< fa circle-arrow-right >}} *Independent Samples T-Test*
+2. Masukkan **nilai_ujian** ke *Dependent Variables* dan **kepercayaan_jimat** ke *Grouping Variable*
+3. Centang *Effect size* (Cohen's *d*) dan *Descriptives*
+4. Di *Assumption Checks*, centang *Equality of variances* (Levene's test) dan *Normality test*
+
+Pertanyaan untuk didiskusikan:
+
+* Apakah varians kedua kelompok homogen? Apa implikasinya untuk pilihan uji?
+* Bandingkan nilai *d* dengan nilai *p* — apakah keduanya menceritakan kisah yang sama?
+
+---
+
+## Asumsi t-test {background-color="#14497F"}
+
+## Asumsi yang perlu diperiksa
+
+| Asumsi | Berlaku untuk | Cara memeriksa |
+|---|---|---|
+| **Normalitas** distribusi variabel dependen (atau selisih, untuk *paired*) | Semua t-test | Shapiro-Wilk, histogram, Q-Q plot |
+| **Homogenitas varians** (*homoscedasticity*) | *Independent samples* saja | Levene's test |
+| **Independensi observasi** | Semua t-test | Desain penelitian — tidak bisa diuji statistik |
+
+::: {.callout-important}
+**Independensi observasi adalah asumsi yang paling sering dilanggar tanpa disadari.**
+
+Jika data berasal dari mahasiswa dalam kelas yang sama, pasangan suami-istri, atau anggota kelompok yang sama — observasi mereka tidak independen. Melanggar asumsi ini dapat membuat *p-value* tidak valid dan memerlukan teknik multilevel/mixed effects.
+:::
+
+## Welch's *t-test*: solusi heterogenitas varians
+
+Jika Levene's test **signifikan** (varians tidak homogen), gunakan **Welch's *t-test*** sebagai pengganti:
+
+$$t_{\text{Welch}} = \frac{\bar{X}_1 - \bar{X}_2}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}$$
+
+* Welch's *t-test* tidak mengasumsikan homogenitas varians
+* *Degrees of freedom* dihitung dengan rumus Welch-Satterthwaite (lebih kompleks)
+* **Rekomendasi praktis**: gunakan Welch's *t-test* secara *default* — ia memberikan hasil yang sama dengan *t-test* biasa ketika varians homogen, dan lebih akurat ketika tidak
+
+::: {.callout-tip}
+Di jamovi, Welch's correction adalah **pilihan default** untuk *independent samples t-test*. Anda bisa melihat kedua versi (Student's dan Welch's) secara bersamaan untuk membandingkan hasilnya.
+:::
+
+## Normalitas: seberapa ketat?
+
+*T-test* relatif **robust** terhadap pelanggaran normalitas, terutama jika:
+
+* Ukuran sampel **cukup besar** (n > 30 per kelompok) — berkat *Central Limit Theorem*
+* Distribusinya tidak terlalu *skewed* atau punya *outlier* ekstrem
+
+**Kapan normalitas benar-benar menjadi masalah:**
+
+* Sampel kecil (n < 30) dengan distribusi yang sangat tidak normal
+* Banyak *outlier* yang ekstrem
+* Distribusi bimodal atau multimodal
+
+::: {.callout-note}
+Untuk sampel kecil dengan data yang jelas tidak normal, pertimbangkan **alternatif non-parametrik** — Wilcoxon signed-rank test (untuk *paired*) atau Mann-Whitney U test (untuk *independent*).
+:::
+
+---
+
+## Alternatif non-parametrik {background-color="#14497F"}
+
+## Kapan menggunakan uji non-parametrik?
+
+Non-parametrik tidak mengasumsikan distribusi tertentu untuk data — ia bekerja dengan **rank** (peringkat) alih-alih nilai asli.
+
+**Gunakan non-parametrik ketika:**
+
+* Sampel kecil dan data jelas tidak berdistribusi normal
+* Variabel ordinal (skala Likert 5-poin, peringkat)
+* Data dengan *outlier* ekstrem yang tidak bisa dihilangkan
+
+:::: {.columns}
+::: {.column width="50%"}
+**Padanan non-parametrik dari t-test:**
+
+| T-test | Non-parametrik |
+|---|---|
+| *One-sample t-test* | Wilcoxon signed-rank test (vs. median) |
+| *Paired samples t-test* | Wilcoxon signed-rank test |
+| *Independent samples t-test* | Mann-Whitney U test |
+:::
+::: {.column width="50%"}
+::: {.callout-note}
+Non-parametrik **tidak berarti bebas asumsi** — ia tetap mengasumsikan independensi observasi dan (untuk uji dua kelompok) distribusi yang berbentuk serupa antara dua kelompok. *Statistical power*-nya juga sedikit lebih rendah dibanding t-test jika data memang normal.
+:::
+:::
+::::
+
+## Latihan: uji non-parametrik di jamovi
+
+Dengan dataset **kopi.omv**, ulangi analisis menggunakan Wilcoxon signed-rank test:
+
+1. Klik menu *T-Tests* {{< fa circle-arrow-right >}} *Paired Samples T-Test*
+2. Pada bagian *Tests*, centang **Wilcoxon rank** (di samping pilihan *Student's* dan *Bayes factor*)
+3. Bandingkan hasilnya dengan *paired t-test* yang sudah dilakukan sebelumnya
+
+Pertanyaan untuk didiskusikan:
+
+* Apakah kesimpulan berubah ketika menggunakan Wilcoxon?
+* Kapan kesimpulan dari t-test dan Wilcoxon bisa berbeda secara bermakna?
+
+---
+
+## Analisis *power* untuk t-test {background-color="#14497F"}
+
+## Menentukan ukuran sampel sebelum penelitian
+
+Sebelum mengumpulkan data, gunakan G\*Power untuk menentukan berapa sampel yang dibutuhkan.
+
+**Parameter kunci:**
+
+* ***Effect size* (d)**: perkiraan dari literatur, studi pilot, atau pertimbangan "efek minimum yang bermakna secara klinis/praktis"
+* **α**: biasanya 0.05
+* ***Power* (1−β)**: biasanya 0.80 (bisa 0.90 atau 0.95 untuk penelitian kritis)
+* **Jenis uji**: satu sisi atau dua sisi
+
+::: {.callout-important}
+**Jangan mengestimasi *effect size* terlalu optimis**
+
+Banyak peneliti memperkirakan *d* = 0.5 atau lebih karena itu menghasilkan sampel yang kecil dan mudah dikumpulkan. Tetapi jika efek sesungguhnya hanya *d* = 0.2, studi akan **underpowered** dan lebih mungkin menghasilkan *false negative* atau estimasi efek yang *inflated*.
+:::
+
+## Latihan: *A priori* analisis *power* untuk t-test
+
+Kalian ingin meneliti apakah mahasiswa yang menggunakan teknik *mindfulness* sebelum ujian memiliki skor kecemasan yang lebih rendah dibandingkan yang tidak menggunakannya.
+
+1. Buka G\*Power {{< fa circle-arrow-right >}} *t tests* {{< fa circle-arrow-right >}} *Means: Difference between two independent groups*
+2. Pilih *A priori* {{< fa circle-arrow-right >}} masukkan *d* = 0.4, α = 0.05, *Power* = 0.80, dua sisi
+3. Perhatikan berapa N total yang dibutuhkan
+4. Sekarang ubah ke *Paired Samples* (*Means: Difference between two dependent groups*) — berapa N yang dibutuhkan jika desainnya *within-subjects*?
+
+Pertanyaan untuk didiskusikan:
+
+* Mengapa desain *within-subjects* membutuhkan sampel jauh lebih sedikit?
+* Apa keterbatasan desain *within-subjects* yang membuat peneliti tetap memilih *between-subjects*?

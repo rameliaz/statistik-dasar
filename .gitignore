@@ -1,0 +1,12 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+/.quarto/
+/.claude/
+/ppt/
+/old_files/
+
+**/*.quarto_ipynb
+CLAUDE.md

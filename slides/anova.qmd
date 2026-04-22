@@ -1,0 +1,283 @@
+---
+title: "ANOVA"
+subtitle: "Statistik Dasar dalam Penelitian Psikologi"
+author: "Rizqy Amelia Zein"
+institute:
+  - "[_Departemen Psikologi Kepribadian dan Sosial, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
+date: today
+format:
+  unair-revealjs:
+    slide-number: true
+    progress: true
+    transition: slide
+    center: false
+execute:
+  eval: false
+  echo: true
+---
+
+## _Outline_
+
+* Mengapa ANOVA, bukan t-test berulang?
+* Logika ANOVA: partisi varians
+* Rasio F
+* Implementasi di jamovi
+* *Effect size* (η² dan ω²)
+* *Post-hoc tests*
+* Asumsi dan uji asumsi
+* *A priori* analisis *power*
+
+---
+
+## Mengapa ANOVA? {background-color="#14497F"}
+
+## Masalah dengan t-test berulang
+
+Bayangkan kita ingin membandingkan tiga kelompok: placebo, obat lama, dan obat baru. Kita bisa saja menjalankan tiga t-test terpisah:
+
+* Placebo vs obat lama
+* Placebo vs obat baru
+* Obat lama vs obat baru
+
+**Masalah: *inflasi Type I error***
+
+Jika α = 0.05 per uji, probabilitas **tidak membuat** *false positive* dalam satu uji = 0.95.
+
+Untuk tiga uji independen: $P(\text{tidak ada FP}) = 0.95^3 = 0.857$
+
+Artinya, probabilitas **minimal satu** *false positive* = 1 − 0.857 = **14.3%** — jauh di atas α = 5%!
+
+::: {.callout-important}
+**ANOVA menjaga *family-wise error rate*** pada α = 0.05 untuk seluruh perbandingan sekaligus. Ia menguji $H_0$ bahwa **semua** *mean* kelompok sama, dalam satu uji tunggal.
+:::
+
+## ANOVA: satu uji untuk banyak kelompok
+
+*Analysis of Variance* (ANOVA), dikembangkan oleh Sir Ronald Fisher awal abad ke-20, membandingkan *mean* dari **dua atau lebih** kelompok secara serentak.
+
+$$H_0: \mu_1 = \mu_2 = \mu_3 = \ldots = \mu_k$$
+$$H_a: \text{tidak benar bahwa semua } \mu_k \text{ sama}$$
+
+::: {.callout-note}
+Perhatikan bahwa $H_a$ hanya menyatakan "tidak semua *mean* sama" — ia **tidak** menentukan pasangan mana yang berbeda. Untuk mengetahui perbedaan spesifik antar pasangan kelompok, kita butuh *post-hoc test*.
+:::
+
+---
+
+## Logika ANOVA: partisi varians {background-color="#14497F"}
+
+## Studi Ferguso: obat flu baru
+
+Ferguso ingin menguji apakah obat flu barunya (*flungalih*) lebih efektif dibanding plasebo dan obat standar (*mixagrip*). Ia mengacak 18 peserta ke tiga kelompok (N = 6 per kelompok) dan mengukur konsentrasi zat aktif dalam darah setelah pemberian obat.
+
+| Kelompok | *Mean* konsentrasi | SD |
+|---|---|---|
+| Plasebo | 0.450 | 0.281 |
+| Mixagrip | 0.717 | 0.392 |
+| Flungalih | 1.48 | 0.214 |
+
+Dataset: **cobaobat.omv**
+
+## Mempartisi total varians
+
+ANOVA mempartisi total variabilitas data menjadi dua sumber:
+
+$$SS_{\text{tot}} = SS_{\text{between}} + SS_{\text{within}}$$
+
+$$\sum_{k}\sum_{i}(Y_{ik} - \bar{Y})^2 = \sum_{k} N_k(\bar{Y}_k - \bar{Y})^2 + \sum_{k}\sum_{i}(Y_{ik} - \bar{Y}_k)^2$$
+
+| Sumber | Simbol | Interpretasi |
+|---|---|---|
+| *Between-group* | $SS_b$ | Variabilitas antar kelompok — efek perlakuan |
+| *Within-group* | $SS_w$ | Variabilitas dalam kelompok — *noise* / kesalahan pengukuran |
+| Total | $SS_{\text{tot}}$ | Total variabilitas seluruh data |
+
+## Rasio F
+
+Dari *Sum of Squares*, kita hitung *Mean Squares* dengan membagi *degrees of freedom*:
+
+$$MS_b = \frac{SS_b}{df_b} \quad \text{di mana } df_b = G - 1$$
+
+$$MS_w = \frac{SS_w}{df_w} \quad \text{di mana } df_w = N - G$$
+
+Kemudian rasio F:
+
+$$F = \frac{MS_b}{MS_w} = \frac{\text{varians antar kelompok}}{\text{varians dalam kelompok}}$$
+
+::: {.callout-note}
+**Intuisi rasio F:** Jika semua kelompok memiliki *mean* yang sama ($H_0$ benar), $MS_b$ dan $MS_w$ seharusnya mengestimasi kuantitas yang sama — sehingga F ≈ 1. Semakin besar perbedaan antar kelompok relatif terhadap *noise*, semakin besar F — dan semakin kecil *p-value*.
+:::
+
+---
+
+## Implementasi di jamovi {background-color="#14497F"}
+
+## Langkah ANOVA di jamovi
+
+Buka dataset **cobaobat.omv**, kemudian jalankan *one-way* ANOVA:
+
+1. Klik menu *ANOVA* {{< fa circle-arrow-right >}} *ANOVA*
+2. Masukkan **konsentrasi** ke *Dependent Variable* dan **obat** ke *Fixed Factors*
+3. Di opsi *Effect Size*, centang **η²** dan **ω²**
+4. Di opsi *Assumption Checks*, centang *Homogeneity test* (Levene) dan *Q-Q plot of residuals*
+5. Di opsi *Post-Hoc Tests*, masukkan **obat** dan centang *Tukey* dan *Bonferroni*
+6. Di opsi *Estimated Marginal Means*, masukkan **obat** ke *Terms 1*
+
+## Membaca hasil ANOVA
+
+**Tabel ANOVA (ringkasan):**
+
+| Sumber | F | df | *p* | ω² |
+|---|---|---|---|---|
+| obat | 18.6 | 2, 15 | < .001 | 0.662 |
+| Residuals | — | 15 | — | — |
+
+Interpretasi: Terdapat perbedaan yang signifikan dalam kadar konsentrasi antar tiga kelompok obat, *F*(2, 15) = 18.6, *p* < .001, ω² = 0.662.
+
+::: {.callout-important}
+Hasil ANOVA yang signifikan hanya memberi tahu kita bahwa **ada perbedaan di suatu tempat** — bukan di mana persisnya. Untuk mengetahui pasangan kelompok mana yang berbeda, kita butuh ***post-hoc test***.
+:::
+
+---
+
+## *Effect size* untuk ANOVA {background-color="#14497F"}
+
+## η² dan ω²
+
+Kedua ukuran ini menggambarkan **proporsi varians** variabel dependen yang dapat dijelaskan oleh faktor kelompok:
+
+$$\eta^2 = \frac{SS_b}{SS_{\text{tot}}}$$
+
+$$\omega^2 = \frac{SS_b - (G-1) \cdot MS_w}{SS_{\text{tot}} + MS_w}$$
+
+| | η² | ω² |
+|---|---|---|
+| **Bias** | Lebih besar (*overestimate*) | Lebih konservatif, *unbiased* |
+| **Default software** | Sering digunakan karena mudah dihitung | Lebih jarang, tapi lebih disarankan |
+| **Pada contoh** | 0.713 | 0.662 |
+
+::: {.callout-tip}
+**Gunakan ω² sebagai default** — ia memberikan estimasi yang lebih akurat tentang *effect size* populasi. Sebagian besar *software* statistik secara *default* melaporkan η² karena lebih mudah dihitung, tapi η² cenderung melebih-lebihkan besaran efek, terutama pada sampel kecil.
+:::
+
+## Interpretasi *effect size* ANOVA (konvensi Cohen)
+
+| ω² (atau η²) | Interpretasi |
+|---|---|
+| 0.01 | Efek kecil |
+| 0.06 | Efek sedang |
+| 0.14 | Efek besar |
+
+Pada studi Ferguso: ω² = 0.662 → **efek yang sangat besar** — obat *flungalih* dan plasebo memberikan kadar konsentrasi yang sangat berbeda.
+
+---
+
+## *Post-hoc tests* {background-color="#14497F"}
+
+## Mengapa perlu *post-hoc test*?
+
+ANOVA yang signifikan hanya mengatakan "ada perbedaan di suatu tempat." *Post-hoc test* mengidentifikasi **pasangan kelompok mana** yang berbeda secara signifikan, sambil mengontrol *Type I error*.
+
+**Dua pilihan utama di jamovi:**
+
+* **Tukey's HSD (*Honestly Significant Difference*)**: Seimbang antara *power* dan kontrol *Type I error* — cocok untuk kebanyakan kasus
+* **Bonferroni correction**: Lebih konservatif — membagi α dengan jumlah perbandingan; lebih tepat jika ada *a priori* hipotesis spesifik
+
+::: {.callout-note}
+Ada puluhan *post-hoc test* yang berbeda (Games-Howell, Scheffé, Dunnett, dll.). Pilih berdasarkan asumsi yang terpenuhi dan sifat pertanyaan penelitian — bukan berdasarkan mana yang memberikan *p-value* terkecil.
+:::
+
+## Hasil *post-hoc test*: studi Ferguso
+
+**Perbandingan berpasangan (Bonferroni):**
+
+| Perbandingan | Perbedaan *mean* | SE | *p* (Bonferroni) |
+|---|---|---|---|
+| Plasebo vs Mixagrip | −0.174 | 0.174 | 0.998 |
+| Plasebo vs Flungalih | **−0.929** | 0.168 | **< .001** |
+| Mixagrip vs Flungalih | **−0.755** | 0.182 | **.003** |
+
+Interpretasi:
+
+* Plasebo dan *mixagrip* **tidak berbeda signifikan** (*p* = 0.998)
+* *Flungalih* secara signifikan **lebih efektif** dari plasebo dan *mixagrip* (keduanya *p* < .005)
+* *Flungalih* adalah obat baru yang menjanjikan — tapi perlu studi replikasi dengan sampel lebih besar
+
+---
+
+## Asumsi ANOVA {background-color="#14497F"}
+
+## Tiga asumsi utama
+
+| Asumsi | Cara memeriksa | Akibat pelanggaran |
+|---|---|---|
+| **Normalitas residual** | Q-Q plot residual, Shapiro-Wilk | Bias pada *p-value*, terutama sampel kecil |
+| **Homogenitas varians** (*homoscedasticity*) | Levene's test | F-ratio tidak akurat |
+| **Independensi observasi** | Desain penelitian | Sangat serius — *p-value* tidak valid |
+
+::: {.callout-important}
+ANOVA relatif **robust** terhadap pelanggaran normalitas jika ukuran sampel setiap kelompok cukup besar (≥ 30) dan seimbang. Namun heterogenitas varians yang ekstrem lebih bermasalah, terutama jika ukuran kelompok tidak seimbang.
+:::
+
+## Memeriksa asumsi di jamovi
+
+**Normalitas residual (bukan data mentah!):**
+
+* Lihat **Q-Q plot of residuals** — titik-titik harus mengikuti garis diagonal
+* Secara opsional, jalankan Shapiro-Wilk pada residual
+* Catatan penting: ANOVA mengasumsikan normalitas **residual**, bukan normalitas data mentah
+
+**Homogenitas varians — Levene's test:**
+
+* Pada studi Ferguso: *F*(2, 15) = 1.20, *p* = 0.327 → **varians homogen**, asumsi terpenuhi
+* Jika Levene's signifikan (*p* < 0.05): pertimbangkan Welch's ANOVA (robust terhadap heterogenitas varians)
+
+---
+
+## *A priori* analisis *power* untuk ANOVA {background-color="#14497F"}
+
+## *Effect size* f untuk G\*Power
+
+Untuk ANOVA, G\*Power menggunakan *effect size* **f** (berbeda dari Cohen's *d*):
+
+$$f = \frac{\sigma_{\text{between}}}{\sigma_{\text{within}}} = \sqrt{\frac{\eta^2}{1 - \eta^2}}$$
+
+Konvensi Cohen:
+
+| f | Interpretasi |
+|---|---|
+| 0.10 | Efek kecil |
+| 0.25 | Efek sedang |
+| 0.40 | Efek besar |
+
+## Contoh: analisis *power* untuk studi 3 kelompok
+
+Ferguso berencana mereplikasi studinya dengan sampel lebih besar. Dari literatur, ia memperkirakan efek sedang-kecil (*f* = 0.2).
+
+**Langkah di G\*Power:**
+
+1. *Test family* {{< fa circle-arrow-right >}} ***F* tests**
+2. *Statistical test* {{< fa circle-arrow-right >}} *ANOVA: Fixed effects, main effects and interactions*
+3. *Type of power analysis* {{< fa circle-arrow-right >}} ***A priori***
+4. Masukkan: *Effect size f* = 0.2, α = 0.05, *Power* = 0.80, *Number of groups* = 3
+5. Klik *Calculate*
+
+**Hasil: N = 159 (53 per kelompok)**
+
+::: {.callout-note}
+Studi asli Ferguso hanya memiliki N = 18 — jauh terlalu kecil untuk mendeteksi efek sedang-kecil dengan *power* yang cukup. Efek yang ditemukan (*f* ≈ 0.87) adalah efek yang sangat besar — itulah mengapa studi kecil pun berhasil mendeteksinya.
+:::
+
+## Latihan: Analisis *power* untuk ANOVA
+
+Kalian berencana meneliti perbedaan tingkat *burnout* di antara tiga kelompok mahasiswa: mahasiswa yang bekerja penuh waktu, bekerja paruh waktu, dan tidak bekerja.
+
+1. Buka G\*Power {{< fa circle-arrow-right >}} *F tests* {{< fa circle-arrow-right >}} *ANOVA: Fixed effects*
+2. Pilih *A priori* {{< fa circle-arrow-right >}} masukkan *f* = 0.25, α = 0.05, *Power* = 0.80, 3 kelompok
+3. Bandingkan dengan *f* = 0.10 dan *f* = 0.40 — seberapa sensitif sampel yang dibutuhkan terhadap asumsi *effect size*?
+4. Dengan N total yang kalian dapat, berapa sampel yang dibutuhkan per kelompok agar proporsional?
+
+Pertanyaan untuk didiskusikan:
+
+* Dari mana kalian bisa memperkirakan *f* yang realistis sebelum mengumpulkan data?
+* Apa yang terjadi jika kelompok dalam ANOVA tidak seimbang (ukuran berbeda)?

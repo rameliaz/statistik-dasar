@@ -1,0 +1,349 @@
+---
+title: "ANOVA Pengukuran Berulang"
+subtitle: "Statistik Dasar dalam Penelitian Psikologi"
+author: "Rizqy Amelia Zein"
+institute:
+  - "[_Departemen Psikologi Kepribadian dan Sosial, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
+date: today
+format:
+  unair-revealjs:
+    slide-number: true
+    progress: true
+    transition: slide
+    center: false
+execute:
+  eval: false
+  echo: true
+---
+
+## _Outline_
+
+* Kapan menggunakan ANOVA pengukuran berulang?
+* Logika: mempartisi varians individual
+* Asumsi *sphericity* dan Mauchly's test
+* Koreksi *Greenhouse-Geisser* dan *Huynh-Feldt*
+* Implementasi di jamovi
+* *Effect size* (η² dan η²G)
+* *Post-hoc tests*
+* *A priori* analisis *power*
+
+---
+
+## Kapan menggunakan RM-ANOVA? {background-color="#14497F"}
+
+## Keterbatasan ANOVA satu jalur untuk data berulang
+
+Bayangkan Alfonso mengukur **durasi membaca kucing** pada minggu ke-1, ke-2, dan ke-3 dari **kucing yang sama**. Jika ia menjalankan ANOVA satu jalur biasa:
+
+**Masalah: Observasi tidak independen!**
+
+Kucing yang membaca lama di minggu ke-1 cenderung juga membaca lama di minggu ke-2 dan ke-3. Ini bukan karena perlakuan, tapi karena **karakteristik individu** kucing tersebut.
+
+::: {.callout-important}
+ANOVA satu jalur mengasumsikan bahwa semua observasi **independen** satu sama lain. Ketika subjek yang sama diukur berulang kali, asumsi ini dilanggar — dan *p-value* yang dihasilkan **tidak valid**.
+:::
+
+## Apa itu ANOVA pengukuran berulang?
+
+*Repeated Measures ANOVA* (RM-ANOVA) — disebut juga *within-subjects ANOVA* atau *related ANOVA* — dirancang khusus untuk situasi di mana **subjek yang sama diukur pada tiga atau lebih kondisi/waktu pengukuran**.
+
+**Kapan digunakan:**
+
+* Studi longitudinal: mengukur variabel yang sama di beberapa titik waktu
+* Studi *crossover*: setiap partisipan mendapatkan semua kondisi perlakuan
+* Desain *counterbalanced*: urutan kondisi diacak per partisipan
+
+**Keunggulan dibanding *between-subjects* ANOVA:**
+
+* Lebih *powerful* — variasi individu "diisolasi" dari *error*
+* Membutuhkan **lebih sedikit partisipan** untuk mencapai *power* yang sama
+
+## Mempartisi varians: perbedaan kunci
+
+Dalam ANOVA satu jalur biasa:
+$$SS_{\text{tot}} = SS_{\text{between}} + SS_{\text{within}}$$
+
+Dalam RM-ANOVA, $SS_{\text{within}}$ dipartisi lebih lanjut:
+$$SS_{\text{within}} = SS_{\text{perlakuan}} + SS_{\text{individu}} + SS_{\text{error}}$$
+
+| Komponen | Interpretasi |
+|---|---|
+| $SS_{\text{perlakuan}}$ | Perubahan akibat kondisi/waktu pengukuran |
+| $SS_{\text{individu}}$ | Perbedaan antar-individu yang konsisten (dikontrol) |
+| $SS_{\text{error}}$ | Sisa variabilitas yang tidak dapat dijelaskan |
+
+::: {.callout-note}
+Dengan "mengeluarkan" $SS_{\text{individu}}$ dari *error*, denominator rasio F menjadi lebih kecil — sehingga F lebih besar dan *power* meningkat.
+:::
+
+---
+
+## Studi Alfonso: kucing membaca {background-color="#14497F"}
+
+## Konteks penelitian
+
+Alfonso ingin mengetahui apakah memperdengarkan musik klasik secara rutin dapat meningkatkan durasi membaca kucing. Ia memilih satu kelompok kucing dan:
+
+1. Memperdengarkan [*Frühlingsstimmen* — Strauss II](https://www.youtube.com/watch?v=ewXcgHvUElc) setiap hari, 30 menit, selama 3 minggu
+2. Mengukur **durasi membaca** (dalam detik) **setiap akhir minggu**
+3. Membandingkan durasi membaca di minggu ke-1, ke-2, dan ke-3
+
+**Variabel:**
+
+* *Within-subjects factor*: **waktu** (minggu ke-1, ke-2, ke-3) — 3 level
+* Variabel dependen: **durasi_membaca**
+
+Dataset: **kucing-membaca.omv**
+
+## *Mean* durasi membaca per minggu
+
+| Waktu | *Mean* (detik) | SD |
+|---|---|---|
+| Minggu ke-1 | 42.3 | 8.14 |
+| Minggu ke-2 | 78.6 | 11.5 |
+| Minggu ke-3 | 130.4 | 14.2 |
+
+Secara deskriptif, durasi membaca meningkat dari minggu ke minggu. Namun apakah perbedaan ini signifikan secara statistik?
+
+::: {.callout-note}
+Dalam RM-ANOVA, kita membandingkan apakah *mean* antar kondisi berbeda, **setelah mengontrol variabilitas antar-individu**. Ini membuat uji lebih sensitif dibanding ANOVA biasa.
+:::
+
+---
+
+## Asumsi *sphericity* {background-color="#14497F"}
+
+## Apa itu *sphericity*?
+
+*Sphericity* adalah asumsi kritis RM-ANOVA yang menyatakan bahwa **varians dari perbedaan antara semua pasangan kondisi adalah sama**.
+
+Lebih mudahnya: varians dari (Minggu 2 − Minggu 1), (Minggu 3 − Minggu 1), dan (Minggu 3 − Minggu 2) harus kurang lebih **sama**.
+
+::: {.callout-important}
+Ketika asumsi *sphericity* dilanggar, **rasio F dari RM-ANOVA terlalu besar** (*inflated*) — artinya kita akan terlalu sering menolak $H_0$ yang benar (*Type I error* meningkat). Uji F standar tidak valid jika *sphericity* dilanggar.
+:::
+
+**Catatan penting:**
+
+* *Sphericity* hanya relevan jika *within-subjects factor* memiliki **≥ 3 level**
+* Dengan 2 level, hanya ada satu pasangan perbedaan — *sphericity* secara otomatis terpenuhi
+
+## Mauchly's Test of Sphericity
+
+Mauchly's *W* menguji apakah asumsi *sphericity* terpenuhi:
+
+$$H_0: \text{asumsi } sphericity \text{ terpenuhi}$$
+$$H_a: \text{asumsi } sphericity \text{ dilanggar}$$
+
+**Cara membaca:**
+
+| Hasil Mauchly's *W* | Tindakan |
+|---|---|
+| *p* ≥ .05 | Asumsi terpenuhi — gunakan F tanpa koreksi |
+| *p* < .05 | Asumsi dilanggar — terapkan koreksi df |
+
+Pada studi Alfonso: Mauchly's *W* = 0.812, *p* = .043 → **asumsi *sphericity* dilanggar** — perlu koreksi.
+
+## Koreksi *sphericity*: GG dan HF
+
+Ketika *sphericity* dilanggar, kita menyesuaikan *degrees of freedom* menggunakan faktor koreksi ε (*epsilon*):
+
+$$F_{\text{corrected}} \text{ menggunakan } df^* = df \times \varepsilon$$
+
+**Dua pilihan koreksi:**
+
+:::: {.columns}
+::: {.column width="50%"}
+**Greenhouse-Geisser (GG)**
+
+* Lebih konservatif (ε lebih kecil)
+* Gunakan jika ε < 0.75
+* "Lebih aman" dari *Type I error*
+:::
+::: {.column width="50%"}
+**Huynh-Feldt (HF)**
+
+* Lebih liberal (ε mendekati 1)
+* Gunakan jika ε > 0.75
+* *Power* lebih tinggi
+:::
+::::
+
+::: {.callout-tip}
+**Aturan praktis:** periksa nilai ε *Greenhouse-Geisser* terlebih dahulu. Jika ε < 0.75, gunakan koreksi GG. Jika ε ≥ 0.75, gunakan koreksi HF (lebih *powerful*). Pada studi Alfonso: ε = 0.831 > 0.75 → gunakan **koreksi Huynh-Feldt**.
+:::
+
+---
+
+## Implementasi di jamovi {background-color="#14497F"}
+
+## Langkah RM-ANOVA di jamovi
+
+Buka dataset **kucing-membaca.omv**, kemudian:
+
+1. Klik menu *ANOVA* {{< fa circle-arrow-right >}} ***Repeated Measures ANOVA***
+2. Di kolom *Repeated Measures Factors*: beri nama faktor — mis. **"waktu"** — dan tambahkan 3 level: *minggu1*, *minggu2*, *minggu3*
+3. Di kolom *Repeated Measures Cells*: masukkan variabel **durasi_minggu1**, **durasi_minggu2**, **durasi_minggu3** ke baris yang sesuai
+4. Di opsi *Effect Size*, centang **η²** dan **Generalised η²**
+
+## Langkah lanjutan: asumsi dan *post-hoc*
+
+5. Di opsi *Assumption Checks*, centang ***Sphericity Test***
+6. Di sub-menu *Sphericity Corrections*, centang ***Greenhouse-Geisser*** dan ***Huynh-Feldt***
+7. Di opsi *Post-Hoc Tests*, masukkan faktor **waktu** ke kolom kanan
+8. Centang ***Bonferroni***
+9. Di opsi *Estimated Marginal Means*:
+   - Masukkan **waktu** ke *Terms 1*
+   - Centang *Marginal means plot*, *Marginal means table*, dan *Observed scores*
+
+## Membaca hasil: *Sphericity Test*
+
+**Output Mauchly's *W* di jamovi:**
+
+| Mauchly's *W* | *p* | ε (Greenhouse-Geisser) | ε (Huynh-Feldt) |
+|---|---|---|---|
+| 0.812 | .043 | 0.831 | 0.921 |
+
+*p* = .043 < .05 → ***sphericity* dilanggar** → gunakan koreksi.
+
+ε (GG) = 0.831 > 0.75 → gunakan **Huynh-Feldt**.
+
+::: {.callout-note}
+Jamovi secara otomatis menampilkan tabel ANOVA dengan koreksi GG dan HF. Pilih baris yang sesuai dengan nilai ε yang relevan untuk pelaporan.
+:::
+
+## Membaca hasil: tabel ANOVA
+
+**Tabel RM-ANOVA (dengan koreksi HF):**
+
+| Sumber | F | df (HF) | *p* | η² | η²G |
+|---|---|---|---|---|---|
+| waktu | 3292.4 | 1.843, 182.4 | < .001 | 0.957 | 0.957 |
+| Residuals | — | 182.4 | — | — | — |
+
+**Cara melaporkan:**
+
+"Terdapat perbedaan yang signifikan dalam durasi membaca kucing antara minggu ke-1, ke-2, dan ke-3, *F*(1.843, 182.4) = 3292.4, *p* < .001, η²G = 0.957 — efek yang sangat besar."
+
+::: {.callout-important}
+Perhatikan bahwa **df yang dilaporkan adalah df setelah dikoreksi** (bukan integer bulat). Ini menandakan bahwa koreksi *sphericity* telah diterapkan.
+:::
+
+---
+
+## *Effect size* untuk RM-ANOVA {background-color="#14497F"}
+
+## η² dan η² Generalisasi (η²G)
+
+Untuk RM-ANOVA, ada dua ukuran *effect size* yang relevan:
+
+$$\eta^2 = \frac{SS_{\text{perlakuan}}}{SS_{\text{perlakuan}} + SS_{\text{error}}}$$
+
+$$\eta^2_G = \frac{SS_{\text{perlakuan}}}{SS_{\text{perlakuan}} + SS_{\text{individu}} + SS_{\text{error}}}$$
+
+| | η² | η²G (Generalisasi) |
+|---|---|---|
+| **Penyebut** | Hanya SS error | SS total termasuk SS individu |
+| **Interpretasi** | Bisa melebih-lebihkan ES | Lebih konservatif dan dapat dibandingkan antar desain |
+| **Rekomendasi** | Kurang disarankan | **Lebih disarankan** untuk perbandingan lintas studi |
+
+::: {.callout-tip}
+Gunakan **η²G** jika kalian ingin membandingkan *effect size* studi RM dengan studi *between-subjects* — η²G lebih stabil dan dapat digeneralisasi. Konvensi Cohen (*kecil*: .01, *sedang*: .06, *besar*: .14) berlaku untuk keduanya.
+:::
+
+---
+
+## *Post-hoc tests* {background-color="#14497F"}
+
+## Perbandingan berpasangan Bonferroni
+
+Setelah RM-ANOVA yang signifikan, *post-hoc test* mengidentifikasi minggu mana yang berbeda satu sama lain:
+
+**Hasil *post-hoc* (Bonferroni):**
+
+| Perbandingan | Perbedaan *mean* | SE | *t* | *p* (Bonferroni) |
+|---|---|---|---|---|
+| Minggu 1 vs Minggu 2 | **−36.3** | 1.42 | **−25.6** | **< .001** |
+| Minggu 1 vs Minggu 3 | **−88.1** | 1.87 | **−47.1** | **< .001** |
+| Minggu 2 vs Minggu 3 | **−51.8** | 1.53 | **−33.8** | **< .001** |
+
+Semua pasangan minggu berbeda secara signifikan (semua *p* < .001) — durasi membaca meningkat secara progresif setiap minggunya.
+
+::: {.callout-note}
+*Post-hoc* dalam RM-ANOVA menggunakan **paired comparisons** — bukan independent samples — karena data berasal dari subjek yang sama. Ini lebih *powerful* dibanding *post-hoc* biasa.
+:::
+
+---
+
+## *A priori* analisis *power* untuk RM-ANOVA {background-color="#14497F"}
+
+## G\*Power untuk *repeated measures*
+
+RM-ANOVA memerlukan parameter tambahan dibanding ANOVA biasa karena kita perlu mengantisipasi **korelasi antar pengukuran**.
+
+**Langkah di G\*Power:**
+
+1. *Test family* {{< fa circle-arrow-right >}} ***F* tests**
+2. *Statistical test* {{< fa circle-arrow-right >}} ***ANOVA: Repeated measures, within factor***
+3. *Type of power analysis* {{< fa circle-arrow-right >}} ***A priori***
+4. Masukkan parameter:
+   - *Effect size f* (konversi Cohen's *f*)
+   - α = 0.05
+   - *Power* (1 − β)
+   - *Number of groups* = 1 (satu kelompok subjek)
+   - *Number of measurements* = jumlah level *within-subjects factor*
+   - *Correlation among rep measures* (estimasi *r* antar pengukuran)
+   - *Nonsphericity correction* ε
+
+## Parameter penting: korelasi dan *nonsphericity*
+
+**Korelasi antar pengukuran (*r*):**
+
+Pengukuran berulang pada subjek yang sama cenderung berkorelasi. Estimasi *r* memengaruhi sampel yang dibutuhkan:
+
+| Korelasi antar pengukuran | Implikasi |
+|---|---|
+| Tinggi (*r* ≈ 0.5–0.8) | Butuh lebih sedikit sampel — RM-ANOVA lebih *powerful* |
+| Rendah (*r* ≈ 0–0.2) | Keunggulan RM-ANOVA berkurang; butuh sampel lebih besar |
+| Negatif | RM-ANOVA bisa **kurang** *powerful* dari *between-subjects* |
+
+**Koreksi *nonsphericity* (ε):**
+
+* ε = 1.0 → *sphericity* terpenuhi sempurna
+* ε < 1.0 → *sphericity* dilanggar; semakin kecil ε, semakin besar sampel yang dibutuhkan
+* Estimasi konservatif: ε = 0.5–0.75
+
+## Contoh: *power* untuk studi kelinci Alfonso
+
+Alfonso ingin mengulangi studi musik pada **kelinci** dengan asumsi:
+
+* *Effect size f* = 0.15 (efek moderat-kecil)
+* α = 0.05, *Power* = 0.90 ($\beta$ = 0.10)
+* 1 kelompok, diukur **3 kali** (3 minggu)
+* Korelasi antar pengukuran: *r* = 0.01 (sangat kecil — kelinci lebih tidak konsisten)
+* *Nonsphericity* ε = 0.8
+
+**Di G\*Power:** masukkan semua parameter di atas.
+
+**Hasil: N ≈ 220 kelinci**
+
+::: {.callout-note}
+Dibanding ANOVA *between-subjects* yang mungkin membutuhkan N = 600+ untuk *power* yang sama dengan *f* = 0.15, RM-ANOVA jauh lebih efisien — meskipun korelasi antar pengukuran sangat kecil.
+:::
+
+## Latihan: RM-ANOVA di jamovi
+
+Seorang peneliti ingin menguji efek program *mindfulness* 4 sesi pada **skor stres** peserta. Stres diukur sebelum sesi 1, setelah sesi 2, dan setelah sesi 4.
+
+1. Buka dataset **stres.omv** dan jalankan RM-ANOVA
+2. Masukkan faktor: **sesi** (3 level: *sebelum*, *sesi2*, *sesi4*)
+3. Periksa asumsi *sphericity* — apakah perlu koreksi? Koreksi mana?
+4. Jalankan *post-hoc* Bonferroni — pasangan sesi mana yang berbeda signifikan?
+5. Buat *marginal means plot* — apakah polanya linear atau ada perubahan tiba-tiba?
+
+Pertanyaan untuk didiskusikan:
+
+* Mengapa *power* RM-ANOVA lebih besar dibanding *between-subjects* ANOVA?
+* Apa perbedaan antara η² dan η²G dalam konteks studi ini?
+* Bagaimana *carryover effects* dapat menjadi ancaman validitas dalam desain *repeated measures*?
+* Kapan lebih baik menggunakan *mixed ANOVA* (gabungan *within-* dan *between-subjects* factor)?

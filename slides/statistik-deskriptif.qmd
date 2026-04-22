@@ -1,0 +1,336 @@
+---
+title: "Statistik Deskriptif"
+subtitle: "Statistik Dasar dalam Penelitian Psikologi"
+author: "Rizqy Amelia Zein"
+institute:
+  - "[_Departemen Psikologi Kepribadian dan Sosial, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
+date: today
+format:
+  unair-revealjs:
+    slide-number: true
+    progress: true
+    transition: slide
+    center: false
+execute:
+  eval: false
+  echo: true
+---
+
+## _Outline_
+
+* Kenapa statistik?
+* Statistik deskriptif vs inferensial
+* Mengenal *software*: jamovi
+* Tendensi sentral: *mean*, median, dan modus
+* Variabilitas: *range*, IQR, varians, dan standar deviasi
+* Visualisasi data
+* Distribusi normal
+* Uji normalitas
+
+## Referensi utama
+
+* Navarro, D.J. & Foxcroft, D.R. (2019). *Learning Statistics with jamovi: A tutorial for psychology students and other beginners* (Version 0.70). [[Akses gratis di sini]](https://www.learnstatswithjamovi.com/)
+* Tutorial jamovi dari Datalab: [datalab.cc/tools/jamovi](https://datalab.cc/tools/jamovi)
+
+---
+
+## Kenapa statistik? {background-color="#14497F"}
+
+## Kenapa statistik?
+
+:::: {.columns}
+::: {.column width="60%"}
+* **Induksi** vs **deduksi**
+  - Kalau kita punya seember kopi, apakah kita harus minum semuanya agar tahu rasanya?
+  - Kita hanya perlu mencicipi **satu sendok** — itulah logika *sampling*
+* Konsekuensinya: kita selalu bekerja dengan **ketidakpastian**
+  - *Sampel* ≠ *Populasi*
+  - *Survei* ≠ *Sensus*
+  - *Statistik* ≠ *Parameter*
+* Statistik adalah alat untuk **membuat keputusan yang masuk akal** di bawah ketidakpastian
+:::
+::: {.column width="40%"}
+::: {.callout-note}
+**Statistik** adalah nilai yang kita hitung dari **sampel**. **Parameter** adalah nilai yang (sebenarnya) ada di **populasi**, tapi hampir tidak pernah bisa kita ketahui secara langsung.
+:::
+:::
+::::
+
+## *Common sense* vs *scientific reasoning*
+
+* Otak manusia sangat pandai menemukan **pola** — bahkan di tempat yang tidak ada polanya (*apophenia*)
+* *Confirmation bias*: kita cenderung mencari bukti yang **mendukung** keyakinan kita
+* *"…the first principle is that you must not fool yourself — you're the easiest person to fool."* — Richard Feynman (1945)
+* Statistik membantu kita **mendisiplinkan intuisi** agar tidak tertipu oleh kebetulan
+
+::: {.callout-important}
+*Statistical thinking* jauh lebih penting daripada *software*-nya. Tidak masalah menggunakan jamovi, JASP, R, atau SPSS — yang terpenting adalah kalian tahu **cara kerja** setiap *tools* dan **alasan** menggunakannya.
+:::
+
+## Statistik deskriptif vs inferensial
+
+| | **Deskriptif** | **Inferensial** |
+|---|---|---|
+| **Tujuan** | Menggambarkan, merangkum, meringkas data | Menarik kesimpulan tentang populasi dari sampel |
+| **Pertanyaan** | "Seperti apa data ini?" | "Apakah temuan ini berlaku di populasi?" |
+| **Contoh** | Rata-rata usia responden = 22 tahun | Apakah ada perbedaan kecemasan antara pria dan wanita? |
+| **Output** | *Mean*, SD, histogram, tabel frekuensi | *p-value*, *confidence interval*, *effect size* |
+
+::: {.callout-note}
+Statistik deskriptif selalu merupakan **langkah pertama** dalam analisis data. Sebelum menguji hipotesis apapun, selalu inspeksi data terlebih dahulu — distribusinya, *outlier*-nya, dan *missing data*-nya.
+:::
+
+---
+
+## Mengenal *software*: jamovi {background-color="#14497F"}
+
+## Mengapa jamovi?
+
+* Program berbasis *point-and-click* dengan GUI yang intuitif
+* Berbasis bahasa pemrograman **R** — transparan dan *reproducible*
+* Gratis dan *open source* (tidak seperti SPSS yang berbayar)
+* Secara *default* menyediakan informasi *effect size* — yang sering dilupakan SPSS
+* Alternatif lain: **JASP** (UI hampir identik, lebih unggul untuk *latent variable modeling*)
+
+::: {.callout-tip}
+#### Cara instalasi
+Gunakan **jamovi versi stabil terbaru** (2.6.44) — [unduh untuk Windows](https://www.jamovi.org/downloads/jamovi-2.6.44.0-win-x64.exe) atau [MacOS](https://www.jamovi.org/download.html). Pastikan juga sudah menginstal *module* yang diperlukan (GAMLj, jpower, dsb.) sebelum perkuliahan.
+:::
+
+---
+
+## Tendensi sentral {background-color="#14497F"}
+
+## *Mean*/rata-rata
+
+* **Titik setimbang** dalam suatu distribusi data — bayangkan sebuah jungkat-jungkit
+* Rumus: $\bar{X} = \frac{\sum_{i=1}^{N} X_i}{N}$
+* **Sangat sensitif terhadap *outlier***
+  - Contoh: Nilai ujian 10 mahasiswa rata-rata 60. Satu mahasiswa luar biasa mendapat 100. *Mean* langsung bergeser ke atas, padahal 9 orang lainnya tidak berubah.
+* Hanya bermakna untuk data **interval atau rasio**
+
+## Median & modus
+
+**Median** (nilai tengah)
+
+* Nilai yang berada tepat di **posisi tengah** ketika data diurutkan
+* Tidak terpengaruh *outlier* — lebih **robust**
+* Lebih tepat digunakan untuk mendeskripsikan data **ordinal** atau data dengan distribusi *skewed*
+
+**Modus** (nilai yang paling sering muncul)
+
+* Satu-satunya ukuran tendensi sentral yang bisa digunakan untuk data **nominal**
+* Data bisa punya lebih dari satu modus (*bimodal*, *multimodal*)
+
+::: {.callout-note}
+Pada distribusi **normal sempurna**, *mean* = median = modus. Semakin jauh perbedaan ketiganya, semakin tidak simetris distribusi data kita.
+:::
+
+## Latihan: Tendensi sentral di jamovi
+
+Buka dataset **HDIWDI2010.sav**, kemudian hitung *mean*, median, dan modus angka kehamilan remaja (*teenfert*):
+
+1. Klik menu *Exploration* {{< fa circle-arrow-right >}} *Descriptives*
+2. Masukkan variabel **teenfert** ke kolom *Variables*
+3. Klik opsi *Statistics* {{< fa circle-arrow-right >}} di bagian *Central Tendency*, centang *Mean*, *Median*, dan *Mode*
+
+Setelah itu, bandingkan *mean* dan median *teenfert* antar kelompok *human development index*:
+
+* Tambahkan variabel **HDgroup** ke kolom *Split by*
+* Apa yang berbeda? Kelompok mana yang punya *mean* dan median paling berbeda jauh?
+
+---
+
+## Variabilitas {background-color="#14497F"}
+
+## Mengapa variabilitas penting?
+
+* Dua distribusi bisa punya *mean* yang **sama persis** tapi bentuknya sangat berbeda
+* Variabilitas menggambarkan **seberapa menyebar** data kita dari titik pusatnya
+* Tanpa informasi variabilitas, gambaran data kita **tidak lengkap**
+
+::: {.callout-important}
+Selalu laporkan ukuran variabilitas **bersama** ukuran tendensi sentral. *Mean* tanpa standar deviasi adalah informasi yang tidak lengkap.
+:::
+
+## *Range* dan *Interquartile Range* (IQR)
+
+**_Range_**
+
+* Nilai terbesar dikurangi nilai terkecil
+* Memberikan gambaran **keseluruhan sebaran** data
+* Sangat sensitif terhadap *outlier* — satu nilai ekstrem bisa membuat *range* sangat besar
+
+**_Interquartile Range_ (IQR)**
+
+* Persentil ke-75 dikurangi persentil ke-25
+* Menggambarkan rentang nilai yang ada di **tengah-tengah distribusi** (50% data di tengah)
+* Lebih *robust* terhadap *outlier* dibanding *range*
+* Sering dipasangkan dengan **median** sebagai ukuran tendensi sentral
+
+## Varians dan standar deviasi
+
+**Varians** ($s^2$)
+
+* Mengukur rata-rata **kuadrat** penyimpangan setiap nilai dari *mean*
+* Rumus: $s^2 = \frac{\sum_{i=1}^{N}(X_i - \bar{X})^2}{N-1}$
+* Satuannya adalah **kuadrat** dari satuan data asli — sulit diinterpretasi secara langsung
+
+**Standar deviasi** ($s$)
+
+* Akar kuadrat dari varians: $s = \sqrt{s^2}$
+* Satuannya **sama** dengan satuan data asli — lebih mudah diinterpretasi
+* Semakin kecil SD, data semakin **homogen** (berkumpul di sekitar *mean*)
+* Semakin besar SD, data semakin **heterogen** (menyebar jauh dari *mean*)
+
+## Latihan: Variabilitas di jamovi
+
+Dengan dataset yang sama (**HDIWDI2010.sav**), hitung *range*, IQR, varians, dan standar deviasi *teenfert*:
+
+1. Di opsi *Statistics* {{< fa circle-arrow-right >}} bagian *Dispersion*, centang *Std. deviation*, *Variance*, dan *Range*
+2. Di opsi *Percentile Values*, centang *Quartiles*
+3. Bandingkan sebaran *teenfert* antar kelompok **HDgroup**
+
+Pertanyaan untuk didiskusikan:
+
+* Kelompok HDI mana yang variabilitasnya paling tinggi? Apa artinya?
+* Apakah *range* memberikan gambaran yang sama dengan IQR untuk setiap kelompok?
+
+---
+
+## Visualisasi data {background-color="#14497F"}
+
+## Mengapa visualisasi penting?
+
+* Statistik deskriptif angka (mean, SD) bisa **menyesatkan** tanpa visualisasi
+* *Anscombe's quartet*: empat dataset dengan *mean*, SD, dan korelasi yang **identik** — tapi bentuknya sangat berbeda
+* Visualisasi membantu kita mendeteksi:
+  - *Outlier*
+  - Distribusi yang tidak normal
+  - Pola yang tidak terduga
+
+## Jenis-jenis visualisasi data
+
+| Visualisasi | Kegunaan utama |
+|---|---|
+| **Histogram** | Menggambarkan distribusi variabel kontinu; memperlihatkan frekuensi tiap interval nilai |
+| **_Density plot_** | Versi "dihaluskan" dari histogram; lebih mudah dibaca untuk membandingkan distribusi |
+| **_Box plot_** | Menampilkan median, IQR, dan *outlier* secara ringkas |
+| **_Violin plot_** | Gabungan *box plot* dan *density plot*; menampilkan keseluruhan distribusi |
+| **_Ogive_** | Kurva frekuensi kumulatif; cocok untuk data nominal/ordinal |
+
+## Bentuk distribusi
+
+**Modalitas** (jumlah puncak distribusi):
+
+* *Unimodal* — satu puncak (paling umum)
+* *Bimodal* — dua puncak (bisa mengindikasikan ada dua subkelompok dalam data)
+* *Multimodal* — lebih dari dua puncak
+
+**Kemiringan (*skewness*)**:
+
+* *Positively skewed* (juling kanan): ekor distribusi memanjang ke kanan; *mean* > median
+* *Negatively skewed* (juling kiri): ekor distribusi memanjang ke kiri; *mean* < median
+* Simetris: *mean* ≈ median ≈ modus
+
+**Keruncingan (*kurtosis*)**:
+
+* *Leptokurtic*: distribusi lebih lancip dari normal (ekor lebih berat)
+* *Platykurtic*: distribusi lebih gepeng dari normal (ekor lebih ringan)
+
+## Latihan: Visualisasi di jamovi
+
+Dengan dataset **HDIWDI2010.sav**, inspeksi distribusi *teenfert* secara visual:
+
+1. Di opsi *Plots*, centang *Histogram*, *Density*, *Box plot*, dan *Violin*
+2. Tambahkan **HDgroup** di kolom *Split by* untuk membandingkan distribusi antar kelompok
+3. Perhatikan: apakah distribusi *teenfert* terlihat simetris? Adakah *outlier*?
+
+---
+
+## Distribusi normal {background-color="#14497F"}
+
+## Distribusi normal
+
+* Disebut juga *Gaussian distribution* atau *bell-shaped distribution*
+* Dideskripsikan dengan hanya **dua parameter**: *mean* (μ) dan standar deviasi (σ)
+* *Mean*, median, dan modus nilainya **sama persis**
+* Simetris sempurna di sekitar *mean*
+
+**Aturan empiris (68-95-99.7)**:
+
+* **68%** data berada dalam rentang μ ± 1σ
+* **95%** data berada dalam rentang μ ± 2σ
+* **99.7%** data berada dalam rentang μ ± 3σ
+
+::: {.callout-note}
+Distribusi normal adalah **asumsi dasar** dari hampir semua teknik statistik parametrik (t-test, ANOVA, regresi). Oleh karena itu, penting untuk selalu memeriksa apakah data kita mendekati distribusi normal sebelum memilih teknik analisis.
+:::
+
+## Mengapa distribusi normal penting?
+
+* Banyak variabel psikologi secara empiris mendekati distribusi normal (tinggi badan, skor IQ, kecemasan dalam populasi umum)
+* Distribusi normal menjadi **fondasi matematika** dari statistik inferensial (*Central Limit Theorem*)
+* Namun perlu dicatat: **tidak semua data psikologi berdistribusi normal**
+  - Data *reaction time* cenderung *positively skewed*
+  - Skor skala Likert 5-poin bersifat ordinal
+  - Data klinis sering memiliki distribusi yang tidak normal
+
+---
+
+## Uji normalitas {background-color="#14497F"}
+
+## Mengapa perlu uji normalitas?
+
+* Kita tidak bisa melihat langsung distribusi data di **populasi** — kita hanya punya data sampel
+* Uji normalitas membantu kita memutuskan:
+  - Gunakan teknik **parametrik** (asumsi normalitas terpenuhi — *statistical power* lebih tinggi)
+  - Gunakan teknik **non-parametrik** (asumsi normalitas tidak terpenuhi — *statistical power* lebih rendah)
+
+::: {.callout-important}
+Uji normalitas adalah **langkah wajib** sebelum memilih teknik uji hipotesis. Melewati langkah ini adalah kesalahan metodologis yang umum.
+:::
+
+## Cara memeriksa normalitas
+
+**1. Inspeksi visual**
+
+* Histogram dan *density plot* — apakah berbentuk *bell-shaped*?
+* *Skewness* ± 1 dan *kurtosis* ± 2 → data dianggap cukup normal
+
+**2. Uji *Shapiro-Wilk***
+
+* Uji normalitas yang **paling umum** digunakan
+* Hasilnya reliable untuk sampel kecil hingga sedang (N < ~2000)
+* Data dianggap normal apabila **p > 0.05**
+* Kelemahan: pada sampel sangat besar, hampir selalu signifikan meskipun penyimpangan dari normalitas sangat kecil
+
+**3. Uji *Kolmogorov-Smirnov* (1 K-S)**
+
+* Hanya disarankan untuk sampel yang **sangat kecil**
+* Cenderung memberikan hasil *misleading* — **tidak direkomendasikan** untuk penggunaan umum
+
+## *Anderson-Darling test*
+
+* Modifikasi dari *Kolmogorov-Smirnov test* yang lebih sensitif
+* Menggunakan tabel *critical values* yang lebih beragam (tidak terbatas pada distribusi Gaussian)
+* Dapat mengecek apakah distribusi data mengikuti pola: normal (Gaussian), uniform, lognormal, eksponensial, Weibull, *generalized* Pareto, dan distribusi logistik
+* Lebih andal dibanding 1 K-S *test* untuk berbagai tipe distribusi
+
+::: {.callout-tip}
+Untuk kebanyakan keperluan di Psikologi, **Shapiro-Wilk** adalah pilihan terbaik — gunakan bersama inspeksi visual (histogram + *density plot*) untuk kesimpulan yang lebih kuat.
+:::
+
+## Latihan: Uji normalitas di jamovi
+
+Dengan dataset **HDIWDI2010.sav**, uji normalitas distribusi *teenfert*:
+
+1. Di menu *Exploration* {{< fa circle-arrow-right >}} *Descriptives*
+2. Di opsi *Statistics* {{< fa circle-arrow-right >}} bagian *Normality*, centang *Shapiro-Wilk*
+3. Di opsi *Plots*, centang *Q-Q plot* untuk inspeksi visual
+
+Pertanyaan:
+
+* Apakah *teenfert* berdistribusi normal?
+* Apakah kesimpulan uji Shapiro-Wilk konsisten dengan tampilan histogram?
+* Jika data tidak normal, teknik statistik apa yang sebaiknya digunakan?

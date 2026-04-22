@@ -1,0 +1,349 @@
+---
+title: "Mengestimasi Parameter Populasi"
+subtitle: "Statistik Dasar dalam Penelitian Psikologi"
+author: "Rizqy Amelia Zein"
+institute:
+  - "[_Departemen Psikologi Kepribadian dan Sosial, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
+date: today
+format:
+  unair-revealjs:
+    slide-number: true
+    progress: true
+    transition: slide
+    center: false
+execute:
+  eval: false
+  echo: true
+---
+
+## _Outline_
+
+* Sampel, populasi, dan prosedur *sampling*
+* *The law of large numbers*
+* Distribusi *sampling*
+* *Central Limit Theorem*
+* *Standard error of the mean* dan *standard error of proportion*
+* *Confidence interval*
+* Menuju statistik inferensial
+
+---
+
+## Sampel, populasi, dan prosedur *sampling* {background-color="#14497F"}
+
+## Populasi vs sampel
+
+:::: {.columns}
+::: {.column width="50%"}
+**Populasi**
+
+* Keseluruhan individu/objek yang menjadi **target inferensi** penelitian kita
+* Bisa sangat besar, bahkan tidak terbatas (misalnya, "semua orang dewasa yang pernah mengalami depresi")
+* Karakteristik populasi disebut **parameter** (μ, σ, ρ) — hampir tidak pernah bisa diketahui secara langsung
+:::
+::: {.column width="50%"}
+**Sampel**
+
+* Sebagian kecil individu dari populasi yang **benar-benar kita ukur**
+* Karakteristik sampel disebut **statistik** ($\bar{X}$, *s*, *r*) — yang kita hitung dari data
+* Kualitas sampel menentukan seberapa jauh kita bisa **menggeneralisasi** temuan ke populasi
+:::
+::::
+
+::: {.callout-important}
+**Target populasi** harus didefinisikan dengan jelas sebelum penelitian dimulai. "Mahasiswa Psikologi Unair angkatan 2023" dan "mahasiswa Indonesia" adalah dua populasi yang sangat berbeda — dan membutuhkan strategi *sampling* yang berbeda pula.
+:::
+
+## Prosedur *sampling*: *probability sampling*
+
+Teknik-teknik di mana **setiap anggota populasi** memiliki peluang yang diketahui untuk terpilih:
+
+| Teknik | Cara kerja | Keunggulan |
+|---|---|---|
+| ***Simple random sampling*** | Setiap individu dipilih secara acak murni | Paling bebas bias |
+| ***Systematic sampling*** | Pilih setiap individu ke-*k* dari daftar | Praktis untuk populasi besar |
+| ***Stratified sampling*** | Bagi populasi ke strata, ambil sampel proporsional dari tiap strata | Menjamin representasi subkelompok |
+| ***Cluster sampling*** | Pilih kelompok (*cluster*) secara acak, ukur semua anggota kelompok terpilih | Efisien secara biaya |
+
+## Prosedur *sampling*: *non-probability sampling*
+
+Teknik-teknik di mana peluang terpilihnya anggota populasi **tidak diketahui**:
+
+| Teknik | Cara kerja | Keterbatasan |
+|---|---|---|
+| ***Convenience sampling*** | Ambil yang paling mudah diakses (misalnya, mahasiswa sendiri) | Rentan bias seleksi |
+| ***Purposive sampling*** | Pilih berdasarkan kriteria tertentu | Generalisasi terbatas |
+| ***Snowball sampling*** | Responden merujuk ke responden lain | Jaringan memengaruhi sampel |
+
+::: {.callout-important}
+Sebagian besar penelitian psikologi menggunakan ***convenience sampling*** (terutama mahasiswa). Ini **membatasi generalisasi** — temuan yang valid untuk mahasiswa psikologi belum tentu berlaku untuk populasi umum. Selalu deklarasikan keterbatasan ini dalam laporan penelitian.
+:::
+
+## *Sampling bias* dan representativitas
+
+* ***Sampling bias*** terjadi ketika sampel kita **secara sistematis berbeda** dari populasi target
+* Jenis-jenis *sampling bias* yang umum:
+  - ***Self-selection bias***: orang yang setuju berpartisipasi mungkin berbeda dari yang menolak
+  - ***Survivorship bias***: hanya mengukur yang "masih ada" — misalnya hanya pasien yang sembuh
+  - ***WEIRD problem***: sampel dari populasi **W**estern, **E**ducated, **I**ndustrialized, **R**ich, **D**emocratic — yang tidak representatif untuk populasi manusia secara global
+
+::: {.callout-note}
+Henrich et al. (2010) menemukan bahwa sekitar **96% sampel** dalam jurnal psikologi top berasal dari populasi WEIRD, padahal populasi ini hanya mewakili **12%** populasi manusia. Ini adalah krisis representativitas yang serius dalam Psikologi.
+:::
+
+---
+
+## *The law of large numbers* {background-color="#14497F"}
+
+## *The law of large numbers*
+
+* Semakin **besar ukuran sampel**, semakin dekat statistik sampel (misalnya $\bar{X}$) ke parameter populasi yang sebenarnya (μ)
+* Dengan kata lain: **data yang lebih banyak → estimasi yang lebih akurat**
+
+**Ilustrasi:**
+
+Bayangkan kita melempar koin yang adil (P(gambar) = 0.5):
+
+* Setelah 10 lemparan: mungkin dapat 7 gambar (70%) — jauh dari 50%
+* Setelah 100 lemparan: mungkin dapat 53 gambar (53%) — lebih dekat
+* Setelah 10.000 lemparan: hampir pasti mendapat sekitar 5.000 gambar (≈50%)
+
+::: {.callout-important}
+*Law of large numbers* menjelaskan mengapa **ukuran sampel kecil sangat bermasalah** dalam penelitian. Dengan N=20, *mean* sampel kita bisa sangat jauh dari *mean* populasi hanya karena kebetulan (*sampling error*). Inilah mengapa kalkulasi *statistical power* dan *sample size* itu penting sebelum penelitian dimulai.
+:::
+
+## Implikasi *law of large numbers* untuk penelitian
+
+* **Efek statistik yang kecil** membutuhkan sampel yang **besar** untuk bisa terdeteksi secara reliabel
+* Penelitian dengan sampel kecil (*underpowered*) lebih rentan:
+  - Gagal mendeteksi efek yang sebenarnya ada (*Type II error*)
+  - Menghasilkan *effect size* yang dilebih-lebihkan (*winner's curse*)
+  - Tidak dapat direplikasi (*replication crisis*)
+* Ini adalah inti dari **krisis replikasi** di Psikologi — banyak temuan dengan N kecil yang tidak bisa direplikasi
+
+::: {.callout-note}
+Open Science Collaboration (2015) berusaha mereplikasi 100 studi psikologi yang dipublikasikan — hanya **36-39%** yang berhasil direplikasi. Salah satu faktor utama: ukuran sampel yang terlalu kecil di studi-studi aslinya.
+:::
+
+---
+
+## Distribusi *sampling* dan *Central Limit Theorem* {background-color="#14497F"}
+
+## Distribusi *sampling* (ringkasan)
+
+* Distribusi *sampling* adalah distribusi teoritis dari suatu **statistik** (misalnya, *mean*) yang dihitung dari semua sampel berukuran *n* yang mungkin diambil dari suatu populasi
+* Kita tidak pernah benar-benar mengambil ribuan sampel — distribusi *sampling* adalah konstruk **matematis** yang memungkinkan kita membuat inferensi dari satu sampel
+
+**Mengapa ini penting?**
+
+* Semua uji hipotesis (t-test, ANOVA, chi-square) pada dasarnya membandingkan statistik yang kita observasi dengan distribusi *sampling* yang diharapkan **jika hipotesis nol benar**
+* *p-value* = probabilitas mendapatkan statistik seekstrem yang kita observasi berdasarkan distribusi *sampling* ini
+
+## *Central Limit Theorem* (CLT)
+
+Teorema paling penting dalam statistik:
+
+> Apabila kita mengambil sampel berukuran *n* dari populasi apapun yang memiliki *mean* μ dan standar deviasi σ yang terdefinisi, maka distribusi *sampling* dari *mean* sampel akan mendekati **distribusi normal** dengan:
+> * *Mean* = μ
+> * Standar deviasi = $\frac{\sigma}{\sqrt{n}}$
+>
+> ...ketika *n* cukup besar (umumnya **n ≥ 30**), **terlepas dari bentuk distribusi populasi aslinya**.
+
+## Implikasi CLT
+
+* Kita **tidak perlu** berasumsi bahwa data individual dalam populasi berdistribusi normal — CLT menjamin bahwa distribusi *sampling* dari *mean* akan mendekati normal selama *n* cukup besar
+* Ini adalah alasan mengapa teknik statistik parametrik (yang bergantung pada distribusi normal) **tetap valid** bahkan ketika data populasi tidak normal — asalkan sampelnya cukup besar
+* Namun untuk **sampel kecil** (n < 30), bentuk distribusi populasi lebih penting
+
+::: {.callout-important}
+CLT **tidak berarti** data kita harus berdistribusi normal. CLT menjamin normalitas pada **distribusi *sampling*** dari *mean*, bukan pada data individual. Perbedaan ini sering disalahpahami.
+:::
+
+---
+
+## *Standard error* {background-color="#14497F"}
+
+## *Standard error of the mean*
+
+* *Standard error* (SE) adalah **standar deviasi dari distribusi *sampling*** — mengukur seberapa bervariasi statistik sampel kita jika *sampling* diulang berkali-kali
+
+$$SE_{\bar{X}} = \frac{\sigma}{\sqrt{n}} \approx \frac{s}{\sqrt{n}}$$
+
+* Karena σ populasi jarang diketahui, kita gunakan *s* (standar deviasi sampel) sebagai estimasinya
+* SE memberikan informasi tentang **presisi** estimasi kita:
+  - SE kecil → estimasi presisi
+  - SE besar → estimasi tidak presisi
+
+**Faktor yang memengaruhi SE:**
+
+* **Ukuran sampel (n)**: SE berbanding terbalik dengan $\sqrt{n}$ → menggandakan n hanya mengurangi SE sebesar faktor $\sqrt{2}$ ≈ 1.41
+* **Variabilitas populasi (σ)**: populasi yang lebih heterogen → SE lebih besar
+
+## Ilustrasi: *SE of the mean*
+
+**Konteks:** Pemerintah ingin mengevaluasi dampak program **Makan Bergizi Gratis (MBG)** terhadap kemampuan kognitif siswa SD. Salah satu indikatornya adalah skor IQ rata-rata siswa penerima MBG.
+
+Peneliti mengambil sampel **n = 64** siswa dari sekolah penerima MBG di Surabaya, dan mendapatkan $\bar{X}$ = 97.5 dengan *s* = 12.
+
+$$SE_{\bar{X}} = \frac{12}{\sqrt{64}} = \frac{12}{8} = 1.5$$
+
+* Artinya, estimasi rata-rata IQ kita memiliki ketidakpastian sekitar **±1.5 poin IQ**
+* Bagaimana kalau peneliti hanya sempat mengukur **n = 16** siswa?
+
+$$SE_{\bar{X}} = \frac{12}{\sqrt{16}} = \frac{12}{4} = 3.0$$
+
+* SE **dua kali lipat lebih besar** — estimasi jauh kurang presisi, hanya karena sampelnya lebih kecil
+
+::: {.callout-note}
+Perhatikan: variabilitas data (s = 12) **tidak berubah** — yang berubah hanya ukuran sampel. Inilah mengapa memperbesar n adalah cara paling langsung untuk meningkatkan presisi estimasi kita.
+:::
+
+## *Standard error of proportion*
+
+Ketika variabel kita adalah **proporsi** (misalnya, persentase responden yang memilih kandidat tertentu), SE dihitung dengan:
+
+$$SE_p = \sqrt{\frac{p(1-p)}{n}}$$
+
+di mana *p* adalah proporsi sampel.
+
+## Ilustrasi: *SE of proportion*
+
+**Konteks:** Sebuah lembaga survei melakukan *quick count* menjelang **Pemilihan Wali Kota Surabaya**. Dari sampel **n = 400** pemilih terdaftar, sebanyak **228 orang** (57%) menyatakan akan memilih kandidat A.
+
+$$p = \frac{228}{400} = 0.57$$
+
+$$SE_p = \sqrt{\frac{0.57 \times 0.43}{400}} = \sqrt{\frac{0.2451}{400}} = \sqrt{0.000613} \approx 0.025$$
+
+* Estimasi dukungan kandidat A adalah **57% ± 2.5%**
+* Jika lembaga lain survei dengan **n = 100** saja:
+
+$$SE_p = \sqrt{\frac{0.57 \times 0.43}{100}} \approx 0.049$$
+
+* SE hampir **dua kali lipat** → rentang ketidakpastian ±4.9% — terlalu lebar untuk memprediksi pemenang
+
+::: {.callout-important}
+Inilah mengapa survei politik yang serius menggunakan sampel **minimal 400 responden** — di bawah itu, *margin of error*-nya terlalu besar untuk membuat prediksi yang bermakna. Lembaga survei yang baik selalu melaporkan ukuran sampel dan *margin of error*-nya secara transparan.
+:::
+
+::: {.callout-note}
+SE proporsi mencapai nilai **maksimum** ketika p = 0.5 — artinya kita paling tidak pasti ketika dukungan mendekati 50:50 (persaingan sangat ketat). Semakin jauh proporsi dari 0.5, semakin kecil SE-nya.
+:::
+
+---
+
+## *Confidence interval* {background-color="#14497F"}
+
+## Apa itu *confidence interval*?
+
+* *Confidence interval* (CI) adalah **rentang nilai** yang dengan tingkat kepercayaan tertentu (biasanya 95%) berisi parameter populasi yang sebenarnya
+* Formula CI 95% untuk *mean*:
+
+$$CI_{95\%} = \bar{X} \pm 1.96 \times SE_{\bar{X}}$$
+
+* Atau lebih tepatnya menggunakan distribusi *t* (karena σ tidak diketahui):
+
+$$CI_{95\%} = \bar{X} \pm t_{kritis} \times SE_{\bar{X}}$$
+
+di mana $t_{kritis}$ bergantung pada *degrees of freedom* (df = n - 1)
+
+## Interpretasi *confidence interval* yang benar
+
+::: {.callout-important}
+#### Interpretasi yang **SALAH** (tapi sangat umum):
+*"Ada probabilitas 95% bahwa parameter populasi berada dalam CI ini."*
+
+Parameter populasi adalah **nilai tetap** (meskipun tidak kita ketahui) — ia tidak punya probabilitas untuk berada di suatu tempat.
+:::
+
+::: {.callout-note}
+#### Interpretasi yang **BENAR**:
+*"Jika kita mengulang pengambilan sampel dan menghitung CI berkali-kali dengan prosedur yang sama, **95% dari CI tersebut** akan berisi parameter populasi yang sebenarnya."*
+
+Ini adalah pernyataan tentang **prosedur**, bukan tentang satu CI yang spesifik.
+:::
+
+## CI 95% vs CI 99%: *tradeoff* presisi dan kepercayaan
+
+| | **CI 95%** | **CI 99%** |
+|---|---|---|
+| *Critical value (z)* | 1.96 | 2.576 |
+| **Lebar interval** | Lebih sempit | Lebih lebar |
+| **Kemungkinan berisi parameter** | 95% | 99% |
+| **Presisi** | Lebih tinggi | Lebih rendah |
+
+* Untuk mendapatkan CI yang lebih **sempit** (lebih presisi) **sekaligus** lebih **percaya diri**, satu-satunya cara adalah **memperbesar ukuran sampel**
+
+::: {.callout-tip}
+Dalam pelaporan hasil penelitian, selalu laporkan CI bersama dengan *point estimate* (misalnya *mean* atau koefisien korelasi). CI memberikan informasi tentang **presisi** dan **signifikansi praktis** yang tidak diberikan oleh *p-value* saja.
+:::
+
+## CI untuk *mean*: kembali ke contoh MBG
+
+Dari contoh sebelumnya (n = 64, $\bar{X}$ = 97.5, SE = 1.5), hitung CI 95%:
+
+$$CI_{95\%} = 97.5 \pm 1.96 \times 1.5 = 97.5 \pm 2.94 = [94.56,\ 100.44]$$
+
+Interpretasi: Kita 95% yakin bahwa rata-rata skor IQ **seluruh** siswa SD penerima MBG di populasi yang diwakili sampel ini berada di antara **94.6 hingga 100.4**.
+
+* Apakah ini bukti bahwa MBG "berhasil"? **Belum tentu** — kita belum punya data pembanding (kelompok kontrol, atau rata-rata sebelum MBG). CI hanya memberi tahu kita seberapa presisi estimasi kita, bukan apakah efeknya nyata.
+
+## CI untuk proporsi: kembali ke contoh Pilwali Surabaya
+
+$$CI_{95\%} = p \pm 1.96 \times SE_p$$
+
+Dari contoh sebelumnya (n = 400, p = 0.57, SE = 0.025):
+
+$$CI_{95\%} = 0.57 \pm 1.96 \times 0.025 = 0.57 \pm 0.049 = [0.521,\ 0.619]$$
+
+Interpretasi: Kita 95% yakin bahwa dukungan nyata untuk kandidat A di populasi pemilih terdaftar berada di antara **52.1% hingga 61.9%**.
+
+* Batas bawah CI (52.1%) masih di atas 50% → survei ini memberikan **keyakinan yang cukup kuat** bahwa kandidat A memimpin
+* Bandingkan jika CI-nya adalah [48%, 66%] — batas bawah di bawah 50% → kita **tidak bisa menyimpulkan** siapa yang unggul
+
+::: {.callout-tip}
+Lembaga survei profesional di Indonesia seperti LSI, Litbang Kompas, dan Indikator Politik selalu melaporkan *margin of error* (≈ 1.96 × SE) bersama hasil surveinya. Kalau kalian melihat klaim survei tanpa *margin of error*, itu tanda peringatan.
+:::
+
+## Latihan: Membaca CI di jamovi
+
+Saat melakukan analisis apapun di jamovi (t-test, ANOVA, regresi), selalu aktifkan opsi *Confidence Interval*:
+
+* Di menu *T-Tests* {{< fa circle-arrow-right >}} opsi *Additional Statistics* {{< fa circle-arrow-right >}} centang *Confidence interval*
+* Perhatikan: semakin besar N, semakin **sempit** CI yang dihasilkan
+* CI yang tidak mencakup angka 0 (untuk perbedaan *mean*) atau 1 (untuk *odds ratio*) biasanya konsisten dengan hasil yang *statistically significant*
+
+---
+
+## Menuju statistik inferensial {background-color="#14497F"}
+
+## Menyatukan semua konsep
+
+```
+Populasi (parameter: μ, σ tidak diketahui)
+    ↓ sampling
+Sampel (statistik: X̄, s — yang kita hitung)
+    ↓ menggunakan CLT + SE
+Distribusi sampling (distribusi teoritis semua X̄ yang mungkin)
+    ↓ digunakan untuk
+Inferensi: CI dan uji hipotesis
+```
+
+* **Estimasi titik** (*point estimation*): menggunakan statistik sampel ($\bar{X}$, *s*, *r*) sebagai tebakan terbaik untuk parameter populasi
+* **Estimasi interval** (*interval estimation*): CI — memberikan rentang yang masuk akal untuk parameter
+* **Uji hipotesis**: mengevaluasi apakah data konsisten dengan klaim tertentu tentang parameter populasi
+
+## Apa yang sudah kita ketahui — dan apa yang belum
+
+::: {.callout-note}
+#### Sudah kita ketahui:
+* Bagaimana mendeskripsikan data sampel (statistik deskriptif)
+* Konsep probabilitas dan distribusi probabilitas
+* Bagaimana *sampling distribution* terbentuk (CLT)
+* Cara mengukur ketidakpastian estimasi (SE dan CI)
+:::
+
+::: {.callout-tip}
+#### Yang akan kita pelajari selanjutnya:
+* Bagaimana **merumuskan dan menguji hipotesis** secara formal (*p-value*, *Type I/II error*, *effect size*, *statistical power*)
+* Bagaimana memilih teknik uji hipotesis yang **tepat** sesuai jenis data dan pertanyaan penelitian
+* Semua teknik tersebut bersandar pada fondasi yang sudah kita bangun di sini
+:::

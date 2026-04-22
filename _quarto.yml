@@ -1,0 +1,119 @@
+project:
+  type: website
+  output-dir: docs
+  resources:
+    - libs/
+    - img/
+    - materials/
+    - articles/
+    - _extensions/rameliaz/unair/logo.png
+    - _extensions/rameliaz/unair/logo_white.png
+  render:
+    - index.qmd
+    - slides/
+
+website:
+  title: "Statistik Dasar dalam Penelitian Psikologi"
+  navbar:
+    left:
+      - href: https://rameliaz.github.io/
+        icon: house
+        text: "oleh Rizqy Amelia Zein"
+      - icon: github
+        href: https://github.com/rameliaz/statistik
+    right:
+      - text: "Materi (html)"
+        menu:
+          - text: "Statistik Deskriptif"
+            href: slides/statistik-deskriptif.html
+          - text: "Probabilitas"
+            href: slides/probabilitas.html
+          - text: "Estimasi Parameter"
+            href: slides/estimasi-parameter.html
+          - text: "Uji Hipotesis"
+            href: slides/uji-hipotesis.html
+          - text: "Analisis Kategorikal"
+            href: slides/analisis-kategorikal.html
+          - text: "T-Test"
+            href: slides/t-test.html
+          - text: "Korelasi"
+            href: slides/korelasi.html
+          - text: "ANOVA"
+            href: slides/anova.html
+          - text: "ANCOVA"
+            href: slides/ancova.html
+          - text: "Regresi OLS"
+            href: slides/regresi.html
+          - text: "Analisis Moderasi"
+            href: slides/moderasi.html
+          - text: "Analisis Mediasi"
+            href: slides/mediasi.html
+      - text: "Materi (pdf)"
+        menu:
+          - text: "Statistik Deskriptif"
+            href: "slides/statistik-deskriptif.html?print-pdf"
+          - text: "Probabilitas"
+            href: "slides/probabilitas.html?print-pdf"
+          - text: "Estimasi Parameter"
+            href: "slides/estimasi-parameter.html?print-pdf"
+          - text: "Uji Hipotesis"
+            href: "slides/uji-hipotesis.html?print-pdf"
+          - text: "Analisis Kategorikal"
+            href: "slides/analisis-kategorikal.html?print-pdf"
+          - text: "T-Test"
+            href: "slides/t-test.html?print-pdf"
+          - text: "Korelasi"
+            href: "slides/korelasi.html?print-pdf"
+          - text: "ANOVA"
+            href: "slides/anova.html?print-pdf"
+          - text: "ANCOVA"
+            href: "slides/ancova.html?print-pdf"
+          - text: "Regresi OLS"
+            href: "slides/regresi.html?print-pdf"
+          - text: "Analisis Moderasi"
+            href: "slides/moderasi.html?print-pdf"
+          - text: "Analisis Mediasi"
+            href: "slides/mediasi.html?print-pdf"
+      - text: "Dataset"
+        menu:
+          - text: "Dataset Contoh Korelasi"
+            href: materials/corr.omv
+          - text: "Dataset Latihan Korelasi"
+            href: materials/latihancorr.csv
+          - text: "Dataset Latihan Regresi OLS"
+            href: materials/dataset-sekolah.omv
+      - text: "Survei"
+        menu:
+          - text: "Evaluasi"
+            href: https://www.soscisurvey.de/fb-workshop-amel/
+      - icon: envelope
+        href: "mailto:amelia.zein@psikologi.unair.ac.id"
+      - icon: github
+        href: https://github.com/rameliaz
+      - icon: discord
+        href: https://discord.com/users/807046335613632555
+  search:
+    location: navbar
+    type: overlay
+  page-footer:
+      left: "&#169; 2026 Rizqy Amelia Zein"
+      center: |
+        <a class="link-dark me-1" href="https://github.com/rameliaz" title="github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+        <a class="link-dark me-1" href="mailto:amelia.zein@psikologi.unair.ac.id" title="Email" target="_blank" rel="noopener"><i class="fa-solid fa-envelope"></i></a>
+        <a class="link-dark me-1" href="https://bsky.app/profile/ameliazein.bsky.social" title="Bluesky" target="_blank" rel="noopener"><i class="fa-brands fa-bluesky"></i></a>
+        <a class="link-dark me-1" href="https://discord.com/users/807046335613632555" title="Discord" target="_blank" rel="noopener"><i class="fa-brands fa-discord"></i></a>
+      right: |
+        <a class="link-dark me-1" href="https://github.com/rameliaz/mg-sem-workshop"><i class="fa-brands fa-github"></i> Source</a>
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    toc: true
+    toc-float: true
+    toc-depth: 3
+    df-print: paged
+    highlight-style: github
+    include-in-header:
+      - text: |
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">

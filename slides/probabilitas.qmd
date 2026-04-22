@@ -1,0 +1,253 @@
+---
+title: "Probabilitas"
+subtitle: "Statistik Dasar dalam Penelitian Psikologi"
+author: "Rizqy Amelia Zein"
+institute:
+  - "[_Departemen Psikologi Kepribadian dan Sosial, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
+date: today
+format:
+  unair-revealjs:
+    slide-number: true
+    progress: true
+    transition: slide
+    center: false
+execute:
+  eval: false
+  echo: true
+---
+
+## _Outline_
+
+* Apa itu probabilitas?
+* Dua pendekatan: *frequentist* vs *Bayesian*
+* Aturan dasar probabilitas
+* Distribusi probabilitas
+* Distribusi normal dan *z-score*
+* *Sampling distribution of the mean*
+* Jembatan menuju statistik inferensial
+
+---
+
+## Apa itu probabilitas? {background-color="#14497F"}
+
+## Apa itu probabilitas?
+
+* Probabilitas adalah **ukuran ketidakpastian** — seberapa besar kemungkinan suatu kejadian terjadi
+* Dinyatakan dalam angka antara **0** (mustahil) dan **1** (pasti terjadi)
+* Contoh: probabilitas mendapatkan angka 6 saat melempar dadu = 1/6 ≈ 0.167
+
+::: {.callout-note}
+Dalam penelitian psikologi, kita tidak pernah bisa **membuktikan** sesuatu secara mutlak — kita hanya bisa menyatakan seberapa **mustahil** temuan kita terjadi secara kebetulan. Inilah inti dari logika probabilistik dalam ilmu pengetahuan.
+:::
+
+**Notasi:**
+
+* $P(A)$ = probabilitas kejadian A
+* $P(A) = 0$ → kejadian A mustahil terjadi
+* $P(A) = 1$ → kejadian A pasti terjadi
+* $0 \leq P(A) \leq 1$ selalu berlaku
+
+## Dua pendekatan probabilitas
+
+:::: {.columns}
+::: {.column width="50%"}
+**_Frequentist_**
+
+* Probabilitas = **proporsi kejadian** jika percobaan diulang sangat banyak kali
+* *"Kalau kita melempar koin 10.000 kali, sekitar 5.000 kali akan muncul gambar"*
+* Tidak bisa digunakan untuk kejadian yang tidak bisa diulang
+* **Fondasi dari statistik klasik** (NHST, *p-value*, *confidence interval*)
+:::
+::: {.column width="50%"}
+**_Bayesian_**
+
+* Probabilitas = **derajat keyakinan** (*degree of belief*) yang bisa diperbarui dengan data baru
+* *"Berdasarkan bukti yang ada, seberapa yakin saya bahwa hipotesis ini benar?"*
+* Memungkinkan kita menggabungkan **pengetahuan sebelumnya** (*prior*) dengan data baru
+* Semakin populer di Psikologi — misalnya *Bayes Factor* sebagai alternatif *p-value*
+:::
+::::
+
+::: {.callout-note}
+Sebagian besar statistik yang kalian pelajari di S1 menggunakan **pendekatan *frequentist***. Penting untuk memahami asumsi ini agar kalian bisa menginterpretasi hasil analisis dengan benar.
+:::
+
+---
+
+## Aturan dasar probabilitas {background-color="#14497F"}
+
+## Aturan penjumlahan (*Addition Rule*)
+
+**Kejadian *mutually exclusive*** (tidak bisa terjadi bersamaan):
+
+$$P(A \cup B) = P(A) + P(B)$$
+
+* Contoh: Probabilitas mendapatkan angka 1 **atau** angka 2 saat melempar dadu = 1/6 + 1/6 = 2/6
+
+**Kejadian yang *tidak mutually exclusive*** (bisa terjadi bersamaan):
+
+$$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$
+
+* Contoh: Probabilitas mahasiswa lulus statistik **atau** lulus metodologi, di mana beberapa mahasiswa bisa lulus keduanya
+
+## Aturan perkalian (*Multiplication Rule*)
+
+**Kejadian independen** (kejadian A tidak memengaruhi kejadian B):
+
+$$P(A \cap B) = P(A) \times P(B)$$
+
+* Contoh: Probabilitas mendapat angka 6 dua kali berturut-turut = 1/6 × 1/6 = 1/36
+
+**Probabilitas bersyarat** (*conditional probability*):
+
+$$P(A | B) = \frac{P(A \cap B)}{P(B)}$$
+
+* $P(A|B)$ dibaca: "probabilitas A terjadi, **diketahui** B sudah terjadi"
+* Contoh: Probabilitas mahasiswa mendapat nilai A **diketahui** mereka hadir di semua kuliah
+
+::: {.callout-important}
+Kebanyakan analisis statistik mengasumsikan **independensi** antar-observasi. Melanggar asumsi ini (misalnya, data dari mahasiswa dalam kelas yang sama) akan membuat estimasi kita tidak akurat.
+:::
+
+## Komplemen
+
+* Probabilitas kejadian A **tidak terjadi**:
+
+$$P(\bar{A}) = 1 - P(A)$$
+
+* Contoh: Jika probabilitas hujan besok = 0.3, maka probabilitas **tidak hujan** = 1 - 0.3 = 0.7
+
+::: {.callout-note}
+Aturan komplemen ini adalah fondasi dari *p-value* dalam uji hipotesis. Ketika kita mengatakan *p* = 0.03, artinya probabilitas mendapatkan data seperti yang kita amati (atau lebih ekstrem) **jika hipotesis nol benar** adalah 0.03 — sangat kecil, sehingga kita meragukan hipotesis nol.
+:::
+
+---
+
+## Distribusi probabilitas {background-color="#14497F"}
+
+## Apa itu distribusi probabilitas?
+
+* Distribusi probabilitas menggambarkan **semua kemungkinan nilai** yang bisa diambil suatu variabel beserta **probabilitas** masing-masing nilai tersebut
+* Ada dua jenis utama:
+
+| | **Diskret** | **Kontinu** |
+|---|---|---|
+| **Jenis variabel** | Nilai cacahan (0, 1, 2, ...) | Nilai tak terbatas dalam suatu rentang |
+| **Probabilitas** | $P(X = x)$ untuk nilai tertentu | Probabilitas untuk **interval** nilai |
+| **Contoh** | Jumlah anak, jumlah kesalahan | Tinggi badan, skor IQ, kecemasan |
+| **Distribusi umum** | Binomial, Poisson | Normal, *t*, *F*, $\chi^2$ |
+
+## Distribusi binomial
+
+* Digunakan untuk variabel diskret dengan **dua kemungkinan hasil** (*sukses* vs *gagal*)
+* Parameter: **n** (jumlah percobaan) dan **p** (probabilitas sukses)
+
+$$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}$$
+
+* Contoh: Dari 10 pasien yang mendapat terapi CBT, berapa probabilitas tepat 7 pasien mengalami perbaikan gejala, jika diketahui probabilitas perbaikan = 0.6?
+* Distribusi binomial adalah fondasi dari **binomial test** (yang akan kita pelajari di analisis data kategorikal)
+
+::: {.callout-note}
+Ketika **n sangat besar** dan **p tidak terlalu ekstrem**, distribusi binomial mendekati distribusi normal — inilah salah satu alasan mengapa distribusi normal sangat penting.
+:::
+
+---
+
+## Distribusi normal dan *z-score* {background-color="#14497F"}
+
+## Distribusi normal sebagai distribusi probabilitas
+
+* Distribusi normal adalah distribusi probabilitas **kontinu** yang paling penting dalam statistik
+* Didefinisikan sepenuhnya oleh dua parameter: μ (*mean* populasi) dan σ (standar deviasi populasi)
+
+$$f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}$$
+
+* Total area di bawah kurva = **1** (semua probabilitas berjumlah 1)
+* Probabilitas untuk interval tertentu = **area di bawah kurva** pada interval tersebut
+
+## *Z-score* (skor baku)
+
+* *Z-score* mengubah nilai mentah menjadi **satuan standar deviasi** dari *mean*:
+
+$$z = \frac{X - \mu}{\sigma}$$
+
+* Distribusi normal dengan μ = 0 dan σ = 1 disebut **distribusi normal standar** (*standard normal distribution*)
+
+**Kegunaan *z-score*:**
+
+* Membandingkan nilai dari **distribusi yang berbeda** (misalnya, skor IQ vs skor kecemasan)
+* Menghitung **probabilitas** mendapatkan nilai tertentu atau lebih ekstrem
+* Menentukan **persentil** — posisi relatif suatu nilai dalam distribusi
+
+## Membaca tabel z / menggunakan distribusi normal
+
+Contoh interpretasi:
+
+* *z* = 1.96 → 97.5% data berada **di bawah** nilai ini; hanya 2.5% berada di atasnya
+* *z* = ±1.96 → 95% data berada **di antara** kedua nilai ini
+
+::: {.callout-note}
+Angka **1.96** akan sering muncul — ini adalah *z-score* yang membatasi 95% tengah distribusi normal. Angka ini menjadi dasar dari *confidence interval* 95% dan *critical value* pada uji dua sisi dengan α = 0.05.
+:::
+
+**Contoh soal:**
+
+Diketahui skor kecemasan di populasi mahasiswa berdistribusi normal dengan μ = 50 dan σ = 10. Berapa probabilitas seorang mahasiswa memiliki skor kecemasan **lebih dari 65**?
+
+* $z = (65 - 50) / 10 = 1.5$
+* $P(X > 65) = P(z > 1.5) = 1 - 0.933 = 0.067$
+* Hanya sekitar **6.7%** mahasiswa memiliki skor kecemasan di atas 65
+
+---
+
+## *Sampling distribution of the mean* {background-color="#14497F"}
+
+## Dari satu sampel ke banyak sampel
+
+* Sejauh ini kita berbicara tentang distribusi **data individual** dalam populasi
+* Tetapi dalam penelitian, kita bekerja dengan ***mean* sampel** — bukan nilai individual
+* Pertanyaan penting: kalau kita mengambil banyak sampel berbeda dari populasi yang sama, bagaimana *mean* sampel-sampel itu terdistribusi?
+
+**Bayangkan eksperimen berikut:**
+
+1. Ambil sampel 30 mahasiswa dari populasi mahasiswa Unair, hitung *mean* kecemasan → dapat satu nilai *mean*
+2. Ambil sampel **lain** 30 mahasiswa, hitung *mean* lagi → dapat nilai *mean* yang berbeda
+3. Ulangi 1.000 kali → dapatkan **1.000 nilai *mean***
+4. Buat histogram dari 1.000 nilai *mean* tersebut → inilah ***sampling distribution of the mean***
+
+## Karakteristik *sampling distribution of the mean*
+
+Jika populasi memiliki *mean* μ dan standar deviasi σ, maka *sampling distribution of the mean* dari sampel berukuran *n* memiliki:
+
+* ***Mean*** = **μ** (sama dengan *mean* populasi)
+* **Standar deviasi** = $\frac{\sigma}{\sqrt{n}}$ — disebut ***standard error of the mean***
+* **Bentuk** mendekati **normal**, terlepas dari bentuk distribusi populasi aslinya (ini adalah *Central Limit Theorem* — akan dibahas lebih dalam di materi berikutnya)
+
+::: {.callout-important}
+**Ini adalah konsep kunci dalam statistik inferensial.** Ketika kita menghitung *p-value* atau *confidence interval*, kita sebenarnya menggunakan *sampling distribution* — bukan distribusi data mentah kita.
+:::
+
+## *Standard error of the mean*
+
+$$SE_{\bar{X}} = \frac{\sigma}{\sqrt{n}} \approx \frac{s}{\sqrt{n}}$$
+
+* *Standard error* (SE) menggambarkan **seberapa bervariasi *mean* sampel** jika kita mengulang pengambilan sampel berkali-kali
+* Semakin **besar n**, semakin **kecil SE** → *mean* sampel kita semakin **presisi** sebagai estimasi μ
+* Ini mengapa **ukuran sampel penting**: sampel yang lebih besar memberikan estimasi yang lebih akurat
+
+::: {.callout-note}
+SE berbeda dari standar deviasi (SD). **SD** menggambarkan variabilitas **data individual** dalam sampel. **SE** menggambarkan variabilitas ***mean* sampel** di antara semua sampel yang mungkin diambil dari populasi yang sama.
+:::
+
+## Mengapa ini penting untuk inferensi?
+
+* Kita hanya punya **satu sampel** dalam penelitian nyata
+* Tapi dengan memahami *sampling distribution*, kita bisa menjawab: **"Seberapa jauh mungkin *mean* sampel kita menyimpang dari *mean* populasi yang sebenarnya?"**
+* Ini adalah pertanyaan yang dijawab oleh:
+  - ***Confidence interval*** — memberikan rentang nilai yang *plausible* untuk parameter populasi
+  - ***p-value*** — mengukur seberapa tidak mungkin data kita muncul jika hipotesis nol benar
+  - ***Statistical power*** — kemampuan kita mendeteksi efek yang nyata
+
+::: {.callout-tip}
+Pemahaman tentang *sampling distribution* adalah **pondasi** dari seluruh statistik inferensial. Semua teknik yang akan kita pelajari berikutnya — t-test, ANOVA, korelasi, regresi — semuanya bersandar pada konsep ini.
+:::

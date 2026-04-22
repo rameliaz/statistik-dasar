@@ -1,0 +1,302 @@
+---
+title: "Korelasi"
+subtitle: "Statistik Dasar dalam Penelitian Psikologi"
+author: "Rizqy Amelia Zein"
+institute:
+  - "[_Departemen Psikologi Kepribadian dan Sosial, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
+date: today
+format:
+  unair-revealjs:
+    slide-number: true
+    progress: true
+    transition: slide
+    center: false
+execute:
+  eval: false
+  echo: true
+---
+
+## _Outline_
+
+* Apa itu korelasi?
+* *Scatterplot* dan inspeksi visual
+* Koefisien korelasi Pearson (*r*)
+* Interpretasi kekuatan dan arah korelasi
+* Matriks korelasi
+* Korelasi Spearman (non-parametrik)
+* Analisis *power* untuk korelasi
+* Peringatan: korelasi bukan kausalitas
+
+---
+
+## Apa itu korelasi? {background-color="#14497F"}
+
+## Korelasi mengukur hubungan linear
+
+Korelasi mengukur seberapa kuat dan ke arah mana **dua variabel kontinu bergerak bersama**:
+
+* Semakin tinggi variabel A → semakin tinggi variabel B? (**korelasi positif**)
+* Semakin tinggi variabel A → semakin rendah variabel B? (**korelasi negatif**)
+* Tidak ada pola yang konsisten? (**tidak ada korelasi**)
+
+::: {.callout-note}
+Korelasi hanya mengukur hubungan **linear**. Dua variabel bisa punya korelasi mendekati nol tetapi tetap memiliki hubungan yang kuat secara non-linear (misalnya, kurva U terbalik antara stres dan performa).
+:::
+
+## Dataset masukangin: angin duduk dan kebiasaan
+
+Dataset **masukangin.omv** berisi 1.160 responden dengan variabel:
+
+| Variabel | Keterangan |
+|---|---|
+| **glegekan** | Frekuensi glegekan (sendawa berulang) per minggu |
+| **antangin** | Konsumsi jamu antangin per minggu |
+| **kerokan** | Frekuensi kerokan per bulan |
+| **merah** | Tingkat kemerahan kulit setelah kerokan (skala 1–10) |
+| **usia** | Usia responden dalam tahun |
+
+Kita akan menggunakan dataset ini untuk mengeksplorasi hubungan antar variabel yang berkaitan dengan kepercayaan kesehatan tradisional Jawa.
+
+---
+
+## *Scatterplot* dan inspeksi visual {background-color="#14497F"}
+
+## Selalu mulai dengan *scatterplot*
+
+Sebelum menghitung angka korelasi apapun, **visualisasikan dulu** hubungan antara dua variabel dengan *scatterplot*:
+
+* Sumbu X: variabel prediktor (atau variabel pertama)
+* Sumbu Y: variabel respons (atau variabel kedua)
+* Setiap titik mewakili **satu observasi**
+
+**Yang perlu diperhatikan:**
+
+* Apakah ada pola linear? Atau non-linear (kurva)?
+* Seberapa "padat" titik-titik berkumpul di sekitar garis linear?
+* Adakah *outlier* yang jauh dari pola umum?
+* Apakah variabilitas Y konstan di sepanjang sumbu X (*homoscedasticity*)?
+
+::: {.callout-important}
+**Koefisien korelasi bisa menyesatkan tanpa visualisasi.** Seperti *Anscombe's quartet*, berbagai pola data yang sangat berbeda bisa menghasilkan nilai *r* yang identik. Selalu inspeksi *scatterplot* sebelum menarik kesimpulan.
+:::
+
+## Latihan: *Scatterplot* di jamovi
+
+Buka dataset **masukangin.omv**, kemudian buat *scatterplot* untuk pasangan variabel berikut:
+
+1. Klik menu *Exploration* {{< fa circle-arrow-right >}} *Scatterplot*
+2. Buat *scatterplot* untuk:
+   - **glegekan** (X) vs **kerokan** (Y)
+   - **glegekan** (X) vs **merah** (Y)
+3. Centang *Regression line* untuk menambahkan garis tren
+4. Centang *Marginal distributions* untuk melihat distribusi masing-masing variabel
+
+Pertanyaan untuk didiskusikan:
+
+* Pasangan mana yang menunjukkan hubungan lebih kuat?
+* Apakah hubungannya linear atau ada indikasi pola non-linear?
+* Adakah *outlier* yang mencurigakan?
+
+---
+
+## Koefisien korelasi Pearson (*r*) {background-color="#14497F"}
+
+## Definisi dan formula Pearson's *r*
+
+Pearson's *r* adalah **kovarians yang distandardisasi** — korelasi yang tidak tergantung pada satuan variabel:
+
+$$r = \frac{\sum_{i=1}^{n}(X_i - \bar{X})(Y_i - \bar{Y})}{(n-1) s_X s_Y} = \frac{\text{Cov}(X,Y)}{s_X \cdot s_Y}$$
+
+* $r$ selalu berada dalam rentang **-1 hingga +1**
+* $r = +1$: korelasi positif sempurna (semua titik pada garis lurus menanjak)
+* $r = -1$: korelasi negatif sempurna (semua titik pada garis lurus menurun)
+* $r = 0$: tidak ada hubungan linear
+
+**Kuadratnya ($r^2$, disebut *coefficient of determination*)** menunjukkan proporsi varians Y yang dapat dijelaskan oleh X.
+
+## Interpretasi kekuatan korelasi
+
+| |*r* | *r²* | Interpretasi |
+|---|---|---|---|
+| Positif/Negatif | ±0.10 | ~1% | Sangat lemah |
+| Positif/Negatif | ±0.30 | ~9% | Lemah-sedang |
+| Positif/Negatif | ±0.50 | ~25% | Sedang |
+| Positif/Negatif | ±0.70 | ~49% | Kuat |
+| Positif/Negatif | ±0.90 | ~81% | Sangat kuat |
+
+::: {.callout-note}
+*Benchmark* ini adalah **panduan umum**, bukan aturan kaku. Di Psikologi Sosial dan Kepribadian, *r* = 0.30 bisa sangat bermakna. Di Psikologi Klinis atau Neuropsikologi, *r* = 0.30 mungkin terlalu kecil untuk punya nilai diagnostik. Interpretasikan selalu dalam konteks bidang dan pertanyaan penelitian.
+:::
+
+## Hasil korelasi: dataset masukangin
+
+**Hubungan antara glegekan dan merah:**
+
+$$r = .629, \quad 95\%\text{ CI} = [.593, .663], \quad p < .001$$
+
+Interpretasi: Terdapat korelasi **positif sedang-kuat** antara frekuensi glegekan dan tingkat kemerahan kulit setelah kerokan. Responden yang lebih sering glegekan cenderung mendapat kulit yang lebih merah saat kerokan. Sekitar **39.6%** variabilitas kemerahan kulit dapat dijelaskan oleh frekuensi glegekan ($r^2 = .396$).
+
+**Hubungan antara glegekan dan kerokan:**
+
+$$r = .390, \quad 95\%\text{ CI} = [.340, .438], \quad p < .001$$
+
+Interpretasi: Korelasi positif **lemah-sedang**. Responden yang lebih sering glegekan juga lebih sering melakukan kerokan. $r^2 = .152$ — sekitar **15.2%** variabilitas kerokan dapat dijelaskan glegekan.
+
+## *Confidence interval* untuk korelasi
+
+**Hubungan antara kerokan dan merah:**
+
+$$r = .082, \quad 95\%\text{ CI} = [.025, .139], \quad p = .005$$
+
+::: {.callout-important}
+**Contoh kasus N besar menghasilkan signifikansi yang menyesatkan**
+
+Dengan N = 1.160, korelasi sekecil *r* = 0.082 sudah signifikan (*p* = .005). Namun $r^2$ = 0.0067 — artinya hanya **0.67%** variabilitas kemerahan kulit yang dapat dijelaskan oleh frekuensi kerokan. Secara praktis, hubungan ini hampir tidak bermakna.
+
+Ini menegaskan pentingnya melaporkan **CI dan *effect size***, bukan hanya *p-value*.
+:::
+
+---
+
+## Matriks korelasi {background-color="#14497F"}
+
+## Menghitung banyak korelasi sekaligus
+
+Ketika kita punya banyak variabel, matriks korelasi menyajikan semua pasangan korelasi secara ringkas:
+
+$$\begin{pmatrix} 1 & r_{12} & r_{13} \\ r_{21} & 1 & r_{23} \\ r_{31} & r_{32} & 1 \end{pmatrix}$$
+
+* Diagonal selalu **1** (korelasi variabel dengan dirinya sendiri)
+* Matriks **simetris**: $r_{12} = r_{21}$
+
+::: {.callout-note}
+Ketika memeriksa banyak korelasi sekaligus, perhatikan masalah **multiple comparisons** — dengan 10 variabel, kita menguji 45 pasangan korelasi. Secara kebetulan, sekitar 5% dari 45 uji (~2-3 uji) akan signifikan meski tidak ada hubungan sesungguhnya, jika α = 0.05 per uji.
+:::
+
+## Latihan: Matriks korelasi di jamovi
+
+Dengan dataset **masukangin.omv**, hitung matriks korelasi untuk semua variabel:
+
+1. Klik menu *Regression* {{< fa circle-arrow-right >}} *Correlation Matrix*
+2. Masukkan variabel: **glegekan**, **antangin**, **kerokan**, **merah**, **usia**
+3. Centang *Pearson*, *Report significance*, *Flag significant correlations*
+4. Centang *Confidence intervals*
+5. Centang *Plot* {{< fa circle-arrow-right >}} *Correlation matrix* untuk visualisasi
+
+Pertanyaan untuk didiskusikan:
+
+* Pasangan variabel mana yang paling kuat korelasinya?
+* Adakah korelasi yang signifikan secara statistik tapi kecil secara praktis?
+* Bagaimana usia berkorelasi dengan variabel-variabel lain?
+
+---
+
+## Korelasi Spearman (non-parametrik) {background-color="#14497F"}
+
+## Kapan menggunakan Spearman's *ρ*?
+
+Korelasi Spearman menggunakan **rank** alih-alih nilai asli, sehingga lebih robust untuk:
+
+* Variabel **ordinal** (skala Likert, peringkat)
+* Data yang **tidak berdistribusi normal**
+* Data dengan **outlier** yang signifikan
+* Hubungan **monoton** tapi tidak linear (keduanya naik bersama, tapi tidak proporsional)
+
+$$\rho = 1 - \frac{6 \sum d_i^2}{n(n^2-1)}$$
+
+Di mana $d_i$ adalah selisih rank antara dua variabel untuk observasi ke-$i$.
+
+::: {.callout-tip}
+Jika data memenuhi asumsi Pearson (normalitas, linear), gunakan Pearson karena *power*-nya sedikit lebih tinggi. Jika tidak, Spearman adalah pilihan yang lebih aman. Ketika Pearson dan Spearman memberikan kesimpulan yang berbeda, curigai adanya *outlier* atau hubungan non-linear.
+:::
+
+## Latihan: Korelasi Spearman di jamovi
+
+Dengan dataset **masukangin.omv**, bandingkan korelasi Pearson dan Spearman:
+
+1. Di menu *Correlation Matrix*, centang **Spearman** (di samping Pearson)
+2. Bandingkan nilai *r* Pearson dan *ρ* Spearman untuk pasangan **glegekan–merah**
+3. Periksa normalitas variabel **glegekan** dan **merah** dengan Shapiro-Wilk
+
+Pertanyaan untuk didiskusikan:
+
+* Seberapa besar perbedaan antara *r* Pearson dan *ρ* Spearman?
+* Jika keduanya sangat berbeda, apa yang mungkin terjadi dengan data?
+
+---
+
+## Analisis *power* untuk korelasi {background-color="#14497F"}
+
+## Menentukan sampel untuk studi korelasi
+
+Untuk korelasi, *effect size* sudah merupakan koefisien korelasi itu sendiri (*r*).
+
+**Contoh: Alfonso dan hubungan pendapatan-berat badan**
+
+Alfonso ingin menguji apakah ada korelasi antara pendapatan dan berat badan dalam populasi dewasa Indonesia. Dari literatur sebelumnya, ia memperkirakan *r* = 0.4.
+
+**Langkah di G\*Power (korelasi bivariate):**
+
+1. *Test family* {{< fa circle-arrow-right >}} *Exact*
+2. *Statistical test* {{< fa circle-arrow-right >}} *Correlation: Bivariate normal model*
+3. *Type of power analysis* {{< fa circle-arrow-right >}} ***A priori***
+4. Masukkan: *Correlation ρ H1* = 0.4, *Correlation ρ H0* = 0, α = 0.05, *Power* = 0.80, dua sisi
+5. Klik *Calculate*
+
+**Hasil: N = 46**
+
+::: {.callout-note}
+Dengan *r* = 0.4 (efek sedang), hanya butuh 46 responden untuk *power* 80%. Tapi jika korelasi sesungguhnya ternyata hanya *r* = 0.2, studi yang sama akan sangat *underpowered* dan cenderung menghasilkan estimasi yang *inflated*.
+:::
+
+---
+
+## Peringatan: korelasi bukan kausalitas {background-color="#14497F"}
+
+## *Correlation ≠ causation*
+
+Menemukan korelasi yang kuat antara dua variabel **tidak berarti** salah satunya menyebabkan yang lain. Ada tiga penjelasan alternatif:
+
+:::: {.columns}
+::: {.column width="33%"}
+**A → B**
+
+A menyebabkan B (causal, arah yang kita duga)
+:::
+::: {.column width="33%"}
+**B → A**
+
+B menyebabkan A (reverse causality)
+:::
+::: {.column width="33%"}
+**C → A dan B**
+
+Variabel ketiga C menyebabkan keduanya (confounding)
+:::
+::::
+
+**Contoh dari dataset masukangin:**
+
+Glegekan berkorelasi dengan kerokan (*r* = .390). Apakah glegekan *menyebabkan* kerokan? Atau keduanya disebabkan oleh faktor ketiga seperti keyakinan tentang "angin dalam tubuh"?
+
+::: {.callout-important}
+Untuk menegakkan kausalitas, kita membutuhkan: **(1)** korelasi yang konsisten, **(2)** temporal precedence (A terjadi sebelum B), dan **(3)** eliminasi penjelasan alternatif. Studi korelasional cross-sectional **tidak bisa memenuhi syarat (2) dan (3)**.
+:::
+
+## Korelasi palsu (*spurious correlation*)
+
+Korelasi bisa muncul dari **kebetulan** — terutama ketika menguji banyak pasangan variabel tanpa hipotesis yang jelas (*data dredging*).
+
+Contoh korelasi spurious yang terkenal:
+
+* Konsumsi es krim berkorelasi positif dengan angka tenggelam → variabel laten: **musim panas**
+* Jumlah film Nicolas Cage per tahun berkorelasi dengan kematian akibat tenggelam di kolam renang
+
+::: {.callout-tip}
+**Praktik yang baik:**
+
+* Hipotesiskan korelasi **sebelum** melihat data
+* Laporkan semua korelasi yang diuji, bukan hanya yang signifikan (*selective reporting* adalah bentuk *p-hacking*)
+* Gunakan *correction for multiple comparisons* (misalnya Bonferroni) jika menguji banyak korelasi
+* Replikasi temuan di sampel independen sebelum mengklaim penemuan yang bermakna
+:::

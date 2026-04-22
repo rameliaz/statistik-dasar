@@ -1,0 +1,269 @@
+---
+title: "Analisis Data Kategorikal"
+subtitle: "Statistik Dasar dalam Penelitian Psikologi"
+author: "Rizqy Amelia Zein"
+institute:
+  - "[_Departemen Psikologi Kepribadian dan Sosial, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
+date: today
+format:
+  unair-revealjs:
+    slide-number: true
+    progress: true
+    transition: slide
+    center: false
+execute:
+  eval: false
+  echo: true
+---
+
+## _Outline_
+
+* Apa itu data kategorikal?
+* *Binomial test*
+* Uji chi-square (*χ²*)
+* *Fisher's exact test*
+* *McNemar's test* (data berpasangan)
+* *Effect size* untuk analisis kategorikal
+
+---
+
+## Data kategorikal dalam penelitian psikologi {background-color="#14497F"}
+
+## Apa itu data kategorikal?
+
+Data kategorikal adalah data yang nilainya berupa **kategori** atau **kelas** — bukan angka kontinu.
+
+| Jenis | Definisi | Contoh |
+|---|---|---|
+| **Nominal** | Kategori tanpa urutan | Jenis kelamin, agama, metode terapi |
+| **Ordinal** | Kategori dengan urutan, tapi jarak tidak sama | Tingkat pendidikan, skala Likert |
+| **Dikotomi** | Tepat dua kategori | Ya/tidak, lulus/tidak lulus, sembuh/tidak sembuh |
+
+::: {.callout-note}
+Meskipun kita sering mengkode kategori dengan angka (0 dan 1, 1 dan 2, dll.), angka tersebut hanyalah **label** — operasi aritmatika seperti *mean* tidak bermakna pada data nominal. Pilih teknik analisis yang sesuai dengan skala pengukuran variabel.
+:::
+
+## Teknik analisis yang tepat
+
+| Data | Pertanyaan | Teknik |
+|---|---|---|
+| Satu variabel dikotomi | Apakah proporsi berbeda dari nilai tertentu? | *Binomial test* |
+| Dua variabel kategorikal, bebas | Apakah ada asosiasi antar keduanya? | Chi-square (χ²) |
+| Dua variabel kategorikal, sampel kecil | Apakah ada asosiasi? | *Fisher's exact test* |
+| Dua variabel dikotomi, berpasangan | Apakah ada perubahan proporsi sebelum-sesudah? | *McNemar's test* |
+
+---
+
+## *Binomial test* {background-color="#14497F"}
+
+## Apa itu *binomial test*?
+
+*Binomial test* menguji apakah **proporsi observasi** dalam salah satu kategori berbeda dari proporsi yang diharapkan berdasarkan teori atau nilai referensi.
+
+$$H_0: p = p_0 \quad \text{vs} \quad H_1: p \neq p_0$$
+
+Di mana $p$ adalah proporsi populasi yang sesungguhnya dan $p_0$ adalah proporsi yang dihipotesiskan (nilai referensi).
+
+**Contoh:** Dalam 200 klien yang menjalani terapi CBT, 130 menunjukkan perbaikan signifikan. Apakah tingkat keberhasilan CBT berbeda dari 60% yang dilaporkan literatur internasional?
+
+$$H_0: p = 0.60 \quad \text{vs} \quad H_1: p \neq 0.60$$
+
+Proporsi sampel = 130/200 = **65%**
+
+## Logika *binomial test*
+
+*Binomial test* menghitung probabilitas tepat mendapatkan hasil yang kita amati **atau yang lebih ekstrem**, jika proporsi populasi sesungguhnya adalah $p_0$.
+
+$$P(X \geq k) = \sum_{i=k}^{n} \binom{n}{i} p_0^i (1-p_0)^{n-i}$$
+
+::: {.callout-tip}
+Untuk **sampel besar** (n > 30), *binomial test* bisa diaproksimasi dengan **uji z untuk proporsi**. Namun *binomial test* memberikan hasil yang exact dan lebih akurat, terutama untuk sampel kecil atau ketika proporsi mendekati 0 atau 1.
+:::
+
+## Latihan: *Binomial test* di jamovi
+
+Buka dataset **terapi.omv** yang berisi data 200 klien CBT:
+
+1. Klik menu *Frequencies* {{< fa circle-arrow-right >}} *Proportion Test (Binomial)*
+2. Masukkan **hasil_terapi** ke *Variable*
+3. Di *Hypothesis*, masukkan nilai referensi **0.60** sebagai proporsi $H_0$
+4. Centang *Confidence interval* untuk proporsi
+
+Pertanyaan untuk didiskusikan:
+
+* Berapa *p-value* yang kalian dapatkan? Apakah proporsi sampel secara signifikan berbeda dari 60%?
+* Apa arti CI untuk proporsi yang kalian peroleh?
+* Berapa besar perbedaan antara proporsi sampel (65%) dan nilai referensi (60%) — apakah perbedaan ini bermakna secara praktis?
+
+---
+
+## Uji chi-square (*χ²*) {background-color="#14497F"}
+
+## Chi-square: asosiasi dua variabel kategorikal
+
+Uji *chi-square* ($\chi^2$) menguji apakah ada **asosiasi** antara dua variabel kategorikal — apakah distribusi satu variabel berbeda tergantung kategori variabel lainnya.
+
+$$H_0: \text{Tidak ada asosiasi antara variabel A dan variabel B}$$
+$$H_1: \text{Ada asosiasi antara variabel A dan variabel B}$$
+
+**Statistik uji:**
+
+$$\chi^2 = \sum \frac{(O - E)^2}{E}$$
+
+Di mana $O$ adalah frekuensi yang **diamati** (*observed*) dan $E$ adalah frekuensi yang **diharapkan** (*expected*) jika tidak ada asosiasi.
+
+$$E_{ij} = \frac{\text{total baris}_i \times \text{total kolom}_j}{N}$$
+
+## Contoh: metode belajar dan kelulusan
+
+Apakah metode belajar (belajar sendiri vs kelompok vs *online*) berhubungan dengan kelulusan tepat waktu?
+
+|  | Lulus tepat waktu | Tidak lulus tepat waktu | Total |
+|---|---|---|---|
+| Sendiri | 45 | 15 | 60 |
+| Kelompok | 55 | 10 | 65 |
+| *Online* | 30 | 20 | 50 |
+| **Total** | **130** | **45** | **175** |
+
+Frekuensi yang diharapkan (contoh, sel kiri atas): $E = \frac{60 \times 130}{175} = 44.6$
+
+## Syarat penggunaan chi-square
+
+Chi-square membutuhkan frekuensi yang cukup besar agar distribusinya mendekati distribusi $\chi^2$:
+
+* **Semua sel** memiliki frekuensi yang **diharapkan ≥ 5** (aturan praktis umum)
+* Untuk tabel 2×2: gunakan *Yates' continuity correction*
+* Jika frekuensi yang diharapkan kecil (< 5) → gunakan ***Fisher's exact test***
+
+::: {.callout-important}
+**Chi-square hanya mengukur ada/tidaknya asosiasi** — bukan arah atau kekuatannya. Selalu laporkan *effect size* (Cramér's V) bersama chi-square untuk memberikan gambaran yang lengkap.
+:::
+
+## Latihan: *Chi-square* di jamovi
+
+Buka dataset **metodebelajar.omv**, kemudian uji asosiasi antara metode belajar dan kelulusan:
+
+1. Klik menu *Frequencies* {{< fa circle-arrow-right >}} *Contingency Tables*
+2. Masukkan **metode_belajar** ke *Rows* dan **kelulusan** ke *Columns*
+3. Di *Statistics*, centang *χ²* dan *Cramér's V*
+4. Di *Cells*, centang *Expected counts* dan *Row*, *Column*, *Total percentages*
+
+Pertanyaan untuk didiskusikan:
+
+* Apakah ada sel dengan frekuensi yang diharapkan < 5? Apa implikasinya?
+* Berapa nilai Cramér's V? Seberapa kuat asosiasinya?
+* Kelompok metode belajar mana yang menunjukkan profil kelulusan yang berbeda paling menyolok?
+
+---
+
+## *Fisher's exact test* {background-color="#14497F"}
+
+## Kapan menggunakan *Fisher's exact test*?
+
+Ketika frekuensi yang diharapkan dalam satu atau lebih sel < 5, chi-square tidak dapat diandalkan. Dalam kondisi ini, gunakan ***Fisher's exact test***:
+
+* Menghitung probabilitas **exact** dari distribusi frekuensi yang diamati (atau yang lebih ekstrem), dengan asumsi marginal total tetap
+* Tepat untuk **semua ukuran sampel** — baik kecil maupun besar
+* Paling umum digunakan untuk **tabel 2×2**
+
+::: {.callout-note}
+*Fisher's exact test* lebih konservatif (cenderung *p-value* lebih besar) dibanding chi-square untuk sampel besar. Untuk data kategorikal yang sampelnya kecil, ia adalah pilihan yang lebih tepat secara statistik.
+:::
+
+**Di jamovi:** saat menjalankan *Contingency Tables*, centang **Fisher's exact test** di bagian *Statistics* — jamovi akan menampilkan hasilnya di samping chi-square.
+
+## Contoh: intervensi kelompok kecil
+
+Seorang konselor sekolah menguji apakah sesi konseling kelompok (N = 20) mengurangi perilaku agresif. Dari 10 siswa yang mendapat konseling, 8 menunjukkan perbaikan. Dari 10 kontrol, hanya 3 yang menunjukkan perbaikan.
+
+|  | Perbaikan | Tidak | Total |
+|---|---|---|---|
+| Konseling | 8 | 2 | 10 |
+| Kontrol | 3 | 7 | 10 |
+| **Total** | **11** | **9** | **20** |
+
+Frekuensi yang diharapkan untuk sel kiri atas = (10 × 11)/20 = 5.5 — beberapa sel memiliki nilai diharapkan < 5, sehingga *Fisher's exact test* lebih tepat.
+
+---
+
+## *McNemar's test* {background-color="#14497F"}
+
+## Asosiasi dalam data berpasangan
+
+Ketika kita mengukur **variabel dikotomi yang sama** pada kelompok yang **sama** pada dua titik waktu (sebelum-sesudah), kita tidak bisa menggunakan chi-square biasa — observasinya tidak independen.
+
+***McNemar's test*** dirancang khusus untuk situasi ini.
+
+**Contoh:** Apakah proporsi mahasiswa yang *setuju* dengan hukuman fisik berbeda **sebelum** vs **sesudah** mengikuti kuliah Psikologi Perkembangan?
+
+|  | **Sesudah: Setuju** | **Sesudah: Tidak** |
+|---|---|---|
+| **Sebelum: Setuju** | a (tetap setuju) | b (berubah dari setuju → tidak) |
+| **Sebelum: Tidak** | c (berubah dari tidak → setuju) | d (tetap tidak setuju) |
+
+*McNemar's test* berfokus pada sel **b** dan **c** — responden yang **berubah** pendapat.
+
+## Statistik *McNemar's test*
+
+$$\chi^2_{\text{McNemar}} = \frac{(b - c)^2}{b + c}$$
+
+Dengan df = 1.
+
+::: {.callout-note}
+Jika jumlah perubahan kecil (b + c < 25), gunakan versi *exact* yang menggunakan distribusi binomial alih-alih aproksimasi chi-square.
+:::
+
+**Di jamovi:**
+
+1. *Frequencies* {{< fa circle-arrow-right >}} *Contingency Tables*
+2. Masukkan variabel sebelum dan sesudah
+3. Di *Statistics*, centang **McNemar's test**
+
+---
+
+## *Effect size* untuk analisis kategorikal {background-color="#14497F"}
+
+## Mengapa *effect size* penting?
+
+Seperti pada t-test dan ANOVA, signifikansi statistik dari chi-square **tidak mencerminkan kekuatan asosiasi**. Dengan N yang besar, asosiasi yang sangat lemah pun akan signifikan.
+
+| *Effect size* | Digunakan untuk | Rentang | Interpretasi |
+|---|---|---|---|
+| **Cramér's V** | Chi-square (tabel k×m apapun) | 0–1 | 0.10 kecil, 0.30 sedang, 0.50 besar |
+| ***Phi* (φ)** | Chi-square tabel 2×2 saja | 0–1 | Sama dengan Cramér's V untuk tabel 2×2 |
+| ***Odds ratio* (OR)** | Asosiasi dalam tabel 2×2 | 0–∞ | OR = 1 → tidak ada asosiasi |
+| ***Risk ratio* (RR)** | Perbandingan risiko dua kelompok | 0–∞ | RR = 1 → risiko sama |
+
+::: {.callout-tip}
+Untuk penelitian klinis dan kesehatan mental, ***odds ratio*** sering lebih informatif dari Cramér's V karena memberikan gambaran konkret tentang besaran perbedaan risiko antar kelompok.
+:::
+
+## *Odds ratio*: interpretasi intuitif
+
+*Odds ratio* membandingkan **peluang** (*odds*) suatu kejadian antara dua kelompok:
+
+$$OR = \frac{a/b}{c/d} = \frac{ad}{bc}$$
+
+Menggunakan contoh konseling kelompok:
+
+$$OR = \frac{8 \times 7}{2 \times 3} = \frac{56}{6} = 9.33$$
+
+Interpretasi: Siswa yang mendapat konseling punya ***odds* 9.33 kali lebih tinggi** untuk menunjukkan perbaikan dibanding siswa kontrol.
+
+::: {.callout-note}
+*Odds ratio* ≠ *risk ratio*. Jika prevalensi *outcome* rendah (< 10%), keduanya mendekati satu sama lain. Ketika prevalensi tinggi, OR bisa terlihat lebih dramatis dari RR — perhatikan ini saat membaca literatur klinis.
+:::
+
+## Latihan: analisis kategorikal lengkap di jamovi
+
+Buka dataset **attitudinal_change.omv** yang berisi data mahasiswa sebelum dan sesudah kuliah Psikologi Perkembangan:
+
+1. Jalankan *McNemar's test* untuk variabel **sikap_hukuman_fisik** (sebelum vs sesudah)
+2. Hitung chi-square untuk asosiasi **jurusan** × **perubahan_sikap**
+3. Di *Statistics*, centang *Cramér's V* dan *Odds ratio*
+
+Pertanyaan untuk didiskusikan:
+
+* Apakah proporsi mahasiswa yang mendukung hukuman fisik berubah secara signifikan setelah kuliah?
+* Apakah jurusan berhubungan dengan arah perubahan sikap? Seberapa kuat asosiasinya?
+* Kenapa kita tidak bisa menggunakan chi-square biasa untuk membandingkan sebelum-sesudah dalam kelompok yang sama?
