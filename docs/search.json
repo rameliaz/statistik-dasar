@@ -361,7 +361,7 @@
     "href": "slides/mediasi.html#baron-kenny-1986-pendekatan-klasik",
     "title": "Analisis Mediasi",
     "section": "Baron & Kenny (1986): pendekatan klasik",
-    "text": "Baron & Kenny (1986): pendekatan klasik\nMetode klasik Baron & Kenny menetapkan empat syarat untuk klaim mediasi:\n\nX secara signifikan memprediksi Y (total effect signifikan)\nX secara signifikan memprediksi M (path a signifikan)\nM secara signifikan memprediksi Y mengontrol X (path b signifikan)\nKetika M dimasukkan ke model, efek X pada Y berkurang (mediasi parsial) atau hilang (mediasi penuh)\n\n\n\n\n\n\n\nImportant\n\n\nPendekatan Baron & Kenny sudah usang dan tidak direkomendasikan lagi.\nSyarat (1) tidak perlu dipenuhi — indirect effect bisa ada tanpa total effect yang signifikan (terutama jika ada mediator berganda dengan arah berlawanan). Uji Sobel (untuk signifikansi indirect effect) juga mengasumsikan normalitas yang sering dilanggar. Gunakan bootstrapping sebagai gantinya."
+    "text": "Baron & Kenny (1986): pendekatan klasik\nMetode klasik Baron & Kenny menetapkan empat syarat untuk klaim mediasi:\n\nX secara signifikan memprediksi Y (total effect signifikan)\nX secara signifikan memprediksi M (path a signifikan)\nM secara signifikan memprediksi Y mengontrol X (path b signifikan)\nKetika M dimasukkan ke model, efek X pada Y berkurang (mediasi parsial) atau hilang (mediasi penuh)\n\n\n\n\n\n\n\nPendekatan Baron & Kenny sudah usang dan tidak direkomendasikan lagi.**\n\n\nSyarat (1) tidak perlu dipenuhi — indirect effect bisa ada tanpa total effect yang signifikan (terutama jika ada mediator berganda dengan arah berlawanan). Uji Sobel (untuk signifikansi indirect effect) juga mengasumsikan normalitas yang sering dilanggar. Gunakan bootstrapping sebagai gantinya."
   },
   {
     "objectID": "slides/mediasi.html#bootstrapping-pendekatan-modern",
@@ -399,11 +399,11 @@
     "text": "Proporsi mediasi\nSelain signifikansi, kita juga bisa menghitung proporsi total efek yang dimediasi:\n\\[\\text{Proporsi mediasi} = \\frac{a \\times b}{c} = \\frac{-0.26}{-0.42} \\approx 0.61\\]\nArtinya, sekitar 61% dari efek beban akademik pada wellbeing bekerja melalui mekanisme dukungan sosial.\n\n\n\n\n\n\nNote\n\n\nProporsi mediasi bisa melebihi 1 atau bernilai negatif (disebut inconsistent mediation) jika direct effect dan indirect effect berlawanan arah. Dalam kasus seperti ini, interpretasinya lebih kompleks.\n\n\n\nEffect size untuk mediasi:\n\\[\\kappa^2 = \\frac{a \\times b}{\\text{varians maksimal a×b yang mungkin}}\\]\nNilai \\(\\kappa^2\\) antara 0–1. Konvensi: 0.01 kecil, 0.09 sedang, 0.25 besar (Preacher & Kelley, 2011). Pada contoh di atas, jamovi melaporkan \\(\\kappa^2 \\approx 0.18\\) — termasuk efek sedang mendekati besar."
   },
   {
-    "objectID": "slides/mediasi.html#data-cross-sectional-dan-klaim-kausal",
-    "href": "slides/mediasi.html#data-cross-sectional-dan-klaim-kausal",
+    "objectID": "slides/mediasi.html#data-cross-sectional-dan-klaim-kausalitas",
+    "href": "slides/mediasi.html#data-cross-sectional-dan-klaim-kausalitas",
     "title": "Analisis Mediasi",
-    "section": "Data cross-sectional dan klaim kausal",
-    "text": "Data cross-sectional dan klaim kausal\n\n\n\n\n\n\nAnalisis mediasi dari data cross-sectional tidak bisa membuktikan kausalitas\n\n\nDalam mediasi, kita mengklaim: X menyebabkan M, dan M menyebabkan Y. Ini adalah klaim kausal yang kuat. Namun data cross-sectional hanya mengukur semua variabel pada satu titik waktu yang sama — tidak ada cara untuk menetapkan temporal ordering/urut-urutan kejadian (apa yang terjadi lebih dulu?).\n\n\n\nMasalah spesifik dengan mediasi cross-sectional:\n\nUrutan waktu tidak jelas: apakah X benar-benar terjadi sebelum M, dan M sebelum Y?\nReverse causation: mungkin Y → M → X, atau M → X → Y\nConfounding: variabel ketiga yang tidak diukur bisa menyebabkan ketiganya sekaligus"
+    "section": "Data cross-sectional dan klaim kausalitas",
+    "text": "Data cross-sectional dan klaim kausalitas\n\n\n\n\n\n\nAnalisis mediasi dari data cross-sectional tidak bisa membuktikan kausalitas\n\n\nDalam mediasi, kita mengklaim: X menyebabkan M, dan M menyebabkan Y. Ini adalah klaim kausal yang kuat. Namun data cross-sectional hanya mengukur semua variabel pada satu titik waktu yang sama — tidak ada cara untuk menetapkan temporal ordering/urut-urutan kejadian (apa yang terjadi lebih dulu?).\n\n\n\nMasalah spesifik dengan mediasi cross-sectional:\n\nUrutan waktu tidak jelas: apakah X benar-benar terjadi sebelum M, dan M sebelum Y?\nReverse causation: mungkin Y → M → X, atau M → X → Y\nConfounding: variabel ketiga yang tidak diukur bisa menyebabkan ketiganya sekaligus"
   },
   {
     "objectID": "slides/mediasi.html#contoh-masalah-temporal-ordering",
@@ -901,6 +901,20 @@
     "title": "Probabilitas",
     "section": "Mengapa ini penting untuk inferensi?",
     "text": "Mengapa ini penting untuk inferensi?\n\nKita hanya punya satu sampel dalam penelitian nyata\nTapi dengan memahami sampling distribution, kita bisa menjawab: “Seberapa jauh mungkin mean sampel kita menyimpang dari mean populasi yang sebenarnya?”\nIni adalah pertanyaan yang dijawab oleh:\n\nConfidence interval — memberikan rentang nilai yang plausible untuk parameter populasi\np-value — mengukur seberapa tidak mungkin data kita muncul jika hipotesis nol benar\nStatistical power — kemampuan kita mendeteksi efek yang nyata\n\n\n\n\n\n\n\n\nTip\n\n\nPemahaman tentang sampling distribution adalah pondasi dari seluruh statistik inferensial. Semua teknik yang akan kita pelajari berikutnya — t-test, ANOVA, korelasi, regresi — semuanya bersandar pada konsep ini."
+  },
+  {
+    "objectID": "slides/probabilitas.html#dari-probabilitas-ke-inferensi-rantai-logikanya",
+    "href": "slides/probabilitas.html#dari-probabilitas-ke-inferensi-rantai-logikanya",
+    "title": "Probabilitas",
+    "section": "Dari probabilitas ke inferensi: rantai logikanya",
+    "text": "Dari probabilitas ke inferensi: rantai logikanya\nSemua yang sudah kita pelajari membentuk satu rantai logika:\n\n\n\nProbabilitas → memberi kita bahasa untuk berbicara tentang ketidakpastian\nDistribusi normal → menggambarkan bagaimana nilai terdistribusi di populasi\nSampling distribution → menggambarkan bagaimana mean sampel berperilaku jika kita mengulang pengambilan sampel\nStandard error → mengukur seberapa besar ketidakpastian estimasi kita\n\n\nPopulasi (μ, σ)\n      ↓\n  Ambil sampel\n      ↓\nHitung statistik\n  (x̄, s, SE)\n      ↓\nGunakan sampling\n  distribution\n      ↓\nBuat inferensi\ntentang populasi"
+  },
+  {
+    "objectID": "slides/probabilitas.html#dua-pilar-statistik-inferensial",
+    "href": "slides/probabilitas.html#dua-pilar-statistik-inferensial",
+    "title": "Probabilitas",
+    "section": "Dua pilar statistik inferensial",
+    "text": "Dua pilar statistik inferensial\nSemua teknik yang akan kita pelajari berikutnya bersandar pada dua pilar ini:\n\n\n1. Estimasi parameter\n“Berapa nilai parameter populasi yang paling masuk akal berdasarkan data sampel kita?”\n\nEstimasi titik: mean sampel sebagai estimasi μ\nConfidence interval: rentang nilai yang plausible untuk parameter populasi\nLebar CI ditentukan oleh SE dan tingkat kepercayaan yang dipilih\n\n\n2. Uji hipotesis\n“Seberapa mustahil pola yang kita temukan di data muncul jika hipotesis nol benar?”\n\nHitung statistik uji (t, F, z, χ²) dari data sampel\nBandingkan dengan sampling distribution di bawah H₀\np-value = probabilitas mendapat data seperti ini (atau lebih ekstrem) jika H₀ benar\n\n\n\n\n\n\n\n\nTip\n\n\nKeduanya — CI dan p-value — hanyalah dua cara berbeda untuk menggunakan sampling distribution yang sama. Materi berikutnya akan mengembangkan kedua pilar ini satu per satu."
   },
   {
     "objectID": "slides/probabilitas.html#ada-pertanyaan",

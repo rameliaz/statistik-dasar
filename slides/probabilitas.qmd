@@ -247,6 +247,66 @@ SE berbeda dari standar deviasi (SD). **SD** menggambarkan variabilitas **data i
 Pemahaman tentang *sampling distribution* adalah **pondasi** dari seluruh statistik inferensial. Semua teknik yang akan kita pelajari berikutnya — t-test, ANOVA, korelasi, regresi — semuanya bersandar pada konsep ini.
 :::
 
+# Jembatan menuju statistik inferensial {background-color="#14497F"}
+
+## Dari probabilitas ke inferensi: rantai logikanya
+
+Semua yang sudah kita pelajari membentuk satu rantai logika:
+
+:::: {.columns}
+::: {.column width="55%"}
+1. **Probabilitas** → memberi kita bahasa untuk berbicara tentang ketidakpastian
+2. **Distribusi normal** → menggambarkan bagaimana nilai terdistribusi di populasi
+3. **Sampling distribution** → menggambarkan bagaimana *mean* sampel berperilaku jika kita mengulang pengambilan sampel
+4. **Standard error** → mengukur seberapa besar ketidakpastian estimasi kita
+:::
+::: {.column width="45%"}
+```
+Populasi (μ, σ)
+      ↓
+  Ambil sampel
+      ↓
+Hitung statistik
+  (x̄, s, SE)
+      ↓
+Gunakan sampling
+  distribution
+      ↓
+Buat inferensi
+tentang populasi
+```
+:::
+::::
+
+## Dua pilar statistik inferensial
+
+Semua teknik yang akan kita pelajari berikutnya bersandar pada dua pilar ini:
+
+:::: {.columns}
+::: {.column width="50%"}
+**1. Estimasi parameter**
+
+*"Berapa nilai parameter populasi yang paling masuk akal berdasarkan data sampel kita?"*
+
+* Estimasi titik: *mean* sampel sebagai estimasi μ
+* ***Confidence interval***: rentang nilai yang *plausible* untuk parameter populasi
+* Lebar CI ditentukan oleh **SE** dan **tingkat kepercayaan** yang dipilih
+:::
+::: {.column width="50%"}
+**2. Uji hipotesis**
+
+*"Seberapa mustahil pola yang kita temukan di data muncul jika hipotesis nol benar?"*
+
+* Hitung statistik uji (*t*, *F*, *z*, *χ²*) dari data sampel
+* Bandingkan dengan *sampling distribution* di bawah H₀
+* ***p-value*** = probabilitas mendapat data seperti ini (atau lebih ekstrem) jika H₀ benar
+:::
+::::
+
+::: {.callout-tip}
+Keduanya — CI dan *p-value* — hanyalah dua cara berbeda untuk menggunakan *sampling distribution* yang sama. Materi berikutnya akan mengembangkan kedua pilar ini satu per satu.
+:::
+
 ## Ada pertanyaan❓
 
 ![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFtaDh5ZjZ2eXJ3dmJmZmFmYzBtNHEwdzlqZmZtdGtmbnE0bXZidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igB2Th9e4nW6s/giphy.gif){fig-align="center"}
