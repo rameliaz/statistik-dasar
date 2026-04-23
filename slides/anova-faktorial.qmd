@@ -28,9 +28,8 @@ execute:
 * Asumsi dan uji asumsi
 * *A priori* analisis *power*
 
----
 
-## Mengapa ANOVA faktorial? {background-color="#14497F"}
+# Mengapa ANOVA faktorial? {background-color="#14497F"}
 
 ## Keterbatasan ANOVA satu jalur
 
@@ -67,9 +66,8 @@ Desain faktorial adalah desain penelitian di mana setiap partisipan mendapatkan 
 | 3 × 2 | 2 faktor, 3 dan 2 level = 6 sel |
 | 2 × 3 × 2 | 3 faktor = 12 sel |
 
----
 
-## Studi Alfonso: desain 3 × 2 {background-color="#14497F"}
+# Studi Alfonso: desain 3 × 2 {background-color="#14497F"}
 
 ## Konteks penelitian Alfonso
 
@@ -131,9 +129,8 @@ Sebelum analisis, periksa apakah desain seimbang (*balanced*):
 Pada studi Alfonso, setiap sel berisi **N = 5 kucing**, jadi desainnya *balanced*. Dalam studi *balanced*, efek jenis makanan dan jenis musik sepenuhnya **ortogonal** — estimasi satu efek tidak terpengaruh oleh efek yang lain.
 :::
 
----
 
-## Hipotesis yang diuji {background-color="#14497F"}
+# Hipotesis yang diuji {background-color="#14497F"}
 
 ## Tiga pengujian hipotesis sekaligus
 
@@ -197,9 +194,8 @@ Peningkatan akibat musik klasik **berbeda** tergantung makanan → garis bersila
 Interaksi yang bersilangan (*crossover interaction*) lebih kuat secara interpretasi dibanding interaksi yang tidak bersilangan (*ordinal interaction*) karena arah efek berubah.
 :::
 
----
 
-## Partisi varians dalam desain faktorial {background-color="#14497F"}
+# Partisi varians dalam desain faktorial {background-color="#14497F"}
 
 ## Dekomposisi *Sum of Squares*
 
@@ -232,9 +228,8 @@ $$F_A = \frac{MS_A}{MS_w}, \quad F_B = \frac{MS_B}{MS_w}, \quad F_{A \times B} =
 
 Untuk desain 3 × 2 Alfonso dengan N = 30: $df_A$ = 2, $df_B$ = 1, $df_{A\times B}$ = 2, $df_w$ = 24.
 
----
 
-## Implementasi di jamovi {background-color="#14497F"}
+# Implementasi di jamovi {background-color="#14497F"}
 
 ## Langkah ANOVA faktorial di jamovi: *main effects* saja
 
@@ -290,9 +285,8 @@ Untuk menguji interaksi, **jangan** hapus suku interaksi di menu *Model*:
 
 Interaksi: *F*(2, 24) = 3.12, *p* = .063 — **tidak signifikan** pada α = 0.05. *Main effects* dapat diinterpretasikan secara independen.
 
----
 
-## *Effect size* untuk ANOVA faktorial {background-color="#14497F"}
+# *Effect size* untuk ANOVA faktorial {background-color="#14497F"}
 
 ## Partial η² dan ω²
 
@@ -320,9 +314,8 @@ Pada studi Alfonso:
 * Jenis musik: ω² = 0.101 → **efek sedang**
 * Interaksi: ω² = 0.050 → **efek kecil** (dan tidak signifikan)
 
----
 
-## *Post-hoc tests* {background-color="#14497F"}
+# *Post-hoc tests* {background-color="#14497F"}
 
 ## Kapan *post-hoc test* diperlukan?
 
@@ -340,6 +333,8 @@ Pada studi Alfonso:
 | *Dry food* vs *Raw food* | **−1.033** | 0.143 | **−2.311** | **< .001** |
 | *Wet food* vs *Raw food* | **−0.767** | 0.143 | **−1.714** | **< .001** |
 
+: {tbl-colwidths="[28,20,12,20,20]"}
+
 **Interpretasi:**
 
 * *Dry food* dan *wet food* tidak berbeda secara signifikan (*p* = .186)
@@ -349,9 +344,8 @@ Pada studi Alfonso:
 Jika interaksi signifikan, lakukan ***simple effects analysis*** (analisis efek satu faktor pada setiap level faktor lain) alih-alih *post-hoc* biasa. Ini bisa dilakukan di jamovi via menu *Simple Effects*.
 :::
 
----
 
-## Asumsi ANOVA faktorial {background-color="#14497F"}
+# Asumsi ANOVA faktorial {background-color="#14497F"}
 
 ## Asumsi yang harus dipenuhi
 
@@ -382,9 +376,8 @@ Jika Levene's signifikan:
 * Pertimbangkan transformasi data (log, akar kuadrat)
 * Atau gunakan analisis alternatif yang robust terhadap heterogenitas varians
 
----
 
-## *A priori* analisis *power* {background-color="#14497F"}
+# *A priori* analisis *power* {background-color="#14497F"}
 
 ## Menggunakan PANGEA untuk desain faktorial
 
@@ -434,3 +427,12 @@ Pertanyaan untuk didiskusikan:
 * Apa artinya jika interaksi signifikan dalam konteks ini?
 * Kapan *simple effects analysis* lebih tepat daripada *main effects* saja?
 * Bagaimana melaporkan hasil ANOVA faktorial dalam APA format?
+
+## Ada pertanyaan❓
+
+![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFtaDh5ZjZ2eXJ3dmJmZmFmYzBtNHEwdzlqZmZtdGtmbnE0bXZidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igB2Th9e4nW6s/giphy.gif){fig-align="center"}
+
+::: {.callout-note}
+* Paparan disusun dengan menggunakan <i class="fa-brands fa-r-project"></i> dan [**Quarto**](https://quarto.org) dengan _template_ dari [UNAIR Theme](https://github.com/rameliaz/quarto-unair-theme).
+* Kontak saya via <i class="fas fa-paper-plane"></i> <a href="mailto:amelia.zein@psikologi.unair.ac.id">amelia.zein@psikologi.unair.ac.id</a>
+:::

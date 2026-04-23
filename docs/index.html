@@ -47,6 +47,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-9cdbd49fb92a4d7f9d8c4f710986121f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark-5471fee98bb1022e344fa01fd8cd8237.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/bootstrap/bootstrap-9cdbd49fb92a4d7f9d8c4f710986121f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,6 +75,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 
 
 </head>
@@ -307,6 +309,14 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">ANOVA</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./slides/anova-faktorial.html">
+ <span class="dropdown-text">ANOVA Faktorial</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./slides/anova-rm.html">
+ <span class="dropdown-text">ANOVA Pengukuran Berulang</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./slides/ancova.html">
  <span class="dropdown-text">ANCOVA</span></a>
   </li>  
@@ -362,6 +372,14 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">ANOVA</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./slides/anova-faktorial.html?print-pdf">
+ <span class="dropdown-text">ANOVA Faktorial</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./slides/anova-rm.html?print-pdf">
+ <span class="dropdown-text">ANOVA Pengukuran Berulang</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./slides/ancova.html?print-pdf">
  <span class="dropdown-text">ANCOVA</span></a>
   </li>  
@@ -395,18 +413,6 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="./materials/dataset-sekolah.omv">
  <span class="dropdown-text">Dataset Latihan Regresi OLS</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./materials/dataset-social-support.omv">
- <span class="dropdown-text">Dataset Contoh Regresi Logistik</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./materials/dataset-burnout.omv">
- <span class="dropdown-text">Dataset Contoh EFA-PCA</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./materials/contoh-cfa.omv">
- <span class="dropdown-text">Dataset Contoh CFA</span></a>
   </li>  
     </ul>
   </li>
@@ -455,18 +461,20 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#outline-materi" id="toc-outline-materi" class="nav-link active" data-scroll-target="#outline-materi"><em>Outline</em> materi</a>
   <ul class="collapse">
-  <li><a href="#statistik-deskriptif" id="toc-statistik-deskriptif" class="nav-link" data-scroll-target="#statistik-deskriptif">1. Statistik Deskriptif</a></li>
-  <li><a href="#probabilitas" id="toc-probabilitas" class="nav-link" data-scroll-target="#probabilitas">2. Probabilitas</a></li>
-  <li><a href="#mengestimasi-parameter-populasi" id="toc-mengestimasi-parameter-populasi" class="nav-link" data-scroll-target="#mengestimasi-parameter-populasi">3. Mengestimasi Parameter Populasi</a></li>
-  <li><a href="#uji-hipotesis" id="toc-uji-hipotesis" class="nav-link" data-scroll-target="#uji-hipotesis">4. Uji Hipotesis</a></li>
-  <li><a href="#analisis-data-kategorikal" id="toc-analisis-data-kategorikal" class="nav-link" data-scroll-target="#analisis-data-kategorikal">5. Analisis Data Kategorikal</a></li>
-  <li><a href="#t-test" id="toc-t-test" class="nav-link" data-scroll-target="#t-test">6. <em>T-Test</em></a></li>
-  <li><a href="#korelasi" id="toc-korelasi" class="nav-link" data-scroll-target="#korelasi">7. Korelasi</a></li>
-  <li><a href="#anova" id="toc-anova" class="nav-link" data-scroll-target="#anova">8. ANOVA</a></li>
-  <li><a href="#ancova" id="toc-ancova" class="nav-link" data-scroll-target="#ancova">9. ANCOVA</a></li>
-  <li><a href="#regresi-linear-ordinary-least-square" id="toc-regresi-linear-ordinary-least-square" class="nav-link" data-scroll-target="#regresi-linear-ordinary-least-square">10. Regresi Linear (<em>Ordinary Least Square</em>)</a></li>
-  <li><a href="#analisis-moderasi" id="toc-analisis-moderasi" class="nav-link" data-scroll-target="#analisis-moderasi">11. Analisis Moderasi</a></li>
-  <li><a href="#analisis-mediasi" id="toc-analisis-mediasi" class="nav-link" data-scroll-target="#analisis-mediasi">12. Analisis Mediasi</a></li>
+  <li><a href="#statistik-deskriptif" id="toc-statistik-deskriptif" class="nav-link" data-scroll-target="#statistik-deskriptif">1️⃣ Statistik Deskriptif</a></li>
+  <li><a href="#probabilitas" id="toc-probabilitas" class="nav-link" data-scroll-target="#probabilitas">2️⃣ Probabilitas</a></li>
+  <li><a href="#mengestimasi-parameter-populasi" id="toc-mengestimasi-parameter-populasi" class="nav-link" data-scroll-target="#mengestimasi-parameter-populasi">3️⃣ Mengestimasi Parameter Populasi</a></li>
+  <li><a href="#uji-hipotesis" id="toc-uji-hipotesis" class="nav-link" data-scroll-target="#uji-hipotesis">4️⃣ Uji Hipotesis</a></li>
+  <li><a href="#analisis-data-kategorikal" id="toc-analisis-data-kategorikal" class="nav-link" data-scroll-target="#analisis-data-kategorikal">5️⃣ Analisis Data Kategorikal</a></li>
+  <li><a href="#t-test" id="toc-t-test" class="nav-link" data-scroll-target="#t-test">6️⃣ <em>T-Test</em></a></li>
+  <li><a href="#korelasi" id="toc-korelasi" class="nav-link" data-scroll-target="#korelasi">7️⃣ Korelasi</a></li>
+  <li><a href="#anova" id="toc-anova" class="nav-link" data-scroll-target="#anova">8️⃣ ANOVA</a></li>
+  <li><a href="#anova-faktorial" id="toc-anova-faktorial" class="nav-link" data-scroll-target="#anova-faktorial">9️⃣ ANOVA Faktorial</a></li>
+  <li><a href="#anova-pengukuran-berulang" id="toc-anova-pengukuran-berulang" class="nav-link" data-scroll-target="#anova-pengukuran-berulang">1️⃣0️⃣ ANOVA Pengukuran Berulang</a></li>
+  <li><a href="#ancova" id="toc-ancova" class="nav-link" data-scroll-target="#ancova">1️⃣1️⃣ ANCOVA</a></li>
+  <li><a href="#regresi-linear-ordinary-least-square" id="toc-regresi-linear-ordinary-least-square" class="nav-link" data-scroll-target="#regresi-linear-ordinary-least-square">1️⃣2️⃣ Regresi Linear (<em>Ordinary Least Square</em>)</a></li>
+  <li><a href="#analisis-moderasi" id="toc-analisis-moderasi" class="nav-link" data-scroll-target="#analisis-moderasi">1️⃣3️⃣ Analisis Moderasi</a></li>
+  <li><a href="#analisis-mediasi" id="toc-analisis-mediasi" class="nav-link" data-scroll-target="#analisis-mediasi">1️⃣4️⃣ Analisis Mediasi</a></li>
   </ul></li>
   <li><a href="#sumber-belajar-lainnya" id="toc-sumber-belajar-lainnya" class="nav-link" data-scroll-target="#sumber-belajar-lainnya">Sumber belajar lainnya</a></li>
   <li><a href="#sebelum-mulai-materi" id="toc-sebelum-mulai-materi" class="nav-link" data-scroll-target="#sebelum-mulai-materi">Sebelum mulai materi</a></li>
@@ -506,6 +514,20 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span><em>Software</em> yang digunakan
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Demonstrasi atas analisis statistik yang disiapkan dalam laman ini menggunakan <code>jamovi</code> sebagai alat bantu analisis. Meskipun, tentu saja, analisis statistik sifatnya <em>software agnostic</em>. Anda <strong>bebas menggunakan alat bantu analisis yang lain</strong>. Misalnya <code>jasp</code>, <code>SPSS</code>, <i class="fa-brands fa-r-project"></i>, <i class="fa-brands fa-python"></i>, bahkan Microsoft Excel <i class="fa-regular fa-file-excel"></i> sekalipun.</p>
+<p>Untuk perencanaan jumlah sampel dengan <em>a priori power analysis</em>, Anda bisa menggunakan <a href="https://www.psychologie.hhu.de/arbeitsgruppen/allgemeine-psychologie-und-arbeitspsychologie/gpower">G*/Power</a> atau modul <a href="https://blog.jamovi.org/2024/10/28/pamlj.html"><code>PAMLj</code></a> atau <a href="https://open.lnu.se/index.php/metapsychology/article/view/3078/3073"><code>jpower</code></a> di <code>jamovi</code>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Note</span>Unduh materi dalam bentuk PDF
 </div>
 </div>
@@ -516,19 +538,20 @@ ul.task-list li input[type="checkbox"] {
 <section id="outline-materi" class="level2">
 <h2 class="anchored" data-anchor-id="outline-materi"><em>Outline</em> materi</h2>
 <section id="statistik-deskriptif" class="level3">
-<h3 class="anchored" data-anchor-id="statistik-deskriptif">1. <a href="slides/statistik-deskriptif.html">Statistik Deskriptif</a></h3>
+<h3 class="anchored" data-anchor-id="statistik-deskriptif">1️⃣ Statistik Deskriptif</h3>
 <ul>
 <li>Kenapa statistik?</li>
 <li>Statistik deskriptif vs inferensial</li>
-<li>Mengenal <em>software</em>: jamovi</li>
+<li>Mengenal <em>software</em>: <code>jamovi</code></li>
 <li>Tendensi sentral: <em>mean</em>, median, dan modus</li>
 <li>Variabilitas: <em>range</em>, IQR, varians, dan standar deviasi</li>
 <li>Visualisasi data</li>
 <li>Distribusi normal dan uji normalitas</li>
 </ul>
+<p><a href="slides/statistik-deskriptif.html" class="btn btn-primary"><i class="fa-solid fa-file-powerpoint" aria-label="file-powerpoint"></i> Buka Materi Statistik Deskriptif</a></p>
 </section>
 <section id="probabilitas" class="level3">
-<h3 class="anchored" data-anchor-id="probabilitas">2. <a href="slides/probabilitas.html">Probabilitas</a></h3>
+<h3 class="anchored" data-anchor-id="probabilitas">2️⃣ Probabilitas</h3>
 <ul>
 <li>Apa itu probabilitas?</li>
 <li>Dua pendekatan: <em>frequentist</em> vs <em>Bayesian</em></li>
@@ -538,9 +561,10 @@ ul.task-list li input[type="checkbox"] {
 <li><em>Sampling distribution of the mean</em></li>
 <li>Jembatan menuju statistik inferensial</li>
 </ul>
+<p><a href="slides/probabilitas.html" class="btn btn-primary"><i class="fa-solid fa-file-powerpoint" aria-label="file-powerpoint"></i> Buka Materi Probabilitas</a></p>
 </section>
 <section id="mengestimasi-parameter-populasi" class="level3">
-<h3 class="anchored" data-anchor-id="mengestimasi-parameter-populasi">3. <a href="slides/estimasi-parameter.html">Mengestimasi Parameter Populasi</a></h3>
+<h3 class="anchored" data-anchor-id="mengestimasi-parameter-populasi">3️⃣ Mengestimasi Parameter Populasi</h3>
 <ul>
 <li>Sampel, populasi, dan prosedur <em>sampling</em></li>
 <li><em>The law of large numbers</em></li>
@@ -548,19 +572,21 @@ ul.task-list li input[type="checkbox"] {
 <li><em>Standard error of the mean</em> dan <em>standard error of proportion</em></li>
 <li><em>Confidence interval</em></li>
 </ul>
+<p><a href="slides/estimasi-parameter.html" class="btn btn-primary"><i class="fa-solid fa-file-powerpoint" aria-label="file-powerpoint"></i> Buka Materi Parameter Populasi</a></p>
 </section>
 <section id="uji-hipotesis" class="level3">
-<h3 class="anchored" data-anchor-id="uji-hipotesis">4. <a href="slides/uji-hipotesis.html">Uji Hipotesis</a></h3>
+<h3 class="anchored" data-anchor-id="uji-hipotesis">4️⃣ Uji Hipotesis</h3>
 <ul>
 <li>Logika dasar <em>Null Hypothesis Significance Testing</em> (NHST)</li>
 <li>Hipotesis nol dan hipotesis alternatif</li>
 <li><em>Type I error</em> dan <em>Type II error</em></li>
 <li><em>Statistical power</em> dan <em>effect size</em></li>
-<li><em>A priori</em> analisis <em>power</em> dengan G*Power</li>
+<li><em>A priori</em> analisis <em>power</em> dengan <code>G*Power</code></li>
 </ul>
+<p><a href="slides/uji-hipotesis.html" class="btn btn-primary"><i class="fa-solid fa-file-powerpoint" aria-label="file-powerpoint"></i> Buka Materi Uji Hipotesis</a></p>
 </section>
 <section id="analisis-data-kategorikal" class="level3">
-<h3 class="anchored" data-anchor-id="analisis-data-kategorikal">5. <a href="slides/analisis-kategorikal.html">Analisis Data Kategorikal</a></h3>
+<h3 class="anchored" data-anchor-id="analisis-data-kategorikal">5️⃣ Analisis Data Kategorikal</h3>
 <ul>
 <li>Apa itu data kategorikal?</li>
 <li><em>Binomial test</em></li>
@@ -569,9 +595,10 @@ ul.task-list li input[type="checkbox"] {
 <li><em>McNemar’s test</em> (data berpasangan)</li>
 <li><em>Effect size</em> untuk analisis kategorikal</li>
 </ul>
+<p><a href="slides/analisis-kategorikal.html" class="btn btn-primary"><i class="fa-solid fa-file-powerpoint" aria-label="file-powerpoint"></i> Buka Materi Analisis Kategorikal</a></p>
 </section>
 <section id="t-test" class="level3">
-<h3 class="anchored" data-anchor-id="t-test">6. <a href="slides/t-test.html"><em>T-Test</em></a></h3>
+<h3 class="anchored" data-anchor-id="t-test">6️⃣ <em>T-Test</em></h3>
 <ul>
 <li>Apa itu <em>t-test</em>?</li>
 <li><em>One-sample t-test</em></li>
@@ -580,9 +607,10 @@ ul.task-list li input[type="checkbox"] {
 <li>Asumsi, uji asumsi, dan alternatif non-parametrik</li>
 <li>Analisis <em>power</em> untuk t-test</li>
 </ul>
+<p><a href="slides/t-test.html" class="btn btn-primary"><i class="fa-solid fa-file-powerpoint" aria-label="file-powerpoint"></i> Buka Materi <em>T-Test</em></a></p>
 </section>
 <section id="korelasi" class="level3">
-<h3 class="anchored" data-anchor-id="korelasi">7. <a href="slides/korelasi.html">Korelasi</a></h3>
+<h3 class="anchored" data-anchor-id="korelasi">7️⃣ Korelasi</h3>
 <ul>
 <li>Apa itu korelasi?</li>
 <li><em>Scatterplot</em> dan inspeksi visual</li>
@@ -590,30 +618,58 @@ ul.task-list li input[type="checkbox"] {
 <li>Interpretasi kekuatan dan arah korelasi</li>
 <li>Matriks korelasi</li>
 <li>Analisis <em>power</em> untuk korelasi</li>
-<li>Peringatan: korelasi bukan kausalitas</li>
+<li>⚠️<strong>Peringatan</strong>⚠️: korelasi bukan kausalitas</li>
 </ul>
+<p><a href="slides/korelasi.html" class="btn btn-primary"><i class="fa-solid fa-file-powerpoint" aria-label="file-powerpoint"></i> Buka Materi Korelasi</a></p>
 </section>
 <section id="anova" class="level3">
-<h3 class="anchored" data-anchor-id="anova">8. <a href="slides/anova.html">ANOVA</a></h3>
+<h3 class="anchored" data-anchor-id="anova">8️⃣ ANOVA</h3>
 <ul>
-<li>Mengapa ANOVA, bukan t-test berulang?</li>
+<li>Mengapa ANOVA, bukan <em>t-test</em> berulang?</li>
 <li>Logika ANOVA: partisi varians dan rasio F</li>
 <li>Implementasi di jamovi</li>
 <li><em>Effect size</em> (η² dan ω²) dan <em>post-hoc tests</em></li>
-<li>Asumsi, uji asumsi, dan <em>a priori</em> analisis <em>power</em></li>
+<li>Asumsi, uji asumsi, dan <em>a priori power analysis</em></li>
 </ul>
+<p><a href="slides/anova.html" class="btn btn-primary"><i class="fa-solid fa-file-powerpoint" aria-label="file-powerpoint"></i> Buka Materi ANOVA</a></p>
+</section>
+<section id="anova-faktorial" class="level3">
+<h3 class="anchored" data-anchor-id="anova-faktorial">9️⃣ ANOVA Faktorial</h3>
+<ul>
+<li>Mengapa ANOVA faktorial, bukan ANOVA satu jalur terpisah?</li>
+<li>Desain faktorial, notasi, dan konsep sel (<em>cell</em>)</li>
+<li><em>Main effects</em> dan <em>interaction effects</em></li>
+<li>Partisi varians dalam desain faktorial</li>
+<li>Implementasi di jamovi</li>
+<li><em>Effect size</em> (η² dan ω²), <em>post-hoc tests</em>, dan asumsi</li>
+<li><em>A priori power analysis</em></li>
+</ul>
+<p><a href="slides/anova-faktorial.html" class="btn btn-primary"><i class="fa-solid fa-file-powerpoint" aria-label="file-powerpoint"></i> Buka Materi ANOVA Faktorial</a></p>
+</section>
+<section id="anova-pengukuran-berulang" class="level3">
+<h3 class="anchored" data-anchor-id="anova-pengukuran-berulang">1️⃣0️⃣ ANOVA Pengukuran Berulang</h3>
+<ul>
+<li>Kapan menggunakan ANOVA pengukuran berulang?</li>
+<li>Logika: mempartisi varians individual</li>
+<li>Asumsi <em>sphericity</em>, Mauchly’s test, dan koreksi Greenhouse-Geisser / Huynh-Feldt</li>
+<li>Implementasi di <code>jamovi</code></li>
+<li><em>Effect size</em> (η² dan η²G)</li>
+<li><em>Post-hoc tests</em> dan <em>a priori power analysis</em></li>
+</ul>
+<p><a href="slides/anova-rm.html" class="btn btn-primary"><i class="fa-solid fa-file-powerpoint" aria-label="file-powerpoint"></i> Buka Materi ANOVA</a></p>
 </section>
 <section id="ancova" class="level3">
-<h3 class="anchored" data-anchor-id="ancova">9. <a href="slides/ancova.html">ANCOVA</a></h3>
+<h3 class="anchored" data-anchor-id="ancova">1️⃣1️⃣ ANCOVA</h3>
 <ul>
 <li>Apa itu ANCOVA dan mengapa kovariat penting?</li>
 <li>Asumsi tambahan ANCOVA</li>
-<li>Implementasi di jamovi</li>
-<li><em>Effect size</em>, <em>post-hoc tests</em>, dan <em>a priori</em> analisis <em>power</em></li>
+<li>Implementasi di <code>jamovi</code></li>
+<li><em>Effect size</em>, <em>post-hoc tests</em>, dan <em>a priori power analysis</em></li>
 </ul>
+<p><a href="slides/ancova.html" class="btn btn-primary"><i class="fa-solid fa-file-powerpoint" aria-label="file-powerpoint"></i> Buka Materi ANCOVA</a></p>
 </section>
 <section id="regresi-linear-ordinary-least-square" class="level3">
-<h3 class="anchored" data-anchor-id="regresi-linear-ordinary-least-square">10. <a href="slides/regresi.html">Regresi Linear (<em>Ordinary Least Square</em>)</a></h3>
+<h3 class="anchored" data-anchor-id="regresi-linear-ordinary-least-square">1️⃣2️⃣ Regresi Linear (<em>Ordinary Least Square</em>)</h3>
 <ul>
 <li>Inspeksi visual dengan <em>scatterplot</em></li>
 <li>Model regresi linear OLS dan persamaan garis regresi</li>
@@ -623,9 +679,10 @@ ul.task-list li input[type="checkbox"] {
 <li>Mendeteksi <em>outliers</em> dengan Cook’s distance</li>
 <li>Menulis hasil analisis regresi linear dalam manuskrip</li>
 </ul>
+<p><a href="slides/regresi.html" class="btn btn-primary"><i class="fa-solid fa-file-powerpoint" aria-label="file-powerpoint"></i> Buka Materi Regresi OLS</a></p>
 </section>
 <section id="analisis-moderasi" class="level3">
-<h3 class="anchored" data-anchor-id="analisis-moderasi">11. <a href="slides/moderasi.html">Analisis Moderasi</a></h3>
+<h3 class="anchored" data-anchor-id="analisis-moderasi">1️⃣3️⃣ Analisis Moderasi</h3>
 <ul>
 <li>Konsep moderasi: apa dan kapan relevan?</li>
 <li>Pendekatan 1 — suku interaksi dalam regresi OLS: <em>mean-centering</em>, <em>model comparison</em>, <em>estimated marginal means</em></li>
@@ -633,17 +690,19 @@ ul.task-list li input[type="checkbox"] {
 <li>Kapan memilih OLS vs.&nbsp;<code>medmod</code></li>
 <li>Melaporkan hasil analisis moderasi</li>
 </ul>
+<p><a href="slides/moderasi.html" class="btn btn-primary"><i class="fa-solid fa-file-powerpoint" aria-label="file-powerpoint"></i> Buka Materi Moderasi</a></p>
 </section>
 <section id="analisis-mediasi" class="level3">
-<h3 class="anchored" data-anchor-id="analisis-mediasi">12. <a href="slides/mediasi.html">Analisis Mediasi</a></h3>
+<h3 class="anchored" data-anchor-id="analisis-mediasi">1️⃣4️⃣ Analisis Mediasi</h3>
 <ul>
 <li>Apa itu mediasi?</li>
 <li>Model mediasi sederhana</li>
 <li>Pendekatan Baron &amp; Kenny vs.&nbsp;<em>bootstrapping</em></li>
-<li>Implementasi di jamovi (PROCESS)</li>
+<li>Implementasi di <code>jamovi</code></li>
 <li>Interpretasi <em>indirect effect</em></li>
-<li>Peringatan: mediasi dari data <em>cross-sectional</em></li>
+<li>⚠️<strong>Peringatan</strong>⚠️: mediasi dari data <em>cross-sectional</em></li>
 </ul>
+<p><a href="slides/mediasi.html" class="btn btn-primary"><i class="fa-solid fa-file-powerpoint" aria-label="file-powerpoint"></i> Buka Materi Mediasi</a></p>
 </section>
 </section>
 <section id="sumber-belajar-lainnya" class="level2">
@@ -663,7 +722,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="cara-instalasi-module-jamovi" class="level2">
 <h2 class="anchored" data-anchor-id="cara-instalasi-module-jamovi">Cara instalasi <em>module</em> <code>jamovi</code></h2>
 <p>Gunakan <strong>jamovi versi stabil yang terbaru</strong> (2.6.44) <a href="https://www.jamovi.org/downloads/jamovi-2.6.44.0-win-x64.exe">untuk Windows</a> atau <a href="https://www.jamovi.org/download.html">MacOS</a>.</p>
-<p>Mohon untuk menyimak video cara mengelola <em>modules</em> di jamovi berikut ini. Di video ini saya mencontohkan cara instalasi <em>module</em> GAMLj. Instalasi <em>modules</em> yang lain mengikuti prosedur yang persis sama.</p>
+<p>Mohon untuk menyimak video cara mengelola <em>modules</em> di jamovi berikut ini. Di video ini saya mencontohkan cara instalasi <em>module</em> GAMLj. Instalasi <em>module</em> yang lain mengikuti prosedur yang persis sama.</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/XWavBKgTEuU" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 <section id="tutorial-jamovi-modules" class="level2">

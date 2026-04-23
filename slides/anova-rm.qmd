@@ -27,9 +27,8 @@ execute:
 * *Post-hoc tests*
 * *A priori* analisis *power*
 
----
 
-## Kapan menggunakan RM-ANOVA? {background-color="#14497F"}
+# Kapan menggunakan RM-ANOVA? {background-color="#14497F"}
 
 ## Keterbatasan ANOVA satu jalur untuk data berulang
 
@@ -76,9 +75,8 @@ $$SS_{\text{within}} = SS_{\text{perlakuan}} + SS_{\text{individu}} + SS_{\text{
 Dengan "mengeluarkan" $SS_{\text{individu}}$ dari *error*, denominator rasio F menjadi lebih kecil — sehingga F lebih besar dan *power* meningkat.
 :::
 
----
 
-## Studi Alfonso: kucing membaca {background-color="#14497F"}
+# Studi Alfonso: kucing membaca {background-color="#14497F"}
 
 ## Konteks penelitian
 
@@ -109,9 +107,8 @@ Secara deskriptif, durasi membaca meningkat dari minggu ke minggu. Namun apakah 
 Dalam RM-ANOVA, kita membandingkan apakah *mean* antar kondisi berbeda, **setelah mengontrol variabilitas antar-individu**. Ini membuat uji lebih sensitif dibanding ANOVA biasa.
 :::
 
----
 
-## Asumsi *sphericity* {background-color="#14497F"}
+# Asumsi *sphericity* {background-color="#14497F"}
 
 ## Apa itu *sphericity*?
 
@@ -173,9 +170,8 @@ $$F_{\text{corrected}} \text{ menggunakan } df^* = df \times \varepsilon$$
 **Aturan praktis:** periksa nilai ε *Greenhouse-Geisser* terlebih dahulu. Jika ε < 0.75, gunakan koreksi GG. Jika ε ≥ 0.75, gunakan koreksi HF (lebih *powerful*). Pada studi Alfonso: ε = 0.831 > 0.75 → gunakan **koreksi Huynh-Feldt**.
 :::
 
----
 
-## Implementasi di jamovi {background-color="#14497F"}
+# Implementasi di jamovi {background-color="#14497F"}
 
 ## Langkah RM-ANOVA di jamovi
 
@@ -204,6 +200,8 @@ Buka dataset **kucing-membaca.omv**, kemudian:
 |---|---|---|---|
 | 0.812 | .043 | 0.831 | 0.921 |
 
+: {tbl-colwidths="[20,10,35,35]"}
+
 *p* = .043 < .05 → ***sphericity* dilanggar** → gunakan koreksi.
 
 ε (GG) = 0.831 > 0.75 → gunakan **Huynh-Feldt**.
@@ -221,6 +219,8 @@ Jamovi secara otomatis menampilkan tabel ANOVA dengan koreksi GG dan HF. Pilih b
 | waktu | 3292.4 | 1.843, 182.4 | < .001 | 0.957 | 0.957 |
 | Residuals | — | 182.4 | — | — | — |
 
+: {tbl-colwidths="[20,12,26,12,15,15]"}
+
 **Cara melaporkan:**
 
 "Terdapat perbedaan yang signifikan dalam durasi membaca kucing antara minggu ke-1, ke-2, dan ke-3, *F*(1.843, 182.4) = 3292.4, *p* < .001, η²G = 0.957 — efek yang sangat besar."
@@ -229,9 +229,8 @@ Jamovi secara otomatis menampilkan tabel ANOVA dengan koreksi GG dan HF. Pilih b
 Perhatikan bahwa **df yang dilaporkan adalah df setelah dikoreksi** (bukan integer bulat). Ini menandakan bahwa koreksi *sphericity* telah diterapkan.
 :::
 
----
 
-## *Effect size* untuk RM-ANOVA {background-color="#14497F"}
+# *Effect size* untuk RM-ANOVA {background-color="#14497F"}
 
 ## η² dan η² Generalisasi (η²G)
 
@@ -247,13 +246,14 @@ $$\eta^2_G = \frac{SS_{\text{perlakuan}}}{SS_{\text{perlakuan}} + SS_{\text{indi
 | **Interpretasi** | Bisa melebih-lebihkan ES | Lebih konservatif dan dapat dibandingkan antar desain |
 | **Rekomendasi** | Kurang disarankan | **Lebih disarankan** untuk perbandingan lintas studi |
 
+: {tbl-colwidths="[15,20,65]"}
+
 ::: {.callout-tip}
 Gunakan **η²G** jika kalian ingin membandingkan *effect size* studi RM dengan studi *between-subjects* — η²G lebih stabil dan dapat digeneralisasi. Konvensi Cohen (*kecil*: .01, *sedang*: .06, *besar*: .14) berlaku untuk keduanya.
 :::
 
----
 
-## *Post-hoc tests* {background-color="#14497F"}
+# *Post-hoc tests* {background-color="#14497F"}
 
 ## Perbandingan berpasangan Bonferroni
 
@@ -267,15 +267,16 @@ Setelah RM-ANOVA yang signifikan, *post-hoc test* mengidentifikasi minggu mana y
 | Minggu 1 vs Minggu 3 | **−88.1** | 1.87 | **−47.1** | **< .001** |
 | Minggu 2 vs Minggu 3 | **−51.8** | 1.53 | **−33.8** | **< .001** |
 
+: {tbl-colwidths="[30,20,12,12,26]"}
+
 Semua pasangan minggu berbeda secara signifikan (semua *p* < .001) — durasi membaca meningkat secara progresif setiap minggunya.
 
 ::: {.callout-note}
 *Post-hoc* dalam RM-ANOVA menggunakan **paired comparisons** — bukan independent samples — karena data berasal dari subjek yang sama. Ini lebih *powerful* dibanding *post-hoc* biasa.
 :::
 
----
 
-## *A priori* analisis *power* untuk RM-ANOVA {background-color="#14497F"}
+# *A priori* analisis *power* untuk RM-ANOVA {background-color="#14497F"}
 
 ## G\*Power untuk *repeated measures*
 
@@ -347,3 +348,12 @@ Pertanyaan untuk didiskusikan:
 * Apa perbedaan antara η² dan η²G dalam konteks studi ini?
 * Bagaimana *carryover effects* dapat menjadi ancaman validitas dalam desain *repeated measures*?
 * Kapan lebih baik menggunakan *mixed ANOVA* (gabungan *within-* dan *between-subjects* factor)?
+
+## Ada pertanyaan❓
+
+![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFtaDh5ZjZ2eXJ3dmJmZmFmYzBtNHEwdzlqZmZtdGtmbnE0bXZidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igB2Th9e4nW6s/giphy.gif){fig-align="center"}
+
+::: {.callout-note}
+* Paparan disusun dengan menggunakan <i class="fa-brands fa-r-project"></i> dan [**Quarto**](https://quarto.org) dengan _template_ dari [UNAIR Theme](https://github.com/rameliaz/quarto-unair-theme).
+* Kontak saya via <i class="fas fa-paper-plane"></i> <a href="mailto:amelia.zein@psikologi.unair.ac.id">amelia.zein@psikologi.unair.ac.id</a>
+:::

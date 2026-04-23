@@ -27,9 +27,8 @@ execute:
 * Analisis *power* untuk korelasi
 * Peringatan: korelasi bukan kausalitas
 
----
 
-## Apa itu korelasi? {background-color="#14497F"}
+# Apa itu korelasi? {background-color="#14497F"}
 
 ## Korelasi mengukur hubungan linear
 
@@ -57,9 +56,8 @@ Dataset **masukangin.omv** berisi 1.160 responden dengan variabel:
 
 Kita akan menggunakan dataset ini untuk mengeksplorasi hubungan antar variabel yang berkaitan dengan kepercayaan kesehatan tradisional Jawa.
 
----
 
-## *Scatterplot* dan inspeksi visual {background-color="#14497F"}
+# *Scatterplot* dan inspeksi visual {background-color="#14497F"}
 
 ## Selalu mulai dengan *scatterplot*
 
@@ -97,9 +95,8 @@ Pertanyaan untuk didiskusikan:
 * Apakah hubungannya linear atau ada indikasi pola non-linear?
 * Adakah *outlier* yang mencurigakan?
 
----
 
-## Koefisien korelasi Pearson (*r*) {background-color="#14497F"}
+# Koefisien korelasi Pearson (*r*) {background-color="#14497F"}
 
 ## Definisi dan formula Pearson's *r*
 
@@ -156,9 +153,8 @@ Dengan N = 1.160, korelasi sekecil *r* = 0.082 sudah signifikan (*p* = .005). Na
 Ini menegaskan pentingnya melaporkan **CI dan *effect size***, bukan hanya *p-value*.
 :::
 
----
 
-## Matriks korelasi {background-color="#14497F"}
+# Matriks korelasi {background-color="#14497F"}
 
 ## Menghitung banyak korelasi sekaligus
 
@@ -189,9 +185,8 @@ Pertanyaan untuk didiskusikan:
 * Adakah korelasi yang signifikan secara statistik tapi kecil secara praktis?
 * Bagaimana usia berkorelasi dengan variabel-variabel lain?
 
----
 
-## Korelasi Spearman (non-parametrik) {background-color="#14497F"}
+# Korelasi Spearman (non-parametrik) {background-color="#14497F"}
 
 ## Kapan menggunakan Spearman's *ρ*?
 
@@ -223,9 +218,8 @@ Pertanyaan untuk didiskusikan:
 * Seberapa besar perbedaan antara *r* Pearson dan *ρ* Spearman?
 * Jika keduanya sangat berbeda, apa yang mungkin terjadi dengan data?
 
----
 
-## Analisis *power* untuk korelasi {background-color="#14497F"}
+# Analisis *power* untuk korelasi {background-color="#14497F"}
 
 ## Menentukan sampel untuk studi korelasi
 
@@ -249,9 +243,8 @@ Alfonso ingin menguji apakah ada korelasi antara pendapatan dan berat badan dala
 Dengan *r* = 0.4 (efek sedang), hanya butuh 46 responden untuk *power* 80%. Tapi jika korelasi sesungguhnya ternyata hanya *r* = 0.2, studi yang sama akan sangat *underpowered* dan cenderung menghasilkan estimasi yang *inflated*.
 :::
 
----
 
-## Peringatan: korelasi bukan kausalitas {background-color="#14497F"}
+# Peringatan: korelasi bukan kausalitas {background-color="#14497F"}
 
 ## *Correlation ≠ causation*
 
@@ -299,4 +292,13 @@ Contoh korelasi spurious yang terkenal:
 * Laporkan semua korelasi yang diuji, bukan hanya yang signifikan (*selective reporting* adalah bentuk *p-hacking*)
 * Gunakan *correction for multiple comparisons* (misalnya Bonferroni) jika menguji banyak korelasi
 * Replikasi temuan di sampel independen sebelum mengklaim penemuan yang bermakna
+:::
+
+## Ada pertanyaan❓
+
+![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFtaDh5ZjZ2eXJ3dmJmZmFmYzBtNHEwdzlqZmZtdGtmbnE0bXZidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igB2Th9e4nW6s/giphy.gif){fig-align="center"}
+
+::: {.callout-note}
+* Paparan disusun dengan menggunakan <i class="fa-brands fa-r-project"></i> dan [**Quarto**](https://quarto.org) dengan _template_ dari [UNAIR Theme](https://github.com/rameliaz/quarto-unair-theme).
+* Kontak saya via <i class="fas fa-paper-plane"></i> <a href="mailto:amelia.zein@psikologi.unair.ac.id">amelia.zein@psikologi.unair.ac.id</a>
 :::

@@ -6,6 +6,12 @@ Laman web ini berisi materi **Statistik Dasar dalam Penelitian Psikologi**.
 
 Materi berlisensi [<i class="fab fa-creative-commons"><i class="fa fa-universal-access"></i></i> BY 4.0](https://creativecommons.org/licenses/by/4.0/). **Materi bebas digunakan kembali namun wajib mengatribusi sumber aslinya**.
 
+::: {.callout-note}
+#### _Software_ yang digunakan
+Demonstrasi atas analisis statistik yang disiapkan dalam laman ini menggunakan `jamovi` sebagai alat bantu analisis. Meskipun, tentu saja, analisis statistik sifatnya _software agnostic_. Anda **bebas menggunakan alat bantu analisis yang lain**. Misalnya `jasp`, `SPSS`, <i class="fa-brands fa-r-project"></i>, <i class="fa-brands fa-python"></i>, bahkan Microsoft Excel <i class="fa-regular fa-file-excel"></i> sekalipun. 
+
+Untuk perencanaan jumlah sampel dengan *a priori power analysis*, Anda bisa menggunakan [G*/Power](https://www.psychologie.hhu.de/arbeitsgruppen/allgemeine-psychologie-und-arbeitspsychologie/gpower) atau modul [`PAMLj`](https://blog.jamovi.org/2024/10/28/pamlj.html) atau [`jpower`](https://open.lnu.se/index.php/metapsychology/article/view/3078/3073) di `jamovi`.
+:::
 
 ::: {.callout-note}
 #### Unduh materi dalam bentuk PDF 
@@ -14,17 +20,19 @@ Klik _navigation bar_ yang mengarah pada PDF materi, kemudian tekan `ctrl` dan `
 
 ## *Outline* materi
 
-### 1. [Statistik Deskriptif](slides/statistik-deskriptif.html)
+### 1️⃣ Statistik Deskriptif
 
 * Kenapa statistik?
 * Statistik deskriptif vs inferensial
-* Mengenal *software*: jamovi
+* Mengenal *software*: `jamovi`
 * Tendensi sentral: *mean*, median, dan modus
 * Variabilitas: *range*, IQR, varians, dan standar deviasi
 * Visualisasi data
 * Distribusi normal dan uji normalitas
 
-### 2. [Probabilitas](slides/probabilitas.html)
+[{{< fa file-powerpoint >}} Buka Materi Statistik Deskriptif](slides/statistik-deskriptif.html){.btn .btn-primary}
+
+### 2️⃣ Probabilitas
 
 * Apa itu probabilitas?
 * Dua pendekatan: *frequentist* vs *Bayesian*
@@ -34,7 +42,9 @@ Klik _navigation bar_ yang mengarah pada PDF materi, kemudian tekan `ctrl` dan `
 * *Sampling distribution of the mean*
 * Jembatan menuju statistik inferensial
 
-### 3. [Mengestimasi Parameter Populasi](slides/estimasi-parameter.html)
+[{{< fa file-powerpoint >}} Buka Materi Probabilitas](slides/probabilitas.html){.btn .btn-primary}
+
+### 3️⃣ Mengestimasi Parameter Populasi
 
 * Sampel, populasi, dan prosedur *sampling*
 * *The law of large numbers*
@@ -42,15 +52,19 @@ Klik _navigation bar_ yang mengarah pada PDF materi, kemudian tekan `ctrl` dan `
 * *Standard error of the mean* dan *standard error of proportion*
 * *Confidence interval*
 
-### 4. [Uji Hipotesis](slides/uji-hipotesis.html)
+[{{< fa file-powerpoint >}} Buka Materi Parameter Populasi](slides/estimasi-parameter.html){.btn .btn-primary}
+
+### 4️⃣ Uji Hipotesis
 
 * Logika dasar *Null Hypothesis Significance Testing* (NHST)
 * Hipotesis nol dan hipotesis alternatif
 * *Type I error* dan *Type II error*
 * *Statistical power* dan *effect size*
-* *A priori* analisis *power* dengan G\*Power
+* *A priori* analisis *power* dengan `G*Power`
 
-### 5. [Analisis Data Kategorikal](slides/analisis-kategorikal.html)
+[{{< fa file-powerpoint >}} Buka Materi Uji Hipotesis](slides/uji-hipotesis.html){.btn .btn-primary}
+
+### 5️⃣ Analisis Data Kategorikal
 
 * Apa itu data kategorikal?
 * *Binomial test*
@@ -59,7 +73,9 @@ Klik _navigation bar_ yang mengarah pada PDF materi, kemudian tekan `ctrl` dan `
 * *McNemar's test* (data berpasangan)
 * *Effect size* untuk analisis kategorikal
 
-### 6. [*T-Test*](slides/t-test.html)
+[{{< fa file-powerpoint >}} Buka Materi Analisis Kategorikal](slides/analisis-kategorikal.html){.btn .btn-primary}
+
+### 6️⃣ *T-Test*
 
 * Apa itu *t-test*?
 * *One-sample t-test*
@@ -68,7 +84,9 @@ Klik _navigation bar_ yang mengarah pada PDF materi, kemudian tekan `ctrl` dan `
 * Asumsi, uji asumsi, dan alternatif non-parametrik
 * Analisis *power* untuk t-test
 
-### 7. [Korelasi](slides/korelasi.html)
+[{{< fa file-powerpoint >}} Buka Materi *T-Test*](slides/t-test.html){.btn .btn-primary}
+
+### 7️⃣ Korelasi
 
 * Apa itu korelasi?
 * *Scatterplot* dan inspeksi visual
@@ -76,24 +94,53 @@ Klik _navigation bar_ yang mengarah pada PDF materi, kemudian tekan `ctrl` dan `
 * Interpretasi kekuatan dan arah korelasi
 * Matriks korelasi
 * Analisis *power* untuk korelasi
-* Peringatan: korelasi bukan kausalitas
+* ⚠️**Peringatan**⚠️: korelasi bukan kausalitas
 
-### 8. [ANOVA](slides/anova.html)
+[{{< fa file-powerpoint >}} Buka Materi Korelasi](slides/korelasi.html){.btn .btn-primary}
 
-* Mengapa ANOVA, bukan t-test berulang?
+### 8️⃣ ANOVA
+
+* Mengapa ANOVA, bukan *t-test* berulang?
 * Logika ANOVA: partisi varians dan rasio F
 * Implementasi di jamovi
 * *Effect size* (η² dan ω²) dan *post-hoc tests*
-* Asumsi, uji asumsi, dan *a priori* analisis *power*
+* Asumsi, uji asumsi, dan *a priori power analysis*
 
-### 9. [ANCOVA](slides/ancova.html)
+[{{< fa file-powerpoint >}} Buka Materi ANOVA](slides/anova.html){.btn .btn-primary}
+
+### 9️⃣ ANOVA Faktorial
+
+* Mengapa ANOVA faktorial, bukan ANOVA satu jalur terpisah?
+* Desain faktorial, notasi, dan konsep sel (*cell*)
+* *Main effects* dan *interaction effects*
+* Partisi varians dalam desain faktorial
+* Implementasi di jamovi
+* *Effect size* (η² dan ω²), *post-hoc tests*, dan asumsi
+* *A priori power analysis*
+
+[{{< fa file-powerpoint >}} Buka Materi ANOVA Faktorial](slides/anova-faktorial.html){.btn .btn-primary}
+
+### 1️⃣0️⃣ ANOVA Pengukuran Berulang
+
+* Kapan menggunakan ANOVA pengukuran berulang?
+* Logika: mempartisi varians individual
+* Asumsi *sphericity*, Mauchly's test, dan koreksi Greenhouse-Geisser / Huynh-Feldt
+* Implementasi di `jamovi`
+* *Effect size* (η² dan η²G)
+* *Post-hoc tests* dan *a priori power analysis*
+
+[{{< fa file-powerpoint >}} Buka Materi ANOVA](slides/anova-rm.html){.btn .btn-primary}
+
+### 1️⃣1️⃣ ANCOVA
 
 * Apa itu ANCOVA dan mengapa kovariat penting?
 * Asumsi tambahan ANCOVA
-* Implementasi di jamovi
-* *Effect size*, *post-hoc tests*, dan *a priori* analisis *power*
+* Implementasi di `jamovi`
+* *Effect size*, *post-hoc tests*, dan *a priori power analysis*
 
-### 10. [Regresi Linear (*Ordinary Least Square*)](slides/regresi.html)
+[{{< fa file-powerpoint >}} Buka Materi ANCOVA](slides/ancova.html){.btn .btn-primary}
+
+### 1️⃣2️⃣ Regresi Linear (*Ordinary Least Square*)
 
 * Inspeksi visual dengan *scatterplot*
 * Model regresi linear OLS dan persamaan garis regresi
@@ -103,7 +150,9 @@ Klik _navigation bar_ yang mengarah pada PDF materi, kemudian tekan `ctrl` dan `
 * Mendeteksi *outliers* dengan Cook's distance
 * Menulis hasil analisis regresi linear dalam manuskrip
 
-### 11. [Analisis Moderasi](slides/moderasi.html)
+[{{< fa file-powerpoint >}} Buka Materi Regresi OLS](slides/regresi.html){.btn .btn-primary}
+
+### 1️⃣3️⃣ Analisis Moderasi
 
 * Konsep moderasi: apa dan kapan relevan?
 * Pendekatan 1 — suku interaksi dalam regresi OLS: *mean-centering*, *model comparison*, *estimated marginal means*
@@ -111,15 +160,18 @@ Klik _navigation bar_ yang mengarah pada PDF materi, kemudian tekan `ctrl` dan `
 * Kapan memilih OLS vs. `medmod`
 * Melaporkan hasil analisis moderasi
 
-### 12. [Analisis Mediasi](slides/mediasi.html)
+[{{< fa file-powerpoint >}} Buka Materi Moderasi](slides/moderasi.html){.btn .btn-primary}
+
+### 1️⃣4️⃣ Analisis Mediasi
 
 * Apa itu mediasi?
 * Model mediasi sederhana
 * Pendekatan Baron & Kenny vs. *bootstrapping*
-* Implementasi di jamovi (PROCESS)
+* Implementasi di `jamovi`
 * Interpretasi *indirect effect*
-* Peringatan: mediasi dari data *cross-sectional*
+* ⚠️**Peringatan**⚠️: mediasi dari data *cross-sectional*
 
+[{{< fa file-powerpoint >}} Buka Materi Mediasi](slides/mediasi.html){.btn .btn-primary}
 
 ## Sumber belajar lainnya
 
@@ -135,7 +187,7 @@ Klik _navigation bar_ yang mengarah pada PDF materi, kemudian tekan `ctrl` dan `
 
 Gunakan **jamovi versi stabil yang terbaru** (2.6.44) [untuk Windows](https://www.jamovi.org/downloads/jamovi-2.6.44.0-win-x64.exe) atau [MacOS](https://www.jamovi.org/download.html).
 
-Mohon untuk menyimak video cara mengelola *modules* di jamovi berikut ini. Di video ini saya mencontohkan cara instalasi _module_ GAMLj. Instalasi _modules_ yang lain mengikuti prosedur yang persis sama.
+Mohon untuk menyimak video cara mengelola *modules* di jamovi berikut ini. Di video ini saya mencontohkan cara instalasi _module_ GAMLj. Instalasi _module_ yang lain mengikuti prosedur yang persis sama.
 
 {{< video https://www.youtube.com/watch?v=XWavBKgTEuU >}}
 

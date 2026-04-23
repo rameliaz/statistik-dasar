@@ -26,9 +26,8 @@ execute:
 * Alternatif non-parametrik
 * Analisis *power* untuk t-test
 
----
 
-## Apa itu *t-test*? {background-color="#14497F"}
+# Apa itu *t-test*? {background-color="#14497F"}
 
 ## Keluarga *t-test*
 
@@ -58,9 +57,8 @@ Makin besar perbedaan relatif terhadap variabilitasnya → nilai *t* makin besar
 * *Paired samples*: df = n − 1 (n = jumlah pasang)
 * *Independent samples*: df = n₁ + n₂ − 2 (atau Welch's df yang lebih kompleks)
 
----
 
-## *One-sample t-test* {background-color="#14497F"}
+# *One-sample t-test* {background-color="#14497F"}
 
 ## Kasus Esmeralda dan ujian SAPSI
 
@@ -93,9 +91,8 @@ Pertanyaan untuk didiskusikan:
 * Berapa nilai *t* dan *p-value* yang kalian peroleh?
 * Apakah hasilnya signifikan? Seberapa besar *effect size*-nya?
 
----
 
-## *Paired samples t-test* {background-color="#14497F"}
+# *Paired samples t-test* {background-color="#14497F"}
 
 ## Eksperimen kopi dan konsentrasi
 
@@ -147,9 +144,8 @@ Pertanyaan untuk didiskusikan:
 * Bandingkan *mean* sebelum dan sesudah — ke arah mana perubahan terjadi?
 * Apakah *p-value* konsisten dengan nilai *d*?
 
----
 
-## *Independent samples t-test* {background-color="#14497F"}
+# *Independent samples t-test* {background-color="#14497F"}
 
 ## Jimat batu akik dan nilai ujian
 
@@ -197,9 +193,8 @@ Pertanyaan untuk didiskusikan:
 * Apakah varians kedua kelompok homogen? Apa implikasinya untuk pilihan uji?
 * Bandingkan nilai *d* dengan nilai *p* — apakah keduanya menceritakan kisah yang sama?
 
----
 
-## Asumsi t-test {background-color="#14497F"}
+# Asumsi t-test {background-color="#14497F"}
 
 ## Asumsi yang perlu diperiksa
 
@@ -246,9 +241,8 @@ Di jamovi, Welch's correction adalah **pilihan default** untuk *independent samp
 Untuk sampel kecil dengan data yang jelas tidak normal, pertimbangkan **alternatif non-parametrik** — Wilcoxon signed-rank test (untuk *paired*) atau Mann-Whitney U test (untuk *independent*).
 :::
 
----
 
-## Alternatif non-parametrik {background-color="#14497F"}
+# Alternatif non-parametrik {background-color="#14497F"}
 
 ## Kapan menggunakan uji non-parametrik?
 
@@ -290,9 +284,8 @@ Pertanyaan untuk didiskusikan:
 * Apakah kesimpulan berubah ketika menggunakan Wilcoxon?
 * Kapan kesimpulan dari t-test dan Wilcoxon bisa berbeda secara bermakna?
 
----
 
-## Analisis *power* untuk t-test {background-color="#14497F"}
+# Analisis *power* untuk t-test {background-color="#14497F"}
 
 ## Menentukan ukuran sampel sebelum penelitian
 
@@ -324,3 +317,12 @@ Pertanyaan untuk didiskusikan:
 
 * Mengapa desain *within-subjects* membutuhkan sampel jauh lebih sedikit?
 * Apa keterbatasan desain *within-subjects* yang membuat peneliti tetap memilih *between-subjects*?
+
+## Ada pertanyaan❓
+
+![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFtaDh5ZjZ2eXJ3dmJmZmFmYzBtNHEwdzlqZmZtdGtmbnE0bXZidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igB2Th9e4nW6s/giphy.gif){fig-align="center"}
+
+::: {.callout-note}
+* Paparan disusun dengan menggunakan <i class="fa-brands fa-r-project"></i> dan [**Quarto**](https://quarto.org) dengan _template_ dari [UNAIR Theme](https://github.com/rameliaz/quarto-unair-theme).
+* Kontak saya via <i class="fas fa-paper-plane"></i> <a href="mailto:amelia.zein@psikologi.unair.ac.id">amelia.zein@psikologi.unair.ac.id</a>
+:::

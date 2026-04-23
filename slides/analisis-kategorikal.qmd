@@ -25,9 +25,8 @@ execute:
 * *McNemar's test* (data berpasangan)
 * *Effect size* untuk analisis kategorikal
 
----
 
-## Data kategorikal dalam penelitian psikologi {background-color="#14497F"}
+# Data kategorikal dalam penelitian psikologi {background-color="#14497F"}
 
 ## Apa itu data kategorikal?
 
@@ -52,9 +51,8 @@ Meskipun kita sering mengkode kategori dengan angka (0 dan 1, 1 dan 2, dll.), an
 | Dua variabel kategorikal, sampel kecil | Apakah ada asosiasi? | *Fisher's exact test* |
 | Dua variabel dikotomi, berpasangan | Apakah ada perubahan proporsi sebelum-sesudah? | *McNemar's test* |
 
----
 
-## *Binomial test* {background-color="#14497F"}
+# *Binomial test* {background-color="#14497F"}
 
 ## Apa itu *binomial test*?
 
@@ -95,9 +93,8 @@ Pertanyaan untuk didiskusikan:
 * Apa arti CI untuk proporsi yang kalian peroleh?
 * Berapa besar perbedaan antara proporsi sampel (65%) dan nilai referensi (60%) — apakah perbedaan ini bermakna secara praktis?
 
----
 
-## Uji chi-square (*χ²*) {background-color="#14497F"}
+# Uji chi-square (*χ²*) {background-color="#14497F"}
 
 ## Chi-square: asosiasi dua variabel kategorikal
 
@@ -154,9 +151,8 @@ Pertanyaan untuk didiskusikan:
 * Berapa nilai Cramér's V? Seberapa kuat asosiasinya?
 * Kelompok metode belajar mana yang menunjukkan profil kelulusan yang berbeda paling menyolok?
 
----
 
-## *Fisher's exact test* {background-color="#14497F"}
+# *Fisher's exact test* {background-color="#14497F"}
 
 ## Kapan menggunakan *Fisher's exact test*?
 
@@ -184,9 +180,8 @@ Seorang konselor sekolah menguji apakah sesi konseling kelompok (N = 20) mengura
 
 Frekuensi yang diharapkan untuk sel kiri atas = (10 × 11)/20 = 5.5 — beberapa sel memiliki nilai diharapkan < 5, sehingga *Fisher's exact test* lebih tepat.
 
----
 
-## *McNemar's test* {background-color="#14497F"}
+# *McNemar's test* {background-color="#14497F"}
 
 ## Asosiasi dalam data berpasangan
 
@@ -219,9 +214,8 @@ Jika jumlah perubahan kecil (b + c < 25), gunakan versi *exact* yang menggunakan
 2. Masukkan variabel sebelum dan sesudah
 3. Di *Statistics*, centang **McNemar's test**
 
----
 
-## *Effect size* untuk analisis kategorikal {background-color="#14497F"}
+# *Effect size* untuk analisis kategorikal {background-color="#14497F"}
 
 ## Mengapa *effect size* penting?
 
@@ -267,3 +261,12 @@ Pertanyaan untuk didiskusikan:
 * Apakah proporsi mahasiswa yang mendukung hukuman fisik berubah secara signifikan setelah kuliah?
 * Apakah jurusan berhubungan dengan arah perubahan sikap? Seberapa kuat asosiasinya?
 * Kenapa kita tidak bisa menggunakan chi-square biasa untuk membandingkan sebelum-sesudah dalam kelompok yang sama?
+
+## Ada pertanyaan❓
+
+![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFtaDh5ZjZ2eXJ3dmJmZmFmYzBtNHEwdzlqZmZtdGtmbnE0bXZidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igB2Th9e4nW6s/giphy.gif){fig-align="center"}
+
+::: {.callout-note}
+* Paparan disusun dengan menggunakan <i class="fa-brands fa-r-project"></i> dan [**Quarto**](https://quarto.org) dengan _template_ dari [UNAIR Theme](https://github.com/rameliaz/quarto-unair-theme).
+* Kontak saya via <i class="fas fa-paper-plane"></i> <a href="mailto:amelia.zein@psikologi.unair.ac.id">amelia.zein@psikologi.unair.ac.id</a>
+:::

@@ -26,9 +26,8 @@ execute:
 * *Confidence interval*
 * Menuju statistik inferensial
 
----
 
-## Sampel, populasi, dan prosedur *sampling* {background-color="#14497F"}
+# Sampel, populasi, dan prosedur *sampling* {background-color="#14497F"}
 
 ## Populasi vs sampel
 
@@ -90,9 +89,8 @@ Sebagian besar penelitian psikologi menggunakan ***convenience sampling*** (teru
 Henrich et al. (2010) menemukan bahwa sekitar **96% sampel** dalam jurnal psikologi top berasal dari populasi WEIRD, padahal populasi ini hanya mewakili **12%** populasi manusia. Ini adalah krisis representativitas yang serius dalam Psikologi.
 :::
 
----
 
-## *The law of large numbers* {background-color="#14497F"}
+# *The law of large numbers* {background-color="#14497F"}
 
 ## *The law of large numbers*
 
@@ -124,9 +122,8 @@ Bayangkan kita melempar koin yang adil (P(gambar) = 0.5):
 Open Science Collaboration (2015) berusaha mereplikasi 100 studi psikologi yang dipublikasikan — hanya **36-39%** yang berhasil direplikasi. Salah satu faktor utama: ukuran sampel yang terlalu kecil di studi-studi aslinya.
 :::
 
----
 
-## Distribusi *sampling* dan *Central Limit Theorem* {background-color="#14497F"}
+# Distribusi *sampling* dan *Central Limit Theorem* {background-color="#14497F"}
 
 ## Distribusi *sampling* (ringkasan)
 
@@ -158,9 +155,8 @@ Teorema paling penting dalam statistik:
 CLT **tidak berarti** data kita harus berdistribusi normal. CLT menjamin normalitas pada **distribusi *sampling*** dari *mean*, bukan pada data individual. Perbedaan ini sering disalahpahami.
 :::
 
----
 
-## *Standard error* {background-color="#14497F"}
+# *Standard error* {background-color="#14497F"}
 
 ## *Standard error of the mean*
 
@@ -228,9 +224,8 @@ Inilah mengapa survei politik yang serius menggunakan sampel **minimal 400 respo
 SE proporsi mencapai nilai **maksimum** ketika p = 0.5 — artinya kita paling tidak pasti ketika dukungan mendekati 50:50 (persaingan sangat ketat). Semakin jauh proporsi dari 0.5, semakin kecil SE-nya.
 :::
 
----
 
-## *Confidence interval* {background-color="#14497F"}
+# *Confidence interval* {background-color="#14497F"}
 
 ## Apa itu *confidence interval*?
 
@@ -311,9 +306,8 @@ Saat melakukan analisis apapun di jamovi (t-test, ANOVA, regresi), selalu aktifk
 * Perhatikan: semakin besar N, semakin **sempit** CI yang dihasilkan
 * CI yang tidak mencakup angka 0 (untuk perbedaan *mean*) atau 1 (untuk *odds ratio*) biasanya konsisten dengan hasil yang *statistically significant*
 
----
 
-## Menuju statistik inferensial {background-color="#14497F"}
+# Menuju statistik inferensial {background-color="#14497F"}
 
 ## Menyatukan semua konsep
 
@@ -346,4 +340,13 @@ Inferensi: CI dan uji hipotesis
 * Bagaimana **merumuskan dan menguji hipotesis** secara formal (*p-value*, *Type I/II error*, *effect size*, *statistical power*)
 * Bagaimana memilih teknik uji hipotesis yang **tepat** sesuai jenis data dan pertanyaan penelitian
 * Semua teknik tersebut bersandar pada fondasi yang sudah kita bangun di sini
+:::
+
+## Ada pertanyaan❓
+
+![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFtaDh5ZjZ2eXJ3dmJmZmFmYzBtNHEwdzlqZmZtdGtmbnE0bXZidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igB2Th9e4nW6s/giphy.gif){fig-align="center"}
+
+::: {.callout-note}
+* Paparan disusun dengan menggunakan <i class="fa-brands fa-r-project"></i> dan [**Quarto**](https://quarto.org) dengan _template_ dari [UNAIR Theme](https://github.com/rameliaz/quarto-unair-theme).
+* Kontak saya via <i class="fas fa-paper-plane"></i> <a href="mailto:amelia.zein@psikologi.unair.ac.id">amelia.zein@psikologi.unair.ac.id</a>
 :::

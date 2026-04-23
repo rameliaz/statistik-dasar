@@ -32,9 +32,8 @@ execute:
 * Navarro, D.J. & Foxcroft, D.R. (2019). *Learning Statistics with jamovi: A tutorial for psychology students and other beginners* (Version 0.70). [[Akses gratis di sini]](https://www.learnstatswithjamovi.com/)
 * Tutorial jamovi dari Datalab: [datalab.cc/tools/jamovi](https://datalab.cc/tools/jamovi)
 
----
 
-## Kenapa statistik? {background-color="#14497F"}
+# Kenapa statistik? {background-color="#14497F"}
 
 ## Kenapa statistik?
 
@@ -80,9 +79,8 @@ execute:
 Statistik deskriptif selalu merupakan **langkah pertama** dalam analisis data. Sebelum menguji hipotesis apapun, selalu inspeksi data terlebih dahulu — distribusinya, *outlier*-nya, dan *missing data*-nya.
 :::
 
----
 
-## Mengenal *software*: jamovi {background-color="#14497F"}
+# Mengenal *software*: jamovi {background-color="#14497F"}
 
 ## Mengapa jamovi?
 
@@ -97,9 +95,8 @@ Statistik deskriptif selalu merupakan **langkah pertama** dalam analisis data. S
 Gunakan **jamovi versi stabil terbaru** (2.6.44) — [unduh untuk Windows](https://www.jamovi.org/downloads/jamovi-2.6.44.0-win-x64.exe) atau [MacOS](https://www.jamovi.org/download.html). Pastikan juga sudah menginstal *module* yang diperlukan (GAMLj, jpower, dsb.) sebelum perkuliahan.
 :::
 
----
 
-## Tendensi sentral {background-color="#14497F"}
+# Tendensi sentral {background-color="#14497F"}
 
 ## *Mean*/rata-rata
 
@@ -139,9 +136,8 @@ Setelah itu, bandingkan *mean* dan median *teenfert* antar kelompok *human devel
 * Tambahkan variabel **HDgroup** ke kolom *Split by*
 * Apa yang berbeda? Kelompok mana yang punya *mean* dan median paling berbeda jauh?
 
----
 
-## Variabilitas {background-color="#14497F"}
+# Variabilitas {background-color="#14497F"}
 
 ## Mengapa variabilitas penting?
 
@@ -196,9 +192,8 @@ Pertanyaan untuk didiskusikan:
 * Kelompok HDI mana yang variabilitasnya paling tinggi? Apa artinya?
 * Apakah *range* memberikan gambaran yang sama dengan IQR untuk setiap kelompok?
 
----
 
-## Visualisasi data {background-color="#14497F"}
+# Visualisasi data {background-color="#14497F"}
 
 ## Mengapa visualisasi penting?
 
@@ -246,9 +241,8 @@ Dengan dataset **HDIWDI2010.sav**, inspeksi distribusi *teenfert* secara visual:
 2. Tambahkan **HDgroup** di kolom *Split by* untuk membandingkan distribusi antar kelompok
 3. Perhatikan: apakah distribusi *teenfert* terlihat simetris? Adakah *outlier*?
 
----
 
-## Distribusi normal {background-color="#14497F"}
+# Distribusi normal {background-color="#14497F"}
 
 ## Distribusi normal
 
@@ -276,9 +270,8 @@ Distribusi normal adalah **asumsi dasar** dari hampir semua teknik statistik par
   - Skor skala Likert 5-poin bersifat ordinal
   - Data klinis sering memiliki distribusi yang tidak normal
 
----
 
-## Uji normalitas {background-color="#14497F"}
+# Uji normalitas {background-color="#14497F"}
 
 ## Mengapa perlu uji normalitas?
 
@@ -296,7 +289,7 @@ Uji normalitas adalah **langkah wajib** sebelum memilih teknik uji hipotesis. Me
 **1. Inspeksi visual**
 
 * Histogram dan *density plot* — apakah berbentuk *bell-shaped*?
-* *Skewness* ± 1 dan *kurtosis* ± 2 → data dianggap cukup normal
+* *Skewness* ± 2 dan *kurtosis* ± 2 → data dianggap cukup normal
 
 **2. Uji *Shapiro-Wilk***
 
@@ -334,3 +327,12 @@ Pertanyaan:
 * Apakah *teenfert* berdistribusi normal?
 * Apakah kesimpulan uji Shapiro-Wilk konsisten dengan tampilan histogram?
 * Jika data tidak normal, teknik statistik apa yang sebaiknya digunakan?
+
+## Ada pertanyaan❓
+
+![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFtaDh5ZjZ2eXJ3dmJmZmFmYzBtNHEwdzlqZmZtdGtmbnE0bXZidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igB2Th9e4nW6s/giphy.gif){fig-align="center"}
+
+::: {.callout-note}
+* Paparan disusun dengan menggunakan <i class="fa-brands fa-r-project"></i> dan [**Quarto**](https://quarto.org) dengan _template_ dari [UNAIR Theme](https://github.com/rameliaz/quarto-unair-theme).
+* Kontak saya via <i class="fas fa-paper-plane"></i> <a href="mailto:amelia.zein@psikologi.unair.ac.id">amelia.zein@psikologi.unair.ac.id</a>
+:::

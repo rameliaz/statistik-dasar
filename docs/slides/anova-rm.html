@@ -6,12 +6,13 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.3">
 
   <meta name="author" content="Rizqy Amelia Zein">
   <meta name="dcterms.date" content="2026-04-23">
-  <title>Statistik Dasar dalam Penelitian Psikologi – Probabilitas</title>
+  <title>Statistik Dasar dalam Penelitian Psikologi – ANOVA Pengukuran Berulang</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -125,13 +126,14 @@
       margin-right: 0; 
     }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Probabilitas</h1>
+  <h1 class="title">ANOVA Pengukuran Berulang</h1>
   <p class="subtitle">Statistik Dasar dalam Penelitian Psikologi</p>
 
 <div class="quarto-title-authors">
@@ -150,113 +152,26 @@ Rizqy Amelia Zein
 <section id="outline" class="slide level2">
 <h2><em>Outline</em></h2>
 <ul>
-<li>Apa itu probabilitas?</li>
-<li>Dua pendekatan: <em>frequentist</em> vs <em>Bayesian</em></li>
-<li>Aturan dasar probabilitas</li>
-<li>Distribusi probabilitas</li>
-<li>Distribusi normal dan <em>z-score</em></li>
-<li><em>Sampling distribution of the mean</em></li>
-<li>Jembatan menuju statistik inferensial</li>
+<li>Kapan menggunakan ANOVA pengukuran berulang?</li>
+<li>Logika: mempartisi varians individual</li>
+<li>Asumsi <em>sphericity</em> dan Mauchly’s test</li>
+<li>Koreksi <em>Greenhouse-Geisser</em> dan <em>Huynh-Feldt</em></li>
+<li>Implementasi di jamovi</li>
+<li><em>Effect size</em> (η² dan η²G)</li>
+<li><em>Post-hoc tests</em></li>
+<li><em>A priori</em> analisis <em>power</em></li>
 </ul>
 </section>
 <section>
-<section id="apa-itu-probabilitas" class="title-slide slide level1 center" data-background-color="#14497F">
-<h1>Apa itu probabilitas?</h1>
+<section id="kapan-menggunakan-rm-anova" class="title-slide slide level1 center" data-background-color="#14497F">
+<h1>Kapan menggunakan RM-ANOVA?</h1>
 
 </section>
-<section id="apa-itu-probabilitas-1" class="slide level2">
-<h2>Apa itu probabilitas?</h2>
-<ul>
-<li>Probabilitas adalah <strong>ukuran ketidakpastian</strong> — seberapa besar kemungkinan suatu kejadian terjadi</li>
-<li>Dinyatakan dalam angka antara <strong>0</strong> (mustahil) dan <strong>1</strong> (pasti terjadi)</li>
-<li>Contoh: probabilitas mendapatkan angka 6 saat melempar dadu = 1/6 ≈ 0.167</li>
-</ul>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note</strong></p>
-</div>
-<div class="callout-content">
-<p>Dalam penelitian psikologi, kita tidak pernah bisa <strong>membuktikan</strong> sesuatu secara mutlak — kita hanya bisa menyatakan seberapa <strong>mustahil</strong> temuan kita terjadi secara kebetulan. Inilah inti dari logika probabilistik dalam ilmu pengetahuan.</p>
-</div>
-</div>
-</div>
-<p><strong>Notasi:</strong></p>
-<ul>
-<li><span class="math inline">\(P(A)\)</span> = probabilitas kejadian A</li>
-<li><span class="math inline">\(P(A) = 0\)</span> → kejadian A mustahil terjadi</li>
-<li><span class="math inline">\(P(A) = 1\)</span> → kejadian A pasti terjadi</li>
-<li><span class="math inline">\(0 \leq P(A) \leq 1\)</span> selalu berlaku</li>
-</ul>
-</section>
-<section id="dua-pendekatan-probabilitas" class="slide level2">
-<h2>Dua pendekatan probabilitas</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong><em>Frequentist</em></strong></p>
-<ul>
-<li>Probabilitas = <strong>proporsi kejadian</strong> jika percobaan diulang sangat banyak kali</li>
-<li><em>“Kalau kita melempar koin 10.000 kali, sekitar 5.000 kali akan muncul gambar”</em></li>
-<li>Tidak bisa digunakan untuk kejadian yang tidak bisa diulang</li>
-<li><strong>Fondasi dari statistik klasik</strong> (NHST, <em>p-value</em>, <em>confidence interval</em>)</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><strong><em>Bayesian</em></strong></p>
-<ul>
-<li>Probabilitas = <strong>derajat keyakinan</strong> (<em>degree of belief</em>) yang bisa diperbarui dengan data baru</li>
-<li><em>“Berdasarkan bukti yang ada, seberapa yakin saya bahwa hipotesis ini benar?”</em></li>
-<li>Memungkinkan kita menggabungkan <strong>pengetahuan sebelumnya</strong> (<em>prior</em>) dengan data baru</li>
-<li>Semakin populer di Psikologi — misalnya <em>Bayes Factor</em> sebagai alternatif <em>p-value</em></li>
-</ul>
-</div></div>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note</strong></p>
-</div>
-<div class="callout-content">
-<p>Sebagian besar statistik yang kalian pelajari di S1 menggunakan <strong>pendekatan <em>frequentist</em></strong>. Penting untuk memahami asumsi ini agar kalian bisa menginterpretasi hasil analisis dengan benar.</p>
-</div>
-</div>
-</div>
-</section></section>
-<section>
-<section id="aturan-dasar-probabilitas" class="title-slide slide level1 center" data-background-color="#14497F">
-<h1>Aturan dasar probabilitas</h1>
-
-</section>
-<section id="aturan-penjumlahan-addition-rule" class="slide level2">
-<h2>Aturan penjumlahan (<em>Addition Rule</em>)</h2>
-<p><strong>Kejadian <em>mutually exclusive</em></strong> (tidak bisa terjadi bersamaan):</p>
-<p><span class="math display">\[P(A \cup B) = P(A) + P(B)\]</span></p>
-<ul>
-<li>Contoh: Probabilitas mendapatkan angka 1 <strong>atau</strong> angka 2 saat melempar dadu = 1/6 + 1/6 = 2/6</li>
-</ul>
-<p><strong>Kejadian yang <em>tidak mutually exclusive</em></strong> (bisa terjadi bersamaan):</p>
-<p><span class="math display">\[P(A \cup B) = P(A) + P(B) - P(A \cap B)\]</span></p>
-<ul>
-<li>Contoh: Probabilitas mahasiswa lulus statistik <strong>atau</strong> lulus metodologi, di mana beberapa mahasiswa bisa lulus keduanya</li>
-</ul>
-</section>
-<section id="aturan-perkalian-multiplication-rule" class="slide level2">
-<h2>Aturan perkalian (<em>Multiplication Rule</em>)</h2>
-<p><strong>Kejadian independen</strong> (kejadian A tidak memengaruhi kejadian B):</p>
-<p><span class="math display">\[P(A \cap B) = P(A) \times P(B)\]</span></p>
-<ul>
-<li>Contoh: Probabilitas mendapat angka 6 dua kali berturut-turut = 1/6 × 1/6 = 1/36</li>
-</ul>
-<p><strong>Probabilitas bersyarat</strong> (<em>conditional probability</em>):</p>
-<p><span class="math display">\[P(A | B) = \frac{P(A \cap B)}{P(B)}\]</span></p>
-<ul>
-<li><span class="math inline">\(P(A|B)\)</span> dibaca: “probabilitas A terjadi, <strong>diketahui</strong> B sudah terjadi”</li>
-<li>Contoh: Probabilitas mahasiswa mendapat nilai A <strong>diketahui</strong> mereka hadir di semua kuliah</li>
-</ul>
+<section id="keterbatasan-anova-satu-jalur-untuk-data-berulang" class="slide level2">
+<h2>Keterbatasan ANOVA satu jalur untuk data berulang</h2>
+<p>Bayangkan Alfonso mengukur <strong>durasi membaca kucing</strong> pada minggu ke-1, ke-2, dan ke-3 dari <strong>kucing yang sama</strong>. Jika ia menjalankan ANOVA satu jalur biasa:</p>
+<p><strong>Masalah: Observasi tidak independen!</strong></p>
+<p>Kucing yang membaca lama di minggu ke-1 cenderung juga membaca lama di minggu ke-2 dan ke-3. Ini bukan karena perlakuan, tapi karena <strong>karakteristik individu</strong> kucing tersebut.</p>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -266,93 +181,56 @@ Rizqy Amelia Zein
 <p><strong>Important</strong></p>
 </div>
 <div class="callout-content">
-<p>Kebanyakan analisis statistik mengasumsikan <strong>independensi</strong> antar-observasi. Melanggar asumsi ini (misalnya, data dari mahasiswa dalam kelas yang sama) akan membuat estimasi kita tidak akurat.</p>
+<p>ANOVA satu jalur mengasumsikan bahwa semua observasi <strong>independen</strong> satu sama lain. Ketika subjek yang sama diukur berulang kali, asumsi ini dilanggar — dan <em>p-value</em> yang dihasilkan <strong>tidak valid</strong>.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="komplemen" class="slide level2">
-<h2>Komplemen</h2>
+<section id="apa-itu-anova-pengukuran-berulang" class="slide level2">
+<h2>Apa itu ANOVA pengukuran berulang?</h2>
+<p><em>Repeated Measures ANOVA</em> (RM-ANOVA) — disebut juga <em>within-subjects ANOVA</em> atau <em>related ANOVA</em> — dirancang khusus untuk situasi di mana <strong>subjek yang sama diukur pada tiga atau lebih kondisi/waktu pengukuran</strong>.</p>
+<p><strong>Kapan digunakan:</strong></p>
 <ul>
-<li>Probabilitas kejadian A <strong>tidak terjadi</strong>:</li>
+<li>Studi longitudinal: mengukur variabel yang sama di beberapa titik waktu</li>
+<li>Studi <em>crossover</em>: setiap partisipan mendapatkan semua kondisi perlakuan</li>
+<li>Desain <em>counterbalanced</em>: urutan kondisi diacak per partisipan</li>
 </ul>
-<p><span class="math display">\[P(\bar{A}) = 1 - P(A)\]</span></p>
+<p><strong>Keunggulan dibanding <em>between-subjects</em> ANOVA:</strong></p>
 <ul>
-<li>Contoh: Jika probabilitas hujan besok = 0.3, maka probabilitas <strong>tidak hujan</strong> = 1 - 0.3 = 0.7</li>
+<li>Lebih <em>powerful</em> — variasi individu “diisolasi” dari <em>error</em></li>
+<li>Membutuhkan <strong>lebih sedikit partisipan</strong> untuk mencapai <em>power</em> yang sama</li>
 </ul>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note</strong></p>
-</div>
-<div class="callout-content">
-<p>Aturan komplemen ini adalah fondasi dari <em>p-value</em> dalam uji hipotesis. Ketika kita mengatakan <em>p</em> = 0.03, artinya probabilitas mendapatkan data seperti yang kita amati (atau lebih ekstrem) <strong>jika hipotesis nol benar</strong> adalah 0.03 — sangat kecil, sehingga kita meragukan hipotesis nol.</p>
-</div>
-</div>
-</div>
-</section></section>
-<section>
-<section id="distribusi-probabilitas" class="title-slide slide level1 center" data-background-color="#14497F">
-<h1>Distribusi probabilitas</h1>
-
 </section>
-<section id="apa-itu-distribusi-probabilitas" class="slide level2">
-<h2>Apa itu distribusi probabilitas?</h2>
-<ul>
-<li>Distribusi probabilitas menggambarkan <strong>semua kemungkinan nilai</strong> yang bisa diambil suatu variabel beserta <strong>probabilitas</strong> masing-masing nilai tersebut</li>
-<li>Ada dua jenis utama:</li>
-</ul>
+<section id="mempartisi-varians-perbedaan-kunci" class="slide level2">
+<h2>Mempartisi varians: perbedaan kunci</h2>
+<p>Dalam ANOVA satu jalur biasa: <span class="math display">\[SS_{\text{tot}} = SS_{\text{between}} + SS_{\text{within}}\]</span></p>
+<p>Dalam RM-ANOVA, <span class="math inline">\(SS_{\text{within}}\)</span> dipartisi lebih lanjut: <span class="math display">\[SS_{\text{within}} = SS_{\text{perlakuan}} + SS_{\text{individu}} + SS_{\text{error}}\]</span></p>
 <table class="caption-top">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 50%">
+<col style="width: 50%">
 </colgroup>
 <thead>
 <tr class="header">
-<th></th>
-<th><strong>Diskret</strong></th>
-<th><strong>Kontinu</strong></th>
+<th>Komponen</th>
+<th>Interpretasi</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Jenis variabel</strong></td>
-<td>Nilai cacahan (0, 1, 2, …)</td>
-<td>Nilai tak terbatas dalam suatu rentang</td>
+<td><span class="math inline">\(SS_{\text{perlakuan}}\)</span></td>
+<td>Perubahan akibat kondisi/waktu pengukuran</td>
 </tr>
 <tr class="even">
-<td><strong>Probabilitas</strong></td>
-<td><span class="math inline">\(P(X = x)\)</span> untuk nilai tertentu</td>
-<td>Probabilitas untuk <strong>interval</strong> nilai</td>
+<td><span class="math inline">\(SS_{\text{individu}}\)</span></td>
+<td>Perbedaan antar-individu yang konsisten (dikontrol)</td>
 </tr>
 <tr class="odd">
-<td><strong>Contoh</strong></td>
-<td>Jumlah anak, jumlah kesalahan</td>
-<td>Tinggi badan, skor IQ, kecemasan</td>
-</tr>
-<tr class="even">
-<td><strong>Distribusi umum</strong></td>
-<td>Binomial, Poisson</td>
-<td>Normal, <em>t</em>, <em>F</em>, <span class="math inline">\(\chi^2\)</span></td>
+<td><span class="math inline">\(SS_{\text{error}}\)</span></td>
+<td>Sisa variabilitas yang tidak dapat dijelaskan</td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="distribusi-binomial" class="slide level2">
-<h2>Distribusi binomial</h2>
-<ul>
-<li>Digunakan untuk variabel diskret dengan <strong>dua kemungkinan hasil</strong> (<em>sukses</em> vs <em>gagal</em>)</li>
-<li>Parameter: <strong>n</strong> (jumlah percobaan) dan <strong>p</strong> (probabilitas sukses)</li>
-</ul>
-<p><span class="math display">\[P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}\]</span></p>
-<ul>
-<li>Contoh: Dari 10 pasien yang mendapat terapi CBT, berapa probabilitas tepat 7 pasien mengalami perbaikan gejala, jika diketahui probabilitas perbaikan = 0.6?</li>
-<li>Distribusi binomial adalah fondasi dari <strong>binomial test</strong> (yang akan kita pelajari di analisis data kategorikal)</li>
-</ul>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -362,100 +240,83 @@ Rizqy Amelia Zein
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>Ketika <strong>n sangat besar</strong> dan <strong>p tidak terlalu ekstrem</strong>, distribusi binomial mendekati distribusi normal — inilah salah satu alasan mengapa distribusi normal sangat penting.</p>
+<p>Dengan “mengeluarkan” <span class="math inline">\(SS_{\text{individu}}\)</span> dari <em>error</em>, denominator rasio F menjadi lebih kecil — sehingga F lebih besar dan <em>power</em> meningkat.</p>
 </div>
 </div>
 </div>
 </section></section>
 <section>
-<section id="distribusi-normal-dan-z-score" class="title-slide slide level1 center" data-background-color="#14497F">
-<h1>Distribusi normal dan <em>z-score</em></h1>
+<section id="studi-alfonso-kucing-membaca" class="title-slide slide level1 center" data-background-color="#14497F">
+<h1>Studi Alfonso: kucing membaca</h1>
 
 </section>
-<section id="distribusi-normal-sebagai-distribusi-probabilitas" class="slide level2">
-<h2>Distribusi normal sebagai distribusi probabilitas</h2>
-<ul>
-<li>Distribusi normal adalah distribusi probabilitas <strong>kontinu</strong> yang paling penting dalam statistik</li>
-<li>Didefinisikan sepenuhnya oleh dua parameter: μ (<em>mean</em> populasi) dan σ (standar deviasi populasi)</li>
-</ul>
-<p><span class="math display">\[f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}\]</span></p>
-<ul>
-<li>Total area di bawah kurva = <strong>1</strong> (semua probabilitas berjumlah 1)</li>
-<li>Probabilitas untuk interval tertentu = <strong>area di bawah kurva</strong> pada interval tersebut</li>
-</ul>
-</section>
-<section id="z-score-skor-baku" class="slide level2">
-<h2><em>Z-score</em> (skor baku)</h2>
-<ul>
-<li><em>Z-score</em> mengubah nilai mentah menjadi <strong>satuan standar deviasi</strong> dari <em>mean</em>:</li>
-</ul>
-<p><span class="math display">\[z = \frac{X - \mu}{\sigma}\]</span></p>
-<ul>
-<li>Distribusi normal dengan μ = 0 dan σ = 1 disebut <strong>distribusi normal standar</strong> (<em>standard normal distribution</em>)</li>
-</ul>
-<p><strong>Kegunaan <em>z-score</em>:</strong></p>
-<ul>
-<li>Membandingkan nilai dari <strong>distribusi yang berbeda</strong> (misalnya, skor IQ vs skor kecemasan)</li>
-<li>Menghitung <strong>probabilitas</strong> mendapatkan nilai tertentu atau lebih ekstrem</li>
-<li>Menentukan <strong>persentil</strong> — posisi relatif suatu nilai dalam distribusi</li>
-</ul>
-</section>
-<section id="membaca-tabel-z-menggunakan-distribusi-normal" class="slide level2">
-<h2>Membaca tabel z / menggunakan distribusi normal</h2>
-<p>Contoh interpretasi:</p>
-<ul>
-<li><em>z</em> = 1.96 → 97.5% data berada <strong>di bawah</strong> nilai ini; hanya 2.5% berada di atasnya</li>
-<li><em>z</em> = ±1.96 → 95% data berada <strong>di antara</strong> kedua nilai ini</li>
-</ul>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note</strong></p>
-</div>
-<div class="callout-content">
-<p>Angka <strong>1.96</strong> akan sering muncul — ini adalah <em>z-score</em> yang membatasi 95% tengah distribusi normal. Angka ini menjadi dasar dari <em>confidence interval</em> 95% dan <em>critical value</em> pada uji dua sisi dengan α = 0.05.</p>
-</div>
-</div>
-</div>
-<p><strong>Contoh soal:</strong></p>
-<p>Diketahui skor kecemasan di populasi mahasiswa berdistribusi normal dengan μ = 50 dan σ = 10. Berapa probabilitas seorang mahasiswa memiliki skor kecemasan <strong>lebih dari 65</strong>?</p>
-<ul>
-<li><span class="math inline">\(z = (65 - 50) / 10 = 1.5\)</span></li>
-<li><span class="math inline">\(P(X &gt; 65) = P(z &gt; 1.5) = 1 - 0.933 = 0.067\)</span></li>
-<li>Hanya sekitar <strong>6.7%</strong> mahasiswa memiliki skor kecemasan di atas 65</li>
-</ul>
-</section></section>
-<section>
-<section id="sampling-distribution-of-the-mean" class="title-slide slide level1 center" data-background-color="#14497F">
-<h1><em>Sampling distribution of the mean</em></h1>
-
-</section>
-<section id="dari-satu-sampel-ke-banyak-sampel" class="slide level2">
-<h2>Dari satu sampel ke banyak sampel</h2>
-<ul>
-<li>Sejauh ini kita berbicara tentang distribusi <strong>data individual</strong> dalam populasi</li>
-<li>Tetapi dalam penelitian, kita bekerja dengan <strong><em>mean</em> sampel</strong> — bukan nilai individual</li>
-<li>Pertanyaan penting: kalau kita mengambil banyak sampel berbeda dari populasi yang sama, bagaimana <em>mean</em> sampel-sampel itu terdistribusi?</li>
-</ul>
-<p><strong>Bayangkan eksperimen berikut:</strong></p>
+<section id="konteks-penelitian" class="slide level2">
+<h2>Konteks penelitian</h2>
+<p>Alfonso ingin mengetahui apakah memperdengarkan musik klasik secara rutin dapat meningkatkan durasi membaca kucing. Ia memilih satu kelompok kucing dan:</p>
 <ol type="1">
-<li>Ambil sampel 30 mahasiswa dari populasi mahasiswa Unair, hitung <em>mean</em> kecemasan → dapat satu nilai <em>mean</em></li>
-<li>Ambil sampel <strong>lain</strong> 30 mahasiswa, hitung <em>mean</em> lagi → dapat nilai <em>mean</em> yang berbeda</li>
-<li>Ulangi 1.000 kali → dapatkan <strong>1.000 nilai <em>mean</em></strong></li>
-<li>Buat histogram dari 1.000 nilai <em>mean</em> tersebut → inilah <strong><em>sampling distribution of the mean</em></strong></li>
+<li>Memperdengarkan <a href="https://www.youtube.com/watch?v=ewXcgHvUElc"><em>Frühlingsstimmen</em> — Strauss II</a> setiap hari, 30 menit, selama 3 minggu</li>
+<li>Mengukur <strong>durasi membaca</strong> (dalam detik) <strong>setiap akhir minggu</strong></li>
+<li>Membandingkan durasi membaca di minggu ke-1, ke-2, dan ke-3</li>
 </ol>
-</section>
-<section id="karakteristik-sampling-distribution-of-the-mean" class="slide level2">
-<h2>Karakteristik <em>sampling distribution of the mean</em></h2>
-<p>Jika populasi memiliki <em>mean</em> μ dan standar deviasi σ, maka <em>sampling distribution of the mean</em> dari sampel berukuran <em>n</em> memiliki:</p>
+<p><strong>Variabel:</strong></p>
 <ul>
-<li><strong><em>Mean</em></strong> = <strong>μ</strong> (sama dengan <em>mean</em> populasi)</li>
-<li><strong>Standar deviasi</strong> = <span class="math inline">\(\frac{\sigma}{\sqrt{n}}\)</span> — disebut <strong><em>standard error of the mean</em></strong></li>
-<li><strong>Bentuk</strong> mendekati <strong>normal</strong>, terlepas dari bentuk distribusi populasi aslinya (ini adalah <em>Central Limit Theorem</em> — akan dibahas lebih dalam di materi berikutnya)</li>
+<li><em>Within-subjects factor</em>: <strong>waktu</strong> (minggu ke-1, ke-2, ke-3) — 3 level</li>
+<li>Variabel dependen: <strong>durasi_membaca</strong></li>
 </ul>
+<p>Dataset: <strong>kucing-membaca.omv</strong></p>
+</section>
+<section id="mean-durasi-membaca-per-minggu" class="slide level2">
+<h2><em>Mean</em> durasi membaca per minggu</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Waktu</th>
+<th><em>Mean</em> (detik)</th>
+<th>SD</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Minggu ke-1</td>
+<td>42.3</td>
+<td>8.14</td>
+</tr>
+<tr class="even">
+<td>Minggu ke-2</td>
+<td>78.6</td>
+<td>11.5</td>
+</tr>
+<tr class="odd">
+<td>Minggu ke-3</td>
+<td>130.4</td>
+<td>14.2</td>
+</tr>
+</tbody>
+</table>
+<p>Secara deskriptif, durasi membaca meningkat dari minggu ke minggu. Namun apakah perbedaan ini signifikan secara statistik?</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Dalam RM-ANOVA, kita membandingkan apakah <em>mean</em> antar kondisi berbeda, <strong>setelah mengontrol variabilitas antar-individu</strong>. Ini membuat uji lebih sensitif dibanding ANOVA biasa.</p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="asumsi-sphericity" class="title-slide slide level1 center" data-background-color="#14497F">
+<h1>Asumsi <em>sphericity</em></h1>
+
+</section>
+<section id="apa-itu-sphericity" class="slide level2">
+<h2>Apa itu <em>sphericity</em>?</h2>
+<p><em>Sphericity</em> adalah asumsi kritis RM-ANOVA yang menyatakan bahwa <strong>varians dari perbedaan antara semua pasangan kondisi adalah sama</strong>.</p>
+<p>Lebih mudahnya: varians dari (Minggu 2 − Minggu 1), (Minggu 3 − Minggu 1), dan (Minggu 3 − Minggu 2) harus kurang lebih <strong>sama</strong>.</p>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -465,45 +326,62 @@ Rizqy Amelia Zein
 <p><strong>Important</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Ini adalah konsep kunci dalam statistik inferensial.</strong> Ketika kita menghitung <em>p-value</em> atau <em>confidence interval</em>, kita sebenarnya menggunakan <em>sampling distribution</em> — bukan distribusi data mentah kita.</p>
+<p>Ketika asumsi <em>sphericity</em> dilanggar, <strong>rasio F dari RM-ANOVA terlalu besar</strong> (<em>inflated</em>) — artinya kita akan terlalu sering menolak <span class="math inline">\(H_0\)</span> yang benar (<em>Type I error</em> meningkat). Uji F standar tidak valid jika <em>sphericity</em> dilanggar.</p>
 </div>
 </div>
 </div>
-</section>
-<section id="standard-error-of-the-mean" class="slide level2">
-<h2><em>Standard error of the mean</em></h2>
-<p><span class="math display">\[SE_{\bar{X}} = \frac{\sigma}{\sqrt{n}} \approx \frac{s}{\sqrt{n}}\]</span></p>
+<p><strong>Catatan penting:</strong></p>
 <ul>
-<li><em>Standard error</em> (SE) menggambarkan <strong>seberapa bervariasi <em>mean</em> sampel</strong> jika kita mengulang pengambilan sampel berkali-kali</li>
-<li>Semakin <strong>besar n</strong>, semakin <strong>kecil SE</strong> → <em>mean</em> sampel kita semakin <strong>presisi</strong> sebagai estimasi μ</li>
-<li>Ini mengapa <strong>ukuran sampel penting</strong>: sampel yang lebih besar memberikan estimasi yang lebih akurat</li>
+<li><em>Sphericity</em> hanya relevan jika <em>within-subjects factor</em> memiliki <strong>≥ 3 level</strong></li>
+<li>Dengan 2 level, hanya ada satu pasangan perbedaan — <em>sphericity</em> secara otomatis terpenuhi</li>
 </ul>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note</strong></p>
-</div>
-<div class="callout-content">
-<p>SE berbeda dari standar deviasi (SD). <strong>SD</strong> menggambarkan variabilitas <strong>data individual</strong> dalam sampel. <strong>SE</strong> menggambarkan variabilitas <strong><em>mean</em> sampel</strong> di antara semua sampel yang mungkin diambil dari populasi yang sama.</p>
-</div>
-</div>
-</div>
 </section>
-<section id="mengapa-ini-penting-untuk-inferensi" class="slide level2">
-<h2>Mengapa ini penting untuk inferensi?</h2>
+<section id="mauchlys-test-of-sphericity" class="slide level2">
+<h2>Mauchly’s Test of Sphericity</h2>
+<p>Mauchly’s <em>W</em> menguji apakah asumsi <em>sphericity</em> terpenuhi:</p>
+<p><span class="math display">\[H_0: \text{asumsi } sphericity \text{ terpenuhi}\]</span> <span class="math display">\[H_a: \text{asumsi } sphericity \text{ dilanggar}\]</span></p>
+<p><strong>Cara membaca:</strong></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Hasil Mauchly’s <em>W</em></th>
+<th>Tindakan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>p</em> ≥ .05</td>
+<td>Asumsi terpenuhi — gunakan F tanpa koreksi</td>
+</tr>
+<tr class="even">
+<td><em>p</em> &lt; .05</td>
+<td>Asumsi dilanggar — terapkan koreksi df</td>
+</tr>
+</tbody>
+</table>
+<p>Pada studi Alfonso: Mauchly’s <em>W</em> = 0.812, <em>p</em> = .043 → <strong>asumsi <em>sphericity</em> dilanggar</strong> — perlu koreksi.</p>
+</section>
+<section id="koreksi-sphericity-gg-dan-hf" class="slide level2">
+<h2>Koreksi <em>sphericity</em>: GG dan HF</h2>
+<p>Ketika <em>sphericity</em> dilanggar, kita menyesuaikan <em>degrees of freedom</em> menggunakan faktor koreksi ε (<em>epsilon</em>):</p>
+<p><span class="math display">\[F_{\text{corrected}} \text{ menggunakan } df^* = df \times \varepsilon\]</span></p>
+<p><strong>Dua pilihan koreksi:</strong></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Greenhouse-Geisser (GG)</strong></p>
 <ul>
-<li>Kita hanya punya <strong>satu sampel</strong> dalam penelitian nyata</li>
-<li>Tapi dengan memahami <em>sampling distribution</em>, kita bisa menjawab: <strong>“Seberapa jauh mungkin <em>mean</em> sampel kita menyimpang dari <em>mean</em> populasi yang sebenarnya?”</strong></li>
-<li>Ini adalah pertanyaan yang dijawab oleh:
-<ul>
-<li><strong><em>Confidence interval</em></strong> — memberikan rentang nilai yang <em>plausible</em> untuk parameter populasi</li>
-<li><strong><em>p-value</em></strong> — mengukur seberapa tidak mungkin data kita muncul jika hipotesis nol benar</li>
-<li><strong><em>Statistical power</em></strong> — kemampuan kita mendeteksi efek yang nyata</li>
-</ul></li>
+<li>Lebih konservatif (ε lebih kecil)</li>
+<li>Gunakan jika ε &lt; 0.75</li>
+<li>“Lebih aman” dari <em>Type I error</em></li>
 </ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Huynh-Feldt (HF)</strong></p>
+<ul>
+<li>Lebih liberal (ε mendekati 1)</li>
+<li>Gunakan jika ε &gt; 0.75</li>
+<li><em>Power</em> lebih tinggi</li>
+</ul>
+</div></div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -513,10 +391,365 @@ Rizqy Amelia Zein
 <p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
-<p>Pemahaman tentang <em>sampling distribution</em> adalah <strong>pondasi</strong> dari seluruh statistik inferensial. Semua teknik yang akan kita pelajari berikutnya — t-test, ANOVA, korelasi, regresi — semuanya bersandar pada konsep ini.</p>
+<p><strong>Aturan praktis:</strong> periksa nilai ε <em>Greenhouse-Geisser</em> terlebih dahulu. Jika ε &lt; 0.75, gunakan koreksi GG. Jika ε ≥ 0.75, gunakan koreksi HF (lebih <em>powerful</em>). Pada studi Alfonso: ε = 0.831 &gt; 0.75 → gunakan <strong>koreksi Huynh-Feldt</strong>.</p>
 </div>
 </div>
 </div>
+</section></section>
+<section>
+<section id="implementasi-di-jamovi" class="title-slide slide level1 center" data-background-color="#14497F">
+<h1>Implementasi di jamovi</h1>
+
+</section>
+<section id="langkah-rm-anova-di-jamovi" class="slide level2">
+<h2>Langkah RM-ANOVA di jamovi</h2>
+<p>Buka dataset <strong>kucing-membaca.omv</strong>, kemudian:</p>
+<ol type="1">
+<li>Klik menu <em>ANOVA</em> <i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i> <strong><em>Repeated Measures ANOVA</em></strong></li>
+<li>Di kolom <em>Repeated Measures Factors</em>: beri nama faktor — mis. <strong>“waktu”</strong> — dan tambahkan 3 level: <em>minggu1</em>, <em>minggu2</em>, <em>minggu3</em></li>
+<li>Di kolom <em>Repeated Measures Cells</em>: masukkan variabel <strong>durasi_minggu1</strong>, <strong>durasi_minggu2</strong>, <strong>durasi_minggu3</strong> ke baris yang sesuai</li>
+<li>Di opsi <em>Effect Size</em>, centang <strong>η²</strong> dan <strong>Generalised η²</strong></li>
+</ol>
+</section>
+<section id="langkah-lanjutan-asumsi-dan-post-hoc" class="slide level2">
+<h2>Langkah lanjutan: asumsi dan <em>post-hoc</em></h2>
+<ol start="5" type="1">
+<li>Di opsi <em>Assumption Checks</em>, centang <strong><em>Sphericity Test</em></strong></li>
+<li>Di sub-menu <em>Sphericity Corrections</em>, centang <strong><em>Greenhouse-Geisser</em></strong> dan <strong><em>Huynh-Feldt</em></strong></li>
+<li>Di opsi <em>Post-Hoc Tests</em>, masukkan faktor <strong>waktu</strong> ke kolom kanan</li>
+<li>Centang <strong><em>Bonferroni</em></strong></li>
+<li>Di opsi <em>Estimated Marginal Means</em>:
+<ul>
+<li>Masukkan <strong>waktu</strong> ke <em>Terms 1</em></li>
+<li>Centang <em>Marginal means plot</em>, <em>Marginal means table</em>, dan <em>Observed scores</em></li>
+</ul></li>
+</ol>
+</section>
+<section id="membaca-hasil-sphericity-test" class="slide level2">
+<h2>Membaca hasil: <em>Sphericity Test</em></h2>
+<p><strong>Output Mauchly’s <em>W</em> di jamovi:</strong></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 10%">
+<col style="width: 35%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mauchly’s <em>W</em></th>
+<th><em>p</em></th>
+<th>ε (Greenhouse-Geisser)</th>
+<th>ε (Huynh-Feldt)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.812</td>
+<td>.043</td>
+<td>0.831</td>
+<td>0.921</td>
+</tr>
+</tbody>
+</table>
+<p><em>p</em> = .043 &lt; .05 → <strong><em>sphericity</em> dilanggar</strong> → gunakan koreksi.</p>
+<p>ε (GG) = 0.831 &gt; 0.75 → gunakan <strong>Huynh-Feldt</strong>.</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Jamovi secara otomatis menampilkan tabel ANOVA dengan koreksi GG dan HF. Pilih baris yang sesuai dengan nilai ε yang relevan untuk pelaporan.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="membaca-hasil-tabel-anova" class="slide level2">
+<h2>Membaca hasil: tabel ANOVA</h2>
+<p><strong>Tabel RM-ANOVA (dengan koreksi HF):</strong></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 12%">
+<col style="width: 26%">
+<col style="width: 12%">
+<col style="width: 15%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Sumber</th>
+<th>F</th>
+<th>df (HF)</th>
+<th><em>p</em></th>
+<th>η²</th>
+<th>η²G</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>waktu</td>
+<td>3292.4</td>
+<td>1.843, 182.4</td>
+<td>&lt; .001</td>
+<td>0.957</td>
+<td>0.957</td>
+</tr>
+<tr class="even">
+<td>Residuals</td>
+<td>—</td>
+<td>182.4</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Cara melaporkan:</strong></p>
+<p>“Terdapat perbedaan yang signifikan dalam durasi membaca kucing antara minggu ke-1, ke-2, dan ke-3, <em>F</em>(1.843, 182.4) = 3292.4, <em>p</em> &lt; .001, η²G = 0.957 — efek yang sangat besar.”</p>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>Perhatikan bahwa <strong>df yang dilaporkan adalah df setelah dikoreksi</strong> (bukan integer bulat). Ini menandakan bahwa koreksi <em>sphericity</em> telah diterapkan.</p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="effect-size-untuk-rm-anova" class="title-slide slide level1 center" data-background-color="#14497F">
+<h1><em>Effect size</em> untuk RM-ANOVA</h1>
+
+</section>
+<section id="η²-dan-η²-generalisasi-η²g" class="slide level2">
+<h2>η² dan η² Generalisasi (η²G)</h2>
+<p>Untuk RM-ANOVA, ada dua ukuran <em>effect size</em> yang relevan:</p>
+<p><span class="math display">\[\eta^2 = \frac{SS_{\text{perlakuan}}}{SS_{\text{perlakuan}} + SS_{\text{error}}}\]</span></p>
+<p><span class="math display">\[\eta^2_G = \frac{SS_{\text{perlakuan}}}{SS_{\text{perlakuan}} + SS_{\text{individu}} + SS_{\text{error}}}\]</span></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 20%">
+<col style="width: 65%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>η²</th>
+<th>η²G (Generalisasi)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Penyebut</strong></td>
+<td>Hanya SS error</td>
+<td>SS total termasuk SS individu</td>
+</tr>
+<tr class="even">
+<td><strong>Interpretasi</strong></td>
+<td>Bisa melebih-lebihkan ES</td>
+<td>Lebih konservatif dan dapat dibandingkan antar desain</td>
+</tr>
+<tr class="odd">
+<td><strong>Rekomendasi</strong></td>
+<td>Kurang disarankan</td>
+<td><strong>Lebih disarankan</strong> untuk perbandingan lintas studi</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Gunakan <strong>η²G</strong> jika kalian ingin membandingkan <em>effect size</em> studi RM dengan studi <em>between-subjects</em> — η²G lebih stabil dan dapat digeneralisasi. Konvensi Cohen (<em>kecil</em>: .01, <em>sedang</em>: .06, <em>besar</em>: .14) berlaku untuk keduanya.</p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="post-hoc-tests" class="title-slide slide level1 center" data-background-color="#14497F">
+<h1><em>Post-hoc tests</em></h1>
+
+</section>
+<section id="perbandingan-berpasangan-bonferroni" class="slide level2">
+<h2>Perbandingan berpasangan Bonferroni</h2>
+<p>Setelah RM-ANOVA yang signifikan, <em>post-hoc test</em> mengidentifikasi minggu mana yang berbeda satu sama lain:</p>
+<p><strong>Hasil <em>post-hoc</em> (Bonferroni):</strong></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 20%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Perbandingan</th>
+<th>Perbedaan <em>mean</em></th>
+<th>SE</th>
+<th><em>t</em></th>
+<th><em>p</em> (Bonferroni)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Minggu 1 vs Minggu 2</td>
+<td><strong>−36.3</strong></td>
+<td>1.42</td>
+<td><strong>−25.6</strong></td>
+<td><strong>&lt; .001</strong></td>
+</tr>
+<tr class="even">
+<td>Minggu 1 vs Minggu 3</td>
+<td><strong>−88.1</strong></td>
+<td>1.87</td>
+<td><strong>−47.1</strong></td>
+<td><strong>&lt; .001</strong></td>
+</tr>
+<tr class="odd">
+<td>Minggu 2 vs Minggu 3</td>
+<td><strong>−51.8</strong></td>
+<td>1.53</td>
+<td><strong>−33.8</strong></td>
+<td><strong>&lt; .001</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Semua pasangan minggu berbeda secara signifikan (semua <em>p</em> &lt; .001) — durasi membaca meningkat secara progresif setiap minggunya.</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p><em>Post-hoc</em> dalam RM-ANOVA menggunakan <strong>paired comparisons</strong> — bukan independent samples — karena data berasal dari subjek yang sama. Ini lebih <em>powerful</em> dibanding <em>post-hoc</em> biasa.</p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="a-priori-analisis-power-untuk-rm-anova" class="title-slide slide level1 center" data-background-color="#14497F">
+<h1><em>A priori</em> analisis <em>power</em> untuk RM-ANOVA</h1>
+
+</section>
+<section id="gpower-untuk-repeated-measures" class="slide level2">
+<h2>G*Power untuk <em>repeated measures</em></h2>
+<p>RM-ANOVA memerlukan parameter tambahan dibanding ANOVA biasa karena kita perlu mengantisipasi <strong>korelasi antar pengukuran</strong>.</p>
+<p><strong>Langkah di G*Power:</strong></p>
+<ol type="1">
+<li><em>Test family</em> <i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i> <strong><em>F</em> tests</strong></li>
+<li><em>Statistical test</em> <i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i> <strong><em>ANOVA: Repeated measures, within factor</em></strong></li>
+<li><em>Type of power analysis</em> <i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i> <strong><em>A priori</em></strong></li>
+<li>Masukkan parameter:
+<ul>
+<li><em>Effect size f</em> (konversi Cohen’s <em>f</em>)</li>
+<li>α = 0.05</li>
+<li><em>Power</em> (1 − β)</li>
+<li><em>Number of groups</em> = 1 (satu kelompok subjek)</li>
+<li><em>Number of measurements</em> = jumlah level <em>within-subjects factor</em></li>
+<li><em>Correlation among rep measures</em> (estimasi <em>r</em> antar pengukuran)</li>
+<li><em>Nonsphericity correction</em> ε</li>
+</ul></li>
+</ol>
+</section>
+<section id="parameter-penting-korelasi-dan-nonsphericity" class="slide level2">
+<h2>Parameter penting: korelasi dan <em>nonsphericity</em></h2>
+<p><strong>Korelasi antar pengukuran (<em>r</em>):</strong></p>
+<p>Pengukuran berulang pada subjek yang sama cenderung berkorelasi. Estimasi <em>r</em> memengaruhi sampel yang dibutuhkan:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Korelasi antar pengukuran</th>
+<th>Implikasi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tinggi (<em>r</em> ≈ 0.5–0.8)</td>
+<td>Butuh lebih sedikit sampel — RM-ANOVA lebih <em>powerful</em></td>
+</tr>
+<tr class="even">
+<td>Rendah (<em>r</em> ≈ 0–0.2)</td>
+<td>Keunggulan RM-ANOVA berkurang; butuh sampel lebih besar</td>
+</tr>
+<tr class="odd">
+<td>Negatif</td>
+<td>RM-ANOVA bisa <strong>kurang</strong> <em>powerful</em> dari <em>between-subjects</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Koreksi <em>nonsphericity</em> (ε):</strong></p>
+<ul>
+<li>ε = 1.0 → <em>sphericity</em> terpenuhi sempurna</li>
+<li>ε &lt; 1.0 → <em>sphericity</em> dilanggar; semakin kecil ε, semakin besar sampel yang dibutuhkan</li>
+<li>Estimasi konservatif: ε = 0.5–0.75</li>
+</ul>
+</section>
+<section id="contoh-power-untuk-studi-kelinci-alfonso" class="slide level2">
+<h2>Contoh: <em>power</em> untuk studi kelinci Alfonso</h2>
+<p>Alfonso ingin mengulangi studi musik pada <strong>kelinci</strong> dengan asumsi:</p>
+<ul>
+<li><em>Effect size f</em> = 0.15 (efek moderat-kecil)</li>
+<li>α = 0.05, <em>Power</em> = 0.90 (<span class="math inline">\(\beta\)</span> = 0.10)</li>
+<li>1 kelompok, diukur <strong>3 kali</strong> (3 minggu)</li>
+<li>Korelasi antar pengukuran: <em>r</em> = 0.01 (sangat kecil — kelinci lebih tidak konsisten)</li>
+<li><em>Nonsphericity</em> ε = 0.8</li>
+</ul>
+<p><strong>Di G*Power:</strong> masukkan semua parameter di atas.</p>
+<p><strong>Hasil: N ≈ 220 kelinci</strong></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Dibanding ANOVA <em>between-subjects</em> yang mungkin membutuhkan N = 600+ untuk <em>power</em> yang sama dengan <em>f</em> = 0.15, RM-ANOVA jauh lebih efisien — meskipun korelasi antar pengukuran sangat kecil.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="latihan-rm-anova-di-jamovi" class="slide level2">
+<h2>Latihan: RM-ANOVA di jamovi</h2>
+<p>Seorang peneliti ingin menguji efek program <em>mindfulness</em> 4 sesi pada <strong>skor stres</strong> peserta. Stres diukur sebelum sesi 1, setelah sesi 2, dan setelah sesi 4.</p>
+<ol type="1">
+<li>Buka dataset <strong>stres.omv</strong> dan jalankan RM-ANOVA</li>
+<li>Masukkan faktor: <strong>sesi</strong> (3 level: <em>sebelum</em>, <em>sesi2</em>, <em>sesi4</em>)</li>
+<li>Periksa asumsi <em>sphericity</em> — apakah perlu koreksi? Koreksi mana?</li>
+<li>Jalankan <em>post-hoc</em> Bonferroni — pasangan sesi mana yang berbeda signifikan?</li>
+<li>Buat <em>marginal means plot</em> — apakah polanya linear atau ada perubahan tiba-tiba?</li>
+</ol>
+<p>Pertanyaan untuk didiskusikan:</p>
+<ul>
+<li>Mengapa <em>power</em> RM-ANOVA lebih besar dibanding <em>between-subjects</em> ANOVA?</li>
+<li>Apa perbedaan antara η² dan η²G dalam konteks studi ini?</li>
+<li>Bagaimana <em>carryover effects</em> dapat menjadi ancaman validitas dalam desain <em>repeated measures</em>?</li>
+<li>Kapan lebih baik menggunakan <em>mixed ANOVA</em> (gabungan <em>within-</em> dan <em>between-subjects</em> factor)?</li>
+</ul>
 </section>
 <section id="ada-pertanyaan" class="slide level2">
 <h2>Ada pertanyaan❓</h2>

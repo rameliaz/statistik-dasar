@@ -27,9 +27,8 @@ execute:
 * Asumsi dan uji asumsi
 * *A priori* analisis *power*
 
----
 
-## Mengapa ANOVA? {background-color="#14497F"}
+# Mengapa ANOVA? {background-color="#14497F"}
 
 ## Masalah dengan t-test berulang
 
@@ -62,9 +61,8 @@ $$H_a: \text{tidak benar bahwa semua } \mu_k \text{ sama}$$
 Perhatikan bahwa $H_a$ hanya menyatakan "tidak semua *mean* sama" — ia **tidak** menentukan pasangan mana yang berbeda. Untuk mengetahui perbedaan spesifik antar pasangan kelompok, kita butuh *post-hoc test*.
 :::
 
----
 
-## Logika ANOVA: partisi varians {background-color="#14497F"}
+# Logika ANOVA: partisi varians {background-color="#14497F"}
 
 ## Studi Ferguso: obat flu baru
 
@@ -108,9 +106,8 @@ $$F = \frac{MS_b}{MS_w} = \frac{\text{varians antar kelompok}}{\text{varians dal
 **Intuisi rasio F:** Jika semua kelompok memiliki *mean* yang sama ($H_0$ benar), $MS_b$ dan $MS_w$ seharusnya mengestimasi kuantitas yang sama — sehingga F ≈ 1. Semakin besar perbedaan antar kelompok relatif terhadap *noise*, semakin besar F — dan semakin kecil *p-value*.
 :::
 
----
 
-## Implementasi di jamovi {background-color="#14497F"}
+# Implementasi di jamovi {background-color="#14497F"}
 
 ## Langkah ANOVA di jamovi
 
@@ -138,9 +135,8 @@ Interpretasi: Terdapat perbedaan yang signifikan dalam kadar konsentrasi antar t
 Hasil ANOVA yang signifikan hanya memberi tahu kita bahwa **ada perbedaan di suatu tempat** — bukan di mana persisnya. Untuk mengetahui pasangan kelompok mana yang berbeda, kita butuh ***post-hoc test***.
 :::
 
----
 
-## *Effect size* untuk ANOVA {background-color="#14497F"}
+# *Effect size* untuk ANOVA {background-color="#14497F"}
 
 ## η² dan ω²
 
@@ -170,9 +166,8 @@ $$\omega^2 = \frac{SS_b - (G-1) \cdot MS_w}{SS_{\text{tot}} + MS_w}$$
 
 Pada studi Ferguso: ω² = 0.662 → **efek yang sangat besar** — obat *flungalih* dan plasebo memberikan kadar konsentrasi yang sangat berbeda.
 
----
 
-## *Post-hoc tests* {background-color="#14497F"}
+# *Post-hoc tests* {background-color="#14497F"}
 
 ## Mengapa perlu *post-hoc test*?
 
@@ -203,9 +198,8 @@ Interpretasi:
 * *Flungalih* secara signifikan **lebih efektif** dari plasebo dan *mixagrip* (keduanya *p* < .005)
 * *Flungalih* adalah obat baru yang menjanjikan — tapi perlu studi replikasi dengan sampel lebih besar
 
----
 
-## Asumsi ANOVA {background-color="#14497F"}
+# Asumsi ANOVA {background-color="#14497F"}
 
 ## Tiga asumsi utama
 
@@ -232,9 +226,8 @@ ANOVA relatif **robust** terhadap pelanggaran normalitas jika ukuran sampel seti
 * Pada studi Ferguso: *F*(2, 15) = 1.20, *p* = 0.327 → **varians homogen**, asumsi terpenuhi
 * Jika Levene's signifikan (*p* < 0.05): pertimbangkan Welch's ANOVA (robust terhadap heterogenitas varians)
 
----
 
-## *A priori* analisis *power* untuk ANOVA {background-color="#14497F"}
+# *A priori* analisis *power* untuk ANOVA {background-color="#14497F"}
 
 ## *Effect size* f untuk G\*Power
 
@@ -281,3 +274,12 @@ Pertanyaan untuk didiskusikan:
 
 * Dari mana kalian bisa memperkirakan *f* yang realistis sebelum mengumpulkan data?
 * Apa yang terjadi jika kelompok dalam ANOVA tidak seimbang (ukuran berbeda)?
+
+## Ada pertanyaan❓
+
+![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFtaDh5ZjZ2eXJ3dmJmZmFmYzBtNHEwdzlqZmZtdGtmbnE0bXZidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igB2Th9e4nW6s/giphy.gif){fig-align="center"}
+
+::: {.callout-note}
+* Paparan disusun dengan menggunakan <i class="fa-brands fa-r-project"></i> dan [**Quarto**](https://quarto.org) dengan _template_ dari [UNAIR Theme](https://github.com/rameliaz/quarto-unair-theme).
+* Kontak saya via <i class="fas fa-paper-plane"></i> <a href="mailto:amelia.zein@psikologi.unair.ac.id">amelia.zein@psikologi.unair.ac.id</a>
+:::

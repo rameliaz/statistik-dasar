@@ -25,9 +25,8 @@ execute:
 * *Effect size*
 * *A priori* analisis *power* dengan G\*Power
 
----
 
-## Logika dasar pengujian hipotesis {background-color="#14497F"}
+# Logika dasar pengujian hipotesis {background-color="#14497F"}
 
 ## Masalah Esmeralda
 
@@ -90,9 +89,8 @@ $$H_1: \mu_1 > \mu_2 \text{ atau } \mu_1 < \mu_2$$
 :::
 ::::
 
----
 
-## *Type I error* dan *Type II error* {background-color="#14497F"}
+# *Type I error* dan *Type II error* {background-color="#14497F"}
 
 ## Dua jenis kesalahan dalam pengujian hipotesis
 
@@ -151,9 +149,8 @@ Dengan α = 0.05 dan *power* = 80% (β = 20%):
 Dari ~42-43 hasil "signifikan", **2-3 di antaranya adalah kesalahan** (*false positive*). Semakin rendah *base rate* kebenaran klaim (misalnya bidang pre-clinical), semakin besar proporsi *false positive* di antara hasil signifikan — inilah salah satu akar *replication crisis*.
 :::
 
----
 
-## *Statistical power* {background-color="#14497F"}
+# *Statistical power* {background-color="#14497F"}
 
 ## Apa itu *statistical power*?
 
@@ -194,9 +191,8 @@ Menambah sampel hanya ketika *p* mendekati 0.05 — lalu berhenti ketika signifi
 :::
 ::::
 
----
 
-## *Effect size* {background-color="#14497F"}
+# *Effect size* {background-color="#14497F"}
 
 ## Apa itu *effect size*?
 
@@ -245,9 +241,8 @@ Cohen sendiri meminta agar *benchmark* ini **tidak digunakan secara mekanis** �
 **Pelaporan standar APA (edisi ke-7)** mewajibkan pelaporan *effect size* untuk semua analisis inferensial. Jamovi secara *default* sudah menyediakan *effect size* — manfaatkan fitur ini.
 :::
 
----
 
-## *A priori* analisis *power* {background-color="#14497F"}
+# *A priori* analisis *power* {background-color="#14497F"}
 
 ## Mengapa *a priori* analisis *power*?
 
@@ -328,9 +323,8 @@ Pertanyaan untuk didiskusikan:
 * Dari mana kita tahu berapa *effect size* yang harus dimasukkan sebelum melakukan penelitian?
 * Apa konsekuensinya jika *effect size* yang kita perkirakan ternyata terlalu optimis (terlalu besar)?
 
----
 
-## Ringkasan dan jembatan ke materi berikutnya {background-color="#14497F"}
+# Ringkasan dan jembatan ke materi berikutnya {background-color="#14497F"}
 
 ## Apa yang sudah kita pelajari
 
@@ -356,4 +350,13 @@ Pertanyaan untuk didiskusikan:
 
 ::: {.callout-tip}
 **Materi berikutnya** akan menerapkan logika NHST ini ke analisis konkret: *t-test* (perbedaan *mean*), analisis kategorikal ($\chi^2$), korelasi, ANOVA, dan regresi. Semua teknik itu hanyalah **spesialisasi** dari kerangka yang sama yang baru saja kita pelajari.
+:::
+
+## Ada pertanyaan❓
+
+![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFtaDh5ZjZ2eXJ3dmJmZmFmYzBtNHEwdzlqZmZtdGtmbnE0bXZidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igB2Th9e4nW6s/giphy.gif){fig-align="center"}
+
+::: {.callout-note}
+* Paparan disusun dengan menggunakan <i class="fa-brands fa-r-project"></i> dan [**Quarto**](https://quarto.org) dengan _template_ dari [UNAIR Theme](https://github.com/rameliaz/quarto-unair-theme).
+* Kontak saya via <i class="fas fa-paper-plane"></i> <a href="mailto:amelia.zein@psikologi.unair.ac.id">amelia.zein@psikologi.unair.ac.id</a>
 :::

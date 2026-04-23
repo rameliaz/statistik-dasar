@@ -25,9 +25,8 @@ execute:
 * Interpretasi *indirect effect*
 * **Peringatan keras**: mediasi dari data *cross-sectional*
 
----
 
-## Apa itu mediasi? {background-color="#14497F"}
+# Apa itu mediasi? {background-color="#14497F"}
 
 ## Mediasi: "bagaimana" dan "mengapa"
 
@@ -75,9 +74,8 @@ c'        b
 
 Ini adalah besaran efek X pada Y yang **dimediasi** melalui M.
 
----
 
-## Pendekatan analisis mediasi {background-color="#14497F"}
+# Pendekatan analisis mediasi {background-color="#14497F"}
 
 ## Baron & Kenny (1986): pendekatan klasik
 
@@ -108,9 +106,8 @@ Syarat (1) tidak perlu dipenuhi — *indirect effect* bisa ada tanpa *total effe
 **Jika 95% bootstrap CI untuk *indirect effect* tidak mencakup nol**, kita memiliki bukti bahwa *indirect effect* secara statistik berbeda dari nol — tanpa perlu mengasumsikan normalitas. Ini adalah cara yang direkomendasikan untuk menguji signifikansi mediasi.
 :::
 
----
 
-## Implementasi di jamovi (PROCESS) {background-color="#14497F"}
+# Implementasi di jamovi (PROCESS) {background-color="#14497F"}
 
 ## Memasang modul PROCESS di jamovi
 
@@ -154,9 +151,8 @@ Dataset: **mediasi_akademik.omv** (N = 250 mahasiswa)
 
 Interpretasi: Beban akademik menurunkan *wellbeing* (total *c* = −0.42). Sebagian efek ini dimediasi **melalui** berkurangnya dukungan sosial yang dipersepsi (*indirect* a×b = −0.24, 95% CI tidak mencakup nol). Namun masih ada *direct effect* yang signifikan (c' = −0.18), menunjukkan **mediasi parsial**.
 
----
 
-## Interpretasi *indirect effect* {background-color="#14497F"}
+# Interpretasi *indirect effect* {background-color="#14497F"}
 
 ## Proporsi mediasi
 
@@ -176,9 +172,8 @@ $$\kappa^2 = \frac{a \times b}{\text{varians maksimal a×b yang mungkin}}$$
 
 Nilai $\kappa^2$ antara 0–1. Konvensi: 0.01 kecil, 0.09 sedang, 0.25 besar (Preacher & Kelley, 2011).
 
----
 
-## Peringatan keras: mediasi dan kausalitas {background-color="#14497F"}
+# Peringatan keras: mediasi dan kausalitas {background-color="#14497F"}
 
 ## Data *cross-sectional* dan klaim kausal
 
@@ -236,3 +231,12 @@ Pertanyaan untuk didiskusikan:
 * Seandainya ini adalah data longitudinal (X diukur 3 bulan sebelum M dan Y), apa yang berubah dalam cara kalian menginterpretasi hasilnya?
 * Adakah variabel ketiga yang mungkin menjadi *confounder* dalam hubungan ini?
 * Bagaimana kalian akan mendesain studi eksperimental untuk menguji klaim mediasi ini?
+
+## Ada pertanyaan❓
+
+![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFtaDh5ZjZ2eXJ3dmJmZmFmYzBtNHEwdzlqZmZtdGtmbnE0bXZidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igB2Th9e4nW6s/giphy.gif){fig-align="center"}
+
+::: {.callout-note}
+* Paparan disusun dengan menggunakan <i class="fa-brands fa-r-project"></i> dan [**Quarto**](https://quarto.org) dengan _template_ dari [UNAIR Theme](https://github.com/rameliaz/quarto-unair-theme).
+* Kontak saya via <i class="fas fa-paper-plane"></i> <a href="mailto:amelia.zein@psikologi.unair.ac.id">amelia.zein@psikologi.unair.ac.id</a>
+:::

@@ -26,9 +26,8 @@ execute:
 * *Sampling distribution of the mean*
 * Jembatan menuju statistik inferensial
 
----
 
-## Apa itu probabilitas? {background-color="#14497F"}
+# Apa itu probabilitas? {background-color="#14497F"}
 
 ## Apa itu probabilitas?
 
@@ -72,9 +71,8 @@ Dalam penelitian psikologi, kita tidak pernah bisa **membuktikan** sesuatu secar
 Sebagian besar statistik yang kalian pelajari di S1 menggunakan **pendekatan *frequentist***. Penting untuk memahami asumsi ini agar kalian bisa menginterpretasi hasil analisis dengan benar.
 :::
 
----
 
-## Aturan dasar probabilitas {background-color="#14497F"}
+# Aturan dasar probabilitas {background-color="#14497F"}
 
 ## Aturan penjumlahan (*Addition Rule*)
 
@@ -121,9 +119,8 @@ $$P(\bar{A}) = 1 - P(A)$$
 Aturan komplemen ini adalah fondasi dari *p-value* dalam uji hipotesis. Ketika kita mengatakan *p* = 0.03, artinya probabilitas mendapatkan data seperti yang kita amati (atau lebih ekstrem) **jika hipotesis nol benar** adalah 0.03 — sangat kecil, sehingga kita meragukan hipotesis nol.
 :::
 
----
 
-## Distribusi probabilitas {background-color="#14497F"}
+# Distribusi probabilitas {background-color="#14497F"}
 
 ## Apa itu distribusi probabilitas?
 
@@ -151,9 +148,8 @@ $$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}$$
 Ketika **n sangat besar** dan **p tidak terlalu ekstrem**, distribusi binomial mendekati distribusi normal — inilah salah satu alasan mengapa distribusi normal sangat penting.
 :::
 
----
 
-## Distribusi normal dan *z-score* {background-color="#14497F"}
+# Distribusi normal dan *z-score* {background-color="#14497F"}
 
 ## Distribusi normal sebagai distribusi probabilitas
 
@@ -198,9 +194,8 @@ Diketahui skor kecemasan di populasi mahasiswa berdistribusi normal dengan μ = 
 * $P(X > 65) = P(z > 1.5) = 1 - 0.933 = 0.067$
 * Hanya sekitar **6.7%** mahasiswa memiliki skor kecemasan di atas 65
 
----
 
-## *Sampling distribution of the mean* {background-color="#14497F"}
+# *Sampling distribution of the mean* {background-color="#14497F"}
 
 ## Dari satu sampel ke banyak sampel
 
@@ -250,4 +245,13 @@ SE berbeda dari standar deviasi (SD). **SD** menggambarkan variabilitas **data i
 
 ::: {.callout-tip}
 Pemahaman tentang *sampling distribution* adalah **pondasi** dari seluruh statistik inferensial. Semua teknik yang akan kita pelajari berikutnya — t-test, ANOVA, korelasi, regresi — semuanya bersandar pada konsep ini.
+:::
+
+## Ada pertanyaan❓
+
+![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFtaDh5ZjZ2eXJ3dmJmZmFmYzBtNHEwdzlqZmZtdGtmbnE0bXZidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igB2Th9e4nW6s/giphy.gif){fig-align="center"}
+
+::: {.callout-note}
+* Paparan disusun dengan menggunakan <i class="fa-brands fa-r-project"></i> dan [**Quarto**](https://quarto.org) dengan _template_ dari [UNAIR Theme](https://github.com/rameliaz/quarto-unair-theme).
+* Kontak saya via <i class="fas fa-paper-plane"></i> <a href="mailto:amelia.zein@psikologi.unair.ac.id">amelia.zein@psikologi.unair.ac.id</a>
 :::
