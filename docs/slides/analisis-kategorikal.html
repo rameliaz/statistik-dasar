@@ -142,7 +142,7 @@
 Rizqy Amelia Zein 
 </div>
         <p class="quarto-title-affiliation">
-            <a href="https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/"><em>Departemen Psikologi Kepribadian dan Sosial, Universitas Airlangga</em></a>
+            <a href="https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/"><em>Departemen Psikologi, Universitas Airlangga</em></a>
           </p>
     </div>
 </div>
@@ -262,9 +262,9 @@ Rizqy Amelia Zein
 <p><em>Binomial test</em> menguji apakah <strong>proporsi observasi</strong> dalam salah satu kategori berbeda dari proporsi yang diharapkan berdasarkan teori atau nilai referensi.</p>
 <p><span class="math display">\[H_0: p = p_0 \quad \text{vs} \quad H_1: p \neq p_0\]</span></p>
 <p>Di mana <span class="math inline">\(p\)</span> adalah proporsi populasi yang sesungguhnya dan <span class="math inline">\(p_0\)</span> adalah proporsi yang dihipotesiskan (nilai referensi).</p>
-<p><strong>Contoh:</strong> Dalam 200 klien yang menjalani terapi CBT, 130 menunjukkan perbaikan signifikan. Apakah tingkat keberhasilan CBT berbeda dari 60% yang dilaporkan literatur internasional?</p>
+<p><strong>Contoh:</strong> Dalam 500 klien yang menjalani terapi CBT, 327 menunjukkan perbaikan signifikan. Apakah tingkat keberhasilan CBT berbeda dari 60% yang dilaporkan literatur internasional?</p>
 <p><span class="math display">\[H_0: p = 0.60 \quad \text{vs} \quad H_1: p \neq 0.60\]</span></p>
-<p>Proporsi sampel = 130/200 = <strong>65%</strong></p>
+<p>Proporsi sampel = 327/500 = <strong>65.4%</strong></p>
 </section>
 <section id="logika-binomial-test" class="slide level2">
 <h2>Logika <em>binomial test</em></h2>
@@ -286,7 +286,7 @@ Rizqy Amelia Zein
 </section>
 <section id="latihan-binomial-test-di-jamovi" class="slide level2">
 <h2>Latihan: <em>Binomial test</em> di jamovi</h2>
-<p>Buka dataset <strong>terapi.omv</strong> yang berisi data 200 klien CBT:</p>
+<p>Buka dataset <strong>terapi.omv</strong> yang berisi data 500 klien CBT:</p>
 <ol type="1">
 <li>Klik menu <em>Frequencies</em> <i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i> <em>Proportion Test (Binomial)</em></li>
 <li>Masukkan <strong>hasil_terapi</strong> ke <em>Variable</em></li>
@@ -297,7 +297,7 @@ Rizqy Amelia Zein
 <ul>
 <li>Berapa <em>p-value</em> yang kalian dapatkan? Apakah proporsi sampel secara signifikan berbeda dari 60%?</li>
 <li>Apa arti CI untuk proporsi yang kalian peroleh?</li>
-<li>Berapa besar perbedaan antara proporsi sampel (65%) dan nilai referensi (60%) — apakah perbedaan ini bermakna secara praktis?</li>
+<li>Berapa besar perbedaan antara proporsi sampel (65.4%) dan nilai referensi (60%) — apakah perbedaan ini bermakna secara praktis?</li>
 </ul>
 </section></section>
 <section>
@@ -329,31 +329,31 @@ Rizqy Amelia Zein
 <tbody>
 <tr class="odd">
 <td>Sendiri</td>
+<td>135</td>
 <td>45</td>
-<td>15</td>
-<td>60</td>
+<td>180</td>
 </tr>
 <tr class="even">
 <td>Kelompok</td>
-<td>55</td>
-<td>10</td>
-<td>65</td>
+<td>165</td>
+<td>30</td>
+<td>195</td>
 </tr>
 <tr class="odd">
 <td><em>Online</em></td>
-<td>30</td>
-<td>20</td>
-<td>50</td>
+<td>90</td>
+<td>60</td>
+<td>150</td>
 </tr>
 <tr class="even">
 <td><strong>Total</strong></td>
-<td><strong>130</strong></td>
-<td><strong>45</strong></td>
-<td><strong>175</strong></td>
+<td><strong>390</strong></td>
+<td><strong>135</strong></td>
+<td><strong>525</strong></td>
 </tr>
 </tbody>
 </table>
-<p>Frekuensi yang diharapkan (contoh, sel kiri atas): <span class="math inline">\(E = \frac{60 \times 130}{175} = 44.6\)</span></p>
+<p>Frekuensi yang diharapkan (contoh, sel <em>Kelompok</em> × <em>Lulus tepat waktu</em>): <span class="math inline">\(E = \frac{195 \times 390}{525} = 144.9\)</span></p>
 </section>
 <section id="syarat-penggunaan-chi-square" class="slide level2">
 <h2>Syarat penggunaan chi-square</h2>

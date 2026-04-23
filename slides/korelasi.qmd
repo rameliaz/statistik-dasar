@@ -3,7 +3,7 @@ title: "Korelasi"
 subtitle: "Statistik Dasar dalam Penelitian Psikologi"
 author: "Rizqy Amelia Zein"
 institute:
-  - "[_Departemen Psikologi Kepribadian dan Sosial, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
+  - "[_Departemen Psikologi, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
 date: today
 format:
   unair-revealjs:

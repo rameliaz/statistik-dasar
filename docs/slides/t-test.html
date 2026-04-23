@@ -142,7 +142,7 @@
 Rizqy Amelia Zein 
 </div>
         <p class="quarto-title-affiliation">
-            <a href="https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/"><em>Departemen Psikologi Kepribadian dan Sosial, Universitas Airlangga</em></a>
+            <a href="https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/"><em>Departemen Psikologi, Universitas Airlangga</em></a>
           </p>
     </div>
 </div>
@@ -233,7 +233,7 @@ Rizqy Amelia Zein
 </section>
 <section id="kasus-esmeralda-dan-ujian-sapsi" class="slide level2">
 <h2>Kasus Esmeralda dan ujian SAPSI</h2>
-<p>Esmeralda mendapat nilai 60 pada ujian SAPSI (Skala Asesmen Psikologi Indonesia). Nilai rata-rata nasional untuk mahasiswa S1 Psikologi adalah μ = 55 (σ tidak diketahui).</p>
+<p>Esmeralda mendapat nilai 60 pada ujian MK Sejarah dan Aliran Psikologi (Sapsi). Nilai rata-rata nasional untuk mahasiswa S1 Psikologi adalah μ = 55 (σ tidak diketahui).</p>
 <p>Pertanyaan: Apakah nilai Esmeralda <strong>signifikan berbeda</strong> dari rata-rata nasional?</p>
 <p><em>One-sample t-test</em> membandingkan <em>mean</em> sampel kita dengan <strong>nilai referensi</strong> yang sudah diketahui:</p>
 <p><span class="math display">\[t = \frac{\bar{X} - \mu_0}{s / \sqrt{n}}\]</span></p>
@@ -254,10 +254,10 @@ Rizqy Amelia Zein
 </section>
 <section id="latihan-one-sample-t-test-di-jamovi" class="slide level2">
 <h2>Latihan: <em>One-sample t-test</em> di jamovi</h2>
-<p>Buka dataset <strong>SAPSI.omv</strong>, kemudian uji apakah <em>mean</em> skor SAPSI mahasiswa berbeda dari nilai referensi nasional (μ₀ = 55):</p>
+<p>Buka dataset <a href="..\docs/materials/ujian.omv"><strong>ujian.omv</strong></a>, kemudian uji apakah <em>mean</em> skor SAPSI mahasiswa berbeda dari nilai referensi nasional (μ₀ = 55):</p>
 <ol type="1">
 <li>Klik menu <em>T-Tests</em> <i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i> <em>One Sample T-Test</em></li>
-<li>Masukkan variabel <strong>skor_sapsi</strong> ke kolom <em>Dependent Variables</em></li>
+<li>Masukkan variabel <strong>nilai_sebelum</strong> ke kolom <em>Dependent Variables</em></li>
 <li>Di <em>Hypothesis</em>, masukkan nilai <strong>55</strong> sebagai <em>Test value</em></li>
 <li>Centang <em>Effect size</em> (Cohen’s <em>d</em>) dan <em>Descriptives</em></li>
 <li>Centang <em>Confidence interval</em> untuk estimasi perbedaan</li>
@@ -275,7 +275,8 @@ Rizqy Amelia Zein
 </section>
 <section id="eksperimen-kopi-dan-konsentrasi" class="slide level2">
 <h2>Eksperimen kopi dan konsentrasi</h2>
-<p>Peneliti ingin menguji apakah minum kopi meningkatkan konsentrasi mahasiswa sebelum ujian. Sebanyak 540 mahasiswa diukur skor konsentrasinya sebelum dan sesudah minum kopi.</p>
+<p>Esmeralda selanjutnya ingin menguji apakah minum kopi meningkatkan konsentrasi mahasiswa sebelum ujian. Sebanyak 540 mahasiswa diukur skor konsentrasinya sebelum dan sesudah minum kopi.</p>
+<p><strong>Buka <em>dataset</em> <a href="..\docs/materials/ujian.omv">ujian.omv</a></strong></p>
 <p><strong>Desain <em>within-subjects</em>:</strong></p>
 <ul>
 <li>Pengukuran 1 (sebelum minum kopi): <em>baseline</em> konsentrasi</li>
@@ -285,6 +286,23 @@ Rizqy Amelia Zein
 <p><em>Paired samples t-test</em> menghitung <strong>selisih</strong> tiap pasang pengukuran, lalu menguji apakah <em>mean</em> selisih berbeda dari nol:</p>
 <p><span class="math display">\[t = \frac{\bar{D}}{s_D / \sqrt{n}}\]</span></p>
 <p>Di mana <span class="math inline">\(\bar{D}\)</span> adalah <em>mean</em> selisih dan <span class="math inline">\(s_D\)</span> adalah standar deviasi selisih.</p>
+</section>
+<section id="latihan-paired-samples-t-test-di-jamovi" class="slide level2">
+<h2>Latihan: <em>Paired samples t-test</em> di jamovi</h2>
+<p>Buka dataset <a href="..\docs/materials/ujian.omv"><strong>ujian.omv</strong></a>, kemudian uji apakah minum kopi meningkatkan skor konsentrasi:</p>
+<ol type="1">
+<li>Klik menu <em>T-Tests</em> <i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i> <em>Paired Samples T-Test</em></li>
+<li>Masukkan pasangan variabel: <strong>konsentrasi_sebelum</strong> dan <strong>konsentrasi_sesudah</strong></li>
+<li>Centang <em>Effect size</em> (Cohen’s <em>d</em>)</li>
+<li>Centang <em>Descriptives</em> dan <em>Confidence interval</em></li>
+<li>Di <em>Assumption Checks</em>, centang <em>Normality test</em> (Shapiro-Wilk untuk selisih)</li>
+</ol>
+<p>Pertanyaan untuk didiskusikan:</p>
+<ul>
+<li>Apakah asumsi normalitas terpenuhi untuk data selisih?</li>
+<li>Bandingkan <em>mean</em> sebelum dan sesudah — ke arah mana perubahan terjadi?</li>
+<li>Apakah <em>p-value</em> konsisten dengan nilai <em>d</em>?</li>
+</ul>
 </section>
 <section id="hasil-apakah-kopi-membantu" class="slide level2">
 <h2>Hasil: apakah kopi membantu?</h2>
@@ -321,23 +339,6 @@ Rizqy Amelia Zein
 </div>
 </div>
 </div>
-</section>
-<section id="latihan-paired-samples-t-test-di-jamovi" class="slide level2">
-<h2>Latihan: <em>Paired samples t-test</em> di jamovi</h2>
-<p>Buka dataset <strong>kopi.omv</strong>, kemudian uji apakah minum kopi meningkatkan skor konsentrasi:</p>
-<ol type="1">
-<li>Klik menu <em>T-Tests</em> <i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i> <em>Paired Samples T-Test</em></li>
-<li>Masukkan pasangan variabel: <strong>konsentrasi_sebelum</strong> dan <strong>konsentrasi_sesudah</strong></li>
-<li>Centang <em>Effect size</em> (Cohen’s <em>d</em>)</li>
-<li>Centang <em>Descriptives</em> dan <em>Confidence interval</em></li>
-<li>Di <em>Assumption Checks</em>, centang <em>Normality test</em> (Shapiro-Wilk untuk selisih)</li>
-</ol>
-<p>Pertanyaan untuk didiskusikan:</p>
-<ul>
-<li>Apakah asumsi normalitas terpenuhi untuk data selisih?</li>
-<li>Bandingkan <em>mean</em> sebelum dan sesudah — ke arah mana perubahan terjadi?</li>
-<li>Apakah <em>p-value</em> konsisten dengan nilai <em>d</em>?</li>
-</ul>
 </section></section>
 <section>
 <section id="independent-samples-t-test" class="title-slide slide level1 center" data-background-color="#14497F">
@@ -346,7 +347,7 @@ Rizqy Amelia Zein
 </section>
 <section id="jimat-batu-akik-dan-nilai-ujian" class="slide level2">
 <h2>Jimat batu akik dan nilai ujian</h2>
-<p>Peneliti iseng menguji apakah mahasiswa yang percaya pada jimat batu akik mendapat nilai ujian yang lebih tinggi. Sampel: 540 mahasiswa percaya jimat, 660 mahasiswa tidak percaya jimat.</p>
+<p>Seorang peneliti <em>iseng</em> menguji apakah mahasiswa yang percaya pada jimat batu akik mendapat nilai ujian yang lebih tinggi. Sampel: 540 mahasiswa percaya jimat, 660 mahasiswa tidak percaya jimat.</p>
 <p><strong>Desain <em>between-subjects</em>:</strong></p>
 <ul>
 <li>Kelompok 1: mahasiswa yang percaya batu akik membawa keberuntungan</li>
@@ -370,10 +371,9 @@ Rizqy Amelia Zein
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Important</strong></p>
+<p><strong>Pelajaran penting: N besar mengungkap efek yang sangat kecil</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Pelajaran penting: N besar mengungkap efek yang sangat kecil</strong></p>
 <p>Dengan N = 1200, bahkan perbedaan yang sangat kecil (<em>d</em> = 0.186) bisa signifikan secara statistik. Secara praktis, perbedaan nilai ujian antara dua kelompok ini <strong>hampir tidak berarti</strong>. Ini bukan artinya batu akik “terbukti berbahaya” — ini hanya menunjukkan ada korelasi kecil yang perlu dijelaskan lebih lanjut.</p>
 </div>
 </div>
@@ -394,10 +394,10 @@ Rizqy Amelia Zein
 </section>
 <section id="latihan-independent-samples-t-test-di-jamovi" class="slide level2">
 <h2>Latihan: <em>Independent samples t-test</em> di jamovi</h2>
-<p>Buka dataset <strong>jimat.omv</strong>, kemudian uji perbedaan nilai ujian antara kelompok percaya dan tidak percaya jimat:</p>
+<p>Buka dataset <a href="..\docs/materials/ujian.omv"><strong>ujian.omv</strong></a>, kemudian uji perbedaan nilai ujian antara kelompok percaya dan tidak percaya jimat:</p>
 <ol type="1">
 <li>Klik menu <em>T-Tests</em> <i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i> <em>Independent Samples T-Test</em></li>
-<li>Masukkan <strong>nilai_ujian</strong> ke <em>Dependent Variables</em> dan <strong>kepercayaan_jimat</strong> ke <em>Grouping Variable</em></li>
+<li>Masukkan <strong>nilai_jimat</strong> ke <em>Dependent Variables</em> dan <strong>kepercayaan_jimat</strong> ke <em>Grouping Variable</em></li>
 <li>Centang <em>Effect size</em> (Cohen’s <em>d</em>) dan <em>Descriptives</em></li>
 <li>Di <em>Assumption Checks</em>, centang <em>Equality of variances</em> (Levene’s test) dan <em>Normality test</em></li>
 </ol>
@@ -478,7 +478,7 @@ Rizqy Amelia Zein
 <p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
-<p>Di jamovi, Welch’s correction adalah <strong>pilihan default</strong> untuk <em>independent samples t-test</em>. Anda bisa melihat kedua versi (Student’s dan Welch’s) secara bersamaan untuk membandingkan hasilnya.</p>
+<p>Di <code>jamovi</code>, Welch’s <em>correction</em> adalah <strong>pilihan default</strong> untuk <em>independent samples t-test</em>. Anda bisa melihat kedua versi (Student’s dan Welch’s) secara bersamaan untuk membandingkan hasilnya.</p>
 </div>
 </div>
 </div>
@@ -567,7 +567,7 @@ Rizqy Amelia Zein
 </section>
 <section id="latihan-uji-non-parametrik-di-jamovi" class="slide level2">
 <h2>Latihan: uji non-parametrik di jamovi</h2>
-<p>Dengan dataset <strong>kopi.omv</strong>, ulangi analisis menggunakan Wilcoxon signed-rank test:</p>
+<p>Dengan dataset <a href="..\docs/materials/ujian.omv"><strong>ujian.omv</strong></a>, ulangi analisis menggunakan Wilcoxon signed-rank test:</p>
 <ol type="1">
 <li>Klik menu <em>T-Tests</em> <i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i> <em>Paired Samples T-Test</em></li>
 <li>Pada bagian <em>Tests</em>, centang <strong>Wilcoxon rank</strong> (di samping pilihan <em>Student’s</em> dan <em>Bayes factor</em>)</li>

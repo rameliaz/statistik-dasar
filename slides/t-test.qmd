@@ -3,7 +3,7 @@ title: "*T-Test*"
 subtitle: "Statistik Dasar dalam Penelitian Psikologi"
 author: "Rizqy Amelia Zein"
 institute:
-  - "[_Departemen Psikologi Kepribadian dan Sosial, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
+  - "[_Departemen Psikologi, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
 date: today
 format:
   unair-revealjs:
@@ -62,7 +62,7 @@ Makin besar perbedaan relatif terhadap variabilitasnya → nilai *t* makin besar
 
 ## Kasus Esmeralda dan ujian SAPSI
 
-Esmeralda mendapat nilai 60 pada ujian SAPSI (Skala Asesmen Psikologi Indonesia). Nilai rata-rata nasional untuk mahasiswa S1 Psikologi adalah μ = 55 (σ tidak diketahui).
+Esmeralda mendapat nilai 60 pada ujian MK Sejarah dan Aliran Psikologi (Sapsi). Nilai rata-rata nasional untuk mahasiswa S1 Psikologi adalah μ = 55 (σ tidak diketahui).
 
 Pertanyaan: Apakah nilai Esmeralda **signifikan berbeda** dari rata-rata nasional?
 
@@ -78,10 +78,10 @@ Di mana $\mu_0$ adalah nilai referensi (nilai yang ingin kita bandingkan), dan $
 
 ## Latihan: *One-sample t-test* di jamovi
 
-Buka dataset **SAPSI.omv**, kemudian uji apakah *mean* skor SAPSI mahasiswa berbeda dari nilai referensi nasional (μ₀ = 55):
+Buka dataset [**ujian.omv**](/docs/materials/ujian.omv), kemudian uji apakah *mean* skor SAPSI mahasiswa berbeda dari nilai referensi nasional (μ₀ = 55):
 
 1. Klik menu *T-Tests* {{< fa circle-arrow-right >}} *One Sample T-Test*
-2. Masukkan variabel **skor_sapsi** ke kolom *Dependent Variables*
+2. Masukkan variabel **nilai_sebelum** ke kolom *Dependent Variables*
 3. Di *Hypothesis*, masukkan nilai **55** sebagai *Test value*
 4. Centang *Effect size* (Cohen's *d*) dan *Descriptives*
 5. Centang *Confidence interval* untuk estimasi perbedaan
@@ -96,7 +96,9 @@ Pertanyaan untuk didiskusikan:
 
 ## Eksperimen kopi dan konsentrasi
 
-Peneliti ingin menguji apakah minum kopi meningkatkan konsentrasi mahasiswa sebelum ujian. Sebanyak 540 mahasiswa diukur skor konsentrasinya sebelum dan sesudah minum kopi.
+Esmeralda selanjutnya ingin menguji apakah minum kopi meningkatkan konsentrasi mahasiswa sebelum ujian. Sebanyak 540 mahasiswa diukur skor konsentrasinya sebelum dan sesudah minum kopi.
+
+**Buka *dataset* [ujian.omv](/docs/materials/ujian.omv)**
 
 **Desain *within-subjects*:**
 
@@ -110,27 +112,9 @@ $$t = \frac{\bar{D}}{s_D / \sqrt{n}}$$
 
 Di mana $\bar{D}$ adalah *mean* selisih dan $s_D$ adalah standar deviasi selisih.
 
-## Hasil: apakah kopi membantu?
-
-**Hasil analisis:**
-
-* *t*(539) = 1.30, *p* = 0.903
-* Cohen's *d* = 0.055 (efek sangat kecil)
-* 95% CI untuk selisih *mean*: hampir mencakup nol
-
-::: {.callout-important}
-**Kesimpulan: Kopi tidak signifikan meningkatkan konsentrasi**
-
-Meski 540 mahasiswa adalah sampel yang besar, perbedaan rata-rata konsentrasi sebelum-sesudah minum kopi sangat kecil (*d* = 0.055) dan tidak signifikan (*p* = 0.903). Efek kopi mungkin **bervariasi antar individu** atau **tidak ada secara rata-rata**.
-:::
-
-::: {.callout-note}
-*p* = 0.903 bukan berarti kopi "terbukti tidak berguna" — kita hanya **gagal menemukan bukti** bahwa kopi berguna dalam kondisi eksperimen ini. Mungkin prosedur pengukuran, jenis kopi, atau waktu tunggu setelah minum kopi perlu dipertimbangkan.
-:::
-
 ## Latihan: *Paired samples t-test* di jamovi
 
-Buka dataset **kopi.omv**, kemudian uji apakah minum kopi meningkatkan skor konsentrasi:
+Buka dataset [**ujian.omv**](/docs/materials/ujian.omv), kemudian uji apakah minum kopi meningkatkan skor konsentrasi:
 
 1. Klik menu *T-Tests* {{< fa circle-arrow-right >}} *Paired Samples T-Test*
 2. Masukkan pasangan variabel: **konsentrasi_sebelum** dan **konsentrasi_sesudah**
@@ -144,12 +128,30 @@ Pertanyaan untuk didiskusikan:
 * Bandingkan *mean* sebelum dan sesudah — ke arah mana perubahan terjadi?
 * Apakah *p-value* konsisten dengan nilai *d*?
 
+## Hasil: apakah kopi membantu?
+
+**Hasil analisis:**
+
+* *t*(539) = 1.30, *p* = 0.903
+* Cohen's *d* = 0.055 (efek sangat kecil)
+* 95% CI untuk selisih *mean*: hampir mencakup nol
+
+::: {.callout-important}
+
+**Kesimpulan: Kopi tidak signifikan meningkatkan konsentrasi**
+
+Meski 540 mahasiswa adalah sampel yang besar, perbedaan rata-rata konsentrasi sebelum-sesudah minum kopi sangat kecil (*d* = 0.055) dan tidak signifikan (*p* = 0.903). Efek kopi mungkin **bervariasi antar individu** atau **tidak ada secara rata-rata**.
+:::
+
+::: {.callout-note}
+*p* = 0.903 bukan berarti kopi "terbukti tidak berguna" — kita hanya **gagal menemukan bukti** bahwa kopi berguna dalam kondisi eksperimen ini. Mungkin prosedur pengukuran, jenis kopi, atau waktu tunggu setelah minum kopi perlu dipertimbangkan.
+:::
 
 # *Independent samples t-test* {background-color="#14497F"}
 
 ## Jimat batu akik dan nilai ujian
 
-Peneliti iseng menguji apakah mahasiswa yang percaya pada jimat batu akik mendapat nilai ujian yang lebih tinggi. Sampel: 540 mahasiswa percaya jimat, 660 mahasiswa tidak percaya jimat.
+Seorang peneliti *iseng* menguji apakah mahasiswa yang percaya pada jimat batu akik mendapat nilai ujian yang lebih tinggi. Sampel: 540 mahasiswa percaya jimat, 660 mahasiswa tidak percaya jimat.
 
 **Desain *between-subjects*:**
 
@@ -170,7 +172,7 @@ $$t = \frac{\bar{X}_1 - \bar{X}_2}{s_{\text{pooled}} \sqrt{\frac{1}{n_1} + \frac
 * Kelompok percaya jimat rata-rata mendapat nilai **sedikit lebih rendah**
 
 ::: {.callout-important}
-**Pelajaran penting: N besar mengungkap efek yang sangat kecil**
+#### Pelajaran penting: N besar mengungkap efek yang sangat kecil
 
 Dengan N = 1200, bahkan perbedaan yang sangat kecil (*d* = 0.186) bisa signifikan secara statistik. Secara praktis, perbedaan nilai ujian antara dua kelompok ini **hampir tidak berarti**. Ini bukan artinya batu akik "terbukti berbahaya" — ini hanya menunjukkan ada korelasi kecil yang perlu dijelaskan lebih lanjut.
 :::
@@ -181,10 +183,10 @@ Dalam situasi seperti ini, selalu tanyakan: **"Berapa besar efeknya?"** bukan ha
 
 ## Latihan: *Independent samples t-test* di jamovi
 
-Buka dataset **jimat.omv**, kemudian uji perbedaan nilai ujian antara kelompok percaya dan tidak percaya jimat:
+Buka dataset [**ujian.omv**](/docs/materials/ujian.omv), kemudian uji perbedaan nilai ujian antara kelompok percaya dan tidak percaya jimat:
 
 1. Klik menu *T-Tests* {{< fa circle-arrow-right >}} *Independent Samples T-Test*
-2. Masukkan **nilai_ujian** ke *Dependent Variables* dan **kepercayaan_jimat** ke *Grouping Variable*
+2. Masukkan **nilai_jimat** ke *Dependent Variables* dan **kepercayaan_jimat** ke *Grouping Variable*
 3. Centang *Effect size* (Cohen's *d*) dan *Descriptives*
 4. Di *Assumption Checks*, centang *Equality of variances* (Levene's test) dan *Normality test*
 
@@ -192,7 +194,6 @@ Pertanyaan untuk didiskusikan:
 
 * Apakah varians kedua kelompok homogen? Apa implikasinya untuk pilihan uji?
 * Bandingkan nilai *d* dengan nilai *p* — apakah keduanya menceritakan kisah yang sama?
-
 
 # Asumsi t-test {background-color="#14497F"}
 
@@ -221,7 +222,7 @@ $$t_{\text{Welch}} = \frac{\bar{X}_1 - \bar{X}_2}{\sqrt{\frac{s_1^2}{n_1} + \fra
 * **Rekomendasi praktis**: gunakan Welch's *t-test* secara *default* — ia memberikan hasil yang sama dengan *t-test* biasa ketika varians homogen, dan lebih akurat ketika tidak
 
 ::: {.callout-tip}
-Di jamovi, Welch's correction adalah **pilihan default** untuk *independent samples t-test*. Anda bisa melihat kedua versi (Student's dan Welch's) secara bersamaan untuk membandingkan hasilnya.
+Di `jamovi`, Welch's *correction* adalah **pilihan default** untuk *independent samples t-test*. Anda bisa melihat kedua versi (Student's dan Welch's) secara bersamaan untuk membandingkan hasilnya.
 :::
 
 ## Normalitas: seberapa ketat?
@@ -240,7 +241,6 @@ Di jamovi, Welch's correction adalah **pilihan default** untuk *independent samp
 ::: {.callout-note}
 Untuk sampel kecil dengan data yang jelas tidak normal, pertimbangkan **alternatif non-parametrik** — Wilcoxon signed-rank test (untuk *paired*) atau Mann-Whitney U test (untuk *independent*).
 :::
-
 
 # Alternatif non-parametrik {background-color="#14497F"}
 
@@ -273,7 +273,7 @@ Non-parametrik **tidak berarti bebas asumsi** — ia tetap mengasumsikan indepen
 
 ## Latihan: uji non-parametrik di jamovi
 
-Dengan dataset **kopi.omv**, ulangi analisis menggunakan Wilcoxon signed-rank test:
+Dengan dataset [**ujian.omv**](/docs/materials/ujian.omv), ulangi analisis menggunakan Wilcoxon signed-rank test:
 
 1. Klik menu *T-Tests* {{< fa circle-arrow-right >}} *Paired Samples T-Test*
 2. Pada bagian *Tests*, centang **Wilcoxon rank** (di samping pilihan *Student's* dan *Bayes factor*)

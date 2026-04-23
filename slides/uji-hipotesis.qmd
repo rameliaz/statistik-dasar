@@ -3,7 +3,7 @@ title: "Uji Hipotesis"
 subtitle: "Statistik Dasar dalam Penelitian Psikologi"
 author: "Rizqy Amelia Zein"
 institute:
-  - "[_Departemen Psikologi Kepribadian dan Sosial, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
+  - "[_Departemen Psikologi, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
 date: today
 format:
   unair-revealjs:
@@ -146,7 +146,7 @@ Dengan α = 0.05 dan *power* = 80% (β = 20%):
 | **Gagal tolak H₀** | ~48 (*true negative*) | 10 (*false negative*) | ~58 |
 
 ::: {.callout-important}
-Dari ~42-43 hasil "signifikan", **2-3 di antaranya adalah kesalahan** (*false positive*). Semakin rendah *base rate* kebenaran klaim (misalnya bidang pre-clinical), semakin besar proporsi *false positive* di antara hasil signifikan — inilah salah satu akar *replication crisis*.
+Dari ~42-43 hasil "signifikan", **2-3 di antaranya adalah kesalahan** (*false positive*). Semakin rendah *base rate* kebenaran klaim (misalnya bidang preklinik), semakin besar proporsi *false positive* di antara hasil signifikan — inilah salah satu akar *replication crisis*.
 :::
 
 

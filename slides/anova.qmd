@@ -3,7 +3,7 @@ title: "ANOVA"
 subtitle: "Statistik Dasar dalam Penelitian Psikologi"
 author: "Rizqy Amelia Zein"
 institute:
-  - "[_Departemen Psikologi Kepribadian dan Sosial, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
+  - "[_Departemen Psikologi, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
 date: today
 format:
   unair-revealjs:
@@ -74,7 +74,7 @@ Ferguso ingin menguji apakah obat flu barunya (*flungalih*) lebih efektif diband
 | Mixagrip | 0.717 | 0.392 |
 | Flungalih | 1.48 | 0.214 |
 
-Dataset: **cobaobat.omv**
+Dataset: [**cobaobat.omv**](/docs/materials/cobaobat.omv)
 
 ## Mempartisi total varians
 
@@ -107,11 +107,11 @@ $$F = \frac{MS_b}{MS_w} = \frac{\text{varians antar kelompok}}{\text{varians dal
 :::
 
 
-# Implementasi di jamovi {background-color="#14497F"}
+# Implementasi di `jamovi` {background-color="#14497F"}
 
-## Langkah ANOVA di jamovi
+## Langkah ANOVA di `jamovi`
 
-Buka dataset **cobaobat.omv**, kemudian jalankan *one-way* ANOVA:
+Buka dataset [**cobaobat.omv**](/docs/materials/cobaobat.omv), kemudian jalankan *one-way* ANOVA:
 
 1. Klik menu *ANOVA* {{< fa circle-arrow-right >}} *ANOVA*
 2. Masukkan **konsentrasi** ke *Dependent Variable* dan **obat** ke *Fixed Factors*
@@ -173,7 +173,7 @@ Pada studi Ferguso: ω² = 0.662 → **efek yang sangat besar** — obat *flunga
 
 ANOVA yang signifikan hanya mengatakan "ada perbedaan di suatu tempat." *Post-hoc test* mengidentifikasi **pasangan kelompok mana** yang berbeda secara signifikan, sambil mengontrol *Type I error*.
 
-**Dua pilihan utama di jamovi:**
+**Dua pilihan utama di `jamovi`:**
 
 * **Tukey's HSD (*Honestly Significant Difference*)**: Seimbang antara *power* dan kontrol *Type I error* — cocok untuk kebanyakan kasus
 * **Bonferroni correction**: Lebih konservatif — membagi α dengan jumlah perbandingan; lebih tepat jika ada *a priori* hipotesis spesifik
@@ -213,7 +213,7 @@ Interpretasi:
 ANOVA relatif **robust** terhadap pelanggaran normalitas jika ukuran sampel setiap kelompok cukup besar (≥ 30) dan seimbang. Namun heterogenitas varians yang ekstrem lebih bermasalah, terutama jika ukuran kelompok tidak seimbang.
 :::
 
-## Memeriksa asumsi di jamovi
+## Memeriksa asumsi di `jamovi`
 
 **Normalitas residual (bukan data mentah!):**
 

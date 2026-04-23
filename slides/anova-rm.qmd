@@ -3,7 +3,7 @@ title: "ANOVA Pengukuran Berulang"
 subtitle: "Statistik Dasar dalam Penelitian Psikologi"
 author: "Rizqy Amelia Zein"
 institute:
-  - "[_Departemen Psikologi Kepribadian dan Sosial, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
+  - "[_Departemen Psikologi, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
 date: today
 format:
   unair-revealjs:
@@ -91,7 +91,7 @@ Alfonso ingin mengetahui apakah memperdengarkan musik klasik secara rutin dapat 
 * *Within-subjects factor*: **waktu** (minggu ke-1, ke-2, ke-3) — 3 level
 * Variabel dependen: **durasi_membaca**
 
-Dataset: **kucing-membaca.omv**
+Dataset: [**minat-baca.omv**](/docs/materials/minat-baca.omv)
 
 ## *Mean* durasi membaca per minggu
 
@@ -171,9 +171,9 @@ $$F_{\text{corrected}} \text{ menggunakan } df^* = df \times \varepsilon$$
 :::
 
 
-# Implementasi di jamovi {background-color="#14497F"}
+# Implementasi di `jamovi` {background-color="#14497F"}
 
-## Langkah RM-ANOVA di jamovi
+## Langkah RM-ANOVA di `jamovi`
 
 Buka dataset **kucing-membaca.omv**, kemudian:
 
@@ -332,7 +332,7 @@ Alfonso ingin mengulangi studi musik pada **kelinci** dengan asumsi:
 Dibanding ANOVA *between-subjects* yang mungkin membutuhkan N = 600+ untuk *power* yang sama dengan *f* = 0.15, RM-ANOVA jauh lebih efisien — meskipun korelasi antar pengukuran sangat kecil.
 :::
 
-## Latihan: RM-ANOVA di jamovi
+## Latihan: RM-ANOVA di `jamovi`
 
 Seorang peneliti ingin menguji efek program *mindfulness* 4 sesi pada **skor stres** peserta. Stres diukur sebelum sesi 1, setelah sesi 2, dan setelah sesi 4.
 

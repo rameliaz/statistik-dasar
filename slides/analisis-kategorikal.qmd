@@ -3,7 +3,7 @@ title: "Analisis Data Kategorikal"
 subtitle: "Statistik Dasar dalam Penelitian Psikologi"
 author: "Rizqy Amelia Zein"
 institute:
-  - "[_Departemen Psikologi Kepribadian dan Sosial, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
+  - "[_Departemen Psikologi, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
 date: today
 format:
   unair-revealjs:
@@ -62,11 +62,11 @@ $$H_0: p = p_0 \quad \text{vs} \quad H_1: p \neq p_0$$
 
 Di mana $p$ adalah proporsi populasi yang sesungguhnya dan $p_0$ adalah proporsi yang dihipotesiskan (nilai referensi).
 
-**Contoh:** Dalam 200 klien yang menjalani terapi CBT, 130 menunjukkan perbaikan signifikan. Apakah tingkat keberhasilan CBT berbeda dari 60% yang dilaporkan literatur internasional?
+**Contoh:** Dalam 500 klien yang menjalani terapi CBT, 327 menunjukkan perbaikan signifikan. Apakah tingkat keberhasilan CBT berbeda dari 60% yang dilaporkan literatur internasional?
 
 $$H_0: p = 0.60 \quad \text{vs} \quad H_1: p \neq 0.60$$
 
-Proporsi sampel = 130/200 = **65%**
+Proporsi sampel = 327/500 = **65.4%**
 
 ## Logika *binomial test*
 
@@ -80,7 +80,7 @@ Untuk **sampel besar** (n > 30), *binomial test* bisa diaproksimasi dengan **uji
 
 ## Latihan: *Binomial test* di jamovi
 
-Buka dataset **terapi.omv** yang berisi data 200 klien CBT:
+Buka dataset **terapi.omv** yang berisi data 500 klien CBT:
 
 1. Klik menu *Frequencies* {{< fa circle-arrow-right >}} *Proportion Test (Binomial)*
 2. Masukkan **hasil_terapi** ke *Variable*
@@ -91,7 +91,7 @@ Pertanyaan untuk didiskusikan:
 
 * Berapa *p-value* yang kalian dapatkan? Apakah proporsi sampel secara signifikan berbeda dari 60%?
 * Apa arti CI untuk proporsi yang kalian peroleh?
-* Berapa besar perbedaan antara proporsi sampel (65%) dan nilai referensi (60%) — apakah perbedaan ini bermakna secara praktis?
+* Berapa besar perbedaan antara proporsi sampel (65.4%) dan nilai referensi (60%) — apakah perbedaan ini bermakna secara praktis?
 
 
 # Uji chi-square (*χ²*) {background-color="#14497F"}
@@ -117,12 +117,12 @@ Apakah metode belajar (belajar sendiri vs kelompok vs *online*) berhubungan deng
 
 |  | Lulus tepat waktu | Tidak lulus tepat waktu | Total |
 |---|---|---|---|
-| Sendiri | 45 | 15 | 60 |
-| Kelompok | 55 | 10 | 65 |
-| *Online* | 30 | 20 | 50 |
-| **Total** | **130** | **45** | **175** |
+| Sendiri | 135 | 45 | 180 |
+| Kelompok | 165 | 30 | 195 |
+| *Online* | 90 | 60 | 150 |
+| **Total** | **390** | **135** | **525** |
 
-Frekuensi yang diharapkan (contoh, sel kiri atas): $E = \frac{60 \times 130}{175} = 44.6$
+Frekuensi yang diharapkan (contoh, sel *Kelompok* × *Lulus tepat waktu*): $E = \frac{195 \times 390}{525} = 144.9$
 
 ## Syarat penggunaan chi-square
 

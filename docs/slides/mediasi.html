@@ -142,7 +142,7 @@
 Rizqy Amelia Zein 
 </div>
         <p class="quarto-title-affiliation">
-            <a href="https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/"><em>Departemen Psikologi Kepribadian dan Sosial, Universitas Airlangga</em></a>
+            <a href="https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/"><em>Departemen Psikologi, Universitas Airlangga</em></a>
           </p>
     </div>
 </div>
@@ -155,9 +155,10 @@ Rizqy Amelia Zein
 <li>Apa itu mediasi?</li>
 <li>Model mediasi sederhana</li>
 <li>Pendekatan: kausalitas <em>a la</em> Baron &amp; Kenny vs <em>bootstrapping</em></li>
-<li>Implementasi di jamovi (PROCESS)</li>
+<li>Implementasi di jamovi (medmod)</li>
 <li>Interpretasi <em>indirect effect</em></li>
-<li><strong>Peringatan keras</strong>: mediasi dari data <em>cross-sectional</em></li>
+<li>⚠️<strong>Peringatan</strong>⚠️: mediasi dari data <em>cross-sectional</em></li>
+<li><em>Collider bias</em></li>
 </ul>
 </section>
 <section>
@@ -204,11 +205,11 @@ Rizqy Amelia Zein
 <li><strong>Jalur c’</strong> (<em>c-prime</em>): X → Y mengontrol M (<em>direct effect</em>)</li>
 </ul>
 </div><div class="column" style="width:40%;">
-<pre><code>X ──a──→ M
-│         │
-c'        b
-│         ↓
-└────────→ Y</code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="libs/mediation.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
 <p><em>Total effect</em> c = c’ + (a × b)</p>
 </div></div>
 <p><strong>Efek tidak langsung (<em>indirect effect</em>)</strong>: <span class="math inline">\(a \times b\)</span></p>
@@ -267,18 +268,18 @@ c'        b
 </div>
 </section></section>
 <section>
-<section id="implementasi-di-jamovi-process" class="title-slide slide level1 center" data-background-color="#14497F">
-<h1>Implementasi di jamovi (PROCESS)</h1>
+<section id="implementasi-di-jamovi-medmod" class="title-slide slide level1 center" data-background-color="#14497F">
+<h1>Implementasi di <code>jamovi</code> (<code>medmod</code>)</h1>
 
 </section>
-<section id="memasang-modul-process-di-jamovi" class="slide level2">
-<h2>Memasang modul PROCESS di jamovi</h2>
-<p>PROCESS (Andrew Hayes) adalah <em>module</em> yang populer untuk analisis mediasi dan moderasi.</p>
+<section id="memasang-modul-medmod-di-jamovi" class="slide level2">
+<h2>Memasang modul <code>medmod</code> di <code>jamovi</code></h2>
+<p><code>medmod</code> adalah modul <code>jamovi</code> untuk analisis mediasi dan moderasi berbasis <em>bootstrapping</em>.</p>
 <p><strong>Instalasi:</strong></p>
 <ol type="1">
-<li>Di jamovi, klik ikon <strong>+</strong> (modul) di pojok kanan atas</li>
-<li>Cari <strong>“jmv”</strong> atau kunjungi modul jamovi — cari <strong>medmod</strong> atau <strong>PROCESS macro</strong></li>
-<li>Alternatif: gunakan <strong>medmod</strong> (tersedia di <em>jamovi library</em>)</li>
+<li>Di <code>jamovi</code>, klik ikon <strong>+</strong> (modul) di pojok kanan atas</li>
+<li>Cari <code>medmod</code> di <em>jamovi library</em>, lalu klik <em>Install</em></li>
+<li>Setelah terpasang, modul <code>medmod</code> akan muncul di menu utama jamovi</li>
 </ol>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -289,7 +290,7 @@ c'        b
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>Jika modul PROCESS tidak tersedia, analisis mediasi bisa dilakukan secara manual melalui regresi bertingkat: (1) regresikan M pada X, (2) regresikan Y pada X dan M, kemudian hitung <em>indirect effect</em> = koefisien jalur a × koefisien jalur b.</p>
+<p>Jika modul <code>medmod</code> tidak tersedia, analisis mediasi bisa dilakukan secara manual melalui regresi bertingkat: (1) regresikan M pada X, (2) regresikan Y pada X dan M, kemudian hitung <em>indirect effect</em> = koefisien jalur a × koefisien jalur b.</p>
 </div>
 </div>
 </div>
@@ -297,10 +298,10 @@ c'        b
 <section id="contoh-stres-dukungan-sosial-dan-wellbeing" class="slide level2">
 <h2>Contoh: stres, dukungan sosial, dan <em>wellbeing</em></h2>
 <p>Hipotesis: Beban akademik yang tinggi (X = <strong>beban</strong>) menurunkan <em>wellbeing</em> (Y = <strong>wellbeing</strong>) <strong>karena</strong> mengurangi persepsi dukungan sosial (M = <strong>dukungan_sosial</strong>).</p>
-<p>Dataset: <strong>mediasi_akademik.omv</strong> (N = 250 mahasiswa)</p>
+<p>Dataset: <strong>mediasi_akademik.omv</strong> (N = 500 mahasiswa)</p>
 <p><strong>Langkah di jamovi (medmod):</strong></p>
 <ol type="1">
-<li>Klik menu <em>medmod</em> <i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i> <em>SEM</em> / <em>Mediation</em></li>
+<li>Klik menu <em>medmod</em> <i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i> <em>Mediation Analysis</em></li>
 <li>Masukkan variabel:
 <ul>
 <li><em>Predictor</em> (X): <strong>beban</strong></li>
@@ -312,7 +313,7 @@ c'        b
 </ol>
 </section>
 <section id="membaca-output-mediasi" class="slide level2">
-<h2>Membaca output mediasi</h2>
+<h2>Membaca <em>output</em> mediasi</h2>
 <p><strong>Ringkasan hasil yang diharapkan:</strong></p>
 <table class="caption-top">
 <colgroup>
@@ -333,35 +334,35 @@ c'        b
 <tr class="odd">
 <td><em>Total effect</em> (c)</td>
 <td>−0.42</td>
-<td>[−0.57, −0.27]</td>
+<td>[−0.49, −0.36]</td>
 <td>Ya</td>
 </tr>
 <tr class="even">
 <td><em>Direct effect</em> (c’)</td>
-<td>−0.18</td>
-<td>[−0.33, −0.03]</td>
+<td>−0.16</td>
+<td>[−0.23, −0.09]</td>
 <td>Ya</td>
 </tr>
 <tr class="odd">
 <td><strong><em>Indirect effect</em> (a×b)</strong></td>
-<td><strong>−0.24</strong></td>
-<td><strong>[−0.35, −0.14]</strong></td>
+<td><strong>−0.26</strong></td>
+<td><strong>[−0.31, −0.21]</strong></td>
 <td><strong>Ya</strong></td>
 </tr>
 </tbody>
 </table>
-<p>Interpretasi: Beban akademik menurunkan <em>wellbeing</em> (total <em>c</em> = −0.42). Sebagian efek ini dimediasi <strong>melalui</strong> berkurangnya dukungan sosial yang dipersepsi (<em>indirect</em> a×b = −0.24, 95% CI tidak mencakup nol). Namun masih ada <em>direct effect</em> yang signifikan (c’ = −0.18), menunjukkan <strong>mediasi parsial</strong>.</p>
+<p>Interpretasi: Beban akademik menurunkan <em>wellbeing</em> (total <em>c</em> = −0.42). Sebagian efek ini dimediasi <strong>melalui</strong> berkurangnya dukungan sosial yang dipersepsi (<em>indirect</em> a×b = −0.26, 95% CI tidak mencakup nol). Namun masih ada <em>direct effect</em> yang signifikan (c’ = −0.16), menunjukkan <strong>mediasi parsial</strong>.</p>
 </section></section>
 <section>
 <section id="interpretasi-indirect-effect" class="title-slide slide level1 center" data-background-color="#14497F">
-<h1>Interpretasi <em>indirect effect</em></h1>
+<h1>Interpretasi indirect effect</h1>
 
 </section>
 <section id="proporsi-mediasi" class="slide level2">
 <h2>Proporsi mediasi</h2>
 <p>Selain signifikansi, kita juga bisa menghitung <strong>proporsi</strong> total efek yang dimediasi:</p>
-<p><span class="math display">\[\text{Proporsi mediasi} = \frac{a \times b}{c} = \frac{-0.24}{-0.42} \approx 0.57\]</span></p>
-<p>Artinya, sekitar <strong>57%</strong> dari efek beban akademik pada <em>wellbeing</em> bekerja melalui mekanisme dukungan sosial.</p>
+<p><span class="math display">\[\text{Proporsi mediasi} = \frac{a \times b}{c} = \frac{-0.26}{-0.42} \approx 0.61\]</span></p>
+<p>Artinya, sekitar <strong>61%</strong> dari efek beban akademik pada <em>wellbeing</em> bekerja melalui mekanisme dukungan sosial.</p>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -375,13 +376,13 @@ c'        b
 </div>
 </div>
 </div>
-<p><strong>Effect size untuk mediasi:</strong></p>
+<p><strong><em>Effect size</em> untuk mediasi:</strong></p>
 <p><span class="math display">\[\kappa^2 = \frac{a \times b}{\text{varians maksimal a×b yang mungkin}}\]</span></p>
-<p>Nilai <span class="math inline">\(\kappa^2\)</span> antara 0–1. Konvensi: 0.01 kecil, 0.09 sedang, 0.25 besar (Preacher &amp; Kelley, 2011).</p>
+<p>Nilai <span class="math inline">\(\kappa^2\)</span> antara 0–1. Konvensi: 0.01 kecil, 0.09 sedang, 0.25 besar (Preacher &amp; Kelley, 2011). Pada contoh di atas, jamovi melaporkan <span class="math inline">\(\kappa^2 \approx 0.18\)</span> — termasuk efek <strong>sedang</strong> mendekati besar.</p>
 </section></section>
 <section>
-<section id="peringatan-keras-mediasi-dan-kausalitas" class="title-slide slide level1 center" data-background-color="#14497F">
-<h1>Peringatan keras: mediasi dan kausalitas</h1>
+<section id="peringatan-mediasi-dan-kausalitas" class="title-slide slide level1 center" data-background-color="#14497F">
+<h1>⚠️Peringatan⚠️: mediasi dan kausalitas</h1>
 
 </section>
 <section id="data-cross-sectional-dan-klaim-kausal" class="slide level2">
@@ -392,23 +393,22 @@ c'        b
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Important</strong></p>
+<p><strong>Analisis mediasi dari data <em>cross-sectional</em> tidak bisa membuktikan kausalitas</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Analisis mediasi dari data <em>cross-sectional</em> tidak bisa membuktikan kausalitas — titik.</strong></p>
-<p>Dalam mediasi, kita mengklaim: X <em>menyebabkan</em> M, dan M <em>menyebabkan</em> Y. Ini adalah klaim <strong>kausal</strong> yang kuat. Namun data <em>cross-sectional</em> hanya mengukur semua variabel <strong>pada satu titik waktu yang sama</strong> — tidak ada cara untuk menetapkan temporal order (apa yang terjadi lebih dulu?).</p>
+<p>Dalam mediasi, kita mengklaim: X <em>menyebabkan</em> M, dan M <em>menyebabkan</em> Y. Ini adalah klaim <strong>kausal</strong> yang kuat. Namun data <em>cross-sectional</em> hanya mengukur semua variabel <strong>pada satu titik waktu yang sama</strong> — tidak ada cara untuk menetapkan <em>temporal ordering</em>/urut-urutan kejadian (apa yang terjadi lebih dulu?).</p>
 </div>
 </div>
 </div>
 <p><strong>Masalah spesifik dengan mediasi <em>cross-sectional</em>:</strong></p>
 <ol type="1">
 <li><strong>Urutan waktu tidak jelas</strong>: apakah X benar-benar terjadi sebelum M, dan M sebelum Y?</li>
-<li><strong>Reverse causation</strong>: mungkin Y → M → X, atau M → X → Y</li>
-<li><strong>Confounding</strong>: variabel ketiga yang tidak diukur bisa menyebabkan ketiganya sekaligus</li>
+<li><strong><em>Reverse causation</em></strong>: mungkin Y → M → X, atau M → X → Y</li>
+<li><strong><em>Confounding</em></strong>: variabel ketiga yang tidak diukur bisa menyebabkan ketiganya sekaligus</li>
 </ol>
 </section>
-<section id="contoh-masalah-temporal-order" class="slide level2">
-<h2>Contoh masalah temporal order</h2>
+<section id="contoh-masalah-temporal-ordering" class="slide level2">
+<h2>Contoh masalah <em>temporal ordering</em></h2>
 <p>Kembali ke contoh beban akademik → dukungan sosial → <em>wellbeing</em>:</p>
 <p>Kita ukur ketiga variabel dalam satu survei pada hari yang sama. Mungkin saja:</p>
 <ul>
@@ -424,14 +424,15 @@ c'        b
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>Pengujian mediasi yang lebih valid membutuhkan desain <strong>longitudinal</strong> (X diukur sebelum M, M diukur sebelum Y) atau, yang terbaik, <strong>eksperimen</strong> di mana X dimanipulasi secara acak dan efeknya pada M dan Y diamati sepanjang waktu.</p>
+<p>Pengujian mediasi yang lebih baik membutuhkan desain <strong>longitudinal</strong> (X diukur sebelum M, M diukur sebelum Y) atau, yang terbaik, melalui <strong>eksperimen</strong> di mana X (dan M) dimanipulasi secara acak dan efeknya pada M dan Y diamati sepanjang waktu.</p>
+<p>Meskipun, pengujian secara longitudinal hanya bisa mengendalikan <em>confounding</em> yang <em>time-invariant</em> saja. Apabila variabel <em>cofounding</em> berubah sepanjang waktu, maka desain <em>longitudinal</em> tidak bisa mengendalikan efek <em>confounding</em>.</p>
 </div>
 </div>
 </div>
 </section>
 <section id="ketika-mediasi-cross-sectional-masih-berguna" class="slide level2">
 <h2>Ketika mediasi <em>cross-sectional</em> masih berguna</h2>
-<p>Meski terbatas secara kausal, analisis mediasi <em>cross-sectional</em> masih bisa bermakna jika:</p>
+<p>Meski terbatas secara kausal, analisis mediasi <em>cross-sectional</em> mungkin bisa bermakna jika:</p>
 <ul>
 <li>Digunakan untuk <strong>mengeksplorasi mekanisme</strong> yang akan diuji lebih lanjut dengan desain yang lebih kuat</li>
 <li>Dikombinasikan dengan argumen teoritis yang kuat tentang urutan temporal</li>
@@ -444,18 +445,79 @@ c'        b
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Tip</strong></p>
+<p><strong>Cara yang disarankan untuk melaporkan mediasi <em>cross-sectional</em>:</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Cara yang baik untuk melaporkan mediasi <em>cross-sectional</em>:</strong></p>
-<p><em>“Hasil analisis bootstrapping menunjukkan indirect effect yang signifikan (a×b = −0.24, 95% BC-CI [−0.35, −0.14]), yang konsisten dengan hipotesis bahwa dukungan sosial memediasi hubungan antara beban akademik dan wellbeing. Namun, mengingat desain cross-sectional, interpretasi kausal harus dilakukan dengan hati-hati.”</em></p>
+<p><em>“Hasil analisis bootstrapping menunjukkan indirect effect yang signifikan (a×b = −0.26, 95% BC-CI [−0.31, −0.21]), yang artinya ditemukan pola yang konsisten dengan model mediasi, di mana dukungan sosial mungkin memediasi hubungan antara beban akademik dan wellbeing. Namun, mengingat desain cross-sectional, interpretasi kausalitas tidak dapat dilakukan.”</em></p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="collider-bias" class="title-slide slide level1 center" data-background-color="#14497F">
+<h1>Collider bias</h1>
+
+</section>
+<section id="apa-itu-collider" class="slide level2">
+<h2>Apa itu <em>collider</em>?</h2>
+<p><strong>Collider</strong> adalah variabel yang menerima panah dari <strong>dua variabel lain sekaligus</strong> dalam model kita.</p>
+
+<img data-src="libs/colliderbias.png" class="quarto-figure quarto-figure-center r-stretch"><p>Variabel <strong>C</strong> adalah <em>collider</em> karena dipengaruhi oleh X <strong>dan</strong> Y.</p>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Masalah:</strong></p>
+</div>
+<div class="callout-content">
+<p>Jika kita mengontrol <em>collider</em>, misalnya memasukkannya ke regresi, atau memilih sampel berdasarkan nilai C tertentu, kita secara tidak sengaja <strong>menciptakan</strong> hubungan palsu antara X dan Y, meskipun keduanya tidak benar-benar berhubungan.</p>
+</div>
+</div>
+</div>
+<p><strong>Contoh:</strong> Apakah kecerdasan berkorelasi negatif dengan kerja keras di kalangan mahasiswa universitas bergengsi?</p>
+<ul>
+<li>Masuk universitas bergengsi (C) dipengaruhi oleh <strong>kecerdasan</strong> (X) dan <strong>kerja keras</strong> (Y)</li>
+<li>Ketika kita hanya mengamati mahasiswa di sana, kita tanpa sadar <strong>mengontrol C</strong></li>
+<li>Hasilnya: mahasiswa yang sangat cerdas <em>tampak</em> kurang pekerja keras — padahal di populasi umum tidak demikian</li>
+</ul>
+</section>
+<section id="collider-bias-dalam-analisis-mediasi" class="slide level2">
+<h2><em>Collider bias</em> dalam analisis mediasi</h2>
+<p>Dalam konteks mediasi, <em>collider bias</em> muncul ketika ada variabel yang <strong>dipengaruhi oleh X dan M</strong> (atau M dan Y) lalu kita masukkan ke model sebagai kontrol.</p>
+
+<img data-src="libs/collider.png" class="quarto-figure quarto-figure-center r-stretch"><p>Mengontrol C di sini akan <strong>merusak</strong> estimasi jalur b (M → Y) dan <em>indirect effect</em>.</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Ingat</strong></p>
+</div>
+<div class="callout-content">
+<p>Hati-hati dengan variabel kontrol yang “masuk akal” secara substantif. Sebelum menambahkan variabel kontrol ke model mediasi, tanyakan: <em>“Apakah variabel ini bisa dipengaruhi oleh X atau M?”</em> Jika ya, jangan dikontrol, justru akan menyebabkan <em>collider bias</em>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p><em>Collider bias</em> adalah salah satu alasan mengapa analisis mediasi memerlukan <strong>teori kausal yang eksplisit</strong> (misalnya melalui <a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph">DAG — <em>Directed Acyclic Graph</em></a>), bukan sekadar menambahkan variabel kontrol secara asal-asalan.</p>
 </div>
 </div>
 </div>
 </section>
 <section id="latihan-analisis-mediasi-di-jamovi" class="slide level2">
 <h2>Latihan: analisis mediasi di jamovi</h2>
-<p>Buka dataset <strong>mediasi_akademik.omv</strong>, kemudian uji apakah dukungan sosial memediasi hubungan antara beban akademik dan <em>wellbeing</em>:</p>
+<p>Buka dataset <a href="..\docs/materials/mediasi_akademik.omv"><strong>mediasi_akademik.omv</strong></a>, kemudian uji apakah dukungan sosial memediasi hubungan antara beban akademik dan <em>wellbeing</em>:</p>
 <ol type="1">
 <li>Inspeksi terlebih dahulu: buat <em>scatterplot</em> untuk pasangan <strong>beban–dukungan_sosial</strong> dan <strong>dukungan_sosial–wellbeing</strong></li>
 <li>Jalankan mediasi dengan <em>bootstrap</em> CI (5.000 sampel)</li>

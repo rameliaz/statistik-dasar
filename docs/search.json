@@ -228,7 +228,7 @@
     "href": "slides/anova-rm.html#konteks-penelitian",
     "title": "ANOVA Pengukuran Berulang",
     "section": "Konteks penelitian",
-    "text": "Konteks penelitian\nAlfonso ingin mengetahui apakah memperdengarkan musik klasik secara rutin dapat meningkatkan durasi membaca kucing. Ia memilih satu kelompok kucing dan:\n\nMemperdengarkan Frühlingsstimmen — Strauss II setiap hari, 30 menit, selama 3 minggu\nMengukur durasi membaca (dalam detik) setiap akhir minggu\nMembandingkan durasi membaca di minggu ke-1, ke-2, dan ke-3\n\nVariabel:\n\nWithin-subjects factor: waktu (minggu ke-1, ke-2, ke-3) — 3 level\nVariabel dependen: durasi_membaca\n\nDataset: kucing-membaca.omv"
+    "text": "Konteks penelitian\nAlfonso ingin mengetahui apakah memperdengarkan musik klasik secara rutin dapat meningkatkan durasi membaca kucing. Ia memilih satu kelompok kucing dan:\n\nMemperdengarkan Frühlingsstimmen — Strauss II setiap hari, 30 menit, selama 3 minggu\nMengukur durasi membaca (dalam detik) setiap akhir minggu\nMembandingkan durasi membaca di minggu ke-1, ke-2, dan ke-3\n\nVariabel:\n\nWithin-subjects factor: waktu (minggu ke-1, ke-2, ke-3) — 3 level\nVariabel dependen: durasi_membaca\n\nDataset: minat-baca.omv"
   },
   {
     "objectID": "slides/anova-rm.html#mean-durasi-membaca-per-minggu",
@@ -340,7 +340,7 @@
     "href": "slides/mediasi.html#outline",
     "title": "Analisis Mediasi",
     "section": "Outline",
-    "text": "Outline\n\nApa itu mediasi?\nModel mediasi sederhana\nPendekatan: kausalitas a la Baron & Kenny vs bootstrapping\nImplementasi di jamovi (PROCESS)\nInterpretasi indirect effect\nPeringatan keras: mediasi dari data cross-sectional"
+    "text": "Outline\n\nApa itu mediasi?\nModel mediasi sederhana\nPendekatan: kausalitas a la Baron & Kenny vs bootstrapping\nImplementasi di jamovi (medmod)\nInterpretasi indirect effect\n⚠️Peringatan⚠️: mediasi dari data cross-sectional\nCollider bias"
   },
   {
     "objectID": "slides/mediasi.html#mediasi-bagaimana-dan-mengapa",
@@ -354,7 +354,7 @@
     "href": "slides/mediasi.html#model-mediasi-sederhana-simple-mediation",
     "title": "Analisis Mediasi",
     "section": "Model mediasi sederhana (simple mediation)",
-    "text": "Model mediasi sederhana (simple mediation)\n\n\nDalam model mediasi sederhana, terdapat tiga variabel:\n\nX: variabel independen (prediktor)\nM: mediator\nY: variabel dependen (hasil)\n\nDan tiga jalur (path) utama:\n\nJalur a: X → M\nJalur b: M → Y (mengontrol X)\nJalur c’ (c-prime): X → Y mengontrol M (direct effect)\n\n\nX ──a──→ M\n│         │\nc'        b\n│         ↓\n└────────→ Y\nTotal effect c = c’ + (a × b)\n\nEfek tidak langsung (indirect effect): \\(a \\times b\\)\nIni adalah besaran efek X pada Y yang dimediasi melalui M."
+    "text": "Model mediasi sederhana (simple mediation)\n\n\nDalam model mediasi sederhana, terdapat tiga variabel:\n\nX: variabel independen (prediktor)\nM: mediator\nY: variabel dependen (hasil)\n\nDan tiga jalur (path) utama:\n\nJalur a: X → M\nJalur b: M → Y (mengontrol X)\nJalur c’ (c-prime): X → Y mengontrol M (direct effect)\n\n\n\n\n\n\n\nTotal effect c = c’ + (a × b)\n\nEfek tidak langsung (indirect effect): \\(a \\times b\\)\nIni adalah besaran efek X pada Y yang dimediasi melalui M."
   },
   {
     "objectID": "slides/mediasi.html#baron-kenny-1986-pendekatan-klasik",
@@ -371,53 +371,67 @@
     "text": "Bootstrapping: pendekatan modern\nBootstrapping adalah metode resampling yang mengestimasi distribusi indirect effect (a×b) langsung dari data, tanpa mengasumsikan distribusi normal.\nCara kerjanya:\n\nAmbil sampel berulang (bootstrap samples) dari data asli dengan pengembalian — biasanya 5.000 atau 10.000 kali\nHitung indirect effect (a×b) untuk setiap sampel\nGunakan distribusi 5.000 nilai a×b untuk membangun confidence interval (BC-CI) untuk indirect effect\n\n\n\n\n\n\n\nTip\n\n\nJika 95% bootstrap CI untuk indirect effect tidak mencakup nol, kita memiliki bukti bahwa indirect effect secara statistik berbeda dari nol — tanpa perlu mengasumsikan normalitas. Ini adalah cara yang direkomendasikan untuk menguji signifikansi mediasi."
   },
   {
-    "objectID": "slides/mediasi.html#memasang-modul-process-di-jamovi",
-    "href": "slides/mediasi.html#memasang-modul-process-di-jamovi",
+    "objectID": "slides/mediasi.html#memasang-modul-medmod-di-jamovi",
+    "href": "slides/mediasi.html#memasang-modul-medmod-di-jamovi",
     "title": "Analisis Mediasi",
-    "section": "Memasang modul PROCESS di jamovi",
-    "text": "Memasang modul PROCESS di jamovi\nPROCESS (Andrew Hayes) adalah module yang populer untuk analisis mediasi dan moderasi.\nInstalasi:\n\nDi jamovi, klik ikon + (modul) di pojok kanan atas\nCari “jmv” atau kunjungi modul jamovi — cari medmod atau PROCESS macro\nAlternatif: gunakan medmod (tersedia di jamovi library)\n\n\n\n\n\n\n\nNote\n\n\nJika modul PROCESS tidak tersedia, analisis mediasi bisa dilakukan secara manual melalui regresi bertingkat: (1) regresikan M pada X, (2) regresikan Y pada X dan M, kemudian hitung indirect effect = koefisien jalur a × koefisien jalur b."
+    "section": "Memasang modul medmod di jamovi",
+    "text": "Memasang modul medmod di jamovi\nmedmod adalah modul jamovi untuk analisis mediasi dan moderasi berbasis bootstrapping.\nInstalasi:\n\nDi jamovi, klik ikon + (modul) di pojok kanan atas\nCari medmod di jamovi library, lalu klik Install\nSetelah terpasang, modul medmod akan muncul di menu utama jamovi\n\n\n\n\n\n\n\nNote\n\n\nJika modul medmod tidak tersedia, analisis mediasi bisa dilakukan secara manual melalui regresi bertingkat: (1) regresikan M pada X, (2) regresikan Y pada X dan M, kemudian hitung indirect effect = koefisien jalur a × koefisien jalur b."
   },
   {
     "objectID": "slides/mediasi.html#contoh-stres-dukungan-sosial-dan-wellbeing",
     "href": "slides/mediasi.html#contoh-stres-dukungan-sosial-dan-wellbeing",
     "title": "Analisis Mediasi",
     "section": "Contoh: stres, dukungan sosial, dan wellbeing",
-    "text": "Contoh: stres, dukungan sosial, dan wellbeing\nHipotesis: Beban akademik yang tinggi (X = beban) menurunkan wellbeing (Y = wellbeing) karena mengurangi persepsi dukungan sosial (M = dukungan_sosial).\nDataset: mediasi_akademik.omv (N = 250 mahasiswa)\nLangkah di jamovi (medmod):\n\nKlik menu medmod  SEM / Mediation\nMasukkan variabel:\n\nPredictor (X): beban\nMediator (M): dukungan_sosial\nOutcome (Y): wellbeing\n\nDi opsi Estimation, centang Bootstrap CI dan set Bootstrap samples = 5000\nCentang Indirect effect, Direct effect, Total effect"
+    "text": "Contoh: stres, dukungan sosial, dan wellbeing\nHipotesis: Beban akademik yang tinggi (X = beban) menurunkan wellbeing (Y = wellbeing) karena mengurangi persepsi dukungan sosial (M = dukungan_sosial).\nDataset: mediasi_akademik.omv (N = 500 mahasiswa)\nLangkah di jamovi (medmod):\n\nKlik menu medmod  Mediation Analysis\nMasukkan variabel:\n\nPredictor (X): beban\nMediator (M): dukungan_sosial\nOutcome (Y): wellbeing\n\nDi opsi Estimation, centang Bootstrap CI dan set Bootstrap samples = 5000\nCentang Indirect effect, Direct effect, Total effect"
   },
   {
     "objectID": "slides/mediasi.html#membaca-output-mediasi",
     "href": "slides/mediasi.html#membaca-output-mediasi",
     "title": "Analisis Mediasi",
     "section": "Membaca output mediasi",
-    "text": "Membaca output mediasi\nRingkasan hasil yang diharapkan:\n\n\n\n\n\n\n\n\n\nEfek\nKoefisien\n95% BC-CI\nSignifikan?\n\n\n\n\nTotal effect (c)\n−0.42\n[−0.57, −0.27]\nYa\n\n\nDirect effect (c’)\n−0.18\n[−0.33, −0.03]\nYa\n\n\nIndirect effect (a×b)\n−0.24\n[−0.35, −0.14]\nYa\n\n\n\nInterpretasi: Beban akademik menurunkan wellbeing (total c = −0.42). Sebagian efek ini dimediasi melalui berkurangnya dukungan sosial yang dipersepsi (indirect a×b = −0.24, 95% CI tidak mencakup nol). Namun masih ada direct effect yang signifikan (c’ = −0.18), menunjukkan mediasi parsial."
+    "text": "Membaca output mediasi\nRingkasan hasil yang diharapkan:\n\n\n\n\n\n\n\n\n\nEfek\nKoefisien\n95% BC-CI\nSignifikan?\n\n\n\n\nTotal effect (c)\n−0.42\n[−0.49, −0.36]\nYa\n\n\nDirect effect (c’)\n−0.16\n[−0.23, −0.09]\nYa\n\n\nIndirect effect (a×b)\n−0.26\n[−0.31, −0.21]\nYa\n\n\n\nInterpretasi: Beban akademik menurunkan wellbeing (total c = −0.42). Sebagian efek ini dimediasi melalui berkurangnya dukungan sosial yang dipersepsi (indirect a×b = −0.26, 95% CI tidak mencakup nol). Namun masih ada direct effect yang signifikan (c’ = −0.16), menunjukkan mediasi parsial."
   },
   {
     "objectID": "slides/mediasi.html#proporsi-mediasi",
     "href": "slides/mediasi.html#proporsi-mediasi",
     "title": "Analisis Mediasi",
     "section": "Proporsi mediasi",
-    "text": "Proporsi mediasi\nSelain signifikansi, kita juga bisa menghitung proporsi total efek yang dimediasi:\n\\[\\text{Proporsi mediasi} = \\frac{a \\times b}{c} = \\frac{-0.24}{-0.42} \\approx 0.57\\]\nArtinya, sekitar 57% dari efek beban akademik pada wellbeing bekerja melalui mekanisme dukungan sosial.\n\n\n\n\n\n\nNote\n\n\nProporsi mediasi bisa melebihi 1 atau bernilai negatif (disebut inconsistent mediation) jika direct effect dan indirect effect berlawanan arah. Dalam kasus seperti ini, interpretasinya lebih kompleks.\n\n\n\nEffect size untuk mediasi:\n\\[\\kappa^2 = \\frac{a \\times b}{\\text{varians maksimal a×b yang mungkin}}\\]\nNilai \\(\\kappa^2\\) antara 0–1. Konvensi: 0.01 kecil, 0.09 sedang, 0.25 besar (Preacher & Kelley, 2011)."
+    "text": "Proporsi mediasi\nSelain signifikansi, kita juga bisa menghitung proporsi total efek yang dimediasi:\n\\[\\text{Proporsi mediasi} = \\frac{a \\times b}{c} = \\frac{-0.26}{-0.42} \\approx 0.61\\]\nArtinya, sekitar 61% dari efek beban akademik pada wellbeing bekerja melalui mekanisme dukungan sosial.\n\n\n\n\n\n\nNote\n\n\nProporsi mediasi bisa melebihi 1 atau bernilai negatif (disebut inconsistent mediation) jika direct effect dan indirect effect berlawanan arah. Dalam kasus seperti ini, interpretasinya lebih kompleks.\n\n\n\nEffect size untuk mediasi:\n\\[\\kappa^2 = \\frac{a \\times b}{\\text{varians maksimal a×b yang mungkin}}\\]\nNilai \\(\\kappa^2\\) antara 0–1. Konvensi: 0.01 kecil, 0.09 sedang, 0.25 besar (Preacher & Kelley, 2011). Pada contoh di atas, jamovi melaporkan \\(\\kappa^2 \\approx 0.18\\) — termasuk efek sedang mendekati besar."
   },
   {
     "objectID": "slides/mediasi.html#data-cross-sectional-dan-klaim-kausal",
     "href": "slides/mediasi.html#data-cross-sectional-dan-klaim-kausal",
     "title": "Analisis Mediasi",
     "section": "Data cross-sectional dan klaim kausal",
-    "text": "Data cross-sectional dan klaim kausal\n\n\n\n\n\n\nImportant\n\n\nAnalisis mediasi dari data cross-sectional tidak bisa membuktikan kausalitas — titik.\nDalam mediasi, kita mengklaim: X menyebabkan M, dan M menyebabkan Y. Ini adalah klaim kausal yang kuat. Namun data cross-sectional hanya mengukur semua variabel pada satu titik waktu yang sama — tidak ada cara untuk menetapkan temporal order (apa yang terjadi lebih dulu?).\n\n\n\nMasalah spesifik dengan mediasi cross-sectional:\n\nUrutan waktu tidak jelas: apakah X benar-benar terjadi sebelum M, dan M sebelum Y?\nReverse causation: mungkin Y → M → X, atau M → X → Y\nConfounding: variabel ketiga yang tidak diukur bisa menyebabkan ketiganya sekaligus"
+    "text": "Data cross-sectional dan klaim kausal\n\n\n\n\n\n\nAnalisis mediasi dari data cross-sectional tidak bisa membuktikan kausalitas\n\n\nDalam mediasi, kita mengklaim: X menyebabkan M, dan M menyebabkan Y. Ini adalah klaim kausal yang kuat. Namun data cross-sectional hanya mengukur semua variabel pada satu titik waktu yang sama — tidak ada cara untuk menetapkan temporal ordering/urut-urutan kejadian (apa yang terjadi lebih dulu?).\n\n\n\nMasalah spesifik dengan mediasi cross-sectional:\n\nUrutan waktu tidak jelas: apakah X benar-benar terjadi sebelum M, dan M sebelum Y?\nReverse causation: mungkin Y → M → X, atau M → X → Y\nConfounding: variabel ketiga yang tidak diukur bisa menyebabkan ketiganya sekaligus"
   },
   {
-    "objectID": "slides/mediasi.html#contoh-masalah-temporal-order",
-    "href": "slides/mediasi.html#contoh-masalah-temporal-order",
+    "objectID": "slides/mediasi.html#contoh-masalah-temporal-ordering",
+    "href": "slides/mediasi.html#contoh-masalah-temporal-ordering",
     "title": "Analisis Mediasi",
-    "section": "Contoh masalah temporal order",
-    "text": "Contoh masalah temporal order\nKembali ke contoh beban akademik → dukungan sosial → wellbeing:\nKita ukur ketiga variabel dalam satu survei pada hari yang sama. Mungkin saja:\n\nMahasiswa dengan wellbeing yang rendah lebih cenderung merasakan beban sebagai berat dan dukungan sebagai kurang (Y memengaruhi persepsi terhadap X dan M)\nDukungan sosial yang rendah menyebabkan mahasiswa mengambil lebih banyak mata kuliah untuk “mengisi waktu” (M → X, bukan X → M)\n\n\n\n\n\n\n\nNote\n\n\nPengujian mediasi yang lebih valid membutuhkan desain longitudinal (X diukur sebelum M, M diukur sebelum Y) atau, yang terbaik, eksperimen di mana X dimanipulasi secara acak dan efeknya pada M dan Y diamati sepanjang waktu."
+    "section": "Contoh masalah temporal ordering",
+    "text": "Contoh masalah temporal ordering\nKembali ke contoh beban akademik → dukungan sosial → wellbeing:\nKita ukur ketiga variabel dalam satu survei pada hari yang sama. Mungkin saja:\n\nMahasiswa dengan wellbeing yang rendah lebih cenderung merasakan beban sebagai berat dan dukungan sebagai kurang (Y memengaruhi persepsi terhadap X dan M)\nDukungan sosial yang rendah menyebabkan mahasiswa mengambil lebih banyak mata kuliah untuk “mengisi waktu” (M → X, bukan X → M)\n\n\n\n\n\n\n\nNote\n\n\nPengujian mediasi yang lebih baik membutuhkan desain longitudinal (X diukur sebelum M, M diukur sebelum Y) atau, yang terbaik, melalui eksperimen di mana X (dan M) dimanipulasi secara acak dan efeknya pada M dan Y diamati sepanjang waktu.\nMeskipun, pengujian secara longitudinal hanya bisa mengendalikan confounding yang time-invariant saja. Apabila variabel cofounding berubah sepanjang waktu, maka desain longitudinal tidak bisa mengendalikan efek confounding."
   },
   {
     "objectID": "slides/mediasi.html#ketika-mediasi-cross-sectional-masih-berguna",
     "href": "slides/mediasi.html#ketika-mediasi-cross-sectional-masih-berguna",
     "title": "Analisis Mediasi",
     "section": "Ketika mediasi cross-sectional masih berguna",
-    "text": "Ketika mediasi cross-sectional masih berguna\nMeski terbatas secara kausal, analisis mediasi cross-sectional masih bisa bermakna jika:\n\nDigunakan untuk mengeksplorasi mekanisme yang akan diuji lebih lanjut dengan desain yang lebih kuat\nDikombinasikan dengan argumen teoritis yang kuat tentang urutan temporal\nVariabel X adalah atribut stabil atau manipulasi eksperimental (bukan variabel yang berfluktuasi)\nDisajikan dengan language yang jujur — “konsisten dengan mediasi” bukan “membuktikan mediasi”\n\n\n\n\n\n\n\nTip\n\n\nCara yang baik untuk melaporkan mediasi cross-sectional:\n“Hasil analisis bootstrapping menunjukkan indirect effect yang signifikan (a×b = −0.24, 95% BC-CI [−0.35, −0.14]), yang konsisten dengan hipotesis bahwa dukungan sosial memediasi hubungan antara beban akademik dan wellbeing. Namun, mengingat desain cross-sectional, interpretasi kausal harus dilakukan dengan hati-hati.”"
+    "text": "Ketika mediasi cross-sectional masih berguna\nMeski terbatas secara kausal, analisis mediasi cross-sectional mungkin bisa bermakna jika:\n\nDigunakan untuk mengeksplorasi mekanisme yang akan diuji lebih lanjut dengan desain yang lebih kuat\nDikombinasikan dengan argumen teoritis yang kuat tentang urutan temporal\nVariabel X adalah atribut stabil atau manipulasi eksperimental (bukan variabel yang berfluktuasi)\nDisajikan dengan language yang jujur — “konsisten dengan mediasi” bukan “membuktikan mediasi”\n\n\n\n\n\n\n\nCara yang disarankan untuk melaporkan mediasi cross-sectional:\n\n\n“Hasil analisis bootstrapping menunjukkan indirect effect yang signifikan (a×b = −0.26, 95% BC-CI [−0.31, −0.21]), yang artinya ditemukan pola yang konsisten dengan model mediasi, di mana dukungan sosial mungkin memediasi hubungan antara beban akademik dan wellbeing. Namun, mengingat desain cross-sectional, interpretasi kausalitas tidak dapat dilakukan.”"
+  },
+  {
+    "objectID": "slides/mediasi.html#apa-itu-collider",
+    "href": "slides/mediasi.html#apa-itu-collider",
+    "title": "Analisis Mediasi",
+    "section": "Apa itu collider?",
+    "text": "Apa itu collider?\nCollider adalah variabel yang menerima panah dari dua variabel lain sekaligus dalam model kita.\n\nVariabel C adalah collider karena dipengaruhi oleh X dan Y.\n\n\n\n\n\n\nMasalah:\n\n\nJika kita mengontrol collider, misalnya memasukkannya ke regresi, atau memilih sampel berdasarkan nilai C tertentu, kita secara tidak sengaja menciptakan hubungan palsu antara X dan Y, meskipun keduanya tidak benar-benar berhubungan.\n\n\n\nContoh: Apakah kecerdasan berkorelasi negatif dengan kerja keras di kalangan mahasiswa universitas bergengsi?\n\nMasuk universitas bergengsi (C) dipengaruhi oleh kecerdasan (X) dan kerja keras (Y)\nKetika kita hanya mengamati mahasiswa di sana, kita tanpa sadar mengontrol C\nHasilnya: mahasiswa yang sangat cerdas tampak kurang pekerja keras — padahal di populasi umum tidak demikian"
+  },
+  {
+    "objectID": "slides/mediasi.html#collider-bias-dalam-analisis-mediasi",
+    "href": "slides/mediasi.html#collider-bias-dalam-analisis-mediasi",
+    "title": "Analisis Mediasi",
+    "section": "Collider bias dalam analisis mediasi",
+    "text": "Collider bias dalam analisis mediasi\nDalam konteks mediasi, collider bias muncul ketika ada variabel yang dipengaruhi oleh X dan M (atau M dan Y) lalu kita masukkan ke model sebagai kontrol.\n\nMengontrol C di sini akan merusak estimasi jalur b (M → Y) dan indirect effect.\n\n\n\n\n\n\nIngat\n\n\nHati-hati dengan variabel kontrol yang “masuk akal” secara substantif. Sebelum menambahkan variabel kontrol ke model mediasi, tanyakan: “Apakah variabel ini bisa dipengaruhi oleh X atau M?” Jika ya, jangan dikontrol, justru akan menyebabkan collider bias.\n\n\n\n\n\n\n\n\n\nNote\n\n\nCollider bias adalah salah satu alasan mengapa analisis mediasi memerlukan teori kausal yang eksplisit (misalnya melalui DAG — Directed Acyclic Graph), bukan sekadar menambahkan variabel kontrol secara asal-asalan."
   },
   {
     "objectID": "slides/mediasi.html#latihan-analisis-mediasi-di-jamovi",
@@ -697,7 +711,7 @@
     "href": "slides/uji-hipotesis.html#ilustrasi-numerik-base-rate-penting",
     "title": "Uji Hipotesis",
     "section": "Ilustrasi numerik: base rate penting",
-    "text": "Ilustrasi numerik: base rate penting\nBayangkan kita menguji 100 klaim berbeda, di mana masing-masing punya peluang 50/50 untuk benar (50 klaim efektif, 50 tidak efektif).\nDengan α = 0.05 dan power = 80% (β = 20%):\n\n\n\n\n\n\n\n\n\n\nH₀ benar (50 klaim)\nH₀ salah (50 klaim)\nTotal\n\n\n\n\nTolak H₀\n2-3 (false positive)\n40 (true positive)\n~42-43\n\n\nGagal tolak H₀\n~48 (true negative)\n10 (false negative)\n~58\n\n\n\n\n\n\n\n\n\nImportant\n\n\nDari ~42-43 hasil “signifikan”, 2-3 di antaranya adalah kesalahan (false positive). Semakin rendah base rate kebenaran klaim (misalnya bidang pre-clinical), semakin besar proporsi false positive di antara hasil signifikan — inilah salah satu akar replication crisis."
+    "text": "Ilustrasi numerik: base rate penting\nBayangkan kita menguji 100 klaim berbeda, di mana masing-masing punya peluang 50/50 untuk benar (50 klaim efektif, 50 tidak efektif).\nDengan α = 0.05 dan power = 80% (β = 20%):\n\n\n\n\n\n\n\n\n\n\nH₀ benar (50 klaim)\nH₀ salah (50 klaim)\nTotal\n\n\n\n\nTolak H₀\n2-3 (false positive)\n40 (true positive)\n~42-43\n\n\nGagal tolak H₀\n~48 (true negative)\n10 (false negative)\n~58\n\n\n\n\n\n\n\n\n\nImportant\n\n\nDari ~42-43 hasil “signifikan”, 2-3 di antaranya adalah kesalahan (false positive). Semakin rendah base rate kebenaran klaim (misalnya bidang preklinik), semakin besar proporsi false positive di antara hasil signifikan — inilah salah satu akar replication crisis."
   },
   {
     "objectID": "slides/uji-hipotesis.html#apa-itu-statistical-power",
@@ -998,7 +1012,7 @@
     "href": "slides/statistik-deskriptif.html#latihan-tendensi-sentral-di-jamovi",
     "title": "Statistik Deskriptif",
     "section": "Latihan: Tendensi sentral di jamovi",
-    "text": "Latihan: Tendensi sentral di jamovi\nBuka dataset HDIWDI2010.sav, kemudian hitung mean, median, dan modus angka kehamilan remaja (teenfert):\n\nKlik menu Exploration  Descriptives\nMasukkan variabel teenfert ke kolom Variables\nKlik opsi Statistics  di bagian Central Tendency, centang Mean, Median, dan Mode\n\nSetelah itu, bandingkan mean dan median teenfert antar kelompok human development index:\n\nTambahkan variabel HDgroup ke kolom Split by\nApa yang berbeda? Kelompok mana yang punya mean dan median paling berbeda jauh?"
+    "text": "Latihan: Tendensi sentral di jamovi\nBuka dataset HDIWDI2010, kemudian hitung mean, median, dan modus angka kehamilan remaja (teenfert):\n\nKlik menu Exploration  Descriptives\nMasukkan variabel teenfert ke kolom Variables\nKlik opsi Statistics  di bagian Central Tendency, centang Mean, Median, dan Mode\n\nSetelah itu, bandingkan mean dan median teenfert antar kelompok human development index:\n\nTambahkan variabel HDgroup ke kolom Split by\nApa yang berbeda? Kelompok mana yang punya mean dan median paling berbeda jauh?"
   },
   {
     "objectID": "slides/statistik-deskriptif.html#mengapa-variabilitas-penting",
@@ -1026,7 +1040,7 @@
     "href": "slides/statistik-deskriptif.html#latihan-variabilitas-di-jamovi",
     "title": "Statistik Deskriptif",
     "section": "Latihan: Variabilitas di jamovi",
-    "text": "Latihan: Variabilitas di jamovi\nDengan dataset yang sama (HDIWDI2010.sav), hitung range, IQR, varians, dan standar deviasi teenfert:\n\nDi opsi Statistics  bagian Dispersion, centang Std. deviation, Variance, dan Range\nDi opsi Percentile Values, centang Quartiles\nBandingkan sebaran teenfert antar kelompok HDgroup\n\nPertanyaan untuk didiskusikan:\n\nKelompok HDI mana yang variabilitasnya paling tinggi? Apa artinya?\nApakah range memberikan gambaran yang sama dengan IQR untuk setiap kelompok?"
+    "text": "Latihan: Variabilitas di jamovi\nDengan dataset yang sama (HDIWDI2010.omv), hitung range, IQR, varians, dan standar deviasi teenfert:\n\nDi opsi Statistics  bagian Dispersion, centang Std. deviation, Variance, dan Range\nDi opsi Percentile Values, centang Quartiles\nBandingkan sebaran teenfert antar kelompok HDgroup\n\nPertanyaan untuk didiskusikan:\n\nKelompok HDI mana yang variabilitasnya paling tinggi? Apa artinya?\nApakah range memberikan gambaran yang sama dengan IQR untuk setiap kelompok?"
   },
   {
     "objectID": "slides/statistik-deskriptif.html#mengapa-visualisasi-penting",
@@ -1054,7 +1068,7 @@
     "href": "slides/statistik-deskriptif.html#latihan-visualisasi-di-jamovi",
     "title": "Statistik Deskriptif",
     "section": "Latihan: Visualisasi di jamovi",
-    "text": "Latihan: Visualisasi di jamovi\nDengan dataset HDIWDI2010.sav, inspeksi distribusi teenfert secara visual:\n\nDi opsi Plots, centang Histogram, Density, Box plot, dan Violin\nTambahkan HDgroup di kolom Split by untuk membandingkan distribusi antar kelompok\nPerhatikan: apakah distribusi teenfert terlihat simetris? Adakah outlier?"
+    "text": "Latihan: Visualisasi di jamovi\nDengan dataset HDIWDI2010.omv, inspeksi distribusi teenfert secara visual:\n\nDi opsi Plots, centang Histogram, Density, Box plot, dan Violin\nTambahkan HDgroup di kolom Split by untuk membandingkan distribusi antar kelompok\nPerhatikan: apakah distribusi teenfert terlihat simetris? Adakah outlier?"
   },
   {
     "objectID": "slides/statistik-deskriptif.html#distribusi-normal-1",
@@ -1075,7 +1089,7 @@
     "href": "slides/statistik-deskriptif.html#mengapa-perlu-uji-normalitas",
     "title": "Statistik Deskriptif",
     "section": "Mengapa perlu uji normalitas?",
-    "text": "Mengapa perlu uji normalitas?\n\nKita tidak bisa melihat langsung distribusi data di populasi — kita hanya punya data sampel\nUji normalitas membantu kita memutuskan:\n\nGunakan teknik parametrik (asumsi normalitas terpenuhi — statistical power lebih tinggi)\nGunakan teknik non-parametrik (asumsi normalitas tidak terpenuhi — statistical power lebih rendah)\n\n\n\n\n\n\n\n\nImportant\n\n\nUji normalitas adalah langkah wajib sebelum memilih teknik uji hipotesis. Melewati langkah ini adalah kesalahan metodologis yang umum."
+    "text": "Mengapa perlu uji normalitas?\n\nKita tidak bisa melihat langsung distribusi data di populasi — kita hanya punya data sampel\nUji normalitas membantu kita memutuskan:\n\nGunakan teknik parametrik (asumsi normalitas terpenuhi — statistical power lebih baik)\nGunakan teknik non-parametrik (asumsi normalitas tidak terpenuhi — statistical power lebih cenderung rendah, meskipun power dapat dioptimasi dengan menambah ukuran sampel atau menggunakan desain penelitian yang tepat)\n\n\n\n\n\n\n\n\nImportant\n\n\nUji normalitas adalah langkah wajib sebelum memilih teknik uji hipotesis. Melewati langkah ini adalah kesalahan metodologis yang umum."
   },
   {
     "objectID": "slides/statistik-deskriptif.html#cara-memeriksa-normalitas",
@@ -1096,7 +1110,7 @@
     "href": "slides/statistik-deskriptif.html#latihan-uji-normalitas-di-jamovi",
     "title": "Statistik Deskriptif",
     "section": "Latihan: Uji normalitas di jamovi",
-    "text": "Latihan: Uji normalitas di jamovi\nDengan dataset HDIWDI2010.sav, uji normalitas distribusi teenfert:\n\nDi menu Exploration  Descriptives\nDi opsi Statistics  bagian Normality, centang Shapiro-Wilk\nDi opsi Plots, centang Q-Q plot untuk inspeksi visual\n\nPertanyaan:\n\nApakah teenfert berdistribusi normal?\nApakah kesimpulan uji Shapiro-Wilk konsisten dengan tampilan histogram?\nJika data tidak normal, teknik statistik apa yang sebaiknya digunakan?"
+    "text": "Latihan: Uji normalitas di jamovi\nDengan dataset HDIWDI2010.omv, uji normalitas distribusi teenfert:\n\nDi menu Exploration  Descriptives\nDi opsi Statistics  bagian Normality, centang Shapiro-Wilk\nDi opsi Plots, centang Q-Q plot untuk inspeksi visual\n\nPertanyaan:\n\nApakah teenfert berdistribusi normal?\nApakah kesimpulan uji Shapiro-Wilk konsisten dengan tampilan histogram?\nJika data tidak normal, teknik statistik apa yang sebaiknya digunakan?"
   },
   {
     "objectID": "slides/statistik-deskriptif.html#ada-pertanyaan",
@@ -1292,21 +1306,28 @@
     "href": "slides/t-test.html#kasus-esmeralda-dan-ujian-sapsi",
     "title": "T-Test",
     "section": "Kasus Esmeralda dan ujian SAPSI",
-    "text": "Kasus Esmeralda dan ujian SAPSI\nEsmeralda mendapat nilai 60 pada ujian SAPSI (Skala Asesmen Psikologi Indonesia). Nilai rata-rata nasional untuk mahasiswa S1 Psikologi adalah μ = 55 (σ tidak diketahui).\nPertanyaan: Apakah nilai Esmeralda signifikan berbeda dari rata-rata nasional?\nOne-sample t-test membandingkan mean sampel kita dengan nilai referensi yang sudah diketahui:\n\\[t = \\frac{\\bar{X} - \\mu_0}{s / \\sqrt{n}}\\]\nDi mana \\(\\mu_0\\) adalah nilai referensi (nilai yang ingin kita bandingkan), dan \\(s/\\sqrt{n}\\) adalah standard error of the mean.\n\n\n\n\n\n\nNote\n\n\nOne-sample t-test jarang digunakan dalam penelitian psikologi karena kita jarang punya nilai referensi populasi yang pasti. Namun ia adalah fondasi konseptual yang penting untuk memahami t-test lainnya."
+    "text": "Kasus Esmeralda dan ujian SAPSI\nEsmeralda mendapat nilai 60 pada ujian MK Sejarah dan Aliran Psikologi (Sapsi). Nilai rata-rata nasional untuk mahasiswa S1 Psikologi adalah μ = 55 (σ tidak diketahui).\nPertanyaan: Apakah nilai Esmeralda signifikan berbeda dari rata-rata nasional?\nOne-sample t-test membandingkan mean sampel kita dengan nilai referensi yang sudah diketahui:\n\\[t = \\frac{\\bar{X} - \\mu_0}{s / \\sqrt{n}}\\]\nDi mana \\(\\mu_0\\) adalah nilai referensi (nilai yang ingin kita bandingkan), dan \\(s/\\sqrt{n}\\) adalah standard error of the mean.\n\n\n\n\n\n\nNote\n\n\nOne-sample t-test jarang digunakan dalam penelitian psikologi karena kita jarang punya nilai referensi populasi yang pasti. Namun ia adalah fondasi konseptual yang penting untuk memahami t-test lainnya."
   },
   {
     "objectID": "slides/t-test.html#latihan-one-sample-t-test-di-jamovi",
     "href": "slides/t-test.html#latihan-one-sample-t-test-di-jamovi",
     "title": "T-Test",
     "section": "Latihan: One-sample t-test di jamovi",
-    "text": "Latihan: One-sample t-test di jamovi\nBuka dataset SAPSI.omv, kemudian uji apakah mean skor SAPSI mahasiswa berbeda dari nilai referensi nasional (μ₀ = 55):\n\nKlik menu T-Tests  One Sample T-Test\nMasukkan variabel skor_sapsi ke kolom Dependent Variables\nDi Hypothesis, masukkan nilai 55 sebagai Test value\nCentang Effect size (Cohen’s d) dan Descriptives\nCentang Confidence interval untuk estimasi perbedaan\n\nPertanyaan untuk didiskusikan:\n\nBerapa nilai t dan p-value yang kalian peroleh?\nApakah hasilnya signifikan? Seberapa besar effect size-nya?"
+    "text": "Latihan: One-sample t-test di jamovi\nBuka dataset ujian.omv, kemudian uji apakah mean skor SAPSI mahasiswa berbeda dari nilai referensi nasional (μ₀ = 55):\n\nKlik menu T-Tests  One Sample T-Test\nMasukkan variabel nilai_sebelum ke kolom Dependent Variables\nDi Hypothesis, masukkan nilai 55 sebagai Test value\nCentang Effect size (Cohen’s d) dan Descriptives\nCentang Confidence interval untuk estimasi perbedaan\n\nPertanyaan untuk didiskusikan:\n\nBerapa nilai t dan p-value yang kalian peroleh?\nApakah hasilnya signifikan? Seberapa besar effect size-nya?"
   },
   {
     "objectID": "slides/t-test.html#eksperimen-kopi-dan-konsentrasi",
     "href": "slides/t-test.html#eksperimen-kopi-dan-konsentrasi",
     "title": "T-Test",
     "section": "Eksperimen kopi dan konsentrasi",
-    "text": "Eksperimen kopi dan konsentrasi\nPeneliti ingin menguji apakah minum kopi meningkatkan konsentrasi mahasiswa sebelum ujian. Sebanyak 540 mahasiswa diukur skor konsentrasinya sebelum dan sesudah minum kopi.\nDesain within-subjects:\n\nPengukuran 1 (sebelum minum kopi): baseline konsentrasi\nPengukuran 2 (sesudah minum kopi): konsentrasi setelah intervensi\nSetiap mahasiswa adalah “kontrol untuk dirinya sendiri”\n\nPaired samples t-test menghitung selisih tiap pasang pengukuran, lalu menguji apakah mean selisih berbeda dari nol:\n\\[t = \\frac{\\bar{D}}{s_D / \\sqrt{n}}\\]\nDi mana \\(\\bar{D}\\) adalah mean selisih dan \\(s_D\\) adalah standar deviasi selisih."
+    "text": "Eksperimen kopi dan konsentrasi\nEsmeralda selanjutnya ingin menguji apakah minum kopi meningkatkan konsentrasi mahasiswa sebelum ujian. Sebanyak 540 mahasiswa diukur skor konsentrasinya sebelum dan sesudah minum kopi.\nBuka dataset ujian.omv\nDesain within-subjects:\n\nPengukuran 1 (sebelum minum kopi): baseline konsentrasi\nPengukuran 2 (sesudah minum kopi): konsentrasi setelah intervensi\nSetiap mahasiswa adalah “kontrol untuk dirinya sendiri”\n\nPaired samples t-test menghitung selisih tiap pasang pengukuran, lalu menguji apakah mean selisih berbeda dari nol:\n\\[t = \\frac{\\bar{D}}{s_D / \\sqrt{n}}\\]\nDi mana \\(\\bar{D}\\) adalah mean selisih dan \\(s_D\\) adalah standar deviasi selisih."
+  },
+  {
+    "objectID": "slides/t-test.html#latihan-paired-samples-t-test-di-jamovi",
+    "href": "slides/t-test.html#latihan-paired-samples-t-test-di-jamovi",
+    "title": "T-Test",
+    "section": "Latihan: Paired samples t-test di jamovi",
+    "text": "Latihan: Paired samples t-test di jamovi\nBuka dataset ujian.omv, kemudian uji apakah minum kopi meningkatkan skor konsentrasi:\n\nKlik menu T-Tests  Paired Samples T-Test\nMasukkan pasangan variabel: konsentrasi_sebelum dan konsentrasi_sesudah\nCentang Effect size (Cohen’s d)\nCentang Descriptives dan Confidence interval\nDi Assumption Checks, centang Normality test (Shapiro-Wilk untuk selisih)\n\nPertanyaan untuk didiskusikan:\n\nApakah asumsi normalitas terpenuhi untuk data selisih?\nBandingkan mean sebelum dan sesudah — ke arah mana perubahan terjadi?\nApakah p-value konsisten dengan nilai d?"
   },
   {
     "objectID": "slides/t-test.html#hasil-apakah-kopi-membantu",
@@ -1316,32 +1337,25 @@
     "text": "Hasil: apakah kopi membantu?\nHasil analisis:\n\nt(539) = 1.30, p = 0.903\nCohen’s d = 0.055 (efek sangat kecil)\n95% CI untuk selisih mean: hampir mencakup nol\n\n\n\n\n\n\n\nImportant\n\n\nKesimpulan: Kopi tidak signifikan meningkatkan konsentrasi\nMeski 540 mahasiswa adalah sampel yang besar, perbedaan rata-rata konsentrasi sebelum-sesudah minum kopi sangat kecil (d = 0.055) dan tidak signifikan (p = 0.903). Efek kopi mungkin bervariasi antar individu atau tidak ada secara rata-rata.\n\n\n\n\n\n\n\n\n\nNote\n\n\np = 0.903 bukan berarti kopi “terbukti tidak berguna” — kita hanya gagal menemukan bukti bahwa kopi berguna dalam kondisi eksperimen ini. Mungkin prosedur pengukuran, jenis kopi, atau waktu tunggu setelah minum kopi perlu dipertimbangkan."
   },
   {
-    "objectID": "slides/t-test.html#latihan-paired-samples-t-test-di-jamovi",
-    "href": "slides/t-test.html#latihan-paired-samples-t-test-di-jamovi",
-    "title": "T-Test",
-    "section": "Latihan: Paired samples t-test di jamovi",
-    "text": "Latihan: Paired samples t-test di jamovi\nBuka dataset kopi.omv, kemudian uji apakah minum kopi meningkatkan skor konsentrasi:\n\nKlik menu T-Tests  Paired Samples T-Test\nMasukkan pasangan variabel: konsentrasi_sebelum dan konsentrasi_sesudah\nCentang Effect size (Cohen’s d)\nCentang Descriptives dan Confidence interval\nDi Assumption Checks, centang Normality test (Shapiro-Wilk untuk selisih)\n\nPertanyaan untuk didiskusikan:\n\nApakah asumsi normalitas terpenuhi untuk data selisih?\nBandingkan mean sebelum dan sesudah — ke arah mana perubahan terjadi?\nApakah p-value konsisten dengan nilai d?"
-  },
-  {
     "objectID": "slides/t-test.html#jimat-batu-akik-dan-nilai-ujian",
     "href": "slides/t-test.html#jimat-batu-akik-dan-nilai-ujian",
     "title": "T-Test",
     "section": "Jimat batu akik dan nilai ujian",
-    "text": "Jimat batu akik dan nilai ujian\nPeneliti iseng menguji apakah mahasiswa yang percaya pada jimat batu akik mendapat nilai ujian yang lebih tinggi. Sampel: 540 mahasiswa percaya jimat, 660 mahasiswa tidak percaya jimat.\nDesain between-subjects:\n\nKelompok 1: mahasiswa yang percaya batu akik membawa keberuntungan\nKelompok 2: mahasiswa yang tidak percaya\nVariabel dependen: nilai ujian akhir semester\n\nIndependent samples t-test (formula sederhana):\n\\[t = \\frac{\\bar{X}_1 - \\bar{X}_2}{s_{\\text{pooled}} \\sqrt{\\frac{1}{n_1} + \\frac{1}{n_2}}}\\]"
+    "text": "Jimat batu akik dan nilai ujian\nSeorang peneliti iseng menguji apakah mahasiswa yang percaya pada jimat batu akik mendapat nilai ujian yang lebih tinggi. Sampel: 540 mahasiswa percaya jimat, 660 mahasiswa tidak percaya jimat.\nDesain between-subjects:\n\nKelompok 1: mahasiswa yang percaya batu akik membawa keberuntungan\nKelompok 2: mahasiswa yang tidak percaya\nVariabel dependen: nilai ujian akhir semester\n\nIndependent samples t-test (formula sederhana):\n\\[t = \\frac{\\bar{X}_1 - \\bar{X}_2}{s_{\\text{pooled}} \\sqrt{\\frac{1}{n_1} + \\frac{1}{n_2}}}\\]"
   },
   {
     "objectID": "slides/t-test.html#hasil-signifikan-tapi-tidak-bermakna",
     "href": "slides/t-test.html#hasil-signifikan-tapi-tidak-bermakna",
     "title": "T-Test",
     "section": "Hasil: signifikan tapi tidak bermakna?",
-    "text": "Hasil: signifikan tapi tidak bermakna?\nHasil analisis:\n\nt(1198) = −3.21, p &lt; .001\nCohen’s d = −0.186 (efek sangat kecil)\nKelompok percaya jimat rata-rata mendapat nilai sedikit lebih rendah\n\n\n\n\n\n\n\nImportant\n\n\nPelajaran penting: N besar mengungkap efek yang sangat kecil\nDengan N = 1200, bahkan perbedaan yang sangat kecil (d = 0.186) bisa signifikan secara statistik. Secara praktis, perbedaan nilai ujian antara dua kelompok ini hampir tidak berarti. Ini bukan artinya batu akik “terbukti berbahaya” — ini hanya menunjukkan ada korelasi kecil yang perlu dijelaskan lebih lanjut.\n\n\n\n\n\n\n\n\n\nNote\n\n\nDalam situasi seperti ini, selalu tanyakan: “Berapa besar efeknya?” bukan hanya “Apakah signifikan?” p &lt; .001 dengan d = 0.186 jauh berbeda dari p &lt; .001 dengan d = 0.8."
+    "text": "Hasil: signifikan tapi tidak bermakna?\nHasil analisis:\n\nt(1198) = −3.21, p &lt; .001\nCohen’s d = −0.186 (efek sangat kecil)\nKelompok percaya jimat rata-rata mendapat nilai sedikit lebih rendah\n\n\n\n\n\n\n\nPelajaran penting: N besar mengungkap efek yang sangat kecil\n\n\nDengan N = 1200, bahkan perbedaan yang sangat kecil (d = 0.186) bisa signifikan secara statistik. Secara praktis, perbedaan nilai ujian antara dua kelompok ini hampir tidak berarti. Ini bukan artinya batu akik “terbukti berbahaya” — ini hanya menunjukkan ada korelasi kecil yang perlu dijelaskan lebih lanjut.\n\n\n\n\n\n\n\n\n\nNote\n\n\nDalam situasi seperti ini, selalu tanyakan: “Berapa besar efeknya?” bukan hanya “Apakah signifikan?” p &lt; .001 dengan d = 0.186 jauh berbeda dari p &lt; .001 dengan d = 0.8."
   },
   {
     "objectID": "slides/t-test.html#latihan-independent-samples-t-test-di-jamovi",
     "href": "slides/t-test.html#latihan-independent-samples-t-test-di-jamovi",
     "title": "T-Test",
     "section": "Latihan: Independent samples t-test di jamovi",
-    "text": "Latihan: Independent samples t-test di jamovi\nBuka dataset jimat.omv, kemudian uji perbedaan nilai ujian antara kelompok percaya dan tidak percaya jimat:\n\nKlik menu T-Tests  Independent Samples T-Test\nMasukkan nilai_ujian ke Dependent Variables dan kepercayaan_jimat ke Grouping Variable\nCentang Effect size (Cohen’s d) dan Descriptives\nDi Assumption Checks, centang Equality of variances (Levene’s test) dan Normality test\n\nPertanyaan untuk didiskusikan:\n\nApakah varians kedua kelompok homogen? Apa implikasinya untuk pilihan uji?\nBandingkan nilai d dengan nilai p — apakah keduanya menceritakan kisah yang sama?"
+    "text": "Latihan: Independent samples t-test di jamovi\nBuka dataset ujian.omv, kemudian uji perbedaan nilai ujian antara kelompok percaya dan tidak percaya jimat:\n\nKlik menu T-Tests  Independent Samples T-Test\nMasukkan nilai_jimat ke Dependent Variables dan kepercayaan_jimat ke Grouping Variable\nCentang Effect size (Cohen’s d) dan Descriptives\nDi Assumption Checks, centang Equality of variances (Levene’s test) dan Normality test\n\nPertanyaan untuk didiskusikan:\n\nApakah varians kedua kelompok homogen? Apa implikasinya untuk pilihan uji?\nBandingkan nilai d dengan nilai p — apakah keduanya menceritakan kisah yang sama?"
   },
   {
     "objectID": "slides/t-test.html#asumsi-yang-perlu-diperiksa",
@@ -1376,7 +1390,7 @@
     "href": "slides/t-test.html#latihan-uji-non-parametrik-di-jamovi",
     "title": "T-Test",
     "section": "Latihan: uji non-parametrik di jamovi",
-    "text": "Latihan: uji non-parametrik di jamovi\nDengan dataset kopi.omv, ulangi analisis menggunakan Wilcoxon signed-rank test:\n\nKlik menu T-Tests  Paired Samples T-Test\nPada bagian Tests, centang Wilcoxon rank (di samping pilihan Student’s dan Bayes factor)\nBandingkan hasilnya dengan paired t-test yang sudah dilakukan sebelumnya\n\nPertanyaan untuk didiskusikan:\n\nApakah kesimpulan berubah ketika menggunakan Wilcoxon?\nKapan kesimpulan dari t-test dan Wilcoxon bisa berbeda secara bermakna?"
+    "text": "Latihan: uji non-parametrik di jamovi\nDengan dataset ujian.omv, ulangi analisis menggunakan Wilcoxon signed-rank test:\n\nKlik menu T-Tests  Paired Samples T-Test\nPada bagian Tests, centang Wilcoxon rank (di samping pilihan Student’s dan Bayes factor)\nBandingkan hasilnya dengan paired t-test yang sudah dilakukan sebelumnya\n\nPertanyaan untuk didiskusikan:\n\nApakah kesimpulan berubah ketika menggunakan Wilcoxon?\nKapan kesimpulan dari t-test dan Wilcoxon bisa berbeda secara bermakna?"
   },
   {
     "objectID": "slides/t-test.html#menentukan-ukuran-sampel-sebelum-penelitian",
@@ -1551,7 +1565,7 @@
     "href": "slides/analisis-kategorikal.html#apa-itu-binomial-test",
     "title": "Analisis Data Kategorikal",
     "section": "Apa itu binomial test?",
-    "text": "Apa itu binomial test?\nBinomial test menguji apakah proporsi observasi dalam salah satu kategori berbeda dari proporsi yang diharapkan berdasarkan teori atau nilai referensi.\n\\[H_0: p = p_0 \\quad \\text{vs} \\quad H_1: p \\neq p_0\\]\nDi mana \\(p\\) adalah proporsi populasi yang sesungguhnya dan \\(p_0\\) adalah proporsi yang dihipotesiskan (nilai referensi).\nContoh: Dalam 200 klien yang menjalani terapi CBT, 130 menunjukkan perbaikan signifikan. Apakah tingkat keberhasilan CBT berbeda dari 60% yang dilaporkan literatur internasional?\n\\[H_0: p = 0.60 \\quad \\text{vs} \\quad H_1: p \\neq 0.60\\]\nProporsi sampel = 130/200 = 65%"
+    "text": "Apa itu binomial test?\nBinomial test menguji apakah proporsi observasi dalam salah satu kategori berbeda dari proporsi yang diharapkan berdasarkan teori atau nilai referensi.\n\\[H_0: p = p_0 \\quad \\text{vs} \\quad H_1: p \\neq p_0\\]\nDi mana \\(p\\) adalah proporsi populasi yang sesungguhnya dan \\(p_0\\) adalah proporsi yang dihipotesiskan (nilai referensi).\nContoh: Dalam 500 klien yang menjalani terapi CBT, 327 menunjukkan perbaikan signifikan. Apakah tingkat keberhasilan CBT berbeda dari 60% yang dilaporkan literatur internasional?\n\\[H_0: p = 0.60 \\quad \\text{vs} \\quad H_1: p \\neq 0.60\\]\nProporsi sampel = 327/500 = 65.4%"
   },
   {
     "objectID": "slides/analisis-kategorikal.html#logika-binomial-test",
@@ -1565,7 +1579,7 @@
     "href": "slides/analisis-kategorikal.html#latihan-binomial-test-di-jamovi",
     "title": "Analisis Data Kategorikal",
     "section": "Latihan: Binomial test di jamovi",
-    "text": "Latihan: Binomial test di jamovi\nBuka dataset terapi.omv yang berisi data 200 klien CBT:\n\nKlik menu Frequencies  Proportion Test (Binomial)\nMasukkan hasil_terapi ke Variable\nDi Hypothesis, masukkan nilai referensi 0.60 sebagai proporsi \\(H_0\\)\nCentang Confidence interval untuk proporsi\n\nPertanyaan untuk didiskusikan:\n\nBerapa p-value yang kalian dapatkan? Apakah proporsi sampel secara signifikan berbeda dari 60%?\nApa arti CI untuk proporsi yang kalian peroleh?\nBerapa besar perbedaan antara proporsi sampel (65%) dan nilai referensi (60%) — apakah perbedaan ini bermakna secara praktis?"
+    "text": "Latihan: Binomial test di jamovi\nBuka dataset terapi.omv yang berisi data 500 klien CBT:\n\nKlik menu Frequencies  Proportion Test (Binomial)\nMasukkan hasil_terapi ke Variable\nDi Hypothesis, masukkan nilai referensi 0.60 sebagai proporsi \\(H_0\\)\nCentang Confidence interval untuk proporsi\n\nPertanyaan untuk didiskusikan:\n\nBerapa p-value yang kalian dapatkan? Apakah proporsi sampel secara signifikan berbeda dari 60%?\nApa arti CI untuk proporsi yang kalian peroleh?\nBerapa besar perbedaan antara proporsi sampel (65.4%) dan nilai referensi (60%) — apakah perbedaan ini bermakna secara praktis?"
   },
   {
     "objectID": "slides/analisis-kategorikal.html#chi-square-asosiasi-dua-variabel-kategorikal",
@@ -1579,7 +1593,7 @@
     "href": "slides/analisis-kategorikal.html#contoh-metode-belajar-dan-kelulusan",
     "title": "Analisis Data Kategorikal",
     "section": "Contoh: metode belajar dan kelulusan",
-    "text": "Contoh: metode belajar dan kelulusan\nApakah metode belajar (belajar sendiri vs kelompok vs online) berhubungan dengan kelulusan tepat waktu?\n\n\n\n\nLulus tepat waktu\nTidak lulus tepat waktu\nTotal\n\n\n\n\nSendiri\n45\n15\n60\n\n\nKelompok\n55\n10\n65\n\n\nOnline\n30\n20\n50\n\n\nTotal\n130\n45\n175\n\n\n\nFrekuensi yang diharapkan (contoh, sel kiri atas): \\(E = \\frac{60 \\times 130}{175} = 44.6\\)"
+    "text": "Contoh: metode belajar dan kelulusan\nApakah metode belajar (belajar sendiri vs kelompok vs online) berhubungan dengan kelulusan tepat waktu?\n\n\n\n\nLulus tepat waktu\nTidak lulus tepat waktu\nTotal\n\n\n\n\nSendiri\n135\n45\n180\n\n\nKelompok\n165\n30\n195\n\n\nOnline\n90\n60\n150\n\n\nTotal\n390\n135\n525\n\n\n\nFrekuensi yang diharapkan (contoh, sel Kelompok × Lulus tepat waktu): \\(E = \\frac{195 \\times 390}{525} = 144.9\\)"
   },
   {
     "objectID": "slides/analisis-kategorikal.html#syarat-penggunaan-chi-square",
@@ -1677,7 +1691,7 @@
     "href": "slides/anova-faktorial.html#konteks-penelitian-alfonso",
     "title": "ANOVA Faktorial",
     "section": "Konteks penelitian Alfonso",
-    "text": "Konteks penelitian Alfonso\nAlfonso ingin mengetahui apakah jenis makanan dan jenis musik yang diperdengarkan memengaruhi durasi membaca kucing (dalam detik).\nFaktor dan levelnya:\n\n\nFaktor A: Jenis Makanan (3 level)\n\nDry food\nWet food\nRaw food\n\n\nFaktor B: Jenis Musik (2 level)\n\nMusik klasik (Frühlingsstimmen — Strauss II)\nMusik campursari (Sewu Kutho — Didi Kempot)\n\n\nSetiap kucing secara acak dialokasikan ke satu dari 6 sel (3 × 2 = 6 kombinasi).\nDataset: kucing-faktorial.omv"
+    "text": "Konteks penelitian Alfonso\nAlfonso ingin mengetahui apakah jenis makanan dan jenis musik yang diperdengarkan memengaruhi durasi membaca kucing (dalam detik).\nFaktor dan levelnya:\n\n\nFaktor A: Jenis Makanan (3 level)\n\nDry food\nWet food\nRaw food\n\n\nFaktor B: Jenis Musik (2 level)\n\nMusik klasik (Frühlingsstimmen — Strauss II)\nMusik campursari (Sewu Kutho — Didi Kempot)\n\n\nSetiap kucing secara acak dialokasikan ke satu dari 6 sel (3 × 2 = 6 kombinasi).\nDataset: kucing-membaca.omv"
   },
   {
     "objectID": "slides/anova-faktorial.html#tabel-desain-3-2",
@@ -1733,7 +1747,7 @@
     "href": "slides/anova-faktorial.html#langkah-anova-faktorial-di-jamovi-main-effects-saja",
     "title": "ANOVA Faktorial",
     "section": "Langkah ANOVA faktorial di jamovi: main effects saja",
-    "text": "Langkah ANOVA faktorial di jamovi: main effects saja\nBuka dataset kucing-faktorial.omv, kemudian:\n\nKlik menu ANOVA  ANOVA\nMasukkan durasi_membaca ke Dependent Variable\nMasukkan jenis_makanan dan jenis_musik ke Fixed Factors\nDi menu Model, lihat kolom Model Terms — hapus suku interaksi jenis_makanan*jenis_musik untuk menguji main effects saja\nDi opsi Effect Size, centang η² dan ω²\nDi opsi Assumption Checks, centang semua opsi"
+    "text": "Langkah ANOVA faktorial di jamovi: main effects saja\nBuka dataset kucing-membaca.omv, kemudian:\n\nKlik menu ANOVA  ANOVA\nMasukkan durasi_membaca ke Dependent Variable\nMasukkan jenis_makanan dan jenis_musik ke Fixed Factors\nDi menu Model, lihat kolom Model Terms — hapus suku interaksi jenis_makanan*jenis_musik untuk menguji main effects saja\nDi opsi Effect Size, centang η² dan ω²\nDi opsi Assumption Checks, centang semua opsi"
   },
   {
     "objectID": "slides/anova-faktorial.html#langkah-lanjutan-post-hoc-dan-marginal-means",

@@ -3,7 +3,7 @@ title: "Statistik Deskriptif"
 subtitle: "Statistik Dasar dalam Penelitian Psikologi"
 author: "Rizqy Amelia Zein"
 institute:
-  - "[_Departemen Psikologi Kepribadian dan Sosial, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
+  - "[_Departemen Psikologi, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
 date: today
 format:
   unair-revealjs:
@@ -125,7 +125,7 @@ Pada distribusi **normal sempurna**, *mean* = median = modus. Semakin jauh perbe
 
 ## Latihan: Tendensi sentral di jamovi
 
-Buka dataset **HDIWDI2010.sav**, kemudian hitung *mean*, median, dan modus angka kehamilan remaja (*teenfert*):
+Buka dataset [**HDIWDI2010**](/docs/materials/HDIWDI2010.omv), kemudian hitung *mean*, median, dan modus angka kehamilan remaja (*teenfert*):
 
 1. Klik menu *Exploration* {{< fa circle-arrow-right >}} *Descriptives*
 2. Masukkan variabel **teenfert** ke kolom *Variables*
@@ -181,7 +181,7 @@ Selalu laporkan ukuran variabilitas **bersama** ukuran tendensi sentral. *Mean* 
 
 ## Latihan: Variabilitas di jamovi
 
-Dengan dataset yang sama (**HDIWDI2010.sav**), hitung *range*, IQR, varians, dan standar deviasi *teenfert*:
+Dengan dataset yang sama ([**HDIWDI2010.omv**](/docs/materials/HDIWDI2010.omv)), hitung *range*, IQR, varians, dan standar deviasi *teenfert*:
 
 1. Di opsi *Statistics* {{< fa circle-arrow-right >}} bagian *Dispersion*, centang *Std. deviation*, *Variance*, dan *Range*
 2. Di opsi *Percentile Values*, centang *Quartiles*
@@ -198,7 +198,7 @@ Pertanyaan untuk didiskusikan:
 ## Mengapa visualisasi penting?
 
 * Statistik deskriptif angka (mean, SD) bisa **menyesatkan** tanpa visualisasi
-* *Anscombe's quartet*: empat dataset dengan *mean*, SD, dan korelasi yang **identik** — tapi bentuknya sangat berbeda
+* [*Anscombe's quartet*](https://en.wikipedia.org/wiki/Anscombe%27s_quartet): empat dataset dengan *mean*, SD, dan korelasi yang **identik** — tapi bentuknya sangat berbeda
 * Visualisasi membantu kita mendeteksi:
   - *Outlier*
   - Distribusi yang tidak normal
@@ -235,7 +235,7 @@ Pertanyaan untuk didiskusikan:
 
 ## Latihan: Visualisasi di jamovi
 
-Dengan dataset **HDIWDI2010.sav**, inspeksi distribusi *teenfert* secara visual:
+Dengan dataset [**HDIWDI2010.omv**](/docs/materials/HDIWDI2010.omv), inspeksi distribusi *teenfert* secara visual:
 
 1. Di opsi *Plots*, centang *Histogram*, *Density*, *Box plot*, dan *Violin*
 2. Tambahkan **HDgroup** di kolom *Split by* untuk membandingkan distribusi antar kelompok
@@ -277,8 +277,8 @@ Distribusi normal adalah **asumsi dasar** dari hampir semua teknik statistik par
 
 * Kita tidak bisa melihat langsung distribusi data di **populasi** — kita hanya punya data sampel
 * Uji normalitas membantu kita memutuskan:
-  - Gunakan teknik **parametrik** (asumsi normalitas terpenuhi — *statistical power* lebih tinggi)
-  - Gunakan teknik **non-parametrik** (asumsi normalitas tidak terpenuhi — *statistical power* lebih rendah)
+  - Gunakan teknik **parametrik** (asumsi normalitas terpenuhi — *statistical power* lebih baik)
+  - Gunakan teknik **non-parametrik** (asumsi normalitas tidak terpenuhi — *statistical power* lebih cenderung rendah, meskipun *power* dapat dioptimasi dengan menambah ukuran sampel atau menggunakan desain penelitian yang tepat)
 
 ::: {.callout-important}
 Uji normalitas adalah **langkah wajib** sebelum memilih teknik uji hipotesis. Melewati langkah ini adalah kesalahan metodologis yang umum.
@@ -316,7 +316,7 @@ Untuk kebanyakan keperluan di Psikologi, **Shapiro-Wilk** adalah pilihan terbaik
 
 ## Latihan: Uji normalitas di jamovi
 
-Dengan dataset **HDIWDI2010.sav**, uji normalitas distribusi *teenfert*:
+Dengan dataset [**HDIWDI2010.omv**](/docs/materials/HDIWDI2010.omv), uji normalitas distribusi *teenfert*:
 
 1. Di menu *Exploration* {{< fa circle-arrow-right >}} *Descriptives*
 2. Di opsi *Statistics* {{< fa circle-arrow-right >}} bagian *Normality*, centang *Shapiro-Wilk*

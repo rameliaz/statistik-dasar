@@ -3,7 +3,7 @@ title: "ANOVA Faktorial"
 subtitle: "Statistik Dasar dalam Penelitian Psikologi"
 author: "Rizqy Amelia Zein"
 institute:
-  - "[_Departemen Psikologi Kepribadian dan Sosial, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
+  - "[_Departemen Psikologi, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
 date: today
 format:
   unair-revealjs:
@@ -93,7 +93,7 @@ Alfonso ingin mengetahui apakah jenis makanan dan jenis musik yang diperdengarka
 
 Setiap kucing secara acak dialokasikan ke **satu** dari 6 sel (3 × 2 = 6 kombinasi).
 
-Dataset: **kucing-faktorial.omv**
+Dataset: [**kucing-membaca.omv**](/docs/materials/kucing-membaca.omv)
 
 ## Tabel desain 3 × 2
 
@@ -233,7 +233,7 @@ Untuk desain 3 × 2 Alfonso dengan N = 30: $df_A$ = 2, $df_B$ = 1, $df_{A\times 
 
 ## Langkah ANOVA faktorial di jamovi: *main effects* saja
 
-Buka dataset **kucing-faktorial.omv**, kemudian:
+Buka dataset [**kucing-membaca.omv**](/docs/materials/kucing-membaca.omv), kemudian:
 
 1. Klik menu *ANOVA* {{< fa circle-arrow-right >}} ***ANOVA***
 2. Masukkan **durasi_membaca** ke *Dependent Variable*
@@ -266,7 +266,7 @@ Buka dataset **kucing-faktorial.omv**, kemudian:
 * Jenis makanan berpengaruh signifikan pada durasi membaca, *F*(2, 24) = 48.1, *p* < .001, ω² = 0.553 — efek besar
 * Jenis musik berpengaruh signifikan, *F*(1, 24) = 9.83, *p* = .004, ω² = 0.108 — efek sedang
 
-## Menguji efek interaksi di jamovi
+## Menguji efek interaksi di `jamovi`
 
 Untuk menguji interaksi, **jangan** hapus suku interaksi di menu *Model*:
 

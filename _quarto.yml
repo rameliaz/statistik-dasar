@@ -83,12 +83,57 @@ website:
             href: "slides/mediasi.html?print-pdf"
       - text: "Dataset"
         menu:
-          - text: "Dataset Contoh Korelasi"
-            href: materials/corr.omv
-          - text: "Dataset Latihan Korelasi"
-            href: materials/latihancorr.csv
-          - text: "Dataset Latihan Regresi OLS"
+          - text: "Analisis Kategorikal"
+          - text: "---"
+          - text: "terapi.omv"
+            href: materials/terapi.omv
+          - text: "metodebelajar.omv"
+            href: materials/metodebelajar.omv
+          - text: "attitudinal_change.omv"
+            href: materials/attitudinal_change.omv
+          - text: "---"
+          - text: "T-Test"
+          - text: "---"
+          - text: "ujian.omv"
+            href: materials/ujian.omv
+          - text: "---"
+          - text: "Korelasi"
+          - text: "---"
+          - text: "masukangin.omv"
+            href: materials/masukangin.omv
+          - text: "---"
+          - text: "ANOVA"
+          - text: "---"
+          - text: "cobaobat.omv"
+            href: materials/cobaobat.omv
+          - text: "---"
+          - text: "ANOVA Faktorial & Pengukuran Berulang"
+          - text: "---"
+          - text: "kucing-membaca.omv"
+            href: materials/kucing-membaca.omv
+          - text: "minat-baca.omv"
+            href: materials/minat-baca.omv
+          - text: "nilai-ujian.omv"
+            href: materials/nilai-ujian.omv
+          - text: "stres.omv"
+            href: materials/stres.omv
+          - text: "---"
+          - text: "ANCOVA"
+          - text: "---"
+          - text: "cobaobat2.omv"
+            href: materials/cobaobat2.omv
+          - text: "---"
+          - text: "Regresi OLS & Moderasi"
+          - text: "---"
+          - text: "dataset-sekolah.omv"
             href: materials/dataset-sekolah.omv
+          - text: "dataset-organisasi.omv"
+            href: materials/dataset-organisasi.omv
+          - text: "---"
+          - text: "Mediasi"
+          - text: "---"
+          - text: "mediasi_akademik.omv"
+            href: materials/mediasi_akademik.omv
       - text: "Survei"
         menu:
           - text: "Evaluasi"
