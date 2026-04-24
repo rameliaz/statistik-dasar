@@ -148,7 +148,7 @@ Model 2 (_F_(2,397) = 74.3, _p_ = .001, _Adj. R_^2^ = .424) dapat menjelaskan va
 :::: {.columns}
 ::: {.column width="55%"}
 
-Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (_F_(1,397) = 83.7, _p_ = .001). ΔR^2^ = .122, artinya penambahan suku interaksi meningkatkan kemampuan model menjelaskan varians sebesar 12.2%.
+Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (_F_(1,397) = 29.5, _p_ = .001). ΔR^2^ = .122, artinya penambahan suku interaksi meningkatkan kemampuan model menjelaskan varians sebesar 12.2%.
 
 **Coba perhatikan Residuals Model 1 dengan Model 2**
 
@@ -223,7 +223,7 @@ Garis regresi yang **berpotongan** (_crossed_) menunjukkan interaksi ordinal (ar
 
 > Untuk menginvestigasi keterkaitan antara pendapatan keluarga, kecenderungan _neuroticism_ ibu, dan kepercayaan ibu bahwa perkembangan anak dapat terjadi secara natural dengan tingkat kemandirian anak, peneliti melakukan analisis regresi linear hirarkial dengan _interaction terms_. Peneliti menyusun dua model: model 1 mengestimasi varians tingkat kemandirian anak dengan pendapatan keluarga inti sebagai prediktor, sedangkan pada model 2 peneliti menambahkan _interaction terms_ antara _neuroticism_ dengan _trust_.
 
-> Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (_F_(1,397) = 29.5, _p_ = .001). Model 2 (_F_(2,397) = 74.3, _p_ = .001, _Adj. R_^2^ = .429, AIC = 2472, BIC = 2496) menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (_F_(1,398) = 171.8, _p_ = .001, _Adj. R_^2^ = .300, AIC = 2547, BIC = 2559), dengan ΔR^2^ = .128.
+> Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (_F_(1,397) = 29.5, _p_ = .001). Model 2 (_F_(2,397) = 74.3, _p_ = .001, _Adj. R_^2^ = .424, AIC = 2472, BIC = 2496) menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (_F_(1,398) = 171.8, _p_ = .001, _Adj. R_^2^ = .300, AIC = 2547, BIC = 2559), dengan ΔR^2^ = .128.
 
 ## Melaporkan hasil OLS dengan suku interaksi 2️⃣
 

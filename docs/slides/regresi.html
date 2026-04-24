@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.3">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-04-23">
+  <meta name="dcterms.date" content="2026-04-25">
   <title>Statistik Dasar dalam Penelitian Psikologi – Regresi Linear (Ordinary Least Square)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -146,7 +146,7 @@ Rizqy Amelia Zein
     </div>
 </div>
 
-  <p class="date">2026-04-23</p>
+  <p class="date">2026-04-25</p>
 </section>
 <section id="outline" class="slide level2">
 <h2><em>Outline</em></h2>
@@ -181,7 +181,7 @@ Rizqy Amelia Zein
 </section>
 <section id="eksplorasi-dataset" class="slide level2">
 <h2>Eksplorasi dataset</h2>
-<h3 id="dataset-1-dataset-sekolah.omv">Dataset 1: dataset-sekolah.omv</h3>
+<h3 id="dataset-1-dataset-sekolah.omv">Dataset 1: <a href="materials/dataset-sekolah.omv">dataset-sekolah.omv</a></h3>
 <ul>
 <li>Marimar yang penasaran akhirnya melakukan survei di 5 PAUD di Kota Surabaya, dengan ukuran sampel sebesar total 400 orang</li>
 <li>Buka <a href="https://rameliaz.github.io/mlm-lme-workshop/">laman web <em>workshop</em></a></li>
@@ -274,14 +274,18 @@ Rizqy Amelia Zein
 <p><img data-src="libs/scat-1.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
-<p><em>Scatterplot</em> 1. <em>Neuroticism</em> dan Kemandirian</p>
+<p style="text-align: center;">
+<em>Scatterplot</em> 1. <em>Neuroticism</em> dan Kemandirian
+</p>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="libs/scat-2.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
-<p><em>Scatterplot</em> 2. <em>Trust</em> dan Kemandirian</p>
+<p style="text-align: center;">
+<em>Scatterplot</em> 2. <em>Trust</em> dan Kemandirian
+</p>
 </div></div>
 <div class="footnote">
 <p><strong>Bagaimana kekuatan dan arah hubungan pada <em>scatterplot</em> 1 dan 2?</strong></p>
@@ -304,12 +308,12 @@ Rizqy Amelia Zein
 <h2>Kekuatan dan arah korelasi 1️⃣</h2>
 <p>Korelasi yang tampak pada <em>scatterplot</em> tadi dapat dikonseptualisasikan dengan lebih jelas dengan menghitung <strong>koefisien korelasi</strong>, yang mengimplikasikan kekuatan hubungan.</p>
 <ul>
-<li><em>Pearson’s</em> r misalnya, biasanya ditulis dengan <em>r</em><sub>xy</sub>, sedangkan <em>Spearman’s</em> ρ ditulis <em>r</em><sub>s</sub>.</li>
-<li>Berkisar antara -1 s/d 1</li>
-<li>-1 artinya korelasi negatif sempurna, 1 artinya korelasi positif sempurna</li>
-<li>Koefisien korelasi <em>Pearson’s</em> <em>r</em> atau <em>Spearman’s</em> ρ dihitung dari kovarians (<em>covariance</em>/<em>average cross product</em> dari dua variabel).
+<li class="fragment"><em>Pearson’s</em> r misalnya, biasanya ditulis dengan <em>r</em><sub>xy</sub>, sedangkan <em>Spearman’s</em> ρ ditulis <em>r</em><sub>s</sub>.</li>
+<li class="fragment">Berkisar antara -1 s/d 1</li>
+<li class="fragment">-1 artinya korelasi negatif sempurna, 1 artinya korelasi positif sempurna</li>
+<li class="fragment">Koefisien korelasi <em>Pearson’s</em> <em>r</em> atau <em>Spearman’s</em> ρ dihitung dari kovarians (<em>covariance</em>/<em>average cross product</em> dari dua variabel).
 <ul>
-<li>Dua variabel yang sama sekali tak berkorelasi, maka kovarians nol.</li>
+<li class="fragment">Dua variabel yang sama sekali tak berkorelasi, maka kovarians nol.</li>
 </ul></li>
 </ul>
 </section>
@@ -338,13 +342,13 @@ Rizqy Amelia Zein
 <div class="columns">
 <div class="column" style="width:60%;">
 <ul>
-<li>Merupakan kelanjutan yang lebih kompleks dari <em>Pearson’s</em> r</li>
-<li>Ide dasarnya adalah menyusun persamaan garis yang dapat digunakan untuk <strong>memperkirakan</strong> nilai Y ketika nilai X diketahui
+<li class="fragment">Merupakan kelanjutan yang lebih kompleks dari <em>Pearson’s</em> r</li>
+<li class="fragment">Ide dasarnya adalah menyusun persamaan garis yang dapat digunakan untuk <strong>memperkirakan</strong> nilai Y ketika nilai X diketahui
 <ul>
-<li>Contohnya, kita tahu bahwa <strong>kemandirian</strong> berkorelasi positif dan sedang dengan <strong>neuroticism</strong> dan <strong>trust</strong></li>
-<li>Namun dengan regresi, kita bisa <em>mengestimasi</em> tingkat kemandirian anak, ketika hanya informasi mengenai <em>neuroticism</em> dan <em>trust</em> yang tersedia.</li>
+<li class="fragment">Contohnya, kita memiliki hipotesis bahwa <strong>kemandirian</strong> berkorelasi positif dan sedang dengan <strong>neuroticism</strong> dan <strong>trust</strong> dan memang menemukan korelasi antara keduanya</li>
+<li class="fragment">Namun dengan regresi, kita bisa <em>mengestimasi</em> tingkat kemandirian anak, ketika hanya informasi mengenai <em>neuroticism</em> dan <em>trust</em> yang tersedia.</li>
 </ul></li>
-<li>OLS bekerja dengan pendekatan <em>least square</em>, artinya mencari <strong>jumlah kuadrat terkecil</strong> antara garis regresi (nilai Y yang diperkirakan oleh model) dengan nilai Y yang diobservasi.</li>
+<li class="fragment">OLS bekerja dengan pendekatan <em>least square</em>, artinya mencari <strong>jumlah kuadrat terkecil</strong> antara garis regresi (nilai Y yang diperkirakan oleh model) dengan nilai Y yang diobservasi.</li>
 </ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
@@ -365,22 +369,22 @@ Rizqy Amelia Zein
 <section id="asumsi-yang-harus-dipenuhi" class="slide level2">
 <h2>Asumsi yang harus dipenuhi</h2>
 <ul>
-<li>Prediktor dan variabel dependen <strong>berkorelasi secara linear</strong>
+<li class="fragment">Prediktor dan variabel dependen <strong>berkorelasi secara linear</strong>
 <ul>
-<li>Lakukan analisis korelasi sebelum melakukan regresi untuk memastikan asumsi ini terpenuhi</li>
+<li class="fragment">Lakukan analisis korelasi sebelum melakukan regresi untuk memastikan asumsi ini terpenuhi</li>
 </ul></li>
-<li>Residual (varians <em>error</em>) variabel dependen yang tidak dapat dijelaskan oleh model
+<li class="fragment">Residual (varians <em>error</em>) variabel dependen yang tidak dapat dijelaskan oleh model
 <ul>
-<li>Berdistribusi normal</li>
-<li>Variansnya homogen (<strong>homoskedastisitas</strong>)</li>
-<li>Tidak dipengaruhi oleh prediktor lain diluar model</li>
+<li class="fragment">Berdistribusi normal</li>
+<li class="fragment">Variansnya homogen (<strong>homoskedastisitas</strong>)</li>
+<li class="fragment">Tidak dipengaruhi oleh prediktor lain diluar model</li>
 </ul></li>
-<li>Prediktor dalam model independen satu sama lain (tidak berkorelasi)
+<li class="fragment">Prediktor dalam model independen satu sama lain (tidak berkorelasi)
 <ul>
-<li>Berlaku ketika ada dua atau lebih prediktor dalam satu model regresi</li>
-<li>Kalau prediktor berkorelasi satu sama lain maka telah terjadi <strong>multi-kolinearitas</strong></li>
+<li class="fragment">Berlaku ketika ada dua atau lebih prediktor dalam satu model regresi</li>
+<li class="fragment">Kalau prediktor berkorelasi satu sama lain maka telah terjadi <strong>multi-kolinearitas</strong></li>
 </ul></li>
-<li><strong>Data/observasi dan residual harus independen</strong></li>
+<li class="fragment"><strong>Data/observasi dan residual harus independen</strong></li>
 </ul>
 </section>
 <section id="latihan-1" class="slide level2">
@@ -450,7 +454,7 @@ Rizqy Amelia Zein
 <h4 id="interpretasi-standardized-β-dan-unstandardized-b-estimates">Interpretasi <em>standardized</em> (<em>β</em>) dan <em>unstandardized</em> (<em>B</em>) <em>estimates</em></h4>
 <ul>
 <li><em>Unstandardized</em> (<em>B</em>) <em>estimates</em>: Setiap perubahan <em>neuroticism</em> sebesar 1 poin, maka tingkat kemandirian juga berubah sebesar 0.544 poin.</li>
-<li><em>Standardized</em> (<em>β</em>) <em>estimates</em>: Setiap berubah <em>neuroticism</em> sebesar 1SD, maka tingkat kemandirian juga berubah sebesar 0.161SD.</li>
+<li><em>Standardized</em> (<em>β</em>) <em>estimates</em>: Setiap perubahan <em>neuroticism</em> sebesar 1SD, maka tingkat kemandirian juga berubah sebesar 0.598SD.</li>
 </ul>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -549,12 +553,12 @@ Rizqy Amelia Zein
 <section id="diagnostik-model-deteksi-outliers-2" class="slide level2">
 <h2>Diagnostik model: deteksi <em>outliers</em> 2️⃣</h2>
 <ul>
-<li>Kalau <em>Cook’s distance</em> diatas 1 bagaimana?
+<li class="fragment">Kalau <em>Cook’s distance</em> diatas 1 bagaimana?
 <ul>
-<li>Coba buat lagi garis regresi tanpa <em>outlier</em> tersebut, cari tahu kenapa nilainya bisa se-ekstrim itu</li>
-<li><em>Outlier</em> umumnya tidak boleh dihapus dari dataset tanpa justifikasi yang jelas, karena ini termasuk <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4114807/"><em>questionable research practices</em></a>.</li>
-<li>Kalau sangat mendesak, <em>outlier</em> dapat dikeluarkan dari model. Tetapi ini tidak disarankan dan kalaupun dilakukan, analisis <strong>harus dilaporkan dua versi; dengan dan tanpa <em>outlier</em>.</strong></li>
-<li>Daripada dihapus, sebaiknya pakai regresi dengan <a href="https://forum.jamovi.org/viewtopic.php?t=4067"><em>robust estimator</em></a> yang dapat mengurangi efek <em>outlier</em>.</li>
+<li class="fragment">Coba buat lagi garis regresi tanpa <em>outlier</em> tersebut, cari tahu kenapa nilainya bisa se-ekstrim itu</li>
+<li class="fragment"><em>Outlier</em> umumnya tidak boleh dihapus dari dataset tanpa justifikasi yang jelas, karena ini termasuk <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4114807/"><em>questionable research practices</em></a>.</li>
+<li class="fragment">Kalau sangat mendesak, <em>outlier</em> dapat dikeluarkan dari model. Tetapi ini tidak disarankan dan kalaupun dilakukan, analisis <strong>harus dilaporkan dua versi; dengan dan tanpa <em>outlier</em>.</strong></li>
+<li class="fragment">Daripada dihapus, sebaiknya pakai regresi dengan <a href="https://forum.jamovi.org/viewtopic.php?t=4067"><em>robust estimator</em></a> yang dapat mengurangi efek <em>outlier</em>.</li>
 </ul></li>
 </ul>
 </section>

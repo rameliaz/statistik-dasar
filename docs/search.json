@@ -53,7 +53,7 @@
     "href": "slides/moderasi.html#model-comparison",
     "title": "Analisis Moderasi",
     "section": "Model comparison",
-    "text": "Model comparison\n\n\nKetika dibandingkan, Model 1 dan Model 2 berbeda signifikan (F(1,397) = 83.7, p = .001). ΔR2 = .122, artinya penambahan suku interaksi meningkatkan kemampuan model menjelaskan varians sebesar 12.2%.\nCoba perhatikan Residuals Model 1 dengan Model 2"
+    "text": "Model comparison\n\n\nKetika dibandingkan, Model 1 dan Model 2 berbeda signifikan (F(1,397) = 29.5, p = .001). ΔR2 = .122, artinya penambahan suku interaksi meningkatkan kemampuan model menjelaskan varians sebesar 12.2%.\nCoba perhatikan Residuals Model 1 dengan Model 2"
   },
   {
     "objectID": "slides/moderasi.html#koefisien-model-2",
@@ -88,7 +88,7 @@
     "href": "slides/moderasi.html#melaporkan-hasil-ols-dengan-suku-interaksi-1",
     "title": "Analisis Moderasi",
     "section": "Melaporkan hasil OLS dengan suku interaksi 1️⃣",
-    "text": "Melaporkan hasil OLS dengan suku interaksi 1️⃣\n\nUntuk menginvestigasi keterkaitan antara pendapatan keluarga, kecenderungan neuroticism ibu, dan kepercayaan ibu bahwa perkembangan anak dapat terjadi secara natural dengan tingkat kemandirian anak, peneliti melakukan analisis regresi linear hirarkial dengan interaction terms. Peneliti menyusun dua model: model 1 mengestimasi varians tingkat kemandirian anak dengan pendapatan keluarga inti sebagai prediktor, sedangkan pada model 2 peneliti menambahkan interaction terms antara neuroticism dengan trust.\n\n\nKetika dibandingkan, Model 1 dan Model 2 berbeda signifikan (F(1,397) = 29.5, p = .001). Model 2 (F(2,397) = 74.3, p = .001, Adj. R2 = .429, AIC = 2472, BIC = 2496) menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (F(1,398) = 171.8, p = .001, Adj. R2 = .300, AIC = 2547, BIC = 2559), dengan ΔR2 = .128."
+    "text": "Melaporkan hasil OLS dengan suku interaksi 1️⃣\n\nUntuk menginvestigasi keterkaitan antara pendapatan keluarga, kecenderungan neuroticism ibu, dan kepercayaan ibu bahwa perkembangan anak dapat terjadi secara natural dengan tingkat kemandirian anak, peneliti melakukan analisis regresi linear hirarkial dengan interaction terms. Peneliti menyusun dua model: model 1 mengestimasi varians tingkat kemandirian anak dengan pendapatan keluarga inti sebagai prediktor, sedangkan pada model 2 peneliti menambahkan interaction terms antara neuroticism dengan trust.\n\n\nKetika dibandingkan, Model 1 dan Model 2 berbeda signifikan (F(1,397) = 29.5, p = .001). Model 2 (F(2,397) = 74.3, p = .001, Adj. R2 = .424, AIC = 2472, BIC = 2496) menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (F(1,398) = 171.8, p = .001, Adj. R2 = .300, AIC = 2547, BIC = 2559), dengan ΔR2 = .128."
   },
   {
     "objectID": "slides/moderasi.html#melaporkan-hasil-ols-dengan-suku-interaksi-2",
@@ -1922,7 +1922,7 @@
     "href": "slides/regresi.html#scatterplot",
     "title": "Regresi Linear (Ordinary Least Square)",
     "section": "Scatterplot",
-    "text": "Scatterplot\n\n\n\n\n\n\n\nScatterplot 1. Neuroticism dan Kemandirian\n\n\n\n\n\n\nScatterplot 2. Trust dan Kemandirian\n\n\nBagaimana kekuatan dan arah hubungan pada scatterplot 1 dan 2?"
+    "text": "Scatterplot\n\n\n\n\n\n\n\n\nScatterplot 1. Neuroticism dan Kemandirian\n\n\n\n\n\n\n\n\nScatterplot 2. Trust dan Kemandirian\n\n\n\nBagaimana kekuatan dan arah hubungan pada scatterplot 1 dan 2?"
   },
   {
     "objectID": "slides/regresi.html#menebak-korelasi",
@@ -1950,7 +1950,7 @@
     "href": "slides/regresi.html#regresi-linear",
     "title": "Regresi Linear (Ordinary Least Square)",
     "section": "Regresi linear",
-    "text": "Regresi linear\n\n\n\nMerupakan kelanjutan yang lebih kompleks dari Pearson’s r\nIde dasarnya adalah menyusun persamaan garis yang dapat digunakan untuk memperkirakan nilai Y ketika nilai X diketahui\n\nContohnya, kita tahu bahwa kemandirian berkorelasi positif dan sedang dengan neuroticism dan trust\nNamun dengan regresi, kita bisa mengestimasi tingkat kemandirian anak, ketika hanya informasi mengenai neuroticism dan trust yang tersedia.\n\nOLS bekerja dengan pendekatan least square, artinya mencari jumlah kuadrat terkecil antara garis regresi (nilai Y yang diperkirakan oleh model) dengan nilai Y yang diobservasi."
+    "text": "Regresi linear\n\n\n\nMerupakan kelanjutan yang lebih kompleks dari Pearson’s r\nIde dasarnya adalah menyusun persamaan garis yang dapat digunakan untuk memperkirakan nilai Y ketika nilai X diketahui\n\nContohnya, kita memiliki hipotesis bahwa kemandirian berkorelasi positif dan sedang dengan neuroticism dan trust dan memang menemukan korelasi antara keduanya\nNamun dengan regresi, kita bisa mengestimasi tingkat kemandirian anak, ketika hanya informasi mengenai neuroticism dan trust yang tersedia.\n\nOLS bekerja dengan pendekatan least square, artinya mencari jumlah kuadrat terkecil antara garis regresi (nilai Y yang diperkirakan oleh model) dengan nilai Y yang diobservasi."
   },
   {
     "objectID": "slides/regresi.html#persamaan-garis-regresi",
@@ -1999,7 +1999,7 @@
     "href": "slides/regresi.html#koefisien-model",
     "title": "Regresi Linear (Ordinary Least Square)",
     "section": "Koefisien model",
-    "text": "Koefisien model\n\nKecenderungan neuroticism ibu dapat menjelaskan variasi kemandirian anak (B = 0.544 95% CI [0.472, 0.616], SE = 0.036, t = 14.88, p = .001).\nInterpretasi standardized (β) dan unstandardized (B) estimates\n\nUnstandardized (B) estimates: Setiap perubahan neuroticism sebesar 1 poin, maka tingkat kemandirian juga berubah sebesar 0.544 poin.\nStandardized (β) estimates: Setiap berubah neuroticism sebesar 1SD, maka tingkat kemandirian juga berubah sebesar 0.161SD.\n\n\n\n\n\n\n\nTips\n\n\nSelalu laporkan unstandardized estimates dan confidence interval (Appelbaum et al., 2018)."
+    "text": "Koefisien model\n\nKecenderungan neuroticism ibu dapat menjelaskan variasi kemandirian anak (B = 0.544 95% CI [0.472, 0.616], SE = 0.036, t = 14.88, p = .001).\nInterpretasi standardized (β) dan unstandardized (B) estimates\n\nUnstandardized (B) estimates: Setiap perubahan neuroticism sebesar 1 poin, maka tingkat kemandirian juga berubah sebesar 0.544 poin.\nStandardized (β) estimates: Setiap perubahan neuroticism sebesar 1SD, maka tingkat kemandirian juga berubah sebesar 0.598SD.\n\n\n\n\n\n\n\nTips\n\n\nSelalu laporkan unstandardized estimates dan confidence interval (Appelbaum et al., 2018)."
   },
   {
     "objectID": "slides/regresi.html#diagnostik-model-distribusi-residual",
