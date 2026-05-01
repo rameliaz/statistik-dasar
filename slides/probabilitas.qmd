@@ -20,7 +20,7 @@ execute:
 
 * Apa itu probabilitas?
 * Dua pendekatan: *frequentist* vs *Bayesian*
-* Aturan dasar probabilitas
+* Konsep dasar probabilitas
 * Distribusi probabilitas
 * Distribusi normal dan *z-score*
 * *Sampling distribution of the mean*
@@ -72,7 +72,7 @@ Sebagian besar statistik yang kalian pelajari di S1 menggunakan **pendekatan *fr
 :::
 
 
-# Aturan dasar probabilitas {background-color="#14497F"}
+# Konsep dasar probabilitas {background-color="#14497F"}
 
 ## Aturan penjumlahan (*Addition Rule*)
 

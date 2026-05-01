@@ -134,10 +134,6 @@ website:
           - text: "---"
           - text: "mediasi_akademik.omv"
             href: materials/mediasi_akademik.omv
-      - text: "Survei"
-        menu:
-          - text: "Evaluasi"
-            href: https://www.soscisurvey.de/fb-workshop-amel/
       - icon: envelope
         href: "mailto:amelia.zein@psikologi.unair.ac.id"
       - icon: github
