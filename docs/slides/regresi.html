@@ -379,10 +379,12 @@ Rizqy Amelia Zein
 <li class="fragment">Variansnya homogen (<strong>homoskedastisitas</strong>)</li>
 <li class="fragment">Tidak dipengaruhi oleh prediktor lain diluar model</li>
 </ul></li>
-<li class="fragment">Prediktor dalam model independen satu sama lain (tidak berkorelasi)
+<li class="fragment">Tidak ada <strong>multikolinearitas sempurna</strong> antar prediktor
 <ul>
 <li class="fragment">Berlaku ketika ada dua atau lebih prediktor dalam satu model regresi</li>
-<li class="fragment">Kalau prediktor berkorelasi satu sama lain maka telah terjadi <strong>multi-kolinearitas</strong></li>
+<li class="fragment">OLS hanya mensyaratkan tidak ada multikolinearitas <em>sempurna</em> (satu prediktor tidak boleh merupakan kombinasi linear tepat dari prediktor lain)</li>
+<li class="fragment">Korelasi <em>tidak sempurna</em> antar prediktor adalah hal yang wajar dalam regresi berganda — ia menaikkan <em>standard error</em> tetapi tidak melanggar asumsi OLS</li>
+<li class="fragment">Jika korelasi sangat tinggi (<em>imperfect multicollinearity</em>), <em>standard error</em> akan membesar dan estimasi menjadi kurang presisi, tetapi koefisien tetap tidak bias</li>
 </ul></li>
 <li class="fragment"><strong>Data/observasi dan residual harus independen</strong></li>
 </ul>
@@ -498,7 +500,7 @@ Rizqy Amelia Zein
 <ul>
 <li>Hal ini ditunjukkan dari dua plot disamping yang menunjukkan distribusi <strong>varians residual uniform</strong>.</li>
 </ul></li>
-<li>Apabila asumsi ini dilanggar, maka residual mengalami <strong>heteroskedastisitas</strong>, dengan begitu, estimasi model akan bias.</li>
+<li>Apabila asumsi ini dilanggar, maka residual mengalami <strong>heteroskedastisitas</strong>. Perlu dicatat: koefisien regresi (B) tetap <strong>tidak bias</strong>, namun <strong><em>standard error</em>-nya menjadi bias</strong> — sehingga <em>p-value</em> dan <em>confidence interval</em> tidak dapat diandalkan.</li>
 <li>Kalau residual menunjukkan karakteristik <strong>hetero</strong>skedastik, maka distribusi residual akan terlihat seperti kerucut.</li>
 </ul>
 </div><div class="column">
@@ -539,8 +541,8 @@ Rizqy Amelia Zein
 <li>Seperti grafik di sebelah kanan, penambahan data <em>outlier</em> dapat merubah garis regresi secara drastis.</li>
 </ul></li>
 <li>Untuk melihat seberapa ‘mengkhawatirkan’ data <em>outlier</em> ini dalam mengganggu garis regresi, kita dapat menggunakan <em>Cook’s distance</em>.</li>
-<li>Umumnya, apabila <em>outlier</em> dibuang dan perubahan rata-rata, median, dan standar deviasi kurang dari 1, dapat diabaikan.</li>
-<li>Artinya <em>outlier</em> tersebut tidak terlalu mengganggu garis regresi.</li>
+<li><em>Cook’s distance</em> mengukur seberapa besar <strong>koefisien regresi berubah</strong> apabila satu observasi dikeluarkan dari model — bukan perubahan statistik deskriptif seperti rata-rata atau SD.</li>
+<li>Ambang batas umum: <em>Cook’s D</em> <strong>&gt; 1</strong> (atau secara konservatif &gt; 4/n) mengindikasikan observasi yang berpengaruh besar (<em>influential</em>) terhadap koefisien regresi.</li>
 </ul>
 </div><div class="column" style="width:45%;">
 <div class="quarto-figure quarto-figure-center">
@@ -567,7 +569,7 @@ Rizqy Amelia Zein
 <div class="columns">
 <div class="column">
 <ul>
-<li>Dari <em>output</em> di samping, dapat disimpulkan bahwa apabila <em>outlier</em> tidak disertakan dalam analisis, maka perubahan rerata, median, dan standar deviasi keseluruhan sampel kurang dari 1 dari nilai asalnya.</li>
+<li>Dari <em>output</em> di samping, dapat disimpulkan bahwa nilai <em>Cook’s distance</em> seluruh observasi berada di bawah ambang batas 1 — artinya tidak ada observasi yang secara substansial mengubah koefisien regresi apabila dikeluarkan dari model.</li>
 </ul>
 </div><div class="column">
 <div class="quarto-figure quarto-figure-center">
@@ -586,7 +588,7 @@ Rizqy Amelia Zein
 <section id="cara-melaporkannya-dalam-manuskrip-2" class="slide level2">
 <h2>Cara melaporkannya dalam manuskrip 2️⃣</h2>
 <blockquote>
-<p>Diagnostik <em>outlier</em> dilakukan dengan menggunakan <em>Cook’s distance</em>, dan menghasilkan kesimpulan bahwa apabila <em>outlier</em> tidak disertakan dalam model, maka perubahan rerata, nilai tengah, dan simpangan baku kurang dari satu dari nilai awalnya, sehingga tidak berpotensi mendistorsi garis regresi.</p>
+<p>Diagnostik <em>outlier</em> dilakukan dengan menggunakan <em>Cook’s distance</em>. Tidak ada observasi dengan <em>Cook’s D</em> &gt; 1, yang mengindikasikan bahwa tidak ada data poin yang secara substansial mendistorsi koefisien regresi.</p>
 </blockquote>
 </section>
 <section id="ada-pertanyaan" class="slide level2">

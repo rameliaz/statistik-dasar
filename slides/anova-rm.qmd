@@ -236,15 +236,15 @@ Perhatikan bahwa **df yang dilaporkan adalah df setelah dikoreksi** (bukan integ
 
 Untuk RM-ANOVA, ada dua ukuran *effect size* yang relevan:
 
-$$\eta^2 = \frac{SS_{\text{perlakuan}}}{SS_{\text{perlakuan}} + SS_{\text{error}}}$$
+$$\eta^2_p = \frac{SS_{\text{perlakuan}}}{SS_{\text{perlakuan}} + SS_{\text{error}}}$$
 
 $$\eta^2_G = \frac{SS_{\text{perlakuan}}}{SS_{\text{perlakuan}} + SS_{\text{individu}} + SS_{\text{error}}}$$
 
-| | η² | η²G (Generalisasi) |
+| | η²_p (*partial*) | η²G (Generalisasi) |
 |---|---|---|
-| **Penyebut** | Hanya SS error | SS total termasuk SS individu |
-| **Interpretasi** | Bisa melebih-lebihkan ES | Lebih konservatif dan dapat dibandingkan antar desain |
-| **Rekomendasi** | Kurang disarankan | **Lebih disarankan** untuk perbandingan lintas studi |
+| **Penyebut** | SS perlakuan + SS error (mengecualikan SS individu) | SS total termasuk SS individu |
+| **Interpretasi** | Lebih besar karena SS individu tidak dihitung — bisa melebih-lebihkan ES bila dibandingkan lintas desain | Lebih konservatif dan dapat dibandingkan antar desain |
+| **Rekomendasi** | Kurang disarankan untuk perbandingan lintas studi | **Lebih disarankan** untuk perbandingan lintas studi |
 
 : {tbl-colwidths="[15,20,65]"}
 

@@ -261,8 +261,9 @@ Rizqy Amelia Zein
 <p>Jika asumsi ini dilanggar (interaksi kovariat × perlakuan signifikan), ANCOVA biasa tidak tepat digunakan — perlu dipertimbangkan model dengan interaksi.</p>
 </div><div class="column" style="width:50%;">
 <p><strong>2. Independensi kovariat dari faktor perlakuan</strong></p>
-<p><em>Mean</em> kovariat harus <strong>homogen</strong> antar kelompok perlakuan — artinya, kovariat tidak berbeda antar kelompok secara sistematis.</p>
-<p>Periksa dengan membandingkan <em>mean</em> kovariat antar kelompok (secara deskriptif atau ANOVA satu arah pada kovariat).</p>
+<p>Dalam studi <strong>eksperimental</strong> (dengan randomisasi), kovariat seharusnya tidak berbeda antar kelompok secara sistematis karena alokasi acak menyeimbangkan semua variabel. Jika kovariat berbeda antar kelompok secara substansial, ini mengindikasikan kegagalan randomisasi.</p>
+<p>Dalam studi <strong>observasional</strong>, kovariat bisa saja berkorelasi dengan kelompok — ini tidak membatalkan ANCOVA secara statistik, tetapi mempersulit interpretasi kausal.</p>
+<p>Periksa dengan membandingkan <em>mean</em> kovariat antar kelompok secara deskriptif.</p>
 </div></div>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
@@ -464,7 +465,7 @@ Rizqy Amelia Zein
 <li>Masukkan: <em>Number of groups</em> = 3, <strong><em>Number of covariates</em> = 1</strong></li>
 <li>Klik <em>Calculate</em></li>
 </ol>
-<p><strong>Hasilnya berbeda dari ANOVA biasa</strong> karena satu df digunakan untuk kovariat, sehingga diperlukan <strong>sedikit lebih banyak sampel</strong> dibanding ANOVA tanpa kovariat.</p>
+<p><strong>Hasilnya berbeda dari ANOVA biasa</strong> karena satu df digunakan untuk kovariat. Apabila kovariat <strong>tidak berkorelasi</strong> dengan variabel dependen, ANCOVA sedikit kehilangan df tanpa keuntungan pengurangan <em>error</em> — sehingga membutuhkan sedikit lebih banyak sampel. Namun bila kovariat <strong>berkorelasi kuat</strong> (<em>r</em> &gt; 0.4), ANCOVA biasanya membutuhkan <strong>lebih sedikit sampel</strong> karena mengurangi <em>error variance</em> secara substansial.</p>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">

@@ -533,7 +533,7 @@ Rizqy Amelia Zein
 <section id="η²-dan-η²-generalisasi-η²g" class="slide level2">
 <h2>η² dan η² Generalisasi (η²G)</h2>
 <p>Untuk RM-ANOVA, ada dua ukuran <em>effect size</em> yang relevan:</p>
-<p><span class="math display">\[\eta^2 = \frac{SS_{\text{perlakuan}}}{SS_{\text{perlakuan}} + SS_{\text{error}}}\]</span></p>
+<p><span class="math display">\[\eta^2_p = \frac{SS_{\text{perlakuan}}}{SS_{\text{perlakuan}} + SS_{\text{error}}}\]</span></p>
 <p><span class="math display">\[\eta^2_G = \frac{SS_{\text{perlakuan}}}{SS_{\text{perlakuan}} + SS_{\text{individu}} + SS_{\text{error}}}\]</span></p>
 <table class="caption-top">
 <colgroup>
@@ -544,24 +544,24 @@ Rizqy Amelia Zein
 <thead>
 <tr class="header">
 <th></th>
-<th>η²</th>
+<th>η²_p (<em>partial</em>)</th>
 <th>η²G (Generalisasi)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><strong>Penyebut</strong></td>
-<td>Hanya SS error</td>
+<td>SS perlakuan + SS error (mengecualikan SS individu)</td>
 <td>SS total termasuk SS individu</td>
 </tr>
 <tr class="even">
 <td><strong>Interpretasi</strong></td>
-<td>Bisa melebih-lebihkan ES</td>
+<td>Lebih besar karena SS individu tidak dihitung — bisa melebih-lebihkan ES bila dibandingkan lintas desain</td>
 <td>Lebih konservatif dan dapat dibandingkan antar desain</td>
 </tr>
 <tr class="odd">
 <td><strong>Rekomendasi</strong></td>
-<td>Kurang disarankan</td>
+<td>Kurang disarankan untuk perbandingan lintas studi</td>
 <td><strong>Lebih disarankan</strong> untuk perbandingan lintas studi</td>
 </tr>
 </tbody>

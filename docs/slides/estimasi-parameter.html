@@ -615,8 +615,22 @@ Rizqy Amelia Zein
 <section id="ci-untuk-mean-kembali-ke-contoh-mbg" class="slide level2">
 <h2>CI untuk <em>mean</em>: kembali ke contoh MBG</h2>
 <p>Dari contoh sebelumnya (n = 64, <span class="math inline">\(\bar{X}\)</span> = 97.5, SE = 1.5), hitung CI 95%:</p>
-<p><span class="math display">\[CI_{95\%} = 97.5 \pm 1.96 \times 1.5 = 97.5 \pm 2.94 = [94.56,\ 100.44]\]</span></p>
-<p>Interpretasi: Kita 95% yakin bahwa rata-rata skor IQ <strong>seluruh</strong> siswa SD penerima MBG di populasi yang diwakili sampel ini berada di antara <strong>94.6 hingga 100.4</strong>.</p>
+<p><span class="math display">\[CI_{95\%} = 97.5 \pm t_{kritis} \times 1.5\]</span></p>
+<p>Dengan df = 63, <span class="math inline">\(t_{kritis}\)</span> ≈ 2.00, sehingga: <span class="math inline">\(CI_{95\%} = 97.5 \pm 2.00 \times 1.5 = 97.5 \pm 3.00 = [94.50,\ 100.50]\)</span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Karena σ populasi tidak diketahui (kita gunakan <em>s</em>), rumus yang tepat menggunakan <em>t</em>-kritis dari distribusi <em>t</em> (bukan z = 1.96). Untuk n = 64 (df = 63), perbedaannya kecil — t ≈ 2.00 vs z = 1.96 — tetapi secara prinsip penting untuk menggunakan distribusi <em>t</em> yang benar.</p>
+</div>
+</div>
+</div>
+<p>Interpretasi: Kita 95% yakin bahwa rata-rata skor IQ <strong>seluruh</strong> siswa SD penerima MBG di populasi yang diwakili sampel ini berada di antara <strong>94.5 hingga 100.5</strong>.</p>
 <ul>
 <li>Apakah ini bukti bahwa MBG “berhasil”? <strong>Belum tentu</strong> — kita belum punya data pembanding (kelompok kontrol, atau rata-rata sebelum MBG). CI hanya memberi tahu kita seberapa presisi estimasi kita, bukan apakah efeknya nyata.</li>
 </ul>

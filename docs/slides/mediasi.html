@@ -180,10 +180,10 @@ Rizqy Amelia Zein
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Note</strong></p>
+<p><strong>Mediasi berbeda dari moderasi</strong></p>
 </div>
 <div class="callout-content">
-<p>Mediasi berbeda dari moderasi. <strong>Mediasi</strong> menjelaskan <em>mekanisme</em> hubungan X → Y. <strong>Moderasi</strong> menjelaskan <em>kondisi</em> di mana hubungan X → Y lebih kuat atau lebih lemah. Keduanya sering dikombinasikan dalam model <em>moderated mediation</em> atau <em>mediated moderation</em>.</p>
+<p><strong>Mediasi</strong> menjelaskan <em>mekanisme</em> hubungan X → Y. <strong>Moderasi</strong> menjelaskan <em>kondisi</em> di mana hubungan X → Y lebih kuat atau lebih lemah. Keduanya sering dikombinasikan dalam model <em>moderated mediation</em> atau <em>mediated moderation</em>.</p>
 </div>
 </div>
 </div>
@@ -250,18 +250,19 @@ Rizqy Amelia Zein
 <ol type="1">
 <li>Ambil sampel berulang (<em>bootstrap samples</em>) dari data asli <strong>dengan pengembalian</strong> — biasanya 5.000 atau 10.000 kali</li>
 <li>Hitung <em>indirect effect</em> (a×b) untuk setiap sampel</li>
-<li>Gunakan distribusi 5.000 nilai a×b untuk membangun <strong><em>confidence interval</em> (BC-CI)</strong> untuk <em>indirect effect</em></li>
+<li>Gunakan distribusi 5.000 nilai a×b untuk membangun <strong><em>bootstrap confidence interval</em></strong> untuk <em>indirect effect</em></li>
 </ol>
+<p>Ada beberapa jenis <em>bootstrap CI</em>: <strong>persentil CI</strong> (paling sederhana), <strong>BC-CI</strong> (<em>bias-corrected</em>), dan <strong>BCa-CI</strong> (<em>bias-corrected and accelerated</em>). <code>medmod</code> di <code>jamovi</code> menggunakan <strong>persentil CI</strong> secara <em>default</em>.</p>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Tip</strong></p>
+<p><strong>Interpretasi <em>bootstrapped</em> CI</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Jika 95% bootstrap CI untuk <em>indirect effect</em> tidak mencakup nol</strong>, kita memiliki bukti bahwa <em>indirect effect</em> secara statistik berbeda dari nol — tanpa perlu mengasumsikan normalitas. Ini adalah cara yang direkomendasikan untuk menguji signifikansi mediasi.</p>
+<p><strong>Jika 95% <em>bootstrap</em> persentil CI untuk <em>indirect effect</em> tidak mencakup nol</strong>, kita memiliki bukti bahwa <em>indirect effect</em> secara statistik berbeda dari nol — tanpa perlu mengasumsikan normalitas. Ini adalah cara yang direkomendasikan untuk menguji signifikansi mediasi.</p>
 </div>
 </div>
 </div>
@@ -325,7 +326,7 @@ Rizqy Amelia Zein
 <tr class="header">
 <th>Efek</th>
 <th>Koefisien</th>
-<th>95% BC-CI</th>
+<th>95% <em>Bootstrap</em> CI (persentil)</th>
 <th>Signifikan?</th>
 </tr>
 </thead>
@@ -420,7 +421,7 @@ Rizqy Amelia Zein
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Note</strong></p>
+<p><strong>Lalu bagaimana cara menguji mediasi?</strong></p>
 </div>
 <div class="callout-content">
 <p>Pengujian mediasi yang lebih baik membutuhkan desain <strong>longitudinal</strong> (X diukur sebelum M, M diukur sebelum Y) atau, yang terbaik, melalui <strong>eksperimen</strong> di mana X (dan M) dimanipulasi secara acak dan efeknya pada M dan Y diamati sepanjang waktu.</p>
@@ -429,8 +430,8 @@ Rizqy Amelia Zein
 </div>
 </div>
 </section>
-<section id="ketika-mediasi-cross-sectional-masih-berguna" class="slide level2">
-<h2>Ketika mediasi <em>cross-sectional</em> masih berguna</h2>
+<section id="kapan-mediasi-cross-sectional-masih-berguna" class="slide level2">
+<h2>Kapan mediasi <em>cross-sectional</em> masih berguna?</h2>
 <p>Meski terbatas secara kausal, analisis mediasi <em>cross-sectional</em> mungkin bisa bermakna jika:</p>
 <ul>
 <li>Digunakan untuk <strong>mengeksplorasi mekanisme</strong> yang akan diuji lebih lanjut dengan desain yang lebih kuat</li>
@@ -447,7 +448,7 @@ Rizqy Amelia Zein
 <p><strong>Cara yang disarankan untuk melaporkan mediasi <em>cross-sectional</em>:</strong></p>
 </div>
 <div class="callout-content">
-<p><em>“Hasil analisis bootstrapping menunjukkan indirect effect yang signifikan (a×b = −0.26, 95% BC-CI [−0.31, −0.21]), yang artinya ditemukan pola yang konsisten dengan model mediasi, di mana dukungan sosial mungkin memediasi hubungan antara beban akademik dan wellbeing. Namun, mengingat desain cross-sectional, interpretasi kausalitas tidak dapat dilakukan.”</em></p>
+<p><em>“Hasil analisis bootstrapping menunjukkan indirect effect yang signifikan (a×b = −0.26, 95% <em>bootstrap</em> persentil CI [−0.31, −0.21]), yang artinya ditemukan pola yang konsisten dengan model mediasi, di mana dukungan sosial mungkin memediasi hubungan antara beban akademik dan wellbeing. Namun, mengingat desain cross-sectional, interpretasi kausalitas tidak dapat dilakukan.”</em></p>
 </div>
 </div>
 </div>

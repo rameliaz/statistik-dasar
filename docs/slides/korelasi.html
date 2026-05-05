@@ -442,6 +442,19 @@ Rizqy Amelia Zein
 </ul>
 <p><span class="math display">\[\rho = 1 - \frac{6 \sum d_i^2}{n(n^2-1)}\]</span></p>
 <p>Di mana <span class="math inline">\(d_i\)</span> adalah selisih rank antara dua variabel untuk observasi ke-<span class="math inline">\(i\)</span>.</p>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>Rumus di atas adalah <strong>rumus singkat</strong> (<em>shortcut</em>) yang hanya berlaku apabila <strong>tidak ada <em>tied ranks</em></strong> (tidak ada dua observasi dengan nilai yang sama). Bila ada data yang nilainya sama (umum pada data ordinal seperti skala Likert), rumus ini memberikan hasil yang kurang tepat. Dalam kondisi tersebut, Spearman’s ρ dihitung sebagai korelasi Pearson yang diterapkan pada data yang sudah dikonversi ke <em>rank</em> — persis seperti yang dilakukan <code>jamovi</code> secara otomatis.</p>
+</div>
+</div>
+</div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">

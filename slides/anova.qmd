@@ -175,11 +175,12 @@ ANOVA yang signifikan hanya mengatakan "ada perbedaan di suatu tempat." *Post-ho
 
 **Dua pilihan utama di `jamovi`:**
 
-* **Tukey's HSD (*Honestly Significant Difference*)**: Seimbang antara *power* dan kontrol *Type I error* — cocok untuk kebanyakan kasus
+* **Tukey's HSD (*Honestly Significant Difference*)**: Seimbang antara *power* dan kontrol *Type I error* — cocok untuk kebanyakan kasus **jika asumsi homogenitas varians terpenuhi**
+* **Games-Howell**: Gunakan sebagai pengganti Tukey's HSD jika **Levene's test signifikan** (*p* < .05) — tidak mengasumsikan homogenitas varians
 * **Bonferroni correction**: Lebih konservatif — membagi α dengan jumlah perbandingan; lebih tepat jika ada *a priori* hipotesis spesifik
 
 ::: {.callout-note}
-Ada puluhan *post-hoc test* yang berbeda (Games-Howell, Scheffé, Dunnett, dll.). Pilih berdasarkan asumsi yang terpenuhi dan sifat pertanyaan penelitian — bukan berdasarkan mana yang memberikan *p-value* terkecil.
+Ada puluhan *post-hoc test* yang berbeda (Scheffé, Dunnett, dll.). Pilih berdasarkan asumsi yang terpenuhi: **Tukey's HSD** jika varians homogen, **Games-Howell** jika tidak. Jangan memilih berdasarkan mana yang memberikan *p-value* terkecil.
 :::
 
 ## Hasil *post-hoc test*: studi Ferguso

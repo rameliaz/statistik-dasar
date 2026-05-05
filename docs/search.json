@@ -53,7 +53,7 @@
     "href": "slides/moderasi.html#model-comparison",
     "title": "Analisis Moderasi",
     "section": "Model comparison",
-    "text": "Model comparison\n\n\nKetika dibandingkan, Model 1 dan Model 2 berbeda signifikan (F(1,397) = 29.5, p = .001). ΔR2 = .122, artinya penambahan suku interaksi meningkatkan kemampuan model menjelaskan varians sebesar 12.2%.\nCoba perhatikan Residuals Model 1 dengan Model 2"
+    "text": "Model comparison\n\n\nKetika dibandingkan, Model 1 dan Model 2 berbeda signifikan (F(1,397) = 29.5, p = .001). ΔR2 = .128, artinya penambahan suku interaksi meningkatkan kemampuan model menjelaskan varians sebesar 12.8%.\nCoba perhatikan Residuals Model 1 dengan Model 2"
   },
   {
     "objectID": "slides/moderasi.html#koefisien-model-2",
@@ -74,14 +74,14 @@
     "href": "slides/moderasi.html#estimated-marginal-means-1",
     "title": "Analisis Moderasi",
     "section": "Estimated Marginal Means",
-    "text": "Estimated Marginal Means\nSeandainya suku interaksi signifikan, lihat tanda slope-nya:\n\nB interaksi positif → pada ibu dengan trust tinggi (+1SD), hubungan neuroticism–kemandirian semakin menguat\nB interaksi negatif → pada ibu dengan trust tinggi (+1SD), hubungan neuroticism–kemandirian semakin melemah\n\n\n\n\n\n\n\nVisualisasi interaksi\n\n\nGaris regresi yang berpotongan (crossed) menunjukkan interaksi ordinal (arah efek berbalik). Garis yang menyebar tanpa berpotongan (divergent) menunjukkan interaksi disordinal (kekuatan berbeda, arah sama)."
+    "text": "Estimated Marginal Means\nSeandainya suku interaksi signifikan, lihat tanda slope-nya:\n\nB interaksi positif → pada ibu dengan trust tinggi (+1SD), hubungan neuroticism–kemandirian semakin menguat\nB interaksi negatif → pada ibu dengan trust tinggi (+1SD), hubungan neuroticism–kemandirian semakin melemah\n\n\n\n\n\n\n\nVisualisasi interaksi\n\n\nGaris regresi yang berpotongan (crossed) menunjukkan interaksi disordinal (arah efek berbalik di titik persilangan). Garis yang menyebar tanpa berpotongan (divergent) menunjukkan interaksi ordinal (arah efek sama, hanya kekuatannya berbeda)."
   },
   {
     "objectID": "slides/moderasi.html#diagnostik-kolinearitas",
     "href": "slides/moderasi.html#diagnostik-kolinearitas",
     "title": "Analisis Moderasi",
     "section": "Diagnostik kolinearitas",
-    "text": "Diagnostik kolinearitas\n\n\n\nDapat dideteksi dengan variance inflated factors (VIF)\n\nVIF &lt; 5 → multikolinearitas tidak terjadi\n\nPenelitian longitudinal punya potensi autokorelasi (residual time 1 dan time 2 berkorelasi)\n\nDicek dengan tes Durbin-Watson\np &gt; .05 → autokorelasi tidak terjadi\nUntuk data cross-sectional, autokorelasi umumnya tidak relevan"
+    "text": "Diagnostik kolinearitas\n\n\n\nDapat dideteksi dengan variance inflated factors (VIF)\n\nVIF &lt; 5 → multikolinearitas tidak terjadi\n\nPenelitian longitudinal punya potensi autokorelasi (residual time 1 dan time 2 berkorelasi)\n\nDicek dengan statistik Durbin-Watson (DW), yang berkisar antara 0–4\nDW ≈ 2 → tidak ada autokorelasi; DW &lt; 2 → autokorelasi positif; DW &gt; 2 → autokorelasi negatif\nAturan praktis: DW antara 1.5–2.5 umumnya dianggap tidak bermasalah\nUntuk data cross-sectional, autokorelasi umumnya tidak relevan"
   },
   {
     "objectID": "slides/moderasi.html#melaporkan-hasil-ols-dengan-suku-interaksi-1",
@@ -291,7 +291,7 @@
     "href": "slides/anova-rm.html#η²-dan-η²-generalisasi-η²g",
     "title": "ANOVA Pengukuran Berulang",
     "section": "η² dan η² Generalisasi (η²G)",
-    "text": "η² dan η² Generalisasi (η²G)\nUntuk RM-ANOVA, ada dua ukuran effect size yang relevan:\n\\[\\eta^2 = \\frac{SS_{\\text{perlakuan}}}{SS_{\\text{perlakuan}} + SS_{\\text{error}}}\\]\n\\[\\eta^2_G = \\frac{SS_{\\text{perlakuan}}}{SS_{\\text{perlakuan}} + SS_{\\text{individu}} + SS_{\\text{error}}}\\]\n\n\n\n\n\n\n\n\n\nη²\nη²G (Generalisasi)\n\n\n\n\nPenyebut\nHanya SS error\nSS total termasuk SS individu\n\n\nInterpretasi\nBisa melebih-lebihkan ES\nLebih konservatif dan dapat dibandingkan antar desain\n\n\nRekomendasi\nKurang disarankan\nLebih disarankan untuk perbandingan lintas studi\n\n\n\n\n\n\n\n\n\nTip\n\n\nGunakan η²G jika kalian ingin membandingkan effect size studi RM dengan studi between-subjects — η²G lebih stabil dan dapat digeneralisasi. Konvensi Cohen (kecil: .01, sedang: .06, besar: .14) berlaku untuk keduanya."
+    "text": "η² dan η² Generalisasi (η²G)\nUntuk RM-ANOVA, ada dua ukuran effect size yang relevan:\n\\[\\eta^2_p = \\frac{SS_{\\text{perlakuan}}}{SS_{\\text{perlakuan}} + SS_{\\text{error}}}\\]\n\\[\\eta^2_G = \\frac{SS_{\\text{perlakuan}}}{SS_{\\text{perlakuan}} + SS_{\\text{individu}} + SS_{\\text{error}}}\\]\n\n\n\n\n\n\n\n\n\nη²_p (partial)\nη²G (Generalisasi)\n\n\n\n\nPenyebut\nSS perlakuan + SS error (mengecualikan SS individu)\nSS total termasuk SS individu\n\n\nInterpretasi\nLebih besar karena SS individu tidak dihitung — bisa melebih-lebihkan ES bila dibandingkan lintas desain\nLebih konservatif dan dapat dibandingkan antar desain\n\n\nRekomendasi\nKurang disarankan untuk perbandingan lintas studi\nLebih disarankan untuk perbandingan lintas studi\n\n\n\n\n\n\n\n\n\nTip\n\n\nGunakan η²G jika kalian ingin membandingkan effect size studi RM dengan studi between-subjects — η²G lebih stabil dan dapat digeneralisasi. Konvensi Cohen (kecil: .01, sedang: .06, besar: .14) berlaku untuk keduanya."
   },
   {
     "objectID": "slides/anova-rm.html#perbandingan-berpasangan-bonferroni",
@@ -347,7 +347,7 @@
     "href": "slides/mediasi.html#mediasi-bagaimana-dan-mengapa",
     "title": "Analisis Mediasi",
     "section": "Mediasi: “bagaimana” dan “mengapa”",
-    "text": "Mediasi: “bagaimana” dan “mengapa”\nMediasi menjelaskan mekanisme di balik hubungan antara dua variabel — bagaimana atau mengapa variabel X memengaruhi variabel Y.\nContoh: Mengapa status sosial-ekonomi (X) berhubungan dengan prestasi akademik (Y)?\n\nMungkin karena SES yang lebih tinggi → akses lebih baik ke sumber belajar (M) → prestasi lebih baik (Y)\nVariabel M (akses sumber belajar) adalah mediator\n\n\n\n\n\n\n\nNote\n\n\nMediasi berbeda dari moderasi. Mediasi menjelaskan mekanisme hubungan X → Y. Moderasi menjelaskan kondisi di mana hubungan X → Y lebih kuat atau lebih lemah. Keduanya sering dikombinasikan dalam model moderated mediation atau mediated moderation."
+    "text": "Mediasi: “bagaimana” dan “mengapa”\nMediasi menjelaskan mekanisme di balik hubungan antara dua variabel — bagaimana atau mengapa variabel X memengaruhi variabel Y.\nContoh: Mengapa status sosial-ekonomi (X) berhubungan dengan prestasi akademik (Y)?\n\nMungkin karena SES yang lebih tinggi → akses lebih baik ke sumber belajar (M) → prestasi lebih baik (Y)\nVariabel M (akses sumber belajar) adalah mediator\n\n\n\n\n\n\n\nMediasi berbeda dari moderasi\n\n\nMediasi menjelaskan mekanisme hubungan X → Y. Moderasi menjelaskan kondisi di mana hubungan X → Y lebih kuat atau lebih lemah. Keduanya sering dikombinasikan dalam model moderated mediation atau mediated moderation."
   },
   {
     "objectID": "slides/mediasi.html#model-mediasi-sederhana-simple-mediation",
@@ -368,7 +368,7 @@
     "href": "slides/mediasi.html#bootstrapping-pendekatan-modern",
     "title": "Analisis Mediasi",
     "section": "Bootstrapping: pendekatan modern",
-    "text": "Bootstrapping: pendekatan modern\nBootstrapping adalah metode resampling yang mengestimasi distribusi indirect effect (a×b) langsung dari data, tanpa mengasumsikan distribusi normal.\nCara kerjanya:\n\nAmbil sampel berulang (bootstrap samples) dari data asli dengan pengembalian — biasanya 5.000 atau 10.000 kali\nHitung indirect effect (a×b) untuk setiap sampel\nGunakan distribusi 5.000 nilai a×b untuk membangun confidence interval (BC-CI) untuk indirect effect\n\n\n\n\n\n\n\nTip\n\n\nJika 95% bootstrap CI untuk indirect effect tidak mencakup nol, kita memiliki bukti bahwa indirect effect secara statistik berbeda dari nol — tanpa perlu mengasumsikan normalitas. Ini adalah cara yang direkomendasikan untuk menguji signifikansi mediasi."
+    "text": "Bootstrapping: pendekatan modern\nBootstrapping adalah metode resampling yang mengestimasi distribusi indirect effect (a×b) langsung dari data, tanpa mengasumsikan distribusi normal.\nCara kerjanya:\n\nAmbil sampel berulang (bootstrap samples) dari data asli dengan pengembalian — biasanya 5.000 atau 10.000 kali\nHitung indirect effect (a×b) untuk setiap sampel\nGunakan distribusi 5.000 nilai a×b untuk membangun bootstrap confidence interval untuk indirect effect\n\nAda beberapa jenis bootstrap CI: persentil CI (paling sederhana), BC-CI (bias-corrected), dan BCa-CI (bias-corrected and accelerated). medmod di jamovi menggunakan persentil CI secara default.\n\n\n\n\n\n\nInterpretasi bootstrapped CI\n\n\nJika 95% bootstrap persentil CI untuk indirect effect tidak mencakup nol, kita memiliki bukti bahwa indirect effect secara statistik berbeda dari nol — tanpa perlu mengasumsikan normalitas. Ini adalah cara yang direkomendasikan untuk menguji signifikansi mediasi."
   },
   {
     "objectID": "slides/mediasi.html#memasang-modul-medmod-di-jamovi",
@@ -389,7 +389,7 @@
     "href": "slides/mediasi.html#membaca-output-mediasi",
     "title": "Analisis Mediasi",
     "section": "Membaca output mediasi",
-    "text": "Membaca output mediasi\nRingkasan hasil yang diharapkan:\n\n\n\n\n\n\n\n\n\nEfek\nKoefisien\n95% BC-CI\nSignifikan?\n\n\n\n\nTotal effect (c)\n−0.42\n[−0.49, −0.36]\nYa\n\n\nDirect effect (c’)\n−0.16\n[−0.23, −0.09]\nYa\n\n\nIndirect effect (a×b)\n−0.26\n[−0.31, −0.21]\nYa\n\n\n\nInterpretasi: Beban akademik menurunkan wellbeing (total c = −0.42). Sebagian efek ini dimediasi melalui berkurangnya dukungan sosial yang dipersepsi (indirect a×b = −0.26, 95% CI tidak mencakup nol). Namun masih ada direct effect yang signifikan (c’ = −0.16), menunjukkan mediasi parsial."
+    "text": "Membaca output mediasi\nRingkasan hasil yang diharapkan:\n\n\n\n\n\n\n\n\n\nEfek\nKoefisien\n95% Bootstrap CI (persentil)\nSignifikan?\n\n\n\n\nTotal effect (c)\n−0.42\n[−0.49, −0.36]\nYa\n\n\nDirect effect (c’)\n−0.16\n[−0.23, −0.09]\nYa\n\n\nIndirect effect (a×b)\n−0.26\n[−0.31, −0.21]\nYa\n\n\n\nInterpretasi: Beban akademik menurunkan wellbeing (total c = −0.42). Sebagian efek ini dimediasi melalui berkurangnya dukungan sosial yang dipersepsi (indirect a×b = −0.26, 95% CI tidak mencakup nol). Namun masih ada direct effect yang signifikan (c’ = −0.16), menunjukkan mediasi parsial."
   },
   {
     "objectID": "slides/mediasi.html#proporsi-mediasi",
@@ -410,14 +410,14 @@
     "href": "slides/mediasi.html#contoh-masalah-temporal-ordering",
     "title": "Analisis Mediasi",
     "section": "Contoh masalah temporal ordering",
-    "text": "Contoh masalah temporal ordering\nKembali ke contoh beban akademik → dukungan sosial → wellbeing:\nKita ukur ketiga variabel dalam satu survei pada hari yang sama. Mungkin saja:\n\nMahasiswa dengan wellbeing yang rendah lebih cenderung merasakan beban sebagai berat dan dukungan sebagai kurang (Y memengaruhi persepsi terhadap X dan M)\nDukungan sosial yang rendah menyebabkan mahasiswa mengambil lebih banyak mata kuliah untuk “mengisi waktu” (M → X, bukan X → M)\n\n\n\n\n\n\n\nNote\n\n\nPengujian mediasi yang lebih baik membutuhkan desain longitudinal (X diukur sebelum M, M diukur sebelum Y) atau, yang terbaik, melalui eksperimen di mana X (dan M) dimanipulasi secara acak dan efeknya pada M dan Y diamati sepanjang waktu.\nMeskipun, pengujian secara longitudinal hanya bisa mengendalikan confounding yang time-invariant saja. Apabila variabel cofounding berubah sepanjang waktu, maka desain longitudinal tidak bisa mengendalikan efek confounding."
+    "text": "Contoh masalah temporal ordering\nKembali ke contoh beban akademik → dukungan sosial → wellbeing:\nKita ukur ketiga variabel dalam satu survei pada hari yang sama. Mungkin saja:\n\nMahasiswa dengan wellbeing yang rendah lebih cenderung merasakan beban sebagai berat dan dukungan sebagai kurang (Y memengaruhi persepsi terhadap X dan M)\nDukungan sosial yang rendah menyebabkan mahasiswa mengambil lebih banyak mata kuliah untuk “mengisi waktu” (M → X, bukan X → M)\n\n\n\n\n\n\n\nLalu bagaimana cara menguji mediasi?\n\n\nPengujian mediasi yang lebih baik membutuhkan desain longitudinal (X diukur sebelum M, M diukur sebelum Y) atau, yang terbaik, melalui eksperimen di mana X (dan M) dimanipulasi secara acak dan efeknya pada M dan Y diamati sepanjang waktu.\nMeskipun, pengujian secara longitudinal hanya bisa mengendalikan confounding yang time-invariant saja. Apabila variabel cofounding berubah sepanjang waktu, maka desain longitudinal tidak bisa mengendalikan efek confounding."
   },
   {
-    "objectID": "slides/mediasi.html#ketika-mediasi-cross-sectional-masih-berguna",
-    "href": "slides/mediasi.html#ketika-mediasi-cross-sectional-masih-berguna",
+    "objectID": "slides/mediasi.html#kapan-mediasi-cross-sectional-masih-berguna",
+    "href": "slides/mediasi.html#kapan-mediasi-cross-sectional-masih-berguna",
     "title": "Analisis Mediasi",
-    "section": "Ketika mediasi cross-sectional masih berguna",
-    "text": "Ketika mediasi cross-sectional masih berguna\nMeski terbatas secara kausal, analisis mediasi cross-sectional mungkin bisa bermakna jika:\n\nDigunakan untuk mengeksplorasi mekanisme yang akan diuji lebih lanjut dengan desain yang lebih kuat\nDikombinasikan dengan argumen teoritis yang kuat tentang urutan temporal\nVariabel X adalah atribut stabil atau manipulasi eksperimental (bukan variabel yang berfluktuasi)\nDisajikan dengan language yang jujur — “konsisten dengan mediasi” bukan “membuktikan mediasi”\n\n\n\n\n\n\n\nCara yang disarankan untuk melaporkan mediasi cross-sectional:\n\n\n“Hasil analisis bootstrapping menunjukkan indirect effect yang signifikan (a×b = −0.26, 95% BC-CI [−0.31, −0.21]), yang artinya ditemukan pola yang konsisten dengan model mediasi, di mana dukungan sosial mungkin memediasi hubungan antara beban akademik dan wellbeing. Namun, mengingat desain cross-sectional, interpretasi kausalitas tidak dapat dilakukan.”"
+    "section": "Kapan mediasi cross-sectional masih berguna?",
+    "text": "Kapan mediasi cross-sectional masih berguna?\nMeski terbatas secara kausal, analisis mediasi cross-sectional mungkin bisa bermakna jika:\n\nDigunakan untuk mengeksplorasi mekanisme yang akan diuji lebih lanjut dengan desain yang lebih kuat\nDikombinasikan dengan argumen teoritis yang kuat tentang urutan temporal\nVariabel X adalah atribut stabil atau manipulasi eksperimental (bukan variabel yang berfluktuasi)\nDisajikan dengan language yang jujur — “konsisten dengan mediasi” bukan “membuktikan mediasi”\n\n\n\n\n\n\n\nCara yang disarankan untuk melaporkan mediasi cross-sectional:\n\n\n“Hasil analisis bootstrapping menunjukkan indirect effect yang signifikan (a×b = −0.26, 95% bootstrap persentil CI [−0.31, −0.21]), yang artinya ditemukan pola yang konsisten dengan model mediasi, di mana dukungan sosial mungkin memediasi hubungan antara beban akademik dan wellbeing. Namun, mengingat desain cross-sectional, interpretasi kausalitas tidak dapat dilakukan.”"
   },
   {
     "objectID": "slides/mediasi.html#apa-itu-collider",
@@ -487,7 +487,7 @@
     "href": "slides/ancova.html#asumsi-tambahan-di-atas-asumsi-anova",
     "title": "ANCOVA",
     "section": "Asumsi tambahan di atas asumsi ANOVA",
-    "text": "Asumsi tambahan di atas asumsi ANOVA\nANCOVA mewarisi semua asumsi ANOVA (normalitas residual, homogenitas varians, independensi observasi), plus dua asumsi tambahan:\n\n\n1. Homogenitas slope regresi\nSlope regresi antara kovariat dan variabel dependen harus serupa di semua kelompok perlakuan.\nJika asumsi ini dilanggar (interaksi kovariat × perlakuan signifikan), ANCOVA biasa tidak tepat digunakan — perlu dipertimbangkan model dengan interaksi.\n\n2. Independensi kovariat dari faktor perlakuan\nMean kovariat harus homogen antar kelompok perlakuan — artinya, kovariat tidak berbeda antar kelompok secara sistematis.\nPeriksa dengan membandingkan mean kovariat antar kelompok (secara deskriptif atau ANOVA satu arah pada kovariat).\n\n\n\n\n\n\n\nImportant\n\n\nJangan menggunakan kovariat yang diukur setelah intervensi dimulai (post-treatment covariate) — ini bisa mengintroduksikan bias yang serius karena perlakuan mungkin sudah memengaruhi kovariat tersebut."
+    "text": "Asumsi tambahan di atas asumsi ANOVA\nANCOVA mewarisi semua asumsi ANOVA (normalitas residual, homogenitas varians, independensi observasi), plus dua asumsi tambahan:\n\n\n1. Homogenitas slope regresi\nSlope regresi antara kovariat dan variabel dependen harus serupa di semua kelompok perlakuan.\nJika asumsi ini dilanggar (interaksi kovariat × perlakuan signifikan), ANCOVA biasa tidak tepat digunakan — perlu dipertimbangkan model dengan interaksi.\n\n2. Independensi kovariat dari faktor perlakuan\nDalam studi eksperimental (dengan randomisasi), kovariat seharusnya tidak berbeda antar kelompok secara sistematis karena alokasi acak menyeimbangkan semua variabel. Jika kovariat berbeda antar kelompok secara substansial, ini mengindikasikan kegagalan randomisasi.\nDalam studi observasional, kovariat bisa saja berkorelasi dengan kelompok — ini tidak membatalkan ANCOVA secara statistik, tetapi mempersulit interpretasi kausal.\nPeriksa dengan membandingkan mean kovariat antar kelompok secara deskriptif.\n\n\n\n\n\n\n\nImportant\n\n\nJangan menggunakan kovariat yang diukur setelah intervensi dimulai (post-treatment covariate) — ini bisa mengintroduksikan bias yang serius karena perlakuan mungkin sudah memengaruhi kovariat tersebut."
   },
   {
     "objectID": "slides/ancova.html#langkah-ancova-di-jamovi",
@@ -522,7 +522,7 @@
     "href": "slides/ancova.html#gpower-untuk-ancova",
     "title": "ANCOVA",
     "section": "G*Power untuk ANCOVA",
-    "text": "G*Power untuk ANCOVA\nANCOVA menggunakan F tests yang sama dengan ANOVA, dengan parameter tambahan untuk jumlah kovariat.\nLangkah di G*Power:\n\nTest family  F tests\nStatistical test  ANCOVA: Fixed effects, main effects and interactions\nType of power analysis  A priori\nMasukkan: Effect size f = 0.2, α = 0.05, Power = 0.80\nMasukkan: Number of groups = 3, Number of covariates = 1\nKlik Calculate\n\nHasilnya berbeda dari ANOVA biasa karena satu df digunakan untuk kovariat, sehingga diperlukan sedikit lebih banyak sampel dibanding ANOVA tanpa kovariat.\n\n\n\n\n\n\nTip\n\n\nManfaat nyata ANCOVA dalam hal power terlihat ketika kovariat berkorelasi kuat dengan variabel dependen (r &gt; 0.4). Dalam kondisi tersebut, ANCOVA dapat secara substansial mengurangi error variance dan meningkatkan power — bahkan dengan sampel yang lebih kecil dari ANOVA biasa."
+    "text": "G*Power untuk ANCOVA\nANCOVA menggunakan F tests yang sama dengan ANOVA, dengan parameter tambahan untuk jumlah kovariat.\nLangkah di G*Power:\n\nTest family  F tests\nStatistical test  ANCOVA: Fixed effects, main effects and interactions\nType of power analysis  A priori\nMasukkan: Effect size f = 0.2, α = 0.05, Power = 0.80\nMasukkan: Number of groups = 3, Number of covariates = 1\nKlik Calculate\n\nHasilnya berbeda dari ANOVA biasa karena satu df digunakan untuk kovariat. Apabila kovariat tidak berkorelasi dengan variabel dependen, ANCOVA sedikit kehilangan df tanpa keuntungan pengurangan error — sehingga membutuhkan sedikit lebih banyak sampel. Namun bila kovariat berkorelasi kuat (r &gt; 0.4), ANCOVA biasanya membutuhkan lebih sedikit sampel karena mengurangi error variance secara substansial.\n\n\n\n\n\n\nTip\n\n\nManfaat nyata ANCOVA dalam hal power terlihat ketika kovariat berkorelasi kuat dengan variabel dependen (r &gt; 0.4). Dalam kondisi tersebut, ANCOVA dapat secara substansial mengurangi error variance dan meningkatkan power — bahkan dengan sampel yang lebih kecil dari ANOVA biasa."
   },
   {
     "objectID": "slides/ancova.html#latihan-ancova-di-jamovi",
@@ -620,7 +620,7 @@
     "href": "slides/korelasi.html#kapan-menggunakan-spearmans-ρ",
     "title": "Korelasi",
     "section": "Kapan menggunakan Spearman’s ρ?",
-    "text": "Kapan menggunakan Spearman’s ρ?\nKorelasi Spearman menggunakan rank alih-alih nilai asli, sehingga lebih robust untuk:\n\nVariabel ordinal (skala Likert, peringkat)\nData yang tidak berdistribusi normal\nData dengan outlier yang signifikan\nHubungan monoton tapi tidak linear (keduanya naik bersama, tapi tidak proporsional)\n\n\\[\\rho = 1 - \\frac{6 \\sum d_i^2}{n(n^2-1)}\\]\nDi mana \\(d_i\\) adalah selisih rank antara dua variabel untuk observasi ke-\\(i\\).\n\n\n\n\n\n\nTip\n\n\nJika data memenuhi asumsi Pearson (normalitas, linear), gunakan Pearson karena power-nya sedikit lebih tinggi. Jika tidak, Spearman adalah pilihan yang lebih aman. Ketika Pearson dan Spearman memberikan kesimpulan yang berbeda, curigai adanya outlier atau hubungan non-linear."
+    "text": "Kapan menggunakan Spearman’s ρ?\nKorelasi Spearman menggunakan rank alih-alih nilai asli, sehingga lebih robust untuk:\n\nVariabel ordinal (skala Likert, peringkat)\nData yang tidak berdistribusi normal\nData dengan outlier yang signifikan\nHubungan monoton tapi tidak linear (keduanya naik bersama, tapi tidak proporsional)\n\n\\[\\rho = 1 - \\frac{6 \\sum d_i^2}{n(n^2-1)}\\]\nDi mana \\(d_i\\) adalah selisih rank antara dua variabel untuk observasi ke-\\(i\\).\n\n\n\n\n\n\nImportant\n\n\nRumus di atas adalah rumus singkat (shortcut) yang hanya berlaku apabila tidak ada tied ranks (tidak ada dua observasi dengan nilai yang sama). Bila ada data yang nilainya sama (umum pada data ordinal seperti skala Likert), rumus ini memberikan hasil yang kurang tepat. Dalam kondisi tersebut, Spearman’s ρ dihitung sebagai korelasi Pearson yang diterapkan pada data yang sudah dikonversi ke rank — persis seperti yang dilakukan jamovi secara otomatis.\n\n\n\n\n\n\n\n\n\nTip\n\n\nJika data memenuhi asumsi Pearson (normalitas, linear), gunakan Pearson karena power-nya sedikit lebih tinggi. Jika tidak, Spearman adalah pilihan yang lebih aman. Ketika Pearson dan Spearman memberikan kesimpulan yang berbeda, curigai adanya outlier atau hubungan non-linear."
   },
   {
     "objectID": "slides/korelasi.html#latihan-korelasi-spearman-di-jamovi",
@@ -1110,7 +1110,7 @@
     "href": "slides/statistik-deskriptif.html#cara-memeriksa-normalitas",
     "title": "Statistik Deskriptif",
     "section": "Cara memeriksa normalitas",
-    "text": "Cara memeriksa normalitas\n1. Inspeksi visual\n\nHistogram dan density plot — apakah berbentuk bell-shaped?\nSkewness ± 2 dan kurtosis ± 2 → data dianggap cukup normal\n\n2. Uji Shapiro-Wilk\n\nUji normalitas yang paling umum digunakan\nHasilnya reliable untuk sampel kecil hingga sedang (N &lt; ~2000)\nData dianggap normal apabila p &gt; 0.05\nKelemahan: pada sampel sangat besar, hampir selalu signifikan meskipun penyimpangan dari normalitas sangat kecil\n\n3. Uji Kolmogorov-Smirnov (1 K-S)\n\nHanya disarankan untuk sampel yang sangat kecil\nCenderung memberikan hasil misleading — tidak direkomendasikan untuk penggunaan umum"
+    "text": "Cara memeriksa normalitas\n1. Inspeksi visual\n\nHistogram dan density plot — apakah berbentuk bell-shaped?\nSkewness ± 2 dan kurtosis ± 2 → data dianggap cukup normal\n\n2. Uji Shapiro-Wilk\n\nUji normalitas yang paling umum digunakan\nHasilnya reliable untuk sampel kecil hingga sedang (N &lt; ~2000)\nData dianggap normal apabila p &gt; 0.05\nKelemahan: pada sampel sangat besar, hampir selalu signifikan meskipun penyimpangan dari normalitas sangat kecil\n\n3. Uji Kolmogorov-Smirnov (1 K-S)\n\nVersi standar (tanpa koreksi Lilliefors) cenderung memberikan hasil misleading — tidak direkomendasikan untuk penggunaan umum\nJustru kurang reliabel pada sampel kecil (daya uji/power rendah); Shapiro-Wilk adalah pilihan yang lebih baik untuk sampel kecil hingga sedang\nVersi dengan koreksi Lilliefors (tersedia di beberapa software) lebih dapat diandalkan, namun Shapiro-Wilk tetap lebih disarankan di kebanyakan konteks"
   },
   {
     "objectID": "slides/statistik-deskriptif.html#anderson-darling-test",
@@ -1257,7 +1257,7 @@
     "href": "slides/estimasi-parameter.html#ci-untuk-mean-kembali-ke-contoh-mbg",
     "title": "Mengestimasi Parameter Populasi",
     "section": "CI untuk mean: kembali ke contoh MBG",
-    "text": "CI untuk mean: kembali ke contoh MBG\nDari contoh sebelumnya (n = 64, \\(\\bar{X}\\) = 97.5, SE = 1.5), hitung CI 95%:\n\\[CI_{95\\%} = 97.5 \\pm 1.96 \\times 1.5 = 97.5 \\pm 2.94 = [94.56,\\ 100.44]\\]\nInterpretasi: Kita 95% yakin bahwa rata-rata skor IQ seluruh siswa SD penerima MBG di populasi yang diwakili sampel ini berada di antara 94.6 hingga 100.4.\n\nApakah ini bukti bahwa MBG “berhasil”? Belum tentu — kita belum punya data pembanding (kelompok kontrol, atau rata-rata sebelum MBG). CI hanya memberi tahu kita seberapa presisi estimasi kita, bukan apakah efeknya nyata."
+    "text": "CI untuk mean: kembali ke contoh MBG\nDari contoh sebelumnya (n = 64, \\(\\bar{X}\\) = 97.5, SE = 1.5), hitung CI 95%:\n\\[CI_{95\\%} = 97.5 \\pm t_{kritis} \\times 1.5\\]\nDengan df = 63, \\(t_{kritis}\\) ≈ 2.00, sehingga: \\(CI_{95\\%} = 97.5 \\pm 2.00 \\times 1.5 = 97.5 \\pm 3.00 = [94.50,\\ 100.50]\\)\n\n\n\n\n\n\nNote\n\n\nKarena σ populasi tidak diketahui (kita gunakan s), rumus yang tepat menggunakan t-kritis dari distribusi t (bukan z = 1.96). Untuk n = 64 (df = 63), perbedaannya kecil — t ≈ 2.00 vs z = 1.96 — tetapi secara prinsip penting untuk menggunakan distribusi t yang benar.\n\n\n\nInterpretasi: Kita 95% yakin bahwa rata-rata skor IQ seluruh siswa SD penerima MBG di populasi yang diwakili sampel ini berada di antara 94.5 hingga 100.5.\n\nApakah ini bukti bahwa MBG “berhasil”? Belum tentu — kita belum punya data pembanding (kelompok kontrol, atau rata-rata sebelum MBG). CI hanya memberi tahu kita seberapa presisi estimasi kita, bukan apakah efeknya nyata."
   },
   {
     "objectID": "slides/estimasi-parameter.html#ci-untuk-proporsi-kembali-ke-contoh-pilwali-surabaya",
@@ -1313,7 +1313,7 @@
     "href": "slides/t-test.html#statistik-uji-t",
     "title": "T-Test",
     "section": "Statistik uji t",
-    "text": "Statistik uji t\nLogika dasar semua t-test:\n\\[t = \\frac{\\text{perbedaan yang diamati}}{\\text{standard error perbedaan}}\\]\nMakin besar perbedaan relatif terhadap variabilitasnya → nilai t makin besar → p-value makin kecil.\nDegrees of freedom (df) menentukan bentuk distribusi t:\n\nOne-sample: df = n − 1\nPaired samples: df = n − 1 (n = jumlah pasang)\nIndependent samples: df = n₁ + n₂ − 2 (atau Welch’s df yang lebih kompleks)"
+    "text": "Statistik uji t\nLogika dasar semua t-test:\n\\[t = \\frac{\\text{perbedaan yang diamati}}{\\text{standard error perbedaan}}\\]\nMakin besar perbedaan relatif terhadap variabilitasnya → nilai t makin besar → p-value makin kecil.\nDegrees of freedom (df) menentukan bentuk distribusi t:\n\nOne-sample: df = n − 1\nPaired samples: df = n − 1 (n = jumlah pasang)\nIndependent samples: df = n₁ + n₂ − 2 untuk Student’s t (asumsi varians homogen); df Welch lebih kecil dan bukan bilangan bulat (dihitung otomatis oleh software)"
   },
   {
     "objectID": "slides/t-test.html#kasus-esmeralda-dan-ujian-sapsi",
@@ -1383,7 +1383,7 @@
     "href": "slides/t-test.html#welchs-t-test-solusi-heterogenitas-varians",
     "title": "T-Test",
     "section": "Welch’s t-test: solusi heterogenitas varians",
-    "text": "Welch’s t-test: solusi heterogenitas varians\nJika Levene’s test signifikan (varians tidak homogen), gunakan Welch’s t-test sebagai pengganti:\n\\[t_{\\text{Welch}} = \\frac{\\bar{X}_1 - \\bar{X}_2}{\\sqrt{\\frac{s_1^2}{n_1} + \\frac{s_2^2}{n_2}}}\\]\n\nWelch’s t-test tidak mengasumsikan homogenitas varians\nDegrees of freedom dihitung dengan rumus Welch-Satterthwaite (lebih kompleks)\nRekomendasi praktis: gunakan Welch’s t-test secara default — ia memberikan hasil yang sama dengan t-test biasa ketika varians homogen, dan lebih akurat ketika tidak\n\n\n\n\n\n\n\nTip\n\n\nDi jamovi, Welch’s correction adalah pilihan default untuk independent samples t-test. Anda bisa melihat kedua versi (Student’s dan Welch’s) secara bersamaan untuk membandingkan hasilnya."
+    "text": "Welch’s t-test: solusi heterogenitas varians\nJika Levene’s test signifikan (varians tidak homogen), gunakan Welch’s t-test sebagai pengganti:\n\\[t_{\\text{Welch}} = \\frac{\\bar{X}_1 - \\bar{X}_2}{\\sqrt{\\frac{s_1^2}{n_1} + \\frac{s_2^2}{n_2}}}\\]\n\nWelch’s t-test tidak mengasumsikan homogenitas varians\nDegrees of freedom dihitung dengan rumus Welch-Satterthwaite (lebih kompleks)\nRekomendasi praktis: gunakan Welch’s t-test secara default — ia memberikan hasil yang sama dengan t-test biasa ketika varians homogen, dan lebih akurat ketika tidak\n\n\n\n\n\n\n\nTip\n\n\nDi jamovi, Welch’s correction adalah pilihan default untuk independent samples t-test. Karena Welch menggunakan rumus Welch-Satterthwaite untuk df (hasilnya berupa angka desimal, lebih kecil dari n₁+n₂−2), selalu laporkan df yang ditampilkan di output jamovi — jangan hitung manual dengan n₁+n₂−2 jika menggunakan Welch’s."
   },
   {
     "objectID": "slides/t-test.html#normalitas-seberapa-ketat",
@@ -1502,7 +1502,7 @@
     "href": "slides/anova.html#mengapa-perlu-post-hoc-test",
     "title": "ANOVA",
     "section": "Mengapa perlu post-hoc test?",
-    "text": "Mengapa perlu post-hoc test?\nANOVA yang signifikan hanya mengatakan “ada perbedaan di suatu tempat.” Post-hoc test mengidentifikasi pasangan kelompok mana yang berbeda secara signifikan, sambil mengontrol Type I error.\nDua pilihan utama di jamovi:\n\nTukey’s HSD (Honestly Significant Difference): Seimbang antara power dan kontrol Type I error — cocok untuk kebanyakan kasus\nBonferroni correction: Lebih konservatif — membagi α dengan jumlah perbandingan; lebih tepat jika ada a priori hipotesis spesifik\n\n\n\n\n\n\n\nNote\n\n\nAda puluhan post-hoc test yang berbeda (Games-Howell, Scheffé, Dunnett, dll.). Pilih berdasarkan asumsi yang terpenuhi dan sifat pertanyaan penelitian — bukan berdasarkan mana yang memberikan p-value terkecil."
+    "text": "Mengapa perlu post-hoc test?\nANOVA yang signifikan hanya mengatakan “ada perbedaan di suatu tempat.” Post-hoc test mengidentifikasi pasangan kelompok mana yang berbeda secara signifikan, sambil mengontrol Type I error.\nDua pilihan utama di jamovi:\n\nTukey’s HSD (Honestly Significant Difference): Seimbang antara power dan kontrol Type I error — cocok untuk kebanyakan kasus jika asumsi homogenitas varians terpenuhi\nGames-Howell: Gunakan sebagai pengganti Tukey’s HSD jika Levene’s test signifikan (p &lt; .05) — tidak mengasumsikan homogenitas varians\nBonferroni correction: Lebih konservatif — membagi α dengan jumlah perbandingan; lebih tepat jika ada a priori hipotesis spesifik\n\n\n\n\n\n\n\nNote\n\n\nAda puluhan post-hoc test yang berbeda (Scheffé, Dunnett, dll.). Pilih berdasarkan asumsi yang terpenuhi: Tukey’s HSD jika varians homogen, Games-Howell jika tidak. Jangan memilih berdasarkan mana yang memberikan p-value terkecil."
   },
   {
     "objectID": "slides/anova.html#hasil-post-hoc-test-studi-ferguso",
@@ -1656,7 +1656,7 @@
     "href": "slides/analisis-kategorikal.html#mengapa-effect-size-penting",
     "title": "Analisis Data Kategorikal",
     "section": "Mengapa effect size penting?",
-    "text": "Mengapa effect size penting?\nSeperti pada t-test dan ANOVA, signifikansi statistik dari chi-square tidak mencerminkan kekuatan asosiasi. Dengan N yang besar, asosiasi yang sangat lemah pun akan signifikan.\n\n\n\n\n\n\n\n\n\nEffect size\nDigunakan untuk\nRentang\nInterpretasi\n\n\n\n\nCramér’s V\nChi-square (tabel k×m apapun)\n0–1\n0.10 kecil, 0.30 sedang, 0.50 besar\n\n\nPhi (φ)\nChi-square tabel 2×2 saja\n0–1\nSama dengan Cramér’s V untuk tabel 2×2\n\n\nOdds ratio (OR)\nAsosiasi dalam tabel 2×2\n0–∞\nOR = 1 → tidak ada asosiasi\n\n\nRisk ratio (RR)\nPerbandingan risiko dua kelompok\n0–∞\nRR = 1 → risiko sama\n\n\n\n\n\n\n\n\n\nTip\n\n\nUntuk penelitian klinis dan kesehatan mental, odds ratio sering lebih informatif dari Cramér’s V karena memberikan gambaran konkret tentang besaran perbedaan risiko antar kelompok."
+    "text": "Mengapa effect size penting?\nSeperti pada t-test dan ANOVA, signifikansi statistik dari chi-square tidak mencerminkan kekuatan asosiasi. Dengan N yang besar, asosiasi yang sangat lemah pun akan signifikan.\n\n\n\n\n\n\n\n\n\nEffect size\nDigunakan untuk\nRentang\nInterpretasi\n\n\n\n\nCramér’s V\nChi-square (tabel k×m apapun)\n0–1\n0.10 kecil, 0.30 sedang, 0.50 besar (berlaku langsung untuk tabel 2×2; untuk tabel lebih besar, ambang batas ini adalah panduan kasar — nilainya bergantung pada df = min(baris−1, kolom−1))\n\n\nPhi (φ)\nChi-square tabel 2×2 saja\n0–1\nSama dengan Cramér’s V untuk tabel 2×2\n\n\nOdds ratio (OR)\nAsosiasi dalam tabel 2×2\n0–∞\nOR = 1 → tidak ada asosiasi\n\n\nRisk ratio (RR)\nPerbandingan risiko dua kelompok\n0–∞\nRR = 1 → risiko sama\n\n\n\n\n\n\n\n\n\nTip\n\n\nUntuk penelitian klinis dan kesehatan mental, odds ratio sering lebih informatif dari Cramér’s V karena memberikan gambaran konkret tentang besaran perbedaan risiko antar kelompok."
   },
   {
     "objectID": "slides/analisis-kategorikal.html#odds-ratio-interpretasi-intuitif",
@@ -1789,7 +1789,7 @@
     "href": "slides/anova-faktorial.html#partial-η²-dan-ω²",
     "title": "ANOVA Faktorial",
     "section": "Partial η² dan ω²",
-    "text": "Partial η² dan ω²\nDalam ANOVA faktorial, umumnya dilaporkan partial η² (bukan η² total) karena ia mengukur proporsi varians yang dijelaskan oleh satu efek setelah mempartisi efek lain:\n\\[\\eta^2_p = \\frac{SS_{\\text{efek}}}{SS_{\\text{efek}} + SS_w}\\]\n\\[\\omega^2_p \\approx \\frac{SS_{\\text{efek}} - df_{\\text{efek}} \\cdot MS_w}{SS_{\\text{efek}} + SS_w + MS_w}\\]\n\n\n\n\n\n\nImportant\n\n\nη² total vs partial η²: η² total membagi \\(SS_{\\text{efek}}\\) dengan \\(SS_{\\text{tot}}\\) — nilainya lebih kecil dan seluruh efek menjumlahkan ke 1 (atau kurang). Partial η² masing-masing efek bisa menjumlahkan melebihi 1, tetapi lebih mudah dibandingkan dengan konvensi Cohen (kecil: .01, sedang: .06, besar: .14)."
+    "text": "Partial η² dan ω²\nDalam ANOVA faktorial, umumnya dilaporkan partial η² (bukan η² total) karena ia mengukur proporsi varians yang dijelaskan oleh satu efek setelah mempartisi efek lain:\n\\[\\eta^2_p = \\frac{SS_{\\text{efek}}}{SS_{\\text{efek}} + SS_w}\\]\n\\[\\omega^2_p \\approx \\frac{SS_{\\text{efek}} - df_{\\text{efek}} \\cdot MS_w}{SS_{\\text{tot}} + MS_w}\\]\n\n\n\n\n\n\nImportant\n\n\nη² total vs partial η²: η² total membagi \\(SS_{\\text{efek}}\\) dengan \\(SS_{\\text{tot}}\\) — nilainya lebih kecil dan seluruh efek menjumlahkan ke 1 (atau kurang). Partial η² masing-masing efek bisa menjumlahkan melebihi 1, tetapi lebih mudah dibandingkan dengan konvensi Cohen (kecil: .01, sedang: .06, besar: .14)."
   },
   {
     "objectID": "slides/anova-faktorial.html#konvensi-effect-size-untuk-anova",
@@ -1971,7 +1971,7 @@
     "href": "slides/regresi.html#asumsi-yang-harus-dipenuhi",
     "title": "Regresi Linear (Ordinary Least Square)",
     "section": "Asumsi yang harus dipenuhi",
-    "text": "Asumsi yang harus dipenuhi\n\nPrediktor dan variabel dependen berkorelasi secara linear\n\nLakukan analisis korelasi sebelum melakukan regresi untuk memastikan asumsi ini terpenuhi\n\nResidual (varians error) variabel dependen yang tidak dapat dijelaskan oleh model\n\nBerdistribusi normal\nVariansnya homogen (homoskedastisitas)\nTidak dipengaruhi oleh prediktor lain diluar model\n\nPrediktor dalam model independen satu sama lain (tidak berkorelasi)\n\nBerlaku ketika ada dua atau lebih prediktor dalam satu model regresi\nKalau prediktor berkorelasi satu sama lain maka telah terjadi multi-kolinearitas\n\nData/observasi dan residual harus independen"
+    "text": "Asumsi yang harus dipenuhi\n\nPrediktor dan variabel dependen berkorelasi secara linear\n\nLakukan analisis korelasi sebelum melakukan regresi untuk memastikan asumsi ini terpenuhi\n\nResidual (varians error) variabel dependen yang tidak dapat dijelaskan oleh model\n\nBerdistribusi normal\nVariansnya homogen (homoskedastisitas)\nTidak dipengaruhi oleh prediktor lain diluar model\n\nTidak ada multikolinearitas sempurna antar prediktor\n\nBerlaku ketika ada dua atau lebih prediktor dalam satu model regresi\nOLS hanya mensyaratkan tidak ada multikolinearitas sempurna (satu prediktor tidak boleh merupakan kombinasi linear tepat dari prediktor lain)\nKorelasi tidak sempurna antar prediktor adalah hal yang wajar dalam regresi berganda — ia menaikkan standard error tetapi tidak melanggar asumsi OLS\nJika korelasi sangat tinggi (imperfect multicollinearity), standard error akan membesar dan estimasi menjadi kurang presisi, tetapi koefisien tetap tidak bias\n\nData/observasi dan residual harus independen"
   },
   {
     "objectID": "slides/regresi.html#latihan-1",
@@ -2013,7 +2013,7 @@
     "href": "slides/regresi.html#diagnostik-model-varians-residual-1",
     "title": "Regresi Linear (Ordinary Least Square)",
     "section": "Diagnostik model: varians residual 1️⃣",
-    "text": "Diagnostik model: varians residual 1️⃣\n\n\n\nAsumsi lain yang harus dipenuhi adalah homoskedastisitas.\nResidual memenuhi asumsi homoskedastisitas, apabila variansnya uniform (sama) meskipun fitted Y (nilai Y yang diestimasi oleh model, plot kanan atas) dan nilai X (plot kanan bawah) berubah-ubah.\n\nHal ini ditunjukkan dari dua plot disamping yang menunjukkan distribusi varians residual uniform.\n\nApabila asumsi ini dilanggar, maka residual mengalami heteroskedastisitas, dengan begitu, estimasi model akan bias.\nKalau residual menunjukkan karakteristik heteroskedastik, maka distribusi residual akan terlihat seperti kerucut."
+    "text": "Diagnostik model: varians residual 1️⃣\n\n\n\nAsumsi lain yang harus dipenuhi adalah homoskedastisitas.\nResidual memenuhi asumsi homoskedastisitas, apabila variansnya uniform (sama) meskipun fitted Y (nilai Y yang diestimasi oleh model, plot kanan atas) dan nilai X (plot kanan bawah) berubah-ubah.\n\nHal ini ditunjukkan dari dua plot disamping yang menunjukkan distribusi varians residual uniform.\n\nApabila asumsi ini dilanggar, maka residual mengalami heteroskedastisitas. Perlu dicatat: koefisien regresi (B) tetap tidak bias, namun standard error-nya menjadi bias — sehingga p-value dan confidence interval tidak dapat diandalkan.\nKalau residual menunjukkan karakteristik heteroskedastik, maka distribusi residual akan terlihat seperti kerucut."
   },
   {
     "objectID": "slides/regresi.html#diagnostik-model-varians-residual-2",
@@ -2027,7 +2027,7 @@
     "href": "slides/regresi.html#diagnostik-model-deteksi-outliers-1",
     "title": "Regresi Linear (Ordinary Least Square)",
     "section": "Diagnostik model: deteksi outliers 1️⃣",
-    "text": "Diagnostik model: deteksi outliers 1️⃣\n\n\n\nGerak-gerik data outlier penting untuk diperhatikan.\n\nSeperti grafik di sebelah kanan, penambahan data outlier dapat merubah garis regresi secara drastis.\n\nUntuk melihat seberapa ‘mengkhawatirkan’ data outlier ini dalam mengganggu garis regresi, kita dapat menggunakan Cook’s distance.\nUmumnya, apabila outlier dibuang dan perubahan rata-rata, median, dan standar deviasi kurang dari 1, dapat diabaikan.\nArtinya outlier tersebut tidak terlalu mengganggu garis regresi."
+    "text": "Diagnostik model: deteksi outliers 1️⃣\n\n\n\nGerak-gerik data outlier penting untuk diperhatikan.\n\nSeperti grafik di sebelah kanan, penambahan data outlier dapat merubah garis regresi secara drastis.\n\nUntuk melihat seberapa ‘mengkhawatirkan’ data outlier ini dalam mengganggu garis regresi, kita dapat menggunakan Cook’s distance.\nCook’s distance mengukur seberapa besar koefisien regresi berubah apabila satu observasi dikeluarkan dari model — bukan perubahan statistik deskriptif seperti rata-rata atau SD.\nAmbang batas umum: Cook’s D &gt; 1 (atau secara konservatif &gt; 4/n) mengindikasikan observasi yang berpengaruh besar (influential) terhadap koefisien regresi."
   },
   {
     "objectID": "slides/regresi.html#diagnostik-model-deteksi-outliers-2",
@@ -2041,7 +2041,7 @@
     "href": "slides/regresi.html#diagnostik-model-deteksi-outliers-3",
     "title": "Regresi Linear (Ordinary Least Square)",
     "section": "Diagnostik model: deteksi outliers 3️⃣",
-    "text": "Diagnostik model: deteksi outliers 3️⃣\n\n\n\nDari output di samping, dapat disimpulkan bahwa apabila outlier tidak disertakan dalam analisis, maka perubahan rerata, median, dan standar deviasi keseluruhan sampel kurang dari 1 dari nilai asalnya."
+    "text": "Diagnostik model: deteksi outliers 3️⃣\n\n\n\nDari output di samping, dapat disimpulkan bahwa nilai Cook’s distance seluruh observasi berada di bawah ambang batas 1 — artinya tidak ada observasi yang secara substansial mengubah koefisien regresi apabila dikeluarkan dari model."
   },
   {
     "objectID": "slides/regresi.html#cara-melaporkannya-dalam-manuskrip-1",
@@ -2055,7 +2055,7 @@
     "href": "slides/regresi.html#cara-melaporkannya-dalam-manuskrip-2",
     "title": "Regresi Linear (Ordinary Least Square)",
     "section": "Cara melaporkannya dalam manuskrip 2️⃣",
-    "text": "Cara melaporkannya dalam manuskrip 2️⃣\n\nDiagnostik outlier dilakukan dengan menggunakan Cook’s distance, dan menghasilkan kesimpulan bahwa apabila outlier tidak disertakan dalam model, maka perubahan rerata, nilai tengah, dan simpangan baku kurang dari satu dari nilai awalnya, sehingga tidak berpotensi mendistorsi garis regresi."
+    "text": "Cara melaporkannya dalam manuskrip 2️⃣\n\nDiagnostik outlier dilakukan dengan menggunakan Cook’s distance. Tidak ada observasi dengan Cook’s D &gt; 1, yang mengindikasikan bahwa tidak ada data poin yang secara substansial mendistorsi koefisien regresi."
   },
   {
     "objectID": "slides/regresi.html#ada-pertanyaan",

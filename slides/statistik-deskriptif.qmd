@@ -20,7 +20,7 @@ execute:
 
 * Kenapa statistik?
 * Statistik deskriptif vs inferensial
-* Mengenal *software*: jamovi
+* Mengenal *software*: `jamovi`
 * Tendensi sentral: *mean*, median, dan modus
 * Variabilitas: *range*, IQR, varians, dan standar deviasi
 * Visualisasi data
@@ -30,7 +30,7 @@ execute:
 ## Referensi utama
 
 * Navarro, D.J. & Foxcroft, D.R. (2019). *Learning Statistics with jamovi: A tutorial for psychology students and other beginners* (Version 0.70). [[Akses gratis di sini]](https://www.learnstatswithjamovi.com/)
-* Tutorial jamovi dari Datalab: [datalab.cc/tools/jamovi](https://datalab.cc/tools/jamovi)
+* Tutorial `jamovi` dari Datalab: [datalab.cc/tools/jamovi](https://datalab.cc/tools/jamovi)
 
 
 # Kenapa statistik? {background-color="#14497F"}
@@ -63,7 +63,7 @@ execute:
 * Statistik membantu kita **mendisiplinkan intuisi** agar tidak tertipu oleh kebetulan
 
 ::: {.callout-important}
-*Statistical thinking* jauh lebih penting daripada *software*-nya. Tidak masalah menggunakan jamovi, JASP, R, atau SPSS — yang terpenting adalah kalian tahu **cara kerja** setiap *tools* dan **alasan** menggunakannya.
+*Statistical thinking* jauh lebih penting daripada *software*-nya. Tidak masalah menggunakan `jamovi`, JASP, R, atau SPSS — yang terpenting adalah kalian tahu **cara kerja** setiap *tools* dan **alasan** menggunakannya.
 :::
 
 ## Statistik deskriptif vs inferensial
@@ -300,8 +300,9 @@ Uji normalitas adalah **langkah wajib** sebelum memilih teknik uji hipotesis. Me
 
 **3. Uji *Kolmogorov-Smirnov* (1 K-S)**
 
-* Hanya disarankan untuk sampel yang **sangat kecil**
-* Cenderung memberikan hasil *misleading* — **tidak direkomendasikan** untuk penggunaan umum
+* Versi standar (tanpa koreksi Lilliefors) cenderung memberikan hasil *misleading* — **tidak direkomendasikan** untuk penggunaan umum
+* Justru **kurang reliabel pada sampel kecil** (daya uji/power rendah); Shapiro-Wilk adalah pilihan yang lebih baik untuk sampel kecil hingga sedang
+* Versi dengan koreksi Lilliefors (tersedia di beberapa *software*) lebih dapat diandalkan, namun Shapiro-Wilk tetap lebih disarankan di kebanyakan konteks
 
 ## *Anderson-Darling test*
 

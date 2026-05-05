@@ -294,7 +294,7 @@ Dalam ANOVA faktorial, umumnya dilaporkan ***partial* η²** (bukan η² total) 
 
 $$\eta^2_p = \frac{SS_{\text{efek}}}{SS_{\text{efek}} + SS_w}$$
 
-$$\omega^2_p \approx \frac{SS_{\text{efek}} - df_{\text{efek}} \cdot MS_w}{SS_{\text{efek}} + SS_w + MS_w}$$
+$$\omega^2_p \approx \frac{SS_{\text{efek}} - df_{\text{efek}} \cdot MS_w}{SS_{\text{tot}} + MS_w}$$
 
 ::: {.callout-important}
 **η² total vs *partial* η²:** η² total membagi $SS_{\text{efek}}$ dengan $SS_{\text{tot}}$ — nilainya lebih kecil dan seluruh efek menjumlahkan ke 1 (atau kurang). *Partial* η² masing-masing efek bisa menjumlahkan melebihi 1, tetapi lebih mudah dibandingkan dengan konvensi Cohen (*kecil*: .01, *sedang*: .06, *besar*: .14).

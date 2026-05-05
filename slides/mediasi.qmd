@@ -39,7 +39,8 @@ Mediasi menjelaskan **mekanisme** di balik hubungan antara dua variabel — *bag
 * Variabel **M** (akses sumber belajar) adalah **mediator**
 
 ::: {.callout-note}
-Mediasi berbeda dari moderasi. **Mediasi** menjelaskan *mekanisme* hubungan X → Y. **Moderasi** menjelaskan *kondisi* di mana hubungan X → Y lebih kuat atau lebih lemah. Keduanya sering dikombinasikan dalam model *moderated mediation* atau *mediated moderation*.
+#### Mediasi berbeda dari moderasi
+**Mediasi** menjelaskan *mekanisme* hubungan X → Y. **Moderasi** menjelaskan *kondisi* di mana hubungan X → Y lebih kuat atau lebih lemah. Keduanya sering dikombinasikan dalam model *moderated mediation* atau *mediated moderation*.
 :::
 
 ## Model mediasi sederhana (*simple mediation*)
@@ -96,10 +97,13 @@ Syarat (1) tidak perlu dipenuhi — *indirect effect* bisa ada tanpa *total effe
 
 1. Ambil sampel berulang (*bootstrap samples*) dari data asli **dengan pengembalian** — biasanya 5.000 atau 10.000 kali
 2. Hitung *indirect effect* (a×b) untuk setiap sampel
-3. Gunakan distribusi 5.000 nilai a×b untuk membangun ***confidence interval* (BC-CI)** untuk *indirect effect*
+3. Gunakan distribusi 5.000 nilai a×b untuk membangun ***bootstrap confidence interval*** untuk *indirect effect*
+
+Ada beberapa jenis *bootstrap CI*: **persentil CI** (paling sederhana), **BC-CI** (*bias-corrected*), dan **BCa-CI** (*bias-corrected and accelerated*). `medmod` di `jamovi` menggunakan **persentil CI** secara *default*.
 
 ::: {.callout-tip}
-**Jika 95% bootstrap CI untuk *indirect effect* tidak mencakup nol**, kita memiliki bukti bahwa *indirect effect* secara statistik berbeda dari nol — tanpa perlu mengasumsikan normalitas. Ini adalah cara yang direkomendasikan untuk menguji signifikansi mediasi.
+#### Interpretasi *bootstrapped* CI
+**Jika 95% *bootstrap* persentil CI untuk *indirect effect* tidak mencakup nol**, kita memiliki bukti bahwa *indirect effect* secara statistik berbeda dari nol — tanpa perlu mengasumsikan normalitas. Ini adalah cara yang direkomendasikan untuk menguji signifikansi mediasi.
 :::
 
 
@@ -139,7 +143,7 @@ Dataset: **mediasi_akademik.omv** (N = 500 mahasiswa)
 
 **Ringkasan hasil yang diharapkan:**
 
-| Efek | Koefisien | 95% BC-CI | Signifikan? |
+| Efek | Koefisien | 95% *Bootstrap* CI (persentil) | Signifikan? |
 |---|---|---|---|
 | *Total effect* (c) | −0.42 | [−0.49, −0.36] | Ya |
 | *Direct effect* (c') | −0.16 | [−0.23, −0.09] | Ya |
@@ -195,12 +199,13 @@ Kita ukur ketiga variabel dalam satu survei pada hari yang sama. Mungkin saja:
 * Dukungan sosial yang rendah *menyebabkan* mahasiswa mengambil lebih banyak mata kuliah untuk "mengisi waktu" (M → X, bukan X → M)
 
 ::: {.callout-note}
+#### Lalu bagaimana cara menguji mediasi?
 Pengujian mediasi yang lebih baik membutuhkan desain **longitudinal** (X diukur sebelum M, M diukur sebelum Y) atau, yang terbaik, melalui **eksperimen** di mana X (dan M) dimanipulasi secara acak dan efeknya pada M dan Y diamati sepanjang waktu.
 
 Meskipun, pengujian secara longitudinal hanya bisa mengendalikan *confounding* yang *time-invariant* saja. Apabila variabel *cofounding* berubah sepanjang waktu, maka desain *longitudinal* tidak bisa mengendalikan efek *confounding*.
 :::
 
-## Ketika mediasi *cross-sectional* masih berguna
+## Kapan mediasi *cross-sectional* masih berguna?
 
 Meski terbatas secara kausal, analisis mediasi *cross-sectional* mungkin bisa bermakna jika:
 
@@ -212,7 +217,7 @@ Meski terbatas secara kausal, analisis mediasi *cross-sectional* mungkin bisa be
 ::: {.callout-tip}
 #### Cara yang disarankan untuk melaporkan mediasi *cross-sectional*:
 
-*"Hasil analisis bootstrapping menunjukkan indirect effect yang signifikan (a×b = −0.26, 95% BC-CI [−0.31, −0.21]), yang artinya ditemukan pola yang konsisten dengan model mediasi, di mana dukungan sosial mungkin memediasi hubungan antara beban akademik dan wellbeing. Namun, mengingat desain cross-sectional, interpretasi kausalitas tidak dapat dilakukan."*
+*"Hasil analisis bootstrapping menunjukkan indirect effect yang signifikan (a×b = −0.26, 95% *bootstrap* persentil CI [−0.31, −0.21]), yang artinya ditemukan pola yang konsisten dengan model mediasi, di mana dukungan sosial mungkin memediasi hubungan antara beban akademik dan wellbeing. Namun, mengingat desain cross-sectional, interpretasi kausalitas tidak dapat dilakukan."*
 :::
 
 # Collider bias {background-color="#14497F"}

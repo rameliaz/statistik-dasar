@@ -231,9 +231,11 @@ Korelasi yang tampak pada _scatterplot_ tadi dapat dikonseptualisasikan dengan l
   - Berdistribusi normal
   - Variansnya homogen (**homoskedastisitas**)
   - Tidak dipengaruhi oleh prediktor lain diluar model
-* Prediktor dalam model independen satu sama lain (tidak berkorelasi)
+* Tidak ada **multikolinearitas sempurna** antar prediktor
   - Berlaku ketika ada dua atau lebih prediktor dalam satu model regresi
-  - Kalau prediktor berkorelasi satu sama lain maka telah terjadi **multi-kolinearitas**
+  - OLS hanya mensyaratkan tidak ada multikolinearitas *sempurna* (satu prediktor tidak boleh merupakan kombinasi linear tepat dari prediktor lain)
+  - Korelasi *tidak sempurna* antar prediktor adalah hal yang wajar dalam regresi berganda — ia menaikkan *standard error* tetapi tidak melanggar asumsi OLS
+  - Jika korelasi sangat tinggi (*imperfect multicollinearity*), *standard error* akan membesar dan estimasi menjadi kurang presisi, tetapi koefisien tetap tidak bias
 * **Data/observasi dan residual harus independen**
 
 :::
@@ -329,7 +331,7 @@ Selalu laporkan _unstandardized estimates_ dan _confidence interval_ ([Appelbaum
 * Asumsi lain yang harus dipenuhi adalah **homoskedastisitas**.
 * Residual memenuhi asumsi homoskedastisitas, apabila variansnya **uniform (sama)** meskipun _fitted_ Y (nilai Y yang diestimasi oleh model, plot kanan atas) dan nilai X (plot kanan bawah) berubah-ubah.
   - Hal ini ditunjukkan dari dua plot disamping yang menunjukkan distribusi **varians residual uniform**.
-* Apabila asumsi ini dilanggar, maka residual mengalami **heteroskedastisitas**, dengan begitu, estimasi model akan bias.
+* Apabila asumsi ini dilanggar, maka residual mengalami **heteroskedastisitas**. Perlu dicatat: koefisien regresi (B) tetap **tidak bias**, namun **_standard error_-nya menjadi bias** — sehingga _p-value_ dan _confidence interval_ tidak dapat diandalkan.
 * Kalau residual menunjukkan karakteristik **hetero**skedastik, maka distribusi residual akan terlihat seperti kerucut.
 
 :::
@@ -366,8 +368,8 @@ Selalu laporkan _unstandardized estimates_ dan _confidence interval_ ([Appelbaum
 * Gerak-gerik data _outlier_ penting untuk diperhatikan.
   - Seperti grafik di sebelah kanan, penambahan data _outlier_ dapat merubah garis regresi secara drastis.
 * Untuk melihat seberapa 'mengkhawatirkan' data _outlier_ ini dalam mengganggu garis regresi, kita dapat menggunakan _Cook's distance_.
-* Umumnya, apabila _outlier_ dibuang dan perubahan rata-rata, median, dan standar deviasi kurang dari 1, dapat diabaikan. 
-* Artinya _outlier_ tersebut tidak terlalu mengganggu garis regresi.
+* _Cook's distance_ mengukur seberapa besar **koefisien regresi berubah** apabila satu observasi dikeluarkan dari model — bukan perubahan statistik deskriptif seperti rata-rata atau SD.
+* Ambang batas umum: _Cook's D_ **> 1** (atau secara konservatif > 4/n) mengindikasikan observasi yang berpengaruh besar (*influential*) terhadap koefisien regresi.
 
 :::
 ::: {.column width="45%"}
@@ -394,7 +396,7 @@ Selalu laporkan _unstandardized estimates_ dan _confidence interval_ ([Appelbaum
 :::: {.columns}
 ::: {.column}
 
-* Dari _output_ di samping, dapat disimpulkan bahwa apabila _outlier_ tidak disertakan dalam analisis, maka perubahan rerata, median, dan standar deviasi keseluruhan sampel kurang dari 1 dari nilai asalnya.
+* Dari _output_ di samping, dapat disimpulkan bahwa nilai _Cook's distance_ seluruh observasi berada di bawah ambang batas 1 — artinya tidak ada observasi yang secara substansial mengubah koefisien regresi apabila dikeluarkan dari model.
 
 :::
 ::: {.column}
@@ -412,7 +414,7 @@ Selalu laporkan _unstandardized estimates_ dan _confidence interval_ ([Appelbaum
 
 ## Cara melaporkannya dalam manuskrip 2️⃣
 
-> Diagnostik _outlier_ dilakukan dengan menggunakan _Cook's distance_, dan menghasilkan kesimpulan bahwa apabila _outlier_ tidak disertakan dalam model, maka perubahan rerata, nilai tengah, dan simpangan baku kurang dari satu dari nilai awalnya, sehingga tidak berpotensi mendistorsi garis regresi.
+> Diagnostik _outlier_ dilakukan dengan menggunakan _Cook's distance_. Tidak ada observasi dengan _Cook's D_ > 1, yang mengindikasikan bahwa tidak ada data poin yang secara substansial mendistorsi koefisien regresi.
 
 ## Ada pertanyaan❓
 

@@ -55,7 +55,7 @@ Makin besar perbedaan relatif terhadap variabilitasnya → nilai *t* makin besar
 
 * *One-sample*: df = n − 1
 * *Paired samples*: df = n − 1 (n = jumlah pasang)
-* *Independent samples*: df = n₁ + n₂ − 2 (atau Welch's df yang lebih kompleks)
+* *Independent samples*: df = n₁ + n₂ − 2 untuk Student's *t* (asumsi varians homogen); df Welch lebih kecil dan bukan bilangan bulat (dihitung otomatis oleh *software*)
 
 
 # *One-sample t-test* {background-color="#14497F"}
@@ -222,7 +222,7 @@ $$t_{\text{Welch}} = \frac{\bar{X}_1 - \bar{X}_2}{\sqrt{\frac{s_1^2}{n_1} + \fra
 * **Rekomendasi praktis**: gunakan Welch's *t-test* secara *default* — ia memberikan hasil yang sama dengan *t-test* biasa ketika varians homogen, dan lebih akurat ketika tidak
 
 ::: {.callout-tip}
-Di `jamovi`, Welch's *correction* adalah **pilihan default** untuk *independent samples t-test*. Anda bisa melihat kedua versi (Student's dan Welch's) secara bersamaan untuk membandingkan hasilnya.
+Di `jamovi`, Welch's *correction* adalah **pilihan default** untuk *independent samples t-test*. Karena Welch menggunakan rumus Welch-Satterthwaite untuk df (hasilnya berupa angka desimal, lebih kecil dari n₁+n₂−2), selalu **laporkan df yang ditampilkan di *output* jamovi** — jangan hitung manual dengan n₁+n₂−2 jika menggunakan Welch's.
 :::
 
 ## Normalitas: seberapa ketat?

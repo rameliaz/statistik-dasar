@@ -148,7 +148,7 @@ Model 2 (_F_(2,397) = 74.3, _p_ = .001, _Adj. R_^2^ = .424) dapat menjelaskan va
 :::: {.columns}
 ::: {.column width="55%"}
 
-Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (_F_(1,397) = 29.5, _p_ = .001). ΔR^2^ = .122, artinya penambahan suku interaksi meningkatkan kemampuan model menjelaskan varians sebesar 12.2%.
+Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (_F_(1,397) = 29.5, _p_ = .001). ΔR^2^ = .128, artinya penambahan suku interaksi meningkatkan kemampuan model menjelaskan varians sebesar 12.8%.
 
 **Coba perhatikan Residuals Model 1 dengan Model 2**
 
@@ -196,7 +196,7 @@ Tidak ada bukti bahwa ada interaksi antara _neuroticism_ dengan _trust in organi
 
 ::: {.callout-tip}
 #### Visualisasi interaksi
-Garis regresi yang **berpotongan** (_crossed_) menunjukkan interaksi ordinal (arah efek berbalik). Garis yang **menyebar tanpa berpotongan** (_divergent_) menunjukkan interaksi disordinal (kekuatan berbeda, arah sama).
+Garis regresi yang **berpotongan** (_crossed_) menunjukkan interaksi **dis**ordinal (arah efek berbalik di titik persilangan). Garis yang **menyebar tanpa berpotongan** (_divergent_) menunjukkan interaksi **ordinal** (arah efek sama, hanya kekuatannya berbeda).
 :::
 
 ## Diagnostik kolinearitas
@@ -207,8 +207,9 @@ Garis regresi yang **berpotongan** (_crossed_) menunjukkan interaksi ordinal (ar
 * Dapat dideteksi dengan _variance inflated factors_ (VIF)
   - VIF < 5 → multikolinearitas tidak terjadi
 * Penelitian _longitudinal_ punya potensi autokorelasi (residual _time 1_ dan _time 2_ berkorelasi)
-  - Dicek dengan tes Durbin-Watson
-  - p > .05 → autokorelasi tidak terjadi
+  - Dicek dengan statistik Durbin-Watson (DW), yang berkisar antara 0–4
+  - DW ≈ 2 → tidak ada autokorelasi; DW < 2 → autokorelasi positif; DW > 2 → autokorelasi negatif
+  - Aturan praktis: DW antara 1.5–2.5 umumnya dianggap tidak bermasalah
   - Untuk data _cross-sectional_, autokorelasi umumnya tidak relevan
 
 :::

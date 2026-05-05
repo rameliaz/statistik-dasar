@@ -458,7 +458,8 @@ Rizqy Amelia Zein
 <p>ANOVA yang signifikan hanya mengatakan “ada perbedaan di suatu tempat.” <em>Post-hoc test</em> mengidentifikasi <strong>pasangan kelompok mana</strong> yang berbeda secara signifikan, sambil mengontrol <em>Type I error</em>.</p>
 <p><strong>Dua pilihan utama di <code>jamovi</code>:</strong></p>
 <ul>
-<li><strong>Tukey’s HSD (<em>Honestly Significant Difference</em>)</strong>: Seimbang antara <em>power</em> dan kontrol <em>Type I error</em> — cocok untuk kebanyakan kasus</li>
+<li><strong>Tukey’s HSD (<em>Honestly Significant Difference</em>)</strong>: Seimbang antara <em>power</em> dan kontrol <em>Type I error</em> — cocok untuk kebanyakan kasus <strong>jika asumsi homogenitas varians terpenuhi</strong></li>
+<li><strong>Games-Howell</strong>: Gunakan sebagai pengganti Tukey’s HSD jika <strong>Levene’s test signifikan</strong> (<em>p</em> &lt; .05) — tidak mengasumsikan homogenitas varians</li>
 <li><strong>Bonferroni correction</strong>: Lebih konservatif — membagi α dengan jumlah perbandingan; lebih tepat jika ada <em>a priori</em> hipotesis spesifik</li>
 </ul>
 <div class="callout callout-note callout-titled callout-style-default">
@@ -470,7 +471,7 @@ Rizqy Amelia Zein
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>Ada puluhan <em>post-hoc test</em> yang berbeda (Games-Howell, Scheffé, Dunnett, dll.). Pilih berdasarkan asumsi yang terpenuhi dan sifat pertanyaan penelitian — bukan berdasarkan mana yang memberikan <em>p-value</em> terkecil.</p>
+<p>Ada puluhan <em>post-hoc test</em> yang berbeda (Scheffé, Dunnett, dll.). Pilih berdasarkan asumsi yang terpenuhi: <strong>Tukey’s HSD</strong> jika varians homogen, <strong>Games-Howell</strong> jika tidak. Jangan memilih berdasarkan mana yang memberikan <em>p-value</em> terkecil.</p>
 </div>
 </div>
 </div>

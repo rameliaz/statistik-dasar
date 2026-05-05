@@ -111,9 +111,11 @@ Jika asumsi ini dilanggar (interaksi kovariat × perlakuan signifikan), ANCOVA b
 ::: {.column width="50%"}
 **2. Independensi kovariat dari faktor perlakuan**
 
-*Mean* kovariat harus **homogen** antar kelompok perlakuan — artinya, kovariat tidak berbeda antar kelompok secara sistematis.
+Dalam studi **eksperimental** (dengan randomisasi), kovariat seharusnya tidak berbeda antar kelompok secara sistematis karena alokasi acak menyeimbangkan semua variabel. Jika kovariat berbeda antar kelompok secara substansial, ini mengindikasikan kegagalan randomisasi.
 
-Periksa dengan membandingkan *mean* kovariat antar kelompok (secara deskriptif atau ANOVA satu arah pada kovariat).
+Dalam studi **observasional**, kovariat bisa saja berkorelasi dengan kelompok — ini tidak membatalkan ANCOVA secara statistik, tetapi mempersulit interpretasi kausal.
+
+Periksa dengan membandingkan *mean* kovariat antar kelompok secara deskriptif.
 :::
 ::::
 
@@ -213,7 +215,7 @@ ANCOVA menggunakan *F tests* yang sama dengan ANOVA, dengan parameter tambahan u
 5. Masukkan: *Number of groups* = 3, ***Number of covariates* = 1**
 6. Klik *Calculate*
 
-**Hasilnya berbeda dari ANOVA biasa** karena satu df digunakan untuk kovariat, sehingga diperlukan **sedikit lebih banyak sampel** dibanding ANOVA tanpa kovariat.
+**Hasilnya berbeda dari ANOVA biasa** karena satu df digunakan untuk kovariat. Apabila kovariat **tidak berkorelasi** dengan variabel dependen, ANCOVA sedikit kehilangan df tanpa keuntungan pengurangan *error* — sehingga membutuhkan sedikit lebih banyak sampel. Namun bila kovariat **berkorelasi kuat** (*r* > 0.4), ANCOVA biasanya membutuhkan **lebih sedikit sampel** karena mengurangi *error variance* secara substansial.
 
 ::: {.callout-tip}
 Manfaat nyata ANCOVA dalam hal *power* terlihat ketika kovariat berkorelasi **kuat** dengan variabel dependen (*r* > 0.4). Dalam kondisi tersebut, ANCOVA dapat secara substansial mengurangi *error variance* dan meningkatkan *power* — bahkan dengan sampel yang lebih kecil dari ANOVA biasa.

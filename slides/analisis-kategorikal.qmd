@@ -223,7 +223,7 @@ Seperti pada t-test dan ANOVA, signifikansi statistik dari chi-square **tidak me
 
 | *Effect size* | Digunakan untuk | Rentang | Interpretasi |
 |---|---|---|---|
-| **Cramér's V** | Chi-square (tabel k×m apapun) | 0–1 | 0.10 kecil, 0.30 sedang, 0.50 besar |
+| **Cramér's V** | Chi-square (tabel k×m apapun) | 0–1 | 0.10 kecil, 0.30 sedang, 0.50 besar *(berlaku langsung untuk tabel 2×2; untuk tabel lebih besar, ambang batas ini adalah panduan kasar — nilainya bergantung pada df = min(baris−1, kolom−1))* |
 | ***Phi* (φ)** | Chi-square tabel 2×2 saja | 0–1 | Sama dengan Cramér's V untuk tabel 2×2 |
 | ***Odds ratio* (OR)** | Asosiasi dalam tabel 2×2 | 0–∞ | OR = 1 → tidak ada asosiasi |
 | ***Risk ratio* (RR)** | Perbandingan risiko dua kelompok | 0–∞ | RR = 1 → risiko sama |

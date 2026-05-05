@@ -275,9 +275,15 @@ Dalam pelaporan hasil penelitian, selalu laporkan CI bersama dengan *point estim
 
 Dari contoh sebelumnya (n = 64, $\bar{X}$ = 97.5, SE = 1.5), hitung CI 95%:
 
-$$CI_{95\%} = 97.5 \pm 1.96 \times 1.5 = 97.5 \pm 2.94 = [94.56,\ 100.44]$$
+$$CI_{95\%} = 97.5 \pm t_{kritis} \times 1.5$$
 
-Interpretasi: Kita 95% yakin bahwa rata-rata skor IQ **seluruh** siswa SD penerima MBG di populasi yang diwakili sampel ini berada di antara **94.6 hingga 100.4**.
+Dengan df = 63, $t_{kritis}$ ≈ 2.00, sehingga: $CI_{95\%} = 97.5 \pm 2.00 \times 1.5 = 97.5 \pm 3.00 = [94.50,\ 100.50]$
+
+::: {.callout-note}
+Karena σ populasi tidak diketahui (kita gunakan *s*), rumus yang tepat menggunakan *t*-kritis dari distribusi *t* (bukan z = 1.96). Untuk n = 64 (df = 63), perbedaannya kecil — t ≈ 2.00 vs z = 1.96 — tetapi secara prinsip penting untuk menggunakan distribusi *t* yang benar.
+:::
+
+Interpretasi: Kita 95% yakin bahwa rata-rata skor IQ **seluruh** siswa SD penerima MBG di populasi yang diwakili sampel ini berada di antara **94.5 hingga 100.5**.
 
 * Apakah ini bukti bahwa MBG "berhasil"? **Belum tentu** — kita belum punya data pembanding (kelompok kontrol, atau rata-rata sebelum MBG). CI hanya memberi tahu kita seberapa presisi estimasi kita, bukan apakah efeknya nyata.
 

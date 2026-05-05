@@ -223,7 +223,7 @@ Rizqy Amelia Zein
 <ul>
 <li><em>One-sample</em>: df = n − 1</li>
 <li><em>Paired samples</em>: df = n − 1 (n = jumlah pasang)</li>
-<li><em>Independent samples</em>: df = n₁ + n₂ − 2 (atau Welch’s df yang lebih kompleks)</li>
+<li><em>Independent samples</em>: df = n₁ + n₂ − 2 untuk Student’s <em>t</em> (asumsi varians homogen); df Welch lebih kecil dan bukan bilangan bulat (dihitung otomatis oleh <em>software</em>)</li>
 </ul>
 </section></section>
 <section>
@@ -478,7 +478,7 @@ Rizqy Amelia Zein
 <p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
-<p>Di <code>jamovi</code>, Welch’s <em>correction</em> adalah <strong>pilihan default</strong> untuk <em>independent samples t-test</em>. Anda bisa melihat kedua versi (Student’s dan Welch’s) secara bersamaan untuk membandingkan hasilnya.</p>
+<p>Di <code>jamovi</code>, Welch’s <em>correction</em> adalah <strong>pilihan default</strong> untuk <em>independent samples t-test</em>. Karena Welch menggunakan rumus Welch-Satterthwaite untuk df (hasilnya berupa angka desimal, lebih kecil dari n₁+n₂−2), selalu <strong>laporkan df yang ditampilkan di <em>output</em> jamovi</strong> — jangan hitung manual dengan n₁+n₂−2 jika menggunakan Welch’s.</p>
 </div>
 </div>
 </div>

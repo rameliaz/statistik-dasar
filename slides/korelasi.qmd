@@ -201,6 +201,10 @@ $$\rho = 1 - \frac{6 \sum d_i^2}{n(n^2-1)}$$
 
 Di mana $d_i$ adalah selisih rank antara dua variabel untuk observasi ke-$i$.
 
+::: {.callout-important}
+Rumus di atas adalah **rumus singkat** (*shortcut*) yang hanya berlaku apabila **tidak ada *tied ranks*** (tidak ada dua observasi dengan nilai yang sama). Bila ada data yang nilainya sama (umum pada data ordinal seperti skala Likert), rumus ini memberikan hasil yang kurang tepat. Dalam kondisi tersebut, Spearman's ρ dihitung sebagai korelasi Pearson yang diterapkan pada data yang sudah dikonversi ke *rank* — persis seperti yang dilakukan `jamovi` secara otomatis.
+:::
+
 ::: {.callout-tip}
 Jika data memenuhi asumsi Pearson (normalitas, linear), gunakan Pearson karena *power*-nya sedikit lebih tinggi. Jika tidak, Spearman adalah pilihan yang lebih aman. Ketika Pearson dan Spearman memberikan kesimpulan yang berbeda, curigai adanya *outlier* atau hubungan non-linear.
 :::
