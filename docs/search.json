@@ -1936,7 +1936,7 @@
     "href": "slides/regresi.html#kekuatan-dan-arah-korelasi-1",
     "title": "Regresi Linear (Ordinary Least Square)",
     "section": "Kekuatan dan arah korelasi 1️⃣",
-    "text": "Kekuatan dan arah korelasi 1️⃣\nKorelasi yang tampak pada scatterplot tadi dapat dikonseptualisasikan dengan lebih jelas dengan menghitung koefisien korelasi, yang mengimplikasikan kekuatan hubungan.\n\nPearson’s r misalnya, biasanya ditulis dengan rxy, sedangkan Spearman’s ρ ditulis rs.\nBerkisar antara -1 s/d 1\n-1 artinya korelasi negatif sempurna, 1 artinya korelasi positif sempurna\nKoefisien korelasi Pearson’s r atau Spearman’s ρ dihitung dari kovarians (covariance/average cross product dari dua variabel).\n\nDua variabel yang sama sekali tak berkorelasi, maka kovarians nol."
+    "text": "Kekuatan dan arah korelasi 1️⃣\nKorelasi yang tampak pada scatterplot tadi dapat dikonseptualisasikan dengan lebih jelas dengan menghitung koefisien korelasi, yang mengimplikasikan kekuatan hubungan.\n\nPearson’s r misalnya, biasanya ditulis dengan rxy, sedangkan Spearman’s ρ ditulis rs.\nBerkisar antara -1 s/d 1\n-1 artinya korelasi negatif sempurna, 1 artinya korelasi positif sempurna\nKoefisien korelasi Pearson’s r dihitung dari kovarians (covariance/average cross product) dari dua variabel, sedangkan Spearman’s ρ dihitung dari kovarians peringkat (rank) kedua variabel — bukan nilai aslinya\n\nDua variabel yang sama sekali tak berkorelasi, maka kovarians nol"
   },
   {
     "objectID": "slides/regresi.html#kekuatan-dan-arah-korelasi-2",
