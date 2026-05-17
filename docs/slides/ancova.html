@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.10.3">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-05-05">
+  <meta name="dcterms.date" content="2026-05-17">
   <title>Statistik Dasar dalam Penelitian Psikologi – ANCOVA</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -147,7 +147,7 @@ Rizqy Amelia Zein
     </div>
 </div>
 
-  <p class="date">2026-05-05</p>
+  <p class="date">2026-05-17</p>
 </section>
 <section id="outline" class="slide level2">
 <h2><em>Outline</em></h2>
@@ -251,20 +251,34 @@ Rizqy Amelia Zein
 <h1>Asumsi ANCOVA</h1>
 
 </section>
-<section id="asumsi-tambahan-di-atas-asumsi-anova" class="slide level2">
-<h2>Asumsi tambahan di atas asumsi ANOVA</h2>
-<p>ANCOVA mewarisi semua asumsi ANOVA (normalitas residual, homogenitas varians, independensi observasi), plus dua asumsi tambahan:</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>1. Homogenitas <em>slope</em> regresi</strong></p>
-<p><em>Slope</em> regresi antara kovariat dan variabel dependen harus <strong>serupa</strong> di semua kelompok perlakuan.</p>
-<p>Jika asumsi ini dilanggar (interaksi kovariat × perlakuan signifikan), ANCOVA biasa tidak tepat digunakan — perlu dipertimbangkan model dengan interaksi.</p>
-</div><div class="column" style="width:50%;">
-<p><strong>2. Independensi kovariat dari faktor perlakuan</strong></p>
-<p>Dalam studi <strong>eksperimental</strong> (dengan randomisasi), kovariat seharusnya tidak berbeda antar kelompok secara sistematis karena alokasi acak menyeimbangkan semua variabel. Jika kovariat berbeda antar kelompok secara substansial, ini mengindikasikan kegagalan randomisasi.</p>
-<p>Dalam studi <strong>observasional</strong>, kovariat bisa saja berkorelasi dengan kelompok — ini tidak membatalkan ANCOVA secara statistik, tetapi mempersulit interpretasi kausal.</p>
-<p>Periksa dengan membandingkan <em>mean</em> kovariat antar kelompok secara deskriptif.</p>
-</div></div>
+<section id="asumsi-tambahan-selain-asumsi-anova" class="slide level2">
+<h2>Asumsi tambahan selain asumsi ANOVA</h2>
+<ul>
+<li><p>ANCOVA mewarisi semua asumsi ANOVA (normalitas residual, homogenitas varians, independensi observasi), plus tiga asumsi tambahan:</p></li>
+<li><p><strong>1. Homogenitas <em>slope</em> regresi</strong></p>
+<ul>
+<li><em>Slope</em> regresi antara kovariat dan variabel dependen harus <strong>serupa</strong> di semua kelompok perlakuan.</li>
+<li>Jika asumsi ini dilanggar (interaksi kovariat × perlakuan signifikan), ANCOVA biasa tidak tepat digunakan, sehingga perlu dipertimbangkan model dengan interaksi.</li>
+</ul></li>
+<li><p><strong>2. Independensi kovariat dari faktor perlakuan</strong></p>
+<ul>
+<li>Dalam studi <strong>eksperimental</strong> (dengan randomisasi), kovariat seharusnya tidak berbeda antar kelompok secara sistematis karena <em>random assignment</em> seharusnya menyeimbangkan semua variabel.</li>
+<li>Jika kovariat berbeda antar kelompok secara substansial, ini mengindikasikan kegagalan randomisasi.</li>
+<li>Dalam studi <strong>observasional</strong>, kovariat bisa saja berkorelasi dengan kelompok — ini tidak membatalkan ANCOVA secara statistik, tetapi mempersulit interpretasi kausal.</li>
+<li>Periksa asumsi ini dengan membandingkan <em>mean</em> kovariat antar kelompok secara deskriptif.</li>
+</ul></li>
+</ul>
+</section>
+<section id="asumsi-tambahan-selain-asumsi-anova-1" class="slide level2">
+<h2>Asumsi tambahan selain asumsi ANOVA</h2>
+<ul>
+<li><strong>3. Linearitas hubungan kovariat–dependen</strong>
+<ul>
+<li>Hubungan antara kovariat dan variabel dependen harus <strong>linier</strong> di setiap kelompok perlakuan.</li>
+<li>Jika hubungannya kurvilinear, penyesuaian ANCOVA akan tidak tepat dan <em>adjusted means</em> yang dihasilkan bisa menyesatkan.</li>
+<li>Cek asumsi ini dengan memeriksa dengan <em>scatterplot</em> per kelompok, pastikan titik-titik data mendekati garis regresi linier, bukan pola melengkung.</li>
+</ul></li>
+</ul>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -281,12 +295,12 @@ Rizqy Amelia Zein
 </section></section>
 <section>
 <section id="implementasi-ancova-di-jamovi" class="title-slide slide level1 center" data-background-color="#14497F">
-<h1>Implementasi ANCOVA di jamovi</h1>
+<h1>Implementasi ANCOVA di <code>jamovi</code></h1>
 
 </section>
 <section id="langkah-ancova-di-jamovi" class="slide level2">
-<h2>Langkah ANCOVA di jamovi</h2>
-<p>Buka dataset <strong>cobaobat2.omv</strong>, kemudian jalankan ANCOVA:</p>
+<h2>Langkah ANCOVA di <code>jamovi</code></h2>
+<p>Buka dataset <a href="..\materials/cobaobat2.omv"><strong>cobaobat2.omv</strong></a>, kemudian jalankan ANCOVA:</p>
 <ol type="1">
 <li>Klik menu <em>ANOVA</em> <i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i> <strong><em>ANCOVA</em></strong></li>
 <li>Masukkan <strong>konsentrasi</strong> ke <em>Dependent Variable</em></li>
@@ -393,12 +407,12 @@ Rizqy Amelia Zein
 </section></section>
 <section>
 <section id="post-hoc-tests-dan-estimated-marginal-means" class="title-slide slide level1 center" data-background-color="#14497F">
-<h1><em>Post-hoc tests</em> dan <em>estimated marginal means</em></h1>
+<h1>Post-hoc tests dan estimated marginal means</h1>
 
 </section>
-<section id="perbandingan-berpasangan-setelah-mengontrol-kovariat" class="slide level2">
-<h2>Perbandingan berpasangan setelah mengontrol kovariat</h2>
-<p><em>Post-hoc test</em> dalam ANCOVA membandingkan <strong><em>estimated marginal means</em></strong> — <em>mean</em> yang sudah “disesuaikan” (<em>adjusted</em>) berdasarkan kovariat, bukan <em>mean</em> observasi mentah.</p>
+<section id="paired-comparison-setelah-mengontrol-kovariat" class="slide level2">
+<h2><em>Paired comparison</em> setelah mengontrol kovariat</h2>
+<p><em>Post-hoc test</em> dalam ANCOVA membandingkan <strong><em>estimated marginal means</em></strong>, yaitu <em>mean</em> yang sudah “disesuaikan” (<em>adjusted</em>) berdasarkan kovariat, bukan <em>mean</em> mentah.</p>
 <p><strong>Hasil <em>post-hoc</em> (Bonferroni):</strong></p>
 <table class="caption-top">
 <colgroup>
@@ -465,7 +479,7 @@ Rizqy Amelia Zein
 <li>Masukkan: <em>Number of groups</em> = 3, <strong><em>Number of covariates</em> = 1</strong></li>
 <li>Klik <em>Calculate</em></li>
 </ol>
-<p><strong>Hasilnya berbeda dari ANOVA biasa</strong> karena satu df digunakan untuk kovariat. Apabila kovariat <strong>tidak berkorelasi</strong> dengan variabel dependen, ANCOVA sedikit kehilangan df tanpa keuntungan pengurangan <em>error</em> — sehingga membutuhkan sedikit lebih banyak sampel. Namun bila kovariat <strong>berkorelasi kuat</strong> (<em>r</em> &gt; 0.4), ANCOVA biasanya membutuhkan <strong>lebih sedikit sampel</strong> karena mengurangi <em>error variance</em> secara substansial.</p>
+<p><strong>Hasilnya berbeda dari ANOVA biasa</strong> karena satu df digunakan untuk kovariat. Apabila kovariat <strong>tidak berkorelasi</strong> dengan variabel dependen, ANCOVA sedikit kehilangan df tanpa keuntungan pengurangan <em>error</em>, sehingga membutuhkan sedikit lebih banyak sampel. Namun bila kovariat <strong>berkorelasi kuat</strong> (<em>r</em> &gt; 0.4), ANCOVA biasanya membutuhkan <strong>lebih sedikit sampel</strong> karena mengurangi <em>error variance</em> secara substansial.</p>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -475,16 +489,16 @@ Rizqy Amelia Zein
 <p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
-<p>Manfaat nyata ANCOVA dalam hal <em>power</em> terlihat ketika kovariat berkorelasi <strong>kuat</strong> dengan variabel dependen (<em>r</em> &gt; 0.4). Dalam kondisi tersebut, ANCOVA dapat secara substansial mengurangi <em>error variance</em> dan meningkatkan <em>power</em> — bahkan dengan sampel yang lebih kecil dari ANOVA biasa.</p>
+<p>Manfaat menggunakan ANCOVA dalam hal <em>power</em> terlihat ketika kovariat berkorelasi <strong>kuat</strong> dengan variabel dependen (<em>r</em> &gt; 0.4). Dalam kondisi tersebut, ANCOVA dapat secara substansial mengurangi <em>error variance</em> dan meningkatkan <em>power</em>, bahkan dengan sampel yang lebih kecil dari ANOVA biasa.</p>
 </div>
 </div>
 </div>
 </section>
 <section id="latihan-ancova-di-jamovi" class="slide level2">
-<h2>Latihan: ANCOVA di jamovi</h2>
+<h2>Latihan: ANCOVA di <code>jamovi</code></h2>
 <p>Bayangkan kalian ingin meneliti efektivitas tiga program pengurangan stres (meditasi, olahraga aerobik, dan kontrol) terhadap skor stres akhir, dengan <strong>skor stres awal</strong> sebagai kovariat.</p>
 <ol type="1">
-<li>Buka dataset <strong>stres.omv</strong>, kemudian jalankan ANCOVA:
+<li>Buka dataset <a href="..\materials/stres.omv"><strong>stres.omv</strong></a>, kemudian jalankan ANCOVA:
 <ul>
 <li><em>Dependent</em>: <strong>stres_akhir</strong></li>
 <li><em>Fixed factor</em>: <strong>program</strong></li>
@@ -503,7 +517,7 @@ Rizqy Amelia Zein
 <section id="ada-pertanyaan" class="slide level2">
 <h2>Ada pertanyaan❓</h2>
 
-<img data-src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFtaDh5ZjZ2eXJ3dmJmZmFmYzBtNHEwdzlqZmZtdGtmbnE0bXZidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igB2Th9e4nW6s/giphy.gif" class="quarto-figure quarto-figure-center r-stretch"><div class="callout callout-note callout-titled callout-style-default">
+<img data-src="..\slides/libs/closing.JPG" class="quarto-figure quarto-figure-center r-stretch"><div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">

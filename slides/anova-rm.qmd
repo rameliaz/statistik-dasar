@@ -18,11 +18,11 @@ execute:
 
 ## _Outline_
 
-* Kapan menggunakan ANOVA pengukuran berulang?
+* Kapan perlu menggunakan ANOVA pengukuran berulang?
 * Logika: mempartisi varians individual
 * Asumsi *sphericity* dan Mauchly's test
 * Koreksi *Greenhouse-Geisser* dan *Huynh-Feldt*
-* Implementasi di jamovi
+* Implementasi di `jamovi`
 * *Effect size* (η² dan η²G)
 * *Post-hoc tests*
 * *A priori* analisis *power*
@@ -32,19 +32,20 @@ execute:
 
 ## Keterbatasan ANOVA satu jalur untuk data berulang
 
-Bayangkan Alfonso mengukur **durasi membaca kucing** pada minggu ke-1, ke-2, dan ke-3 dari **kucing yang sama**. Jika ia menjalankan ANOVA satu jalur biasa:
+Bayangkan Alfonso mengukur **durasi membaca kucing** pada minggu ke-1, ke-2, dan ke-3 dari **kucing yang sama**. Jika ia melakukan uji ANOVA satu jalur biasa:
 
-**Masalah: Observasi tidak independen!**
+**Akan timbul masalah: Observasi yang tidak independen!**
 
-Kucing yang membaca lama di minggu ke-1 cenderung juga membaca lama di minggu ke-2 dan ke-3. Ini bukan karena perlakuan, tapi karena **karakteristik individu** kucing tersebut.
+Kucing yang membaca lama di minggu ke-1 cenderung juga membaca lama di minggu ke-2 dan ke-3. Ini bukan karena perlakuan, tapi karena **karakteristik yang melekat pada kucing** tersebut.
 
 ::: {.callout-important}
-ANOVA satu jalur mengasumsikan bahwa semua observasi **independen** satu sama lain. Ketika subjek yang sama diukur berulang kali, asumsi ini dilanggar — dan *p-value* yang dihasilkan **tidak valid**.
+#### Pelanggaran asumsi ANOVA satu jalur
+ANOVA satu jalur mengasumsikan bahwa semua observasi **independen** satu sama lain. Ketika partisipan yang sama diukur berulang kali, asumsi ini dilanggar, dan *p-value* yang dihasilkan menjadi **tidak valid**.
 :::
 
 ## Apa itu ANOVA pengukuran berulang?
 
-*Repeated Measures ANOVA* (RM-ANOVA) — disebut juga *within-subjects ANOVA* atau *related ANOVA* — dirancang khusus untuk situasi di mana **subjek yang sama diukur pada tiga atau lebih kondisi/waktu pengukuran**.
+*Repeated Measures ANOVA* (RM-ANOVA), atau disebut juga *within-subjects ANOVA* atau *related ANOVA*, dirancang khusus untuk situasi di mana **partisipan yang sama diukur pada tiga atau lebih kondisi/waktu pengukuran**.
 
 **Kapan digunakan:**
 
@@ -54,16 +55,19 @@ ANOVA satu jalur mengasumsikan bahwa semua observasi **independen** satu sama la
 
 **Keunggulan dibanding *between-subjects* ANOVA:**
 
-* Lebih *powerful* — variasi individu "diisolasi" dari *error*
+* Lebih *powerful* — varians individu "diisolasi" dari *error*
 * Membutuhkan **lebih sedikit partisipan** untuk mencapai *power* yang sama
 
-## Mempartisi varians: perbedaan kunci
+## Mempartisi varians: perbedaan kunci dengan ANOVA satu jalur
 
 Dalam ANOVA satu jalur biasa:
 $$SS_{\text{tot}} = SS_{\text{between}} + SS_{\text{within}}$$
 
-Dalam RM-ANOVA, $SS_{\text{within}}$ dipartisi lebih lanjut:
-$$SS_{\text{within}} = SS_{\text{perlakuan}} + SS_{\text{individu}} + SS_{\text{error}}$$
+Dalam RM-ANOVA, $SS_{\text{within}}$ (error) dikenali mengandung dua sumber yang tercampur:
+$$SS_{\text{within}} = SS_{\text{individu}} + SS_{\text{error}}$$
+
+Sehingga total varians dipartisi menjadi tiga komponen:
+$$SS_{\text{tot}} = SS_{\text{perlakuan}} + SS_{\text{individu}} + SS_{\text{error}}$$
 
 | Komponen | Interpretasi |
 |---|---|
@@ -71,8 +75,10 @@ $$SS_{\text{within}} = SS_{\text{perlakuan}} + SS_{\text{individu}} + SS_{\text{
 | $SS_{\text{individu}}$ | Perbedaan antar-individu yang konsisten (dikontrol) |
 | $SS_{\text{error}}$ | Sisa variabilitas yang tidak dapat dijelaskan |
 
+: {tbl-colwidths="[35,65]"}
+
 ::: {.callout-note}
-Dengan "mengeluarkan" $SS_{\text{individu}}$ dari *error*, denominator rasio F menjadi lebih kecil — sehingga F lebih besar dan *power* meningkat.
+Dengan "mengeluarkan" $SS_{\text{individu}}$ dari *error*, denominator rasio F menjadi lebih kecil, sehingga F lebih besar dan *power* meningkat.
 :::
 
 
@@ -101,10 +107,12 @@ Dataset: [**minat-baca.omv**](/docs/materials/minat-baca.omv)
 | Minggu ke-2 | 78.6 | 11.5 |
 | Minggu ke-3 | 130.4 | 14.2 |
 
+: {tbl-colwidths="[45,30,25]"}
+
 Secara deskriptif, durasi membaca meningkat dari minggu ke minggu. Namun apakah perbedaan ini signifikan secara statistik?
 
 ::: {.callout-note}
-Dalam RM-ANOVA, kita membandingkan apakah *mean* antar kondisi berbeda, **setelah mengontrol variabilitas antar-individu**. Ini membuat uji lebih sensitif dibanding ANOVA biasa.
+Dalam RM-ANOVA, kita membandingkan apakah *mean* antar kondisi berbeda, **setelah mengontrol variabilitas antar-individu**. Ini membuat uji RM-ANOVA lebih sensitif dibanding ANOVA biasa.
 :::
 
 
@@ -138,6 +146,8 @@ $$H_a: \text{asumsi } sphericity \text{ dilanggar}$$
 |---|---|
 | *p* ≥ .05 | Asumsi terpenuhi — gunakan F tanpa koreksi |
 | *p* < .05 | Asumsi dilanggar — terapkan koreksi df |
+
+: {tbl-colwidths="[30,70]"}
 
 Pada studi Alfonso: Mauchly's *W* = 0.812, *p* = .043 → **asumsi *sphericity* dilanggar** — perlu koreksi.
 
@@ -175,7 +185,7 @@ $$F_{\text{corrected}} \text{ menggunakan } df^* = df \times \varepsilon$$
 
 ## Langkah RM-ANOVA di `jamovi`
 
-Buka dataset **kucing-membaca.omv**, kemudian:
+Buka dataset [**minat-membaca.omv**](/materials/minat-baca.omv), kemudian:
 
 1. Klik menu *ANOVA* {{< fa circle-arrow-right >}} ***Repeated Measures ANOVA***
 2. Di kolom *Repeated Measures Factors*: beri nama faktor — mis. **"waktu"** — dan tambahkan 3 level: *minggu1*, *minggu2*, *minggu3*
@@ -214,9 +224,9 @@ Jamovi secara otomatis menampilkan tabel ANOVA dengan koreksi GG dan HF. Pilih b
 
 **Tabel RM-ANOVA (dengan koreksi HF):**
 
-| Sumber | F | df (HF) | *p* | η² | η²G |
+| Sumber | F | df (HF) | *p* | η²_p | η²G |
 |---|---|---|---|---|---|
-| waktu | 3292.4 | 1.843, 182.4 | < .001 | 0.957 | 0.957 |
+| waktu | 3292.4 | 1.843, 182.4 | < .001 | 0.971 | 0.957 |
 | Residuals | — | 182.4 | — | — | — |
 
 : {tbl-colwidths="[20,12,26,12,15,15]"}
@@ -308,6 +318,8 @@ Pengukuran berulang pada subjek yang sama cenderung berkorelasi. Estimasi *r* me
 | Rendah (*r* ≈ 0–0.2) | Keunggulan RM-ANOVA berkurang; butuh sampel lebih besar |
 | Negatif | RM-ANOVA bisa **kurang** *powerful* dari *between-subjects* |
 
+: {tbl-colwidths="[35,65]"}
+
 **Koreksi *nonsphericity* (ε):**
 
 * ε = 1.0 → *sphericity* terpenuhi sempurna
@@ -351,7 +363,7 @@ Pertanyaan untuk didiskusikan:
 
 ## Ada pertanyaan❓
 
-![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFtaDh5ZjZ2eXJ3dmJmZmFmYzBtNHEwdzlqZmZtdGtmbnE0bXZidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igB2Th9e4nW6s/giphy.gif){fig-align="center"}
+![](/slides/libs/closing.JPG){fig-align="center"}
 
 ::: {.callout-note}
 * Paparan disusun dengan menggunakan <i class="fa-brands fa-r-project"></i> dan [**Quarto**](https://quarto.org) dengan _template_ dari [UNAIR Theme](https://github.com/rameliaz/quarto-unair-theme).

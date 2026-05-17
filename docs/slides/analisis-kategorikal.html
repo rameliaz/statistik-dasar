@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.10.3">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-05-05">
+  <meta name="dcterms.date" content="2026-05-17">
   <title>Statistik Dasar dalam Penelitian Psikologi – Analisis Data Kategorikal</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -147,14 +147,14 @@ Rizqy Amelia Zein
     </div>
 </div>
 
-  <p class="date">2026-05-05</p>
+  <p class="date">2026-05-17</p>
 </section>
 <section id="outline" class="slide level2">
 <h2><em>Outline</em></h2>
 <ul>
 <li>Apa itu data kategorikal?</li>
 <li><em>Binomial test</em></li>
-<li>Uji chi-square (<em>χ²</em>)</li>
+<li>Uji χ²</li>
 <li><em>Fisher’s exact test</em></li>
 <li><em>McNemar’s test</em> (data berpasangan)</li>
 <li><em>Effect size</em> untuk analisis kategorikal</li>
@@ -167,12 +167,12 @@ Rizqy Amelia Zein
 </section>
 <section id="apa-itu-data-kategorikal" class="slide level2">
 <h2>Apa itu data kategorikal?</h2>
-<p>Data kategorikal adalah data yang nilainya berupa <strong>kategori</strong> atau <strong>kelas</strong> — bukan angka kontinu.</p>
+<p>Data kategorikal adalah data yang nilainya berupa <strong>kategori</strong> atau <strong>kelas</strong>, bukan angka yang sifatnya <em>continuum</em>.</p>
 <table class="caption-top">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 18%">
+<col style="width: 42%">
+<col style="width: 40%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -208,7 +208,7 @@ Rizqy Amelia Zein
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>Meskipun kita sering mengkode kategori dengan angka (0 dan 1, 1 dan 2, dll.), angka tersebut hanyalah <strong>label</strong> — operasi aritmatika seperti <em>mean</em> tidak bermakna pada data nominal. Pilih teknik analisis yang sesuai dengan skala pengukuran variabel.</p>
+<p>Meskipun kita sering mengkodekan kategori dengan angka (0 dan 1, 1 dan 2, dll.), angka tersebut hanyalah <strong>label</strong>, sehingga operasi aritmatika seperti <em>mean</em> tidak bermakna pada data nominal. Pilih teknik analisis yang sesuai dengan <strong>skala pengukuran</strong> variabel.</p>
 </div>
 </div>
 </div>
@@ -217,9 +217,9 @@ Rizqy Amelia Zein
 <h2>Teknik analisis yang tepat</h2>
 <table class="caption-top">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 38%">
+<col style="width: 38%">
+<col style="width: 24%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -237,7 +237,7 @@ Rizqy Amelia Zein
 <tr class="even">
 <td>Dua variabel kategorikal, bebas</td>
 <td>Apakah ada asosiasi antar keduanya?</td>
-<td>Chi-square (χ²)</td>
+<td>χ²</td>
 </tr>
 <tr class="odd">
 <td>Dua variabel kategorikal, sampel kecil</td>
@@ -254,12 +254,12 @@ Rizqy Amelia Zein
 </section></section>
 <section>
 <section id="binomial-test" class="title-slide slide level1 center" data-background-color="#14497F">
-<h1><em>Binomial test</em></h1>
+<h1>Binomial test</h1>
 
 </section>
 <section id="apa-itu-binomial-test" class="slide level2">
 <h2>Apa itu <em>binomial test</em>?</h2>
-<p><em>Binomial test</em> menguji apakah <strong>proporsi observasi</strong> dalam salah satu kategori berbeda dari proporsi yang diharapkan berdasarkan teori atau nilai referensi.</p>
+<p><em>Binomial test</em> menguji apakah <strong>proporsi yang diamati</strong> dalam salah satu kategori berbeda dari proporsi yang diharapkan berdasarkan teori atau nilai referensi.</p>
 <p><span class="math display">\[H_0: p = p_0 \quad \text{vs} \quad H_1: p \neq p_0\]</span></p>
 <p>Di mana <span class="math inline">\(p\)</span> adalah proporsi populasi yang sesungguhnya dan <span class="math inline">\(p_0\)</span> adalah proporsi yang dihipotesiskan (nilai referensi).</p>
 <p><strong>Contoh:</strong> Dalam 500 klien yang menjalani terapi CBT, 327 menunjukkan perbaikan signifikan. Apakah tingkat keberhasilan CBT berbeda dari 60% yang dilaporkan literatur internasional?</p>
@@ -268,7 +268,7 @@ Rizqy Amelia Zein
 </section>
 <section id="logika-binomial-test" class="slide level2">
 <h2>Logika <em>binomial test</em></h2>
-<p><em>Binomial test</em> menghitung probabilitas tepat mendapatkan hasil yang kita amati <strong>atau yang lebih ekstrem</strong>, jika proporsi populasi sesungguhnya adalah <span class="math inline">\(p_0\)</span>.</p>
+<p><em>Binomial test</em> menghitung probabilitas mendapatkan hasil yang kita amati <strong>atau yang lebih ekstrem</strong> secara tepat (<em>exact</em>), dengan asumsi proporsi populasi yang sebenarnya adalah <span class="math inline">\(p_0\)</span>.</p>
 <p><span class="math display">\[P(X \geq k) = \sum_{i=k}^{n} \binom{n}{i} p_0^i (1-p_0)^{n-i}\]</span></p>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -279,14 +279,14 @@ Rizqy Amelia Zein
 <p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
-<p>Untuk <strong>sampel besar</strong> (n &gt; 30), <em>binomial test</em> bisa diaproksimasi dengan <strong>uji z untuk proporsi</strong>. Namun <em>binomial test</em> memberikan hasil yang exact dan lebih akurat, terutama untuk sampel kecil atau ketika proporsi mendekati 0 atau 1.</p>
+<p>Untuk <strong>sampel besar</strong> (ketika <span class="math inline">\(np_0 \geq 5\)</span> dan <span class="math inline">\(n(1-p_0) \geq 5\)</span>), <em>binomial test</em> bisa diaproksimasi dengan <strong>uji z untuk proporsi</strong>. Namun <em>binomial test</em> memberikan hasil yang lebih tepat (<em>exact</em>) dan akurat, terutama untuk sampel kecil atau ketika proporsi mendekati 0 atau 1.</p>
 </div>
 </div>
 </div>
 </section>
 <section id="latihan-binomial-test-di-jamovi" class="slide level2">
-<h2>Latihan: <em>Binomial test</em> di jamovi</h2>
-<p>Buka dataset <strong>terapi.omv</strong> yang berisi data 500 klien CBT:</p>
+<h2>Latihan: <em>Binomial test</em> di <code>jamovi</code></h2>
+<p>Buka dataset <a href="..\materials/terapi.omv"><strong>terapi.omv</strong></a> yang berisi data 500 klien CBT:</p>
 <ol type="1">
 <li>Klik menu <em>Frequencies</em> <i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i> <em>Proportion Test (Binomial)</em></li>
 <li>Masukkan <strong>hasil_terapi</strong> ke <em>Variable</em></li>
@@ -301,13 +301,13 @@ Rizqy Amelia Zein
 </ul>
 </section></section>
 <section>
-<section id="uji-chi-square-χ²" class="title-slide slide level1 center" data-background-color="#14497F">
-<h1>Uji chi-square (<em>χ²</em>)</h1>
+<section id="uji-χ²" class="title-slide slide level1 center" data-background-color="#14497F">
+<h1>Uji χ²</h1>
 
 </section>
-<section id="chi-square-asosiasi-dua-variabel-kategorikal" class="slide level2">
-<h2>Chi-square: asosiasi dua variabel kategorikal</h2>
-<p>Uji <em>chi-square</em> (<span class="math inline">\(\chi^2\)</span>) menguji apakah ada <strong>asosiasi</strong> antara dua variabel kategorikal — apakah distribusi satu variabel berbeda tergantung kategori variabel lainnya.</p>
+<section id="uji-χ²-hubungan-antara-dua-variabel-kategorikal" class="slide level2">
+<h2>Uji χ²: hubungan antara dua variabel kategorikal</h2>
+<p>Uji χ² menguji apakah ada <strong>asosiasi</strong> antara dua variabel kategorikal — apakah distribusi satu variabel berbeda bergantung pada kategori variabel lainnya.</p>
 <p><span class="math display">\[H_0: \text{Tidak ada asosiasi antara variabel A dan variabel B}\]</span> <span class="math display">\[H_1: \text{Ada asosiasi antara variabel A dan variabel B}\]</span></p>
 <p><strong>Statistik uji:</strong></p>
 <p><span class="math display">\[\chi^2 = \sum \frac{(O - E)^2}{E}\]</span></p>
@@ -353,11 +353,11 @@ Rizqy Amelia Zein
 </tr>
 </tbody>
 </table>
-<p>Frekuensi yang diharapkan (contoh, sel <em>Kelompok</em> × <em>Lulus tepat waktu</em>): <span class="math inline">\(E = \frac{195 \times 390}{525} = 144.9\)</span></p>
+<p>Frekuensi yang diharapkan (misalnya, untuk sel <em>Kelompok</em> × <em>Lulus tepat waktu</em>): <span class="math inline">\(E = \frac{195 \times 390}{525} = 144.9\)</span></p>
 </section>
-<section id="syarat-penggunaan-chi-square" class="slide level2">
-<h2>Syarat penggunaan chi-square</h2>
-<p>Chi-square membutuhkan frekuensi yang cukup besar agar distribusinya mendekati distribusi <span class="math inline">\(\chi^2\)</span>:</p>
+<section id="syarat-penggunaan-χ²" class="slide level2">
+<h2>Syarat penggunaan χ²</h2>
+<p>χ² membutuhkan frekuensi yang cukup besar agar distribusinya mendekati distribusi <span class="math inline">\(\chi^2\)</span>:</p>
 <ul>
 <li><strong>Semua sel</strong> memiliki frekuensi yang <strong>diharapkan ≥ 5</strong> (aturan praktis umum)</li>
 <li>Untuk tabel 2×2: gunakan <em>Yates’ continuity correction</em></li>
@@ -372,14 +372,14 @@ Rizqy Amelia Zein
 <p><strong>Important</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Chi-square hanya mengukur ada/tidaknya asosiasi</strong> — bukan arah atau kekuatannya. Selalu laporkan <em>effect size</em> (Cramér’s V) bersama chi-square untuk memberikan gambaran yang lengkap.</p>
+<p><strong>χ² hanya mengukur ada/tidaknya asosiasi</strong> — bukan arah atau kekuatannya. Selalu laporkan <em>effect size</em> (Cramér’s V) bersama χ² untuk memberikan gambaran yang lengkap.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="latihan-chi-square-di-jamovi" class="slide level2">
-<h2>Latihan: <em>Chi-square</em> di jamovi</h2>
-<p>Buka dataset <strong>metodebelajar.omv</strong>, kemudian uji asosiasi antara metode belajar dan kelulusan:</p>
+<section id="latihan-χ²-di-jamovi" class="slide level2">
+<h2>Latihan: χ² di <code>jamovi</code></h2>
+<p>Buka dataset <a href="..\materials/metodebelajar.omv"><strong>metodebelajar.omv</strong></a>, kemudian uji hubungan antara metode belajar dan kelulusan:</p>
 <ol type="1">
 <li>Klik menu <em>Frequencies</em> <i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i> <em>Contingency Tables</em></li>
 <li>Masukkan <strong>metode_belajar</strong> ke <em>Rows</em> dan <strong>kelulusan</strong> ke <em>Columns</em></li>
@@ -389,8 +389,8 @@ Rizqy Amelia Zein
 <p>Pertanyaan untuk didiskusikan:</p>
 <ul>
 <li>Apakah ada sel dengan frekuensi yang diharapkan &lt; 5? Apa implikasinya?</li>
-<li>Berapa nilai Cramér’s V? Seberapa kuat asosiasinya?</li>
-<li>Kelompok metode belajar mana yang menunjukkan profil kelulusan yang berbeda paling menyolok?</li>
+<li>Berapa nilai Cramér’s V? Seberapa kuat hubungannya?</li>
+<li>Kelompok metode belajar mana yang menunjukkan profil kelulusan yang berbeda paling mencolok?</li>
 </ul>
 </section></section>
 <section>
@@ -400,10 +400,10 @@ Rizqy Amelia Zein
 </section>
 <section id="kapan-menggunakan-fishers-exact-test" class="slide level2">
 <h2>Kapan menggunakan <em>Fisher’s exact test</em>?</h2>
-<p>Ketika frekuensi yang diharapkan dalam satu atau lebih sel &lt; 5, chi-square tidak dapat diandalkan. Dalam kondisi ini, gunakan <strong><em>Fisher’s exact test</em></strong>:</p>
+<p>Ketika frekuensi yang diharapkan dalam satu atau lebih sel &lt; 5, χ² tidak dapat diandalkan. Dalam kondisi ini, gunakan <strong><em>Fisher’s exact test</em></strong>:</p>
 <ul>
-<li>Menghitung probabilitas <strong>exact</strong> dari distribusi frekuensi yang diamati (atau yang lebih ekstrem), dengan asumsi marginal total tetap</li>
-<li>Tepat untuk <strong>semua ukuran sampel</strong> — baik kecil maupun besar</li>
+<li>Menghitung probabilitas <strong>exact</strong> dari distribusi frekuensi yang diamati (atau yang lebih ekstrem), dengan asumsi <em>marginal total</em> (total baris dan kolom) tetap</li>
+<li>Tepat digunakan untuk <strong>semua ukuran sampel</strong>, baik kecil maupun besar</li>
 <li>Paling umum digunakan untuk <strong>tabel 2×2</strong></li>
 </ul>
 <div class="callout callout-note callout-titled callout-style-default">
@@ -415,11 +415,11 @@ Rizqy Amelia Zein
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p><em>Fisher’s exact test</em> lebih konservatif (cenderung <em>p-value</em> lebih besar) dibanding chi-square untuk sampel besar. Untuk data kategorikal yang sampelnya kecil, ia adalah pilihan yang lebih tepat secara statistik.</p>
+<p><em>Fisher’s exact test</em> menghitung probabilitas dengan mengasumsikan <em>marginal total</em> (total baris dan kolom) tetap, lalu menjumlahkan peluang semua distribusi sel yang sama ekstrem atau lebih ekstrem dari yang diamati. Karena distribusinya diskrit, <em>p-value</em> yang dihasilkan sering sedikit lebih besar dari χ², sifat konservatif ini paling berdampak pada sampel kecil.</p>
 </div>
 </div>
 </div>
-<p><strong>Di jamovi:</strong> saat menjalankan <em>Contingency Tables</em>, centang <strong>Fisher’s exact test</strong> di bagian <em>Statistics</em> — jamovi akan menampilkan hasilnya di samping chi-square.</p>
+<p><strong>Di <code>jamovi</code>:</strong> saat menjalankan <em>Contingency Tables</em>, centang <strong>Fisher’s exact test</strong> di bagian <em>Statistics</em> — jamovi akan menampilkan hasilnya di samping χ².</p>
 </section>
 <section id="contoh-intervensi-kelompok-kecil" class="slide level2">
 <h2>Contoh: intervensi kelompok kecil</h2>
@@ -463,14 +463,14 @@ Rizqy Amelia Zein
 </section>
 <section id="asosiasi-dalam-data-berpasangan" class="slide level2">
 <h2>Asosiasi dalam data berpasangan</h2>
-<p>Ketika kita mengukur <strong>variabel dikotomi yang sama</strong> pada kelompok yang <strong>sama</strong> pada dua titik waktu (sebelum-sesudah), kita tidak bisa menggunakan chi-square biasa — observasinya tidak independen.</p>
+<p>Ketika kita mengukur <strong>variabel dikotomi yang sama</strong> pada kelompok yang <strong>sama</strong> pada dua titik waktu (sebelum-sesudah), kita tidak bisa menggunakan χ² biasa — observasinya tidak independen.</p>
 <p><strong><em>McNemar’s test</em></strong> dirancang khusus untuk situasi ini.</p>
 <p><strong>Contoh:</strong> Apakah proporsi mahasiswa yang <em>setuju</em> dengan hukuman fisik berbeda <strong>sebelum</strong> vs <strong>sesudah</strong> mengikuti kuliah Psikologi Perkembangan?</p>
 <table class="caption-top">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 22%">
+<col style="width: 39%">
+<col style="width: 39%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -492,7 +492,7 @@ Rizqy Amelia Zein
 </tr>
 </tbody>
 </table>
-<p><em>McNemar’s test</em> berfokus pada sel <strong>b</strong> dan <strong>c</strong> — responden yang <strong>berubah</strong> pendapat.</p>
+<p><em>McNemar’s test</em> berfokus pada sel <strong>b</strong> dan <strong>c</strong> — partisipan yang <strong>berubah</strong> pendapat.</p>
 </section>
 <section id="statistik-mcnemars-test" class="slide level2">
 <h2>Statistik <em>McNemar’s test</em></h2>
@@ -507,11 +507,11 @@ Rizqy Amelia Zein
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>Jika jumlah perubahan kecil (b + c &lt; 25), gunakan versi <em>exact</em> yang menggunakan distribusi binomial alih-alih aproksimasi chi-square.</p>
+<p>Jika jumlah perubahan kecil (b + c &lt; 25), gunakan versi <em>exact</em> yang menggunakan distribusi binomial alih-alih aproksimasi χ².</p>
 </div>
 </div>
 </div>
-<p><strong>Di jamovi:</strong></p>
+<p><strong>Di <code>jamovi</code>:</strong></p>
 <ol type="1">
 <li><em>Frequencies</em> <i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i> <em>Contingency Tables</em></li>
 <li>Masukkan variabel sebelum dan sesudah</li>
@@ -520,18 +520,18 @@ Rizqy Amelia Zein
 </section></section>
 <section>
 <section id="effect-size-untuk-analisis-kategorikal" class="title-slide slide level1 center" data-background-color="#14497F">
-<h1><em>Effect size</em> untuk analisis kategorikal</h1>
+<h1>Effect size untuk analisis kategorikal</h1>
 
 </section>
 <section id="mengapa-effect-size-penting" class="slide level2">
 <h2>Mengapa <em>effect size</em> penting?</h2>
-<p>Seperti pada t-test dan ANOVA, signifikansi statistik dari chi-square <strong>tidak mencerminkan kekuatan asosiasi</strong>. Dengan N yang besar, asosiasi yang sangat lemah pun akan signifikan.</p>
+<p>Seperti pada t-test dan ANOVA, signifikansi statistik dari χ² <strong>tidak mencerminkan kekuatan asosiasi</strong>. Dengan N yang besar, asosiasi yang sangat lemah pun akan signifikan.</p>
 <table class="caption-top">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 18%">
+<col style="width: 28%">
+<col style="width: 8%">
+<col style="width: 46%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -544,13 +544,13 @@ Rizqy Amelia Zein
 <tbody>
 <tr class="odd">
 <td><strong>Cramér’s V</strong></td>
-<td>Chi-square (tabel k×m apapun)</td>
+<td>χ² (tabel k×m apapun)</td>
 <td>0–1</td>
 <td>0.10 kecil, 0.30 sedang, 0.50 besar <em>(berlaku langsung untuk tabel 2×2; untuk tabel lebih besar, ambang batas ini adalah panduan kasar — nilainya bergantung pada df = min(baris−1, kolom−1))</em></td>
 </tr>
 <tr class="even">
 <td><strong><em>Phi</em> (φ)</strong></td>
-<td>Chi-square tabel 2×2 saja</td>
+<td>χ² tabel 2×2 saja</td>
 <td>0–1</td>
 <td>Sama dengan Cramér’s V untuk tabel 2×2</td>
 </tr>
@@ -604,24 +604,24 @@ Rizqy Amelia Zein
 </div>
 </section>
 <section id="latihan-analisis-kategorikal-lengkap-di-jamovi" class="slide level2">
-<h2>Latihan: analisis kategorikal lengkap di jamovi</h2>
-<p>Buka dataset <strong>attitudinal_change.omv</strong> yang berisi data mahasiswa sebelum dan sesudah kuliah Psikologi Perkembangan:</p>
+<h2>Latihan: analisis kategorikal lengkap di <code>jamovi</code></h2>
+<p>Buka dataset <a href="..\materials/attitudinal_change.omv"><strong>attitudinal_change.omv</strong></a> yang berisi data mahasiswa sebelum dan sesudah kuliah Psikologi Perkembangan:</p>
 <ol type="1">
 <li>Jalankan <em>McNemar’s test</em> untuk variabel <strong>sikap_hukuman_fisik</strong> (sebelum vs sesudah)</li>
-<li>Hitung chi-square untuk asosiasi <strong>jurusan</strong> × <strong>perubahan_sikap</strong></li>
+<li>Hitung χ² untuk asosiasi <strong>jurusan</strong> × <strong>perubahan_sikap</strong></li>
 <li>Di <em>Statistics</em>, centang <em>Cramér’s V</em> dan <em>Odds ratio</em></li>
 </ol>
 <p>Pertanyaan untuk didiskusikan:</p>
 <ul>
 <li>Apakah proporsi mahasiswa yang mendukung hukuman fisik berubah secara signifikan setelah kuliah?</li>
 <li>Apakah jurusan berhubungan dengan arah perubahan sikap? Seberapa kuat asosiasinya?</li>
-<li>Kenapa kita tidak bisa menggunakan chi-square biasa untuk membandingkan sebelum-sesudah dalam kelompok yang sama?</li>
+<li>Kenapa kita tidak bisa menggunakan χ² biasa untuk membandingkan sebelum-sesudah dalam kelompok yang sama?</li>
 </ul>
 </section>
 <section id="ada-pertanyaan" class="slide level2">
 <h2>Ada pertanyaan❓</h2>
 
-<img data-src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFtaDh5ZjZ2eXJ3dmJmZmFmYzBtNHEwdzlqZmZtdGtmbnE0bXZidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igB2Th9e4nW6s/giphy.gif" class="quarto-figure quarto-figure-center r-stretch"><div class="callout callout-note callout-titled callout-style-default">
+<img data-src="..\slides/libs/closing.JPG" class="quarto-figure quarto-figure-center r-stretch"><div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">

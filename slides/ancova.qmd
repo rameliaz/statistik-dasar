@@ -96,39 +96,37 @@ Sebelum menjalankan ANCOVA, periksa hubungan antara kovariat dan variabel depend
 
 # Asumsi ANCOVA {background-color="#14497F"}
 
-## Asumsi tambahan di atas asumsi ANOVA
+## Asumsi tambahan selain asumsi ANOVA
 
-ANCOVA mewarisi semua asumsi ANOVA (normalitas residual, homogenitas varians, independensi observasi), plus dua asumsi tambahan:
+* ANCOVA mewarisi semua asumsi ANOVA (normalitas residual, homogenitas varians, independensi observasi), plus tiga asumsi tambahan:
 
-:::: {.columns}
-::: {.column width="50%"}
-**1. Homogenitas *slope* regresi**
+* **1. Homogenitas *slope* regresi**
+  - *Slope* regresi antara kovariat dan variabel dependen harus **serupa** di semua kelompok perlakuan.
+  - Jika asumsi ini dilanggar (interaksi kovariat × perlakuan signifikan), ANCOVA biasa tidak tepat digunakan, sehingga perlu dipertimbangkan model dengan interaksi.
 
-*Slope* regresi antara kovariat dan variabel dependen harus **serupa** di semua kelompok perlakuan.
+* **2. Independensi kovariat dari faktor perlakuan**
+  - Dalam studi **eksperimental** (dengan randomisasi), kovariat seharusnya tidak berbeda antar kelompok secara sistematis karena *random assignment* seharusnya menyeimbangkan semua variabel. 
+  - Jika kovariat berbeda antar kelompok secara substansial, ini mengindikasikan kegagalan randomisasi.
+  - Dalam studi **observasional**, kovariat bisa saja berkorelasi dengan kelompok — ini tidak membatalkan ANCOVA secara statistik, tetapi mempersulit interpretasi kausal.
+  - Periksa asumsi ini dengan membandingkan *mean* kovariat antar kelompok secara deskriptif.
 
-Jika asumsi ini dilanggar (interaksi kovariat × perlakuan signifikan), ANCOVA biasa tidak tepat digunakan — perlu dipertimbangkan model dengan interaksi.
-:::
-::: {.column width="50%"}
-**2. Independensi kovariat dari faktor perlakuan**
+## Asumsi tambahan selain asumsi ANOVA
 
-Dalam studi **eksperimental** (dengan randomisasi), kovariat seharusnya tidak berbeda antar kelompok secara sistematis karena alokasi acak menyeimbangkan semua variabel. Jika kovariat berbeda antar kelompok secara substansial, ini mengindikasikan kegagalan randomisasi.
-
-Dalam studi **observasional**, kovariat bisa saja berkorelasi dengan kelompok — ini tidak membatalkan ANCOVA secara statistik, tetapi mempersulit interpretasi kausal.
-
-Periksa dengan membandingkan *mean* kovariat antar kelompok secara deskriptif.
-:::
-::::
+* **3. Linearitas hubungan kovariat–dependen**
+  - Hubungan antara kovariat dan variabel dependen harus **linier** di setiap kelompok perlakuan. 
+  - Jika hubungannya kurvilinear, penyesuaian ANCOVA akan tidak tepat dan *adjusted means* yang dihasilkan bisa menyesatkan. 
+  - Cek asumsi ini dengan memeriksa dengan *scatterplot* per kelompok, pastikan titik-titik data mendekati garis regresi linier, bukan pola melengkung.
 
 ::: {.callout-important}
 **Jangan menggunakan kovariat yang diukur setelah intervensi dimulai (*post-treatment covariate*)** — ini bisa mengintroduksikan *bias* yang serius karena perlakuan mungkin sudah memengaruhi kovariat tersebut.
 :::
 
 
-# Implementasi ANCOVA di jamovi {background-color="#14497F"}
+# Implementasi ANCOVA di `jamovi` {background-color="#14497F"}
 
-## Langkah ANCOVA di jamovi
+## Langkah ANCOVA di `jamovi`
 
-Buka dataset **cobaobat2.omv**, kemudian jalankan ANCOVA:
+Buka dataset [**cobaobat2.omv**](/materials/cobaobat2.omv), kemudian jalankan ANCOVA:
 
 1. Klik menu *ANOVA* {{< fa circle-arrow-right >}} ***ANCOVA***
 2. Masukkan **konsentrasi** ke *Dependent Variable*
@@ -181,11 +179,11 @@ Dalam contoh ini, menambahkan kovariat **sedikit mengurangi** *effect size* dan 
 :::
 
 
-# *Post-hoc tests* dan *estimated marginal means* {background-color="#14497F"}
+# Post-hoc tests dan estimated marginal means {background-color="#14497F"}
 
-## Perbandingan berpasangan setelah mengontrol kovariat
+## *Paired comparison* setelah mengontrol kovariat
 
-*Post-hoc test* dalam ANCOVA membandingkan ***estimated marginal means*** — *mean* yang sudah "disesuaikan" (*adjusted*) berdasarkan kovariat, bukan *mean* observasi mentah.
+*Post-hoc test* dalam ANCOVA membandingkan ***estimated marginal means***, yaitu *mean* yang sudah "disesuaikan" (*adjusted*) berdasarkan kovariat, bukan *mean* mentah.
 
 **Hasil *post-hoc* (Bonferroni):**
 
@@ -215,17 +213,17 @@ ANCOVA menggunakan *F tests* yang sama dengan ANOVA, dengan parameter tambahan u
 5. Masukkan: *Number of groups* = 3, ***Number of covariates* = 1**
 6. Klik *Calculate*
 
-**Hasilnya berbeda dari ANOVA biasa** karena satu df digunakan untuk kovariat. Apabila kovariat **tidak berkorelasi** dengan variabel dependen, ANCOVA sedikit kehilangan df tanpa keuntungan pengurangan *error* — sehingga membutuhkan sedikit lebih banyak sampel. Namun bila kovariat **berkorelasi kuat** (*r* > 0.4), ANCOVA biasanya membutuhkan **lebih sedikit sampel** karena mengurangi *error variance* secara substansial.
+**Hasilnya berbeda dari ANOVA biasa** karena satu df digunakan untuk kovariat. Apabila kovariat **tidak berkorelasi** dengan variabel dependen, ANCOVA sedikit kehilangan df tanpa keuntungan pengurangan *error*, sehingga membutuhkan sedikit lebih banyak sampel. Namun bila kovariat **berkorelasi kuat** (*r* > 0.4), ANCOVA biasanya membutuhkan **lebih sedikit sampel** karena mengurangi *error variance* secara substansial.
 
 ::: {.callout-tip}
-Manfaat nyata ANCOVA dalam hal *power* terlihat ketika kovariat berkorelasi **kuat** dengan variabel dependen (*r* > 0.4). Dalam kondisi tersebut, ANCOVA dapat secara substansial mengurangi *error variance* dan meningkatkan *power* — bahkan dengan sampel yang lebih kecil dari ANOVA biasa.
+Manfaat menggunakan ANCOVA dalam hal *power* terlihat ketika kovariat berkorelasi **kuat** dengan variabel dependen (*r* > 0.4). Dalam kondisi tersebut, ANCOVA dapat secara substansial mengurangi *error variance* dan meningkatkan *power*, bahkan dengan sampel yang lebih kecil dari ANOVA biasa.
 :::
 
-## Latihan: ANCOVA di jamovi
+## Latihan: ANCOVA di `jamovi`
 
 Bayangkan kalian ingin meneliti efektivitas tiga program pengurangan stres (meditasi, olahraga aerobik, dan kontrol) terhadap skor stres akhir, dengan **skor stres awal** sebagai kovariat.
 
-1. Buka dataset **stres.omv**, kemudian jalankan ANCOVA:
+1. Buka dataset [**stres.omv**](/materials/stres.omv), kemudian jalankan ANCOVA:
    - *Dependent*: **stres_akhir**
    - *Fixed factor*: **program**
    - *Covariate*: **stres_awal**
@@ -240,7 +238,7 @@ Pertanyaan untuk didiskusikan:
 
 ## Ada pertanyaan❓
 
-![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFtaDh5ZjZ2eXJ3dmJmZmFmYzBtNHEwdzlqZmZtdGtmbnE0bXZidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igB2Th9e4nW6s/giphy.gif){fig-align="center"}
+![](/slides/libs/closing.JPG){fig-align="center"}
 
 ::: {.callout-note}
 * Paparan disusun dengan menggunakan <i class="fa-brands fa-r-project"></i> dan [**Quarto**](https://quarto.org) dengan _template_ dari [UNAIR Theme](https://github.com/rameliaz/quarto-unair-theme).

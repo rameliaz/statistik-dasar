@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.10.3">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-05-05">
+  <meta name="dcterms.date" content="2026-05-17">
   <title>Statistik Dasar dalam Penelitian Psikologi – ANOVA Faktorial</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -147,12 +147,12 @@ Rizqy Amelia Zein
     </div>
 </div>
 
-  <p class="date">2026-05-05</p>
+  <p class="date">2026-05-17</p>
 </section>
 <section id="outline" class="slide level2">
 <h2><em>Outline</em></h2>
 <ul>
-<li>Mengapa ANOVA faktorial, bukan ANOVA satu jalur terpisah?</li>
+<li>Mengapa ANOVA faktorial, bukan beberapa ANOVA satu jalur terpisah?</li>
 <li>Desain faktorial dan notasi</li>
 <li><em>Main effects</em> dan <em>interaction effects</em></li>
 <li>Partisi varians dalam desain faktorial</li>
@@ -170,14 +170,14 @@ Rizqy Amelia Zein
 </section>
 <section id="keterbatasan-anova-satu-jalur" class="slide level2">
 <h2>Keterbatasan ANOVA satu jalur</h2>
-<p>Bayangkan Alfonso ingin meneliti dua faktor sekaligus: <strong>jenis makanan</strong> (3 level) dan <strong>jenis musik</strong> (2 level) yang diberikan pada kucing. Ia bisa saja menjalankan dua ANOVA satu jalur terpisah:</p>
+<p>Bayangkan Alfonso ingin meneliti dua faktor sekaligus: <strong>jenis makanan</strong> (3 level) dan <strong>jenis musik</strong> (2 level) yang diberikan pada kucing. Ia bisa saja menjalankan dua ANOVA satu jalur secara terpisah:</p>
 <ul>
 <li>ANOVA 1: efek jenis makanan pada durasi membaca</li>
 <li>ANOVA 2: efek jenis musik pada durasi membaca</li>
 </ul>
-<p><strong>Masalahnya ada tiga:</strong></p>
+<p><strong>Tetapi, ada tiga masalah:</strong></p>
 <ol type="1">
-<li><strong>Inflasi <em>Type I error</em></strong>: dua uji independen menggandakan peluang <em>false positive</em></li>
+<li><strong>Inflasi <em>Type I error</em></strong>: dua uji ANOVA yang terpisah menggandakan peluang <em>false positive</em></li>
 <li><strong>Kehilangan informasi</strong>: apakah efek musik bergantung pada makanan yang diberikan? ANOVA terpisah tidak bisa menjawab ini</li>
 <li><strong>Inefisiensi</strong>: satu analisis faktorial lebih <em>powerful</em> karena menggunakan seluruh data untuk setiap estimasi efek</li>
 </ol>
@@ -187,17 +187,17 @@ Rizqy Amelia Zein
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Important</strong></p>
+<p><strong>Kelebihan ANOVA Faktorial</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>ANOVA faktorial memungkinkan kita menguji <em>main effects</em> dari setiap faktor dan — yang paling penting — <em>interaction effect</em> di antara keduanya, dalam satu analisis yang terintegrasi.</strong></p>
+<p>ANOVA faktorial memungkinkan kita menguji <em>main effects</em> dari setiap faktor dan yang paling penting <em>interaction effect</em> di antara keduanya, dalam satu analisis yang terintegrasi.</p>
 </div>
 </div>
 </div>
 </section>
 <section id="apa-itu-desain-faktorial" class="slide level2">
 <h2>Apa itu desain faktorial?</h2>
-<p>Desain faktorial adalah desain penelitian di mana setiap partisipan mendapatkan <strong>kombinasi perlakuan dari dua atau lebih faktor</strong>, sehingga kita dapat mempelajari efek masing-masing faktor dan interaksinya.</p>
+<p>Desain faktorial adalah desain penelitian di mana setiap partisipan mendapatkan <strong>kombinasi perlakuan dari dua atau lebih faktor</strong>, sehingga kita dapat mengestimasi efek masing-masing faktor dan interaksinya.</p>
 <p><strong>Terminologi:</strong></p>
 <ul>
 <li><strong>Faktor (<em>factor</em>)</strong>: variabel independen yang dimanipulasi (mis. jenis musik, jenis makanan)</li>
@@ -296,7 +296,7 @@ Rizqy Amelia Zein
 <td style="text-align: center;"><strong>Total (kolom)</strong></td>
 <td style="text-align: center;"><span class="math inline">\(\mu_{\cdot1}\)</span> = 0.722</td>
 <td style="text-align: center;"><span class="math inline">\(\mu_{\cdot2}\)</span> = 1.044</td>
-<td style="text-align: center;"><span class="math inline">\(\mu_{\cdot\cdot}\)</span> = 0.833</td>
+<td style="text-align: center;"><span class="math inline">\(\mu_{\cdot\cdot}\)</span> = 0.883</td>
 </tr>
 </tbody>
 </table>
@@ -324,9 +324,9 @@ Rizqy Amelia Zein
 <p><strong>Desain seimbang vs tidak seimbang:</strong></p>
 <table class="caption-top">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 22%">
+<col style="width: 39%">
+<col style="width: 39%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -344,7 +344,7 @@ Rizqy Amelia Zein
 <tr class="even">
 <td>Analisis</td>
 <td>Lebih mudah, SS ortogonal</td>
-<td>Lebih kompleks — gunakan Tipe III SS</td>
+<td>Lebih kompleks, gunakan Tipe III SS</td>
 </tr>
 <tr class="odd">
 <td>Interpretasi</td>
@@ -359,10 +359,10 @@ Rizqy Amelia Zein
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Tip</strong></p>
+<p><strong>Apakah studi Alfonso <em>balanced</em> atau <em>unbalanced</em>?</strong></p>
 </div>
 <div class="callout-content">
-<p>Pada studi Alfonso, setiap sel berisi <strong>N = 5 kucing</strong>, jadi desainnya <em>balanced</em>. Dalam studi <em>balanced</em>, efek jenis makanan dan jenis musik sepenuhnya <strong>ortogonal</strong> — estimasi satu efek tidak terpengaruh oleh efek yang lain.</p>
+<p>Pada studi Alfonso, setiap sel berisi <strong>N = 5 kucing</strong>, jadi desainnya <em>balanced</em>. Dalam studi <em>balanced</em>, efek jenis makanan dan jenis musik sepenuhnya <strong>ortogonal</strong>, yang artinya, estimasi satu efek tidak terpengaruh oleh efek yang lain.</p>
 </div>
 </div>
 </div>
@@ -390,7 +390,7 @@ Rizqy Amelia Zein
 <p><strong>Important</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Interaksi selalu diinterpretasikan terlebih dahulu.</strong> Jika interaksi signifikan, <em>main effects</em> tidak dapat diinterpretasikan secara independen — efek satu faktor berubah tergantung pada level faktor lain.</p>
+<p><strong>Interaksi selalu diinterpretasikan terlebih dahulu.</strong> Jika interaksi signifikan, <em>main effects</em> tidak dapat diinterpretasikan secara independen, karena efek satu faktor berubah tergantung pada level faktor lain.</p>
 </div>
 </div>
 </div>
@@ -458,9 +458,9 @@ Rizqy Amelia Zein
 <p><span class="math display">\[SS_{\text{tot}} = SS_A + SS_B + SS_{A \times B} + SS_{\text{within}}\]</span></p>
 <table class="caption-top">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 38%">
+<col style="width: 15%">
+<col style="width: 47%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -564,6 +564,13 @@ Rizqy Amelia Zein
 <h2>Membaca hasil <em>main effects</em></h2>
 <p><strong>Tabel ANOVA (tanpa interaksi):</strong></p>
 <table class="caption-top">
+<colgroup>
+<col style="width: 32%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 26%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Sumber</th>
@@ -613,6 +620,13 @@ Rizqy Amelia Zein
 </ol>
 <p><strong>Interpretasi tabel ANOVA dengan interaksi:</strong></p>
 <table class="caption-top">
+<colgroup>
+<col style="width: 38%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 23%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Sumber</th>
@@ -657,24 +671,24 @@ Rizqy Amelia Zein
 </section></section>
 <section>
 <section id="effect-size-untuk-anova-faktorial" class="title-slide slide level1 center" data-background-color="#14497F">
-<h1><em>Effect size</em> untuk ANOVA faktorial</h1>
+<h1>Effect size untuk ANOVA faktorial</h1>
 
 </section>
 <section id="partial-η²-dan-ω²" class="slide level2">
 <h2>Partial η² dan ω²</h2>
-<p>Dalam ANOVA faktorial, umumnya dilaporkan <strong><em>partial</em> η²</strong> (bukan η² total) karena ia mengukur proporsi varians yang dijelaskan oleh satu efek <strong>setelah mempartisi efek lain</strong>:</p>
+<p>Dalam ANOVA faktorial, umumnya dilaporkan <strong><em>partial</em> η²</strong> (bukan η² total) karena ia mengukur proporsi varians yang dijelaskan oleh satu efek/faktor <strong>setelah mempartisi efek/faktor lain</strong>:</p>
 <p><span class="math display">\[\eta^2_p = \frac{SS_{\text{efek}}}{SS_{\text{efek}} + SS_w}\]</span></p>
-<p><span class="math display">\[\omega^2_p \approx \frac{SS_{\text{efek}} - df_{\text{efek}} \cdot MS_w}{SS_{\text{tot}} + MS_w}\]</span></p>
+<p><span class="math display">\[\omega^2 \approx \frac{SS_{\text{efek}} - df_{\text{efek}} \cdot MS_w}{SS_{\text{tot}} + MS_w}\]</span></p>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Important</strong></p>
+<p><strong><em>Effect size</em></strong></p>
 </div>
 <div class="callout-content">
-<p><strong>η² total vs <em>partial</em> η²:</strong> η² total membagi <span class="math inline">\(SS_{\text{efek}}\)</span> dengan <span class="math inline">\(SS_{\text{tot}}\)</span> — nilainya lebih kecil dan seluruh efek menjumlahkan ke 1 (atau kurang). <em>Partial</em> η² masing-masing efek bisa menjumlahkan melebihi 1, tetapi lebih mudah dibandingkan dengan konvensi Cohen (<em>kecil</em>: .01, <em>sedang</em>: .06, <em>besar</em>: .14).</p>
+<p><strong>η² total vs <em>partial</em> η²:</strong> η² total membagi <span class="math inline">\(SS_{\text{efek}}\)</span> dengan <span class="math inline">\(SS_{\text{tot}}\)</span> — nilainya lebih kecil dan seluruh efek menjumlahkan ke 1 (atau kurang). <em>Partial</em> η² masing-masing efek bisa menjumlahkan melebihi 1, tetapi lebih mudah dibandingkan dengan konvensi Cohen (<em>kecil</em>: .01, <em>sedang</em>: .06, <em>besar</em>: .14). Formula ω² di atas menggunakan <span class="math inline">\(SS_{\text{tot}}\)</span> sebagai penyebut — ini adalah ω² <strong>non-partial</strong> yang dilaporkan jamovi secara <em>default</em>.</p>
 </div>
 </div>
 </div>
@@ -717,7 +731,7 @@ Rizqy Amelia Zein
 </section>
 <section id="kapan-post-hoc-test-diperlukan" class="slide level2">
 <h2>Kapan <em>post-hoc test</em> diperlukan?</h2>
-<p><em>Post-hoc test</em> diperlukan untuk faktor dengan <strong>lebih dari 2 level</strong> yang signifikan, untuk mengidentifikasi pasangan kelompok mana yang berbeda.</p>
+<p><em>Post-hoc test</em> diperlukan untuk faktor dengan <strong>lebih dari 2 level</strong> yang signifikan, untuk mengidentifikasi pasangan kelompok mana yang memberikan efek berbeda.</p>
 <ul>
 <li><strong>Jenis makanan</strong> (3 level, signifikan) → perlu <em>post-hoc</em></li>
 <li><strong>Jenis musik</strong> (2 level, signifikan) → <strong>tidak perlu</strong> <em>post-hoc</em>, karena hanya ada satu perbandingan (klasik vs campursari)</li>
@@ -796,9 +810,9 @@ Rizqy Amelia Zein
 <p>ANOVA faktorial mewarisi asumsi ANOVA satu jalur dengan tambahan pertimbangan desain:</p>
 <table class="caption-top">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 28%">
+<col style="width: 25%">
+<col style="width: 47%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -866,7 +880,7 @@ Rizqy Amelia Zein
 <section id="menggunakan-pangea-untuk-desain-faktorial" class="slide level2">
 <h2>Menggunakan PANGEA untuk desain faktorial</h2>
 <p>Untuk ANOVA faktorial, gunakan <strong>PANGEA</strong> (<em>Power ANalysis for GEneral Anova designs</em>) — aplikasi <em>online</em> yang lebih fleksibel dari G*Power untuk desain kompleks.</p>
-<p><strong>Akses:</strong> <a href="https://jakewestfall.shinyapps.io/pangea/">jakewestfall.shinyapps.io/pangea/</a></p>
+<p><strong>🔗:</strong> <a href="https://jakewestfall.shinyapps.io/pangea/">jakewestfall.shinyapps.io/pangea/</a></p>
 <p><strong>Atau gunakan G*Power:</strong></p>
 <ol type="1">
 <li><em>Test family</em> <i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i> <strong><em>F</em> tests</strong></li>
@@ -874,8 +888,8 @@ Rizqy Amelia Zein
 <li><em>Type of power analysis</em> <i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i> <strong><em>A priori</em></strong></li>
 </ol>
 </section>
-<section id="contoh-power-untuk-studi-alfonso-lanjutan" class="slide level2">
-<h2>Contoh: <em>power</em> untuk studi Alfonso lanjutan</h2>
+<section id="contoh-power-untuk-studi-alfonso-yang-lain" class="slide level2">
+<h2>Contoh: <em>power</em> untuk studi Alfonso yang lain</h2>
 <p>Alfonso ingin meneliti efek <strong>pemberian vitamin</strong> (Vitamin A, B, C, atau tanpa vitamin — 4 level) dan <strong>pemberian vaksin</strong> (divaksin vs tidak — 2 level) pada jumlah bulu kucing yang rontok.</p>
 <p><strong>Parameter:</strong></p>
 <ul>
@@ -895,7 +909,7 @@ Rizqy Amelia Zein
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>Desain faktorial membutuhkan sampel yang lebih besar karena jumlah sel meningkat secara multiplikatif. Pertimbangkan apakah interaksi benar-benar diperlukan — jika tidak, desain satu faktor mungkin lebih efisien.</p>
+<p>Desain faktorial membutuhkan sampel yang lebih besar karena jumlah sel meningkat secara multiplikatif. Pertimbangkan apakah interaksi benar-benar diperlukan. Jika tidak, desain satu faktor mungkin lebih efisien.</p>
 </div>
 </div>
 </div>
@@ -904,9 +918,9 @@ Rizqy Amelia Zein
 <h2>Latihan: analisis ANOVA faktorial</h2>
 <p>Seorang peneliti ingin menguji pengaruh <strong>metode belajar</strong> (ceramah, diskusi, <em>flipped classroom</em>) dan <strong>waktu belajar</strong> (pagi vs sore) terhadap <strong>nilai ujian</strong> mahasiswa.</p>
 <ol type="1">
-<li>Buka dataset <strong>nilai-ujian.omv</strong> dan jalankan ANOVA faktorial 3 × 2</li>
+<li>Buka dataset <a href="..\materials/nilai-ujian.omv"><strong>nilai-ujian.omv</strong></a> dan jalankan ANOVA faktorial 3 × 2</li>
 <li>Periksa desain: apakah <em>balanced</em>? Buat <em>crosstabs</em></li>
-<li>Uji interaksi terlebih dahulu — apakah signifikan?</li>
+<li>Uji efek interaksi terlebih dahulu — apakah signifikan?</li>
 <li>Jika tidak signifikan, interpretasikan <em>main effects</em> secara independen</li>
 <li>Jalankan <em>post-hoc test</em> Bonferroni untuk faktor yang memiliki &gt; 2 level dan signifikan</li>
 <li>Buat <em>estimated marginal means plot</em> — apakah garis-garisnya sejajar?</li>
@@ -915,13 +929,12 @@ Rizqy Amelia Zein
 <ul>
 <li>Apa artinya jika interaksi signifikan dalam konteks ini?</li>
 <li>Kapan <em>simple effects analysis</em> lebih tepat daripada <em>main effects</em> saja?</li>
-<li>Bagaimana melaporkan hasil ANOVA faktorial dalam APA format?</li>
 </ul>
 </section>
 <section id="ada-pertanyaan" class="slide level2">
 <h2>Ada pertanyaan❓</h2>
 
-<img data-src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFtaDh5ZjZ2eXJ3dmJmZmFmYzBtNHEwdzlqZmZtdGtmbnE0bXZidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igB2Th9e4nW6s/giphy.gif" class="quarto-figure quarto-figure-center r-stretch"><div class="callout callout-note callout-titled callout-style-default">
+<img data-src="..\slides/libs/closing.JPG" class="quarto-figure quarto-figure-center r-stretch"><div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">

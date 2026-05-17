@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.10.3">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-05-05">
+  <meta name="dcterms.date" content="2026-05-17">
   <title>Statistik Dasar dalam Penelitian Psikologi – ANOVA Pengukuran Berulang</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -147,16 +147,16 @@ Rizqy Amelia Zein
     </div>
 </div>
 
-  <p class="date">2026-05-05</p>
+  <p class="date">2026-05-17</p>
 </section>
 <section id="outline" class="slide level2">
 <h2><em>Outline</em></h2>
 <ul>
-<li>Kapan menggunakan ANOVA pengukuran berulang?</li>
+<li>Kapan perlu menggunakan ANOVA pengukuran berulang?</li>
 <li>Logika: mempartisi varians individual</li>
 <li>Asumsi <em>sphericity</em> dan Mauchly’s test</li>
 <li>Koreksi <em>Greenhouse-Geisser</em> dan <em>Huynh-Feldt</em></li>
-<li>Implementasi di jamovi</li>
+<li>Implementasi di <code>jamovi</code></li>
 <li><em>Effect size</em> (η² dan η²G)</li>
 <li><em>Post-hoc tests</em></li>
 <li><em>A priori</em> analisis <em>power</em></li>
@@ -169,26 +169,26 @@ Rizqy Amelia Zein
 </section>
 <section id="keterbatasan-anova-satu-jalur-untuk-data-berulang" class="slide level2">
 <h2>Keterbatasan ANOVA satu jalur untuk data berulang</h2>
-<p>Bayangkan Alfonso mengukur <strong>durasi membaca kucing</strong> pada minggu ke-1, ke-2, dan ke-3 dari <strong>kucing yang sama</strong>. Jika ia menjalankan ANOVA satu jalur biasa:</p>
-<p><strong>Masalah: Observasi tidak independen!</strong></p>
-<p>Kucing yang membaca lama di minggu ke-1 cenderung juga membaca lama di minggu ke-2 dan ke-3. Ini bukan karena perlakuan, tapi karena <strong>karakteristik individu</strong> kucing tersebut.</p>
+<p>Bayangkan Alfonso mengukur <strong>durasi membaca kucing</strong> pada minggu ke-1, ke-2, dan ke-3 dari <strong>kucing yang sama</strong>. Jika ia melakukan uji ANOVA satu jalur biasa:</p>
+<p><strong>Akan timbul masalah: Observasi yang tidak independen!</strong></p>
+<p>Kucing yang membaca lama di minggu ke-1 cenderung juga membaca lama di minggu ke-2 dan ke-3. Ini bukan karena perlakuan, tapi karena <strong>karakteristik yang melekat pada kucing</strong> tersebut.</p>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Important</strong></p>
+<p><strong>Pelanggaran asumsi ANOVA satu jalur</strong></p>
 </div>
 <div class="callout-content">
-<p>ANOVA satu jalur mengasumsikan bahwa semua observasi <strong>independen</strong> satu sama lain. Ketika subjek yang sama diukur berulang kali, asumsi ini dilanggar — dan <em>p-value</em> yang dihasilkan <strong>tidak valid</strong>.</p>
+<p>ANOVA satu jalur mengasumsikan bahwa semua observasi <strong>independen</strong> satu sama lain. Ketika partisipan yang sama diukur berulang kali, asumsi ini dilanggar, dan <em>p-value</em> yang dihasilkan menjadi <strong>tidak valid</strong>.</p>
 </div>
 </div>
 </div>
 </section>
 <section id="apa-itu-anova-pengukuran-berulang" class="slide level2">
 <h2>Apa itu ANOVA pengukuran berulang?</h2>
-<p><em>Repeated Measures ANOVA</em> (RM-ANOVA) — disebut juga <em>within-subjects ANOVA</em> atau <em>related ANOVA</em> — dirancang khusus untuk situasi di mana <strong>subjek yang sama diukur pada tiga atau lebih kondisi/waktu pengukuran</strong>.</p>
+<p><em>Repeated Measures ANOVA</em> (RM-ANOVA), atau disebut juga <em>within-subjects ANOVA</em> atau <em>related ANOVA</em>, dirancang khusus untuk situasi di mana <strong>partisipan yang sama diukur pada tiga atau lebih kondisi/waktu pengukuran</strong>.</p>
 <p><strong>Kapan digunakan:</strong></p>
 <ul>
 <li>Studi longitudinal: mengukur variabel yang sama di beberapa titik waktu</li>
@@ -197,18 +197,19 @@ Rizqy Amelia Zein
 </ul>
 <p><strong>Keunggulan dibanding <em>between-subjects</em> ANOVA:</strong></p>
 <ul>
-<li>Lebih <em>powerful</em> — variasi individu “diisolasi” dari <em>error</em></li>
+<li>Lebih <em>powerful</em> — varians individu “diisolasi” dari <em>error</em></li>
 <li>Membutuhkan <strong>lebih sedikit partisipan</strong> untuk mencapai <em>power</em> yang sama</li>
 </ul>
 </section>
-<section id="mempartisi-varians-perbedaan-kunci" class="slide level2">
-<h2>Mempartisi varians: perbedaan kunci</h2>
+<section id="mempartisi-varians-perbedaan-kunci-dengan-anova-satu-jalur" class="slide level2">
+<h2>Mempartisi varians: perbedaan kunci dengan ANOVA satu jalur</h2>
 <p>Dalam ANOVA satu jalur biasa: <span class="math display">\[SS_{\text{tot}} = SS_{\text{between}} + SS_{\text{within}}\]</span></p>
-<p>Dalam RM-ANOVA, <span class="math inline">\(SS_{\text{within}}\)</span> dipartisi lebih lanjut: <span class="math display">\[SS_{\text{within}} = SS_{\text{perlakuan}} + SS_{\text{individu}} + SS_{\text{error}}\]</span></p>
+<p>Dalam RM-ANOVA, <span class="math inline">\(SS_{\text{within}}\)</span> (error) dikenali mengandung dua sumber yang tercampur: <span class="math display">\[SS_{\text{within}} = SS_{\text{individu}} + SS_{\text{error}}\]</span></p>
+<p>Sehingga total varians dipartisi menjadi tiga komponen: <span class="math display">\[SS_{\text{tot}} = SS_{\text{perlakuan}} + SS_{\text{individu}} + SS_{\text{error}}\]</span></p>
 <table class="caption-top">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 35%">
+<col style="width: 65%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -240,7 +241,7 @@ Rizqy Amelia Zein
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>Dengan “mengeluarkan” <span class="math inline">\(SS_{\text{individu}}\)</span> dari <em>error</em>, denominator rasio F menjadi lebih kecil — sehingga F lebih besar dan <em>power</em> meningkat.</p>
+<p>Dengan “mengeluarkan” <span class="math inline">\(SS_{\text{individu}}\)</span> dari <em>error</em>, denominator rasio F menjadi lebih kecil, sehingga F lebih besar dan <em>power</em> meningkat.</p>
 </div>
 </div>
 </div>
@@ -268,6 +269,11 @@ Rizqy Amelia Zein
 <section id="mean-durasi-membaca-per-minggu" class="slide level2">
 <h2><em>Mean</em> durasi membaca per minggu</h2>
 <table class="caption-top">
+<colgroup>
+<col style="width: 45%">
+<col style="width: 30%">
+<col style="width: 25%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Waktu</th>
@@ -303,7 +309,7 @@ Rizqy Amelia Zein
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>Dalam RM-ANOVA, kita membandingkan apakah <em>mean</em> antar kondisi berbeda, <strong>setelah mengontrol variabilitas antar-individu</strong>. Ini membuat uji lebih sensitif dibanding ANOVA biasa.</p>
+<p>Dalam RM-ANOVA, kita membandingkan apakah <em>mean</em> antar kondisi berbeda, <strong>setelah mengontrol variabilitas antar-individu</strong>. Ini membuat uji RM-ANOVA lebih sensitif dibanding ANOVA biasa.</p>
 </div>
 </div>
 </div>
@@ -342,6 +348,10 @@ Rizqy Amelia Zein
 <p><span class="math display">\[H_0: \text{asumsi } sphericity \text{ terpenuhi}\]</span> <span class="math display">\[H_a: \text{asumsi } sphericity \text{ dilanggar}\]</span></p>
 <p><strong>Cara membaca:</strong></p>
 <table class="caption-top">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 70%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Hasil Mauchly’s <em>W</em></th>
@@ -403,7 +413,7 @@ Rizqy Amelia Zein
 </section>
 <section id="langkah-rm-anova-di-jamovi" class="slide level2">
 <h2>Langkah RM-ANOVA di <code>jamovi</code></h2>
-<p>Buka dataset <strong>kucing-membaca.omv</strong>, kemudian:</p>
+<p>Buka dataset <a href="..\materials/minat-baca.omv"><strong>minat-membaca.omv</strong></a>, kemudian:</p>
 <ol type="1">
 <li>Klik menu <em>ANOVA</em> <i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i> <strong><em>Repeated Measures ANOVA</em></strong></li>
 <li>Di kolom <em>Repeated Measures Factors</em>: beri nama faktor — mis. <strong>“waktu”</strong> — dan tambahkan 3 level: <em>minggu1</em>, <em>minggu2</em>, <em>minggu3</em></li>
@@ -486,7 +496,7 @@ Rizqy Amelia Zein
 <th>F</th>
 <th>df (HF)</th>
 <th><em>p</em></th>
-<th>η²</th>
+<th>η²_p</th>
 <th>η²G</th>
 </tr>
 </thead>
@@ -496,7 +506,7 @@ Rizqy Amelia Zein
 <td>3292.4</td>
 <td>1.843, 182.4</td>
 <td>&lt; .001</td>
-<td>0.957</td>
+<td>0.971</td>
 <td>0.957</td>
 </tr>
 <tr class="even">
@@ -676,8 +686,8 @@ Rizqy Amelia Zein
 <p>Pengukuran berulang pada subjek yang sama cenderung berkorelasi. Estimasi <em>r</em> memengaruhi sampel yang dibutuhkan:</p>
 <table class="caption-top">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 35%">
+<col style="width: 65%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -754,7 +764,7 @@ Rizqy Amelia Zein
 <section id="ada-pertanyaan" class="slide level2">
 <h2>Ada pertanyaan❓</h2>
 
-<img data-src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFtaDh5ZjZ2eXJ3dmJmZmFmYzBtNHEwdzlqZmZtdGtmbnE0bXZidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igB2Th9e4nW6s/giphy.gif" class="quarto-figure quarto-figure-center r-stretch"><div class="callout callout-note callout-titled callout-style-default">
+<img data-src="..\slides/libs/closing.JPG" class="quarto-figure quarto-figure-center r-stretch"><div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
