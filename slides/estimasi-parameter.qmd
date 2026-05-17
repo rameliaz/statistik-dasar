@@ -49,7 +49,7 @@ execute:
 ::::
 
 ::: {.callout-important}
-**Target populasi** harus didefinisikan dengan jelas sebelum penelitian dimulai. "Mahasiswa Psikologi Unair angkatan 2023" dan "mahasiswa Indonesia" adalah dua populasi yang sangat berbeda — dan membutuhkan strategi *sampling* yang berbeda pula.
+**Target populasi** harus didefinisikan dengan jelas sebelum penelitian dimulai. "Mahasiswa Psikologi Unair angkatan 2023" dan "mahasiswa Indonesia" adalah dua populasi yang sangat berbeda, sehingga membutuhkan strategi *sampling* yang berbeda pula.
 :::
 
 ## Prosedur *sampling*: *probability sampling*
@@ -77,7 +77,7 @@ Teknik-teknik di mana peluang terpilihnya anggota populasi **tidak diketahui**:
 Sebagian besar penelitian psikologi menggunakan ***convenience sampling*** (terutama mahasiswa). Ini **membatasi generalisasi** — temuan yang valid untuk mahasiswa psikologi belum tentu berlaku untuk populasi umum. Selalu deklarasikan keterbatasan ini dalam laporan penelitian.
 :::
 
-## *Sampling bias* dan representativitas
+## *Sampling bias* dan keterwakilan
 
 * ***Sampling bias*** terjadi ketika sampel kita **secara sistematis berbeda** dari populasi target
 * Jenis-jenis *sampling bias* yang umum:
@@ -86,7 +86,8 @@ Sebagian besar penelitian psikologi menggunakan ***convenience sampling*** (teru
   - ***WEIRD problem***: sampel dari populasi **W**estern, **E**ducated, **I**ndustrialized, **R**ich, **D**emocratic — yang tidak representatif untuk populasi manusia secara global
 
 ::: {.callout-note}
-Henrich et al. (2010) menemukan bahwa sekitar **96% sampel** dalam jurnal psikologi top berasal dari populasi WEIRD, padahal populasi ini hanya mewakili **12%** populasi manusia. Ini adalah krisis representativitas yang serius dalam Psikologi.
+#### *Sampling bias* dalam penelitian psikologi
+[Henrich et al. (2010)](https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/abs/weirdest-people-inthe-world/BF84F7517D56AFF7B7EB58411A554C17) menemukan bahwa sekitar **96% sampel** dalam jurnal psikologi bereputasi berasal dari populasi WEIRD, padahal populasi ini hanya mewakili **12%** populasi manusia di bumi. Ini adalah krisis yang serius dalam Psikologi.
 :::
 
 
@@ -99,27 +100,29 @@ Henrich et al. (2010) menemukan bahwa sekitar **96% sampel** dalam jurnal psikol
 
 **Ilustrasi:**
 
-Bayangkan kita melempar koin yang adil (P(gambar) = 0.5):
+Bayangkan kita melempar koin yang diasumsikan adil/tidak bias (P(gambar) = 0.5):
 
 * Setelah 10 lemparan: mungkin dapat 7 gambar (70%) — jauh dari 50%
 * Setelah 100 lemparan: mungkin dapat 53 gambar (53%) — lebih dekat
 * Setelah 10.000 lemparan: hampir pasti mendapat sekitar 5.000 gambar (≈50%)
 
 ::: {.callout-important}
-*Law of large numbers* menjelaskan mengapa **ukuran sampel kecil sangat bermasalah** dalam penelitian. Dengan N=20, *mean* sampel kita bisa sangat jauh dari *mean* populasi hanya karena kebetulan (*sampling error*). Inilah mengapa kalkulasi *statistical power* dan *sample size* itu penting sebelum penelitian dimulai.
+#### Penting diingat
+*Law of large numbers* menjelaskan mengapa **ukuran sampel kecil akan menimbulkan bermasalah** dalam penelitian. Dengan N=20, *mean* sampel kita bisa sangat jauh dari *mean* populasi hanya karena kebetulan (*sampling error*). Inilah mengapa mengestimasi *statistical power* dan *sample size* itu penting sebelum penelitian dimulai.
 :::
 
 ## Implikasi *law of large numbers* untuk penelitian
 
-* **Efek statistik yang kecil** membutuhkan sampel yang **besar** untuk bisa terdeteksi secara reliabel
+* ***Effect size* yang kecil** membutuhkan sampel yang **besar** untuk bisa terdeteksi secara konsisten
 * Penelitian dengan sampel kecil (*underpowered*) lebih rentan:
   - Gagal mendeteksi efek yang sebenarnya ada (*Type II error*)
-  - Menghasilkan *effect size* yang dilebih-lebihkan (*winner's curse*)
-  - Tidak dapat direplikasi (*replication crisis*)
+  - Menghasilkan *effect size* yang *overestimated* (*winner's curse*)
+  - Tidak dapat dicoba ulang (*replication*)
 * Ini adalah inti dari **krisis replikasi** di Psikologi — banyak temuan dengan N kecil yang tidak bisa direplikasi
 
 ::: {.callout-note}
-Open Science Collaboration (2015) berusaha mereplikasi 100 studi psikologi yang dipublikasikan — hanya **36-39%** yang berhasil direplikasi. Salah satu faktor utama: ukuran sampel yang terlalu kecil di studi-studi aslinya.
+#### Krisis replikasi di Psikologi: seberapa parah?
+Open Science Collaboration (2015) berusaha mereplikasi 100 studi psikologi yang dipublikasikan, tetapi hanya **36-39%** yang berhasil direplikasi. Salah satu faktor utama: ukuran sampel yang terlalu kecil di studi-studi aslinya.
 :::
 
 
@@ -127,51 +130,52 @@ Open Science Collaboration (2015) berusaha mereplikasi 100 studi psikologi yang 
 
 ## Distribusi *sampling* (ringkasan)
 
-* Distribusi *sampling* adalah distribusi teoritis dari suatu **statistik** (misalnya, *mean*) yang dihitung dari semua sampel berukuran *n* yang mungkin diambil dari suatu populasi
-* Kita tidak pernah benar-benar mengambil ribuan sampel — distribusi *sampling* adalah konstruk **matematis** yang memungkinkan kita membuat inferensi dari satu sampel
+* Distribusi *sampling* adalah distribusi teoritis dari suatu **parameter statistik** (misalnya, *mean*) yang dihitung dari semua sampel berukuran *n* yang mungkin diambil dari suatu populasi
+* Kita tidak pernah benar-benar mengambil ribuan sampel, jadi distribusi *sampling* adalah konstruk **matematis** yang memungkinkan kita membuat inferensi dari satu sampel
 
 **Mengapa ini penting?**
 
-* Semua uji hipotesis (t-test, ANOVA, chi-square) pada dasarnya membandingkan statistik yang kita observasi dengan distribusi *sampling* yang diharapkan **jika hipotesis nol benar**
-* *p-value* = probabilitas mendapatkan statistik seekstrem yang kita observasi berdasarkan distribusi *sampling* ini
+* Semua uji hipotesis (t-test, ANOVA, chi-square) pada dasarnya membandingkan statistik yang kita observasi dengan distribusi *sampling* yang diharapkan **dengan asumsi bahwa hipotesis nol yang benar di populasi**
+* *p-value* = probabilitas mendapati parameter statistik seekstrem yang saat ini diobservasi berdasarkan distribusi *sampling* yang asumsinya $H_0$ benar di populasi
 
 ## *Central Limit Theorem* (CLT)
 
-Teorema paling penting dalam statistik:
+Teori paling penting dalam statistik:
 
 > Apabila kita mengambil sampel berukuran *n* dari populasi apapun yang memiliki *mean* μ dan standar deviasi σ yang terdefinisi, maka distribusi *sampling* dari *mean* sampel akan mendekati **distribusi normal** dengan:
 > * *Mean* = μ
 > * Standar deviasi = $\frac{\sigma}{\sqrt{n}}$
 >
-> ...ketika *n* cukup besar (umumnya **n ≥ 30**), **terlepas dari bentuk distribusi populasi aslinya**.
+> ...ketika *n* cukup besar, **terlepas dari bentuk distribusi populasi aslinya**.
 
 ## Implikasi CLT
 
-* Kita **tidak perlu** berasumsi bahwa data individual dalam populasi berdistribusi normal — CLT menjamin bahwa distribusi *sampling* dari *mean* akan mendekati normal selama *n* cukup besar
-* Ini adalah alasan mengapa teknik statistik parametrik (yang bergantung pada distribusi normal) **tetap valid** bahkan ketika data populasi tidak normal — asalkan sampelnya cukup besar
+* Kita **tidak perlu** berasumsi bahwa data individual dalam populasi berdistribusi normal, karena CLT menjamin bahwa distribusi *sampling* dari *mean* akan mendekati normal selama *n* cukup besar
+* Ini adalah alasan mengapa teknik statistik parametrik (yang bergantung pada distribusi normal) **tetap valid** bahkan ketika data populasi tidak normal, asalkan sampelnya cukup besar
 * Namun untuk **sampel kecil** (n < 30), bentuk distribusi populasi lebih penting
 
 ::: {.callout-important}
-CLT **tidak berarti** data kita harus berdistribusi normal. CLT menjamin normalitas pada **distribusi *sampling*** dari *mean*, bukan pada data individual. Perbedaan ini sering disalahpahami.
+#### Penting diingat
+CLT **tidak berarti** data kita harus berdistribusi normal. CLT menjamin normalitas pada **distribusi *sampling*** dari *mean*, bukan pada satu dataset/sampel. Perbedaan ini sering disalahpahami.
 :::
 
 
-# *Standard error* {background-color="#14497F"}
+# Standard error {background-color="#14497F"}
 
 ## *Standard error of the mean*
 
-* *Standard error* (SE) adalah **standar deviasi dari distribusi *sampling*** — mengukur seberapa bervariasi statistik sampel kita jika *sampling* diulang berkali-kali
+* *Standard error* (SE) adalah **standar deviasi dari distribusi *sampling***, yaitu mengukur seberapa bervariasi statistik sampel kita jika sampel diambil berkali-kali
 
 $$SE_{\bar{X}} = \frac{\sigma}{\sqrt{n}} \approx \frac{s}{\sqrt{n}}$$
 
 * Karena σ populasi jarang diketahui, kita gunakan *s* (standar deviasi sampel) sebagai estimasinya
-* SE memberikan informasi tentang **presisi** estimasi kita:
-  - SE kecil → estimasi presisi
-  - SE besar → estimasi tidak presisi
+* SE memberikan informasi tentang **ketepatan** (seberapa presisi) estimasi kita:
+  - SE kecil → estimasi lebih presisi
+  - SE besar → estimasi kurang presisi
 
 **Faktor yang memengaruhi SE:**
 
-* **Ukuran sampel (n)**: SE berbanding terbalik dengan $\sqrt{n}$ → menggandakan n hanya mengurangi SE sebesar faktor $\sqrt{2}$ ≈ 1.41
+* **Ukuran sampel (n)**: SE berbanding terbalik dengan $\sqrt{n}$ → menggandakan `n` hanya mengurangi SE sebesar faktor $\sqrt{2}$ ≈ 1.41
 * **Variabilitas populasi (σ)**: populasi yang lebih heterogen → SE lebih besar
 
 ## Ilustrasi: *SE of the mean*
@@ -187,10 +191,11 @@ $$SE_{\bar{X}} = \frac{12}{\sqrt{64}} = \frac{12}{8} = 1.5$$
 
 $$SE_{\bar{X}} = \frac{12}{\sqrt{16}} = \frac{12}{4} = 3.0$$
 
-* SE **dua kali lipat lebih besar** — estimasi jauh kurang presisi, hanya karena sampelnya lebih kecil
+* SE **dua kali lipat lebih besar**, estimasi jauh kurang presisi akibat karena sampelnya lebih kecil
 
 ::: {.callout-note}
-Perhatikan: variabilitas data (s = 12) **tidak berubah** — yang berubah hanya ukuran sampel. Inilah mengapa memperbesar n adalah cara paling langsung untuk meningkatkan presisi estimasi kita.
+#### Perhatikan: 
+Variabilitas sampel (*s* = 12) **tidak berubah**, tetapi yang berubah hanya `n`. Inilah mengapa memperbesar `n` adalah cara paling langsung untuk meningkatkan ketepatan estimasi kita.
 :::
 
 ## *Standard error of proportion*
@@ -217,13 +222,13 @@ $$SE_p = \sqrt{\frac{0.57 \times 0.43}{100}} \approx 0.049$$
 * SE hampir **dua kali lipat** → rentang ketidakpastian ±4.9% — terlalu lebar untuk memprediksi pemenang
 
 ::: {.callout-important}
-Inilah mengapa survei politik yang serius menggunakan sampel **minimal 400 responden** — di bawah itu, *margin of error*-nya terlalu besar untuk membuat prediksi yang bermakna. Lembaga survei yang baik selalu melaporkan ukuran sampel dan *margin of error*-nya secara transparan.
+#### Ukuran sampel minimal
+Inilah mengapa survei politik yang serius menggunakan sampel **minimal 400 responden**. Di bawah itu, *margin of error*-nya terlalu besar untuk membuat prediksi yang bermakna. Lembaga survei yang baik selalu melaporkan ukuran sampel dan *margin of error*-nya secara transparan.
 :::
 
 ::: {.callout-note}
-SE proporsi mencapai nilai **maksimum** ketika p = 0.5 — artinya kita paling tidak pasti ketika dukungan mendekati 50:50 (persaingan sangat ketat). Semakin jauh proporsi dari 0.5, semakin kecil SE-nya.
+SE proporsi mencapai nilai **maksimum** ketika P = 0.5. Artinya, estimasi kita ketidakpastiannya paling besar ketika dukungan mendekati 50:50 (persaingan sangat ketat). Semakin jauh proporsi dari 0.5, semakin kecil SE-nya.
 :::
-
 
 # *Confidence interval* {background-color="#14497F"}
 
@@ -285,7 +290,7 @@ Karena σ populasi tidak diketahui (kita gunakan *s*), rumus yang tepat mengguna
 
 Interpretasi: Kita 95% yakin bahwa rata-rata skor IQ **seluruh** siswa SD penerima MBG di populasi yang diwakili sampel ini berada di antara **94.5 hingga 100.5**.
 
-* Apakah ini bukti bahwa MBG "berhasil"? **Belum tentu** — kita belum punya data pembanding (kelompok kontrol, atau rata-rata sebelum MBG). CI hanya memberi tahu kita seberapa presisi estimasi kita, bukan apakah efeknya nyata.
+* Apakah ini bukti bahwa MBG "berhasil"? **Belum tentu**. Kita belum punya data pembanding (kelompok kontrol, atau rata-rata sebelum MBG). CI hanya memberi tahu kita seberapa presisi estimasi kita, bukan apakah efeknya riil di populasi.
 
 ## CI untuk proporsi: kembali ke contoh Pilwali Surabaya
 
@@ -301,7 +306,8 @@ Interpretasi: Kita 95% yakin bahwa dukungan nyata untuk kandidat A di populasi p
 * Bandingkan jika CI-nya adalah [48%, 66%] — batas bawah di bawah 50% → kita **tidak bisa menyimpulkan** siapa yang unggul
 
 ::: {.callout-tip}
-Lembaga survei profesional di Indonesia seperti LSI, Litbang Kompas, dan Indikator Politik selalu melaporkan *margin of error* (≈ 1.96 × SE) bersama hasil surveinya. Kalau kalian melihat klaim survei tanpa *margin of error*, itu tanda peringatan.
+#### Margin of error dalam survei politik
+Lembaga survei profesional di Indonesia seperti LSI, Litbang Kompas, dan Indikator Politik selalu melaporkan *margin of error* (≈ 1.96 × SE) bersama hasil surveinya. 
 :::
 
 ## Latihan: Membaca CI di jamovi
@@ -350,7 +356,7 @@ Inferensi: CI dan uji hipotesis
 
 ## Ada pertanyaan❓
 
-![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFtaDh5ZjZ2eXJ3dmJmZmFmYzBtNHEwdzlqZmZtdGtmbnE0bXZidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igB2Th9e4nW6s/giphy.gif){fig-align="center"}
+![](/slides/libs/closing.JPG){fig-align="center"}
 
 ::: {.callout-note}
 * Paparan disusun dengan menggunakan <i class="fa-brands fa-r-project"></i> dan [**Quarto**](https://quarto.org) dengan _template_ dari [UNAIR Theme](https://github.com/rameliaz/quarto-unair-theme).

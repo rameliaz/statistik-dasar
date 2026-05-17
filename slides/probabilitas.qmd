@@ -68,7 +68,7 @@ Dalam penelitian psikologi, kita tidak pernah bisa **membuktikan** sesuatu secar
 ::::
 
 ::: {.callout-note}
-Sebagian besar statistik yang kalian pelajari di S1 menggunakan **pendekatan *frequentist***. Penting untuk memahami asumsi ini agar kalian bisa menginterpretasi hasil analisis dengan benar.
+Sebagian besar statistik yang dipelajari di S1 menggunakan **pendekatan *frequentist***. Penting untuk memahami asumsi ini agar bisa menginterpretasi hasil analisis dengan benar.
 :::
 
 
@@ -116,7 +116,7 @@ $$P(\bar{A}) = 1 - P(A)$$
 * Contoh: Jika probabilitas hujan besok = 0.3, maka probabilitas **tidak hujan** = 1 - 0.3 = 0.7
 
 ::: {.callout-note}
-Aturan komplemen ini adalah fondasi dari *p-value* dalam uji hipotesis. Ketika kita mengatakan *p* = 0.03, artinya probabilitas mendapatkan data seperti yang kita amati (atau lebih ekstrem) **jika hipotesis nol benar** adalah 0.03 — sangat kecil, sehingga kita meragukan hipotesis nol.
+Aturan komplemen ini adalah fondasi dari *p-value* dalam uji hipotesis. Ketika kita mengatakan *p* = 0.03, artinya probabilitas mendapatkan data seperti yang kita amati (atau lebih ekstrem) **jika hipotesis nol benar** adalah 0.03 — sangat kecil, sehingga kita menolak hipotesis nol.
 :::
 
 
@@ -195,7 +195,7 @@ Diketahui skor kecemasan di populasi mahasiswa berdistribusi normal dengan μ = 
 * Hanya sekitar **6.7%** mahasiswa memiliki skor kecemasan di atas 65
 
 
-# *Sampling distribution of the mean* {background-color="#14497F"}
+# Sampling distribution of the mean {background-color="#14497F"}
 
 ## Dari satu sampel ke banyak sampel
 
@@ -309,7 +309,7 @@ Keduanya — CI dan *p-value* — hanyalah dua cara berbeda untuk menggunakan *s
 
 ## Ada pertanyaan❓
 
-![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFtaDh5ZjZ2eXJ3dmJmZmFmYzBtNHEwdzlqZmZtdGtmbnE0bXZidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igB2Th9e4nW6s/giphy.gif){fig-align="center"}
+![](/slides/libs/closing.JPG){fig-align="center"}
 
 ::: {.callout-note}
 * Paparan disusun dengan menggunakan <i class="fa-brands fa-r-project"></i> dan [**Quarto**](https://quarto.org) dengan _template_ dari [UNAIR Theme](https://github.com/rameliaz/quarto-unair-theme).

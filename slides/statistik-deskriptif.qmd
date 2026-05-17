@@ -63,7 +63,7 @@ execute:
 * Statistik membantu kita **mendisiplinkan intuisi** agar tidak tertipu oleh kebetulan
 
 ::: {.callout-important}
-*Statistical thinking* jauh lebih penting daripada *software*-nya. Tidak masalah menggunakan `jamovi`, JASP, R, atau SPSS — yang terpenting adalah kalian tahu **cara kerja** setiap *tools* dan **alasan** menggunakannya.
+*Statistical thinking* jauh lebih penting daripada *software*-nya. Tidak masalah menggunakan `jamovi`, `JASP`, <i class="fa-brands fa-r-project"></i>, atau `SPSS`, yang terpenting adalah tahu **cara kerja** setiap *tools* dan **alasan** menggunakannya.
 :::
 
 ## Statistik deskriptif vs inferensial
@@ -76,19 +76,20 @@ execute:
 | **Output** | *Mean*, SD, histogram, tabel frekuensi | *p-value*, *confidence interval*, *effect size* |
 
 ::: {.callout-note}
+#### Catatan
 Statistik deskriptif selalu merupakan **langkah pertama** dalam analisis data. Sebelum menguji hipotesis apapun, selalu inspeksi data terlebih dahulu — distribusinya, *outlier*-nya, dan *missing data*-nya.
 :::
 
 
-# Mengenal *software*: jamovi {background-color="#14497F"}
+# Mengenal *software*: `jamovi` {background-color="#14497F"}
 
-## Mengapa jamovi?
+## Mengapa `jamovi`?
 
 * Program berbasis *point-and-click* dengan GUI yang intuitif
-* Berbasis bahasa pemrograman **R** — transparan dan *reproducible*
+* Berbasis bahasa pemrograman <i class="fa-brands fa-r-project"></i> — transparan dan *reproducible*
 * Gratis dan *open source* (tidak seperti SPSS yang berbayar)
 * Secara *default* menyediakan informasi *effect size* — yang sering dilupakan SPSS
-* Alternatif lain: **JASP** (UI hampir identik, lebih unggul untuk *latent variable modeling*)
+* Alternatif lain: `JASP` (UI hampir sama, lebih unggul untuk *latent variable modeling* dan *network analysis*)
 
 ::: {.callout-tip}
 #### Cara instalasi
@@ -331,7 +332,7 @@ Pertanyaan:
 
 ## Ada pertanyaan❓
 
-![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFtaDh5ZjZ2eXJ3dmJmZmFmYzBtNHEwdzlqZmZtdGtmbnE0bXZidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igB2Th9e4nW6s/giphy.gif){fig-align="center"}
+![](/slides/libs/closing.JPG){fig-align="center"}
 
 ::: {.callout-note}
 * Paparan disusun dengan menggunakan <i class="fa-brands fa-r-project"></i> dan [**Quarto**](https://quarto.org) dengan _template_ dari [UNAIR Theme](https://github.com/rameliaz/quarto-unair-theme).

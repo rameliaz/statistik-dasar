@@ -23,7 +23,7 @@ execute:
 * *Type I error* dan *Type II error*
 * *Statistical power*
 * *Effect size*
-* *A priori* analisis *power* dengan G\*Power
+* *A priori power analysis*
 
 
 # Logika dasar pengujian hipotesis {background-color="#14497F"}

@@ -18,55 +18,55 @@ execute:
 
 ## _Outline_
 
-* Mengapa ANOVA, bukan t-test berulang?
+* Mengapa ANOVA, bukan *t-test* berulang?
 * Logika ANOVA: partisi varians
 * Rasio F
 * Implementasi di jamovi
 * *Effect size* (η² dan ω²)
 * *Post-hoc tests*
 * Asumsi dan uji asumsi
-* *A priori* analisis *power*
+* Merencanakan jumlah sampel
 
 
 # Mengapa ANOVA? {background-color="#14497F"}
 
-## Masalah dengan t-test berulang
+## Masalah dengan *t-test* berulang
 
-Bayangkan kita ingin membandingkan tiga kelompok: placebo, obat lama, dan obat baru. Kita bisa saja menjalankan tiga t-test terpisah:
+Bayangkan kita ingin membandingkan tiga kelompok: partisipan yang diberi placebo, obat lama, dan obat baru. Kita bisa saja menjalankan tiga *t-test* terpisah:
 
 * Placebo vs obat lama
 * Placebo vs obat baru
 * Obat lama vs obat baru
 
-**Masalah: *inflasi Type I error***
+**Masalah yang terjadi: *inflasi Type I error***
 
-Jika α = 0.05 per uji, probabilitas **tidak membuat** *false positive* dalam satu uji = 0.95.
+Jika α = 0.05 per uji, probabilitas **tidak terjadinya** *false positive* dalam satu uji = 0.95.
 
 Untuk tiga uji independen: $P(\text{tidak ada FP}) = 0.95^3 = 0.857$
 
 Artinya, probabilitas **minimal satu** *false positive* = 1 − 0.857 = **14.3%** — jauh di atas α = 5%!
 
 ::: {.callout-important}
-**ANOVA menjaga *family-wise error rate*** pada α = 0.05 untuk seluruh perbandingan sekaligus. Ia menguji $H_0$ bahwa **semua** *mean* kelompok sama, dalam satu uji tunggal.
+#### Kelebihan ANOVA dibandingkan *t-test*
+**ANOVA menjaga *family-wise error rate*** pada α = 0.05 untuk seluruh perbandingan sekaligus. Ia menguji $H_0$ bahwa **semua** *mean* kelompok sama, dalam satu kali uji.
 :::
 
 ## ANOVA: satu uji untuk banyak kelompok
 
-*Analysis of Variance* (ANOVA), dikembangkan oleh Sir Ronald Fisher awal abad ke-20, membandingkan *mean* dari **dua atau lebih** kelompok secara serentak.
+*Analysis of Variance* (ANOVA), dikembangkan oleh Sir Ronald Fisher awal abad ke-20, membandingkan *mean* dari **dua atau lebih** kelompok secara bersamaan.
 
 $$H_0: \mu_1 = \mu_2 = \mu_3 = \ldots = \mu_k$$
 $$H_a: \text{tidak benar bahwa semua } \mu_k \text{ sama}$$
 
 ::: {.callout-note}
-Perhatikan bahwa $H_a$ hanya menyatakan "tidak semua *mean* sama" — ia **tidak** menentukan pasangan mana yang berbeda. Untuk mengetahui perbedaan spesifik antar pasangan kelompok, kita butuh *post-hoc test*.
+Perhatikan bahwa $H_a$ hanya menyatakan perbedaan *mean* semua kelompok ≠ 0. Ia **tidak** menentukan kelompok mana yang berbeda dan seberapa besar perbedaannya. Untuk mengetahui seberapa besar perbedaan spesifik antar pasangan kelompok, kita harus melakukan *post-hoc test*.
 :::
-
 
 # Logika ANOVA: partisi varians {background-color="#14497F"}
 
 ## Studi Ferguso: obat flu baru
 
-Ferguso ingin menguji apakah obat flu barunya (*flungalih*) lebih efektif dibanding plasebo dan obat standar (*mixagrip*). Ia mengacak 18 peserta ke tiga kelompok (N = 6 per kelompok) dan mengukur konsentrasi zat aktif dalam darah setelah pemberian obat.
+Ferguso ingin menguji apakah obat flu barunya (*flungalih*) lebih efektif dibanding plasebo dan obat standar (*mixagrip*). Ia mengacak 18 peserta ke tiga kelompok (N = 6 per kelompok) dan mengukur konsentrasi zat aktif dalam darah pasien setelah pemberian obat.
 
 | Kelompok | *Mean* konsentrasi | SD |
 |---|---|---|
@@ -78,7 +78,7 @@ Dataset: [**cobaobat.omv**](/docs/materials/cobaobat.omv)
 
 ## Mempartisi total varians
 
-ANOVA mempartisi total variabilitas data menjadi dua sumber:
+ANOVA mempartisi total variabilitas dataset menjadi dua sumber:
 
 $$SS_{\text{tot}} = SS_{\text{between}} + SS_{\text{within}}$$
 
@@ -89,6 +89,8 @@ $$\sum_{k}\sum_{i}(Y_{ik} - \bar{Y})^2 = \sum_{k} N_k(\bar{Y}_k - \bar{Y})^2 + \
 | *Between-group* | $SS_b$ | Variabilitas antar kelompok — efek perlakuan |
 | *Within-group* | $SS_w$ | Variabilitas dalam kelompok — *noise* / kesalahan pengukuran |
 | Total | $SS_{\text{tot}}$ | Total variabilitas seluruh data |
+
+: {tbl-colwidths="[25,20,55]"}
 
 ## Rasio F
 
@@ -103,9 +105,9 @@ Kemudian rasio F:
 $$F = \frac{MS_b}{MS_w} = \frac{\text{varians antar kelompok}}{\text{varians dalam kelompok}}$$
 
 ::: {.callout-note}
-**Intuisi rasio F:** Jika semua kelompok memiliki *mean* yang sama ($H_0$ benar), $MS_b$ dan $MS_w$ seharusnya mengestimasi kuantitas yang sama — sehingga F ≈ 1. Semakin besar perbedaan antar kelompok relatif terhadap *noise*, semakin besar F — dan semakin kecil *p-value*.
+#### Cara memahami rasio F
+Jika semua kelompok memiliki *mean* yang sama ($H_0$ benar), $MS_b$ dan $MS_w$ seharusnya mengestimasi kuantitas yang sama, sehingga F ≈ 1. Semakin besar perbedaan antar kelompok relatif terhadap *noise*, semakin besar nilai F, dan semakin kecil *p-value*.
 :::
-
 
 # Implementasi di `jamovi` {background-color="#14497F"}
 
@@ -136,7 +138,7 @@ Hasil ANOVA yang signifikan hanya memberi tahu kita bahwa **ada perbedaan di sua
 :::
 
 
-# *Effect size* untuk ANOVA {background-color="#14497F"}
+# Effect size untuk ANOVA {background-color="#14497F"}
 
 ## η² dan ω²
 
@@ -153,7 +155,7 @@ $$\omega^2 = \frac{SS_b - (G-1) \cdot MS_w}{SS_{\text{tot}} + MS_w}$$
 | **Pada contoh** | 0.713 | 0.662 |
 
 ::: {.callout-tip}
-**Gunakan ω² sebagai default** — ia memberikan estimasi yang lebih akurat tentang *effect size* populasi. Sebagian besar *software* statistik secara *default* melaporkan η² karena lebih mudah dihitung, tapi η² cenderung melebih-lebihkan besaran efek, terutama pada sampel kecil.
+**Gunakan ω² sebagai default**, karena ω² memberikan estimasi yang lebih akurat tentang *effect size* populasi. Sebagian besar *software* statistik secara *default* melaporkan η² karena lebih mudah dihitung, tapi η² cenderung meng*overestimate* ukuran efek, terutama pada sampel yang kecil.
 :::
 
 ## Interpretasi *effect size* ANOVA (konvensi Cohen)
@@ -167,19 +169,22 @@ $$\omega^2 = \frac{SS_b - (G-1) \cdot MS_w}{SS_{\text{tot}} + MS_w}$$
 Pada studi Ferguso: ω² = 0.662 → **efek yang sangat besar** — obat *flungalih* dan plasebo memberikan kadar konsentrasi yang sangat berbeda.
 
 
-# *Post-hoc tests* {background-color="#14497F"}
+# Post-hoc tests {background-color="#14497F"}
 
 ## Mengapa perlu *post-hoc test*?
 
-ANOVA yang signifikan hanya mengatakan "ada perbedaan di suatu tempat." *Post-hoc test* mengidentifikasi **pasangan kelompok mana** yang berbeda secara signifikan, sambil mengontrol *Type I error*.
+* ANOVA yang signifikan hanya memberikan bukti bahwa *mean* kelompok berbeda signifikan. 
 
-**Dua pilihan utama di `jamovi`:**
+* *Post-hoc test* mengidentifikasi **pasangan kelompok mana** yang berbeda secara signifikan, tetapi sambil mengontrol *Type I error*.
+
+**Tiga pilihan utama di `jamovi`:**
 
 * **Tukey's HSD (*Honestly Significant Difference*)**: Seimbang antara *power* dan kontrol *Type I error* — cocok untuk kebanyakan kasus **jika asumsi homogenitas varians terpenuhi**
 * **Games-Howell**: Gunakan sebagai pengganti Tukey's HSD jika **Levene's test signifikan** (*p* < .05) — tidak mengasumsikan homogenitas varians
-* **Bonferroni correction**: Lebih konservatif — membagi α dengan jumlah perbandingan; lebih tepat jika ada *a priori* hipotesis spesifik
+* **Bonferroni correction**: Lebih konservatif — membagi α dengan jumlah perbandingan; lebih tepat jika ada hipotesis spesifik yang sudah dirumuskan sebelumnya
 
 ::: {.callout-note}
+#### Catatan
 Ada puluhan *post-hoc test* yang berbeda (Scheffé, Dunnett, dll.). Pilih berdasarkan asumsi yang terpenuhi: **Tukey's HSD** jika varians homogen, **Games-Howell** jika tidak. Jangan memilih berdasarkan mana yang memberikan *p-value* terkecil.
 :::
 
@@ -193,10 +198,12 @@ Ada puluhan *post-hoc test* yang berbeda (Scheffé, Dunnett, dll.). Pilih berdas
 | Plasebo vs Flungalih | **−0.929** | 0.168 | **< .001** |
 | Mixagrip vs Flungalih | **−0.755** | 0.182 | **.003** |
 
+: {tbl-colwidths="[40,22,13,25]"}
+
 Interpretasi:
 
 * Plasebo dan *mixagrip* **tidak berbeda signifikan** (*p* = 0.998)
-* *Flungalih* secara signifikan **lebih efektif** dari plasebo dan *mixagrip* (keduanya *p* < .005)
+* *Flungalih* secara signifikan **lebih efektif** dari plasebo dan *mixagrip* (keduanya *p* < .05)
 * *Flungalih* adalah obat baru yang menjanjikan — tapi perlu studi replikasi dengan sampel lebih besar
 
 
@@ -209,6 +216,8 @@ Interpretasi:
 | **Normalitas residual** | Q-Q plot residual, Shapiro-Wilk | Bias pada *p-value*, terutama sampel kecil |
 | **Homogenitas varians** (*homoscedasticity*) | Levene's test | F-ratio tidak akurat |
 | **Independensi observasi** | Desain penelitian | Sangat serius — *p-value* tidak valid |
+
+: {tbl-colwidths="[28,30,42]"}
 
 ::: {.callout-important}
 ANOVA relatif **robust** terhadap pelanggaran normalitas jika ukuran sampel setiap kelompok cukup besar (≥ 30) dan seimbang. Namun heterogenitas varians yang ekstrem lebih bermasalah, terutama jika ukuran kelompok tidak seimbang.
@@ -228,7 +237,7 @@ ANOVA relatif **robust** terhadap pelanggaran normalitas jika ukuran sampel seti
 * Jika Levene's signifikan (*p* < 0.05): pertimbangkan Welch's ANOVA (robust terhadap heterogenitas varians)
 
 
-# *A priori* analisis *power* untuk ANOVA {background-color="#14497F"}
+# Merencanakan jumlah sampel {background-color="#14497F"}
 
 ## *Effect size* f untuk G\*Power
 
@@ -259,7 +268,7 @@ Ferguso berencana mereplikasi studinya dengan sampel lebih besar. Dari literatur
 **Hasil: N = 159 (53 per kelompok)**
 
 ::: {.callout-note}
-Studi asli Ferguso hanya memiliki N = 18 — jauh terlalu kecil untuk mendeteksi efek sedang-kecil dengan *power* yang cukup. Efek yang ditemukan (*f* ≈ 0.87) adalah efek yang sangat besar — itulah mengapa studi kecil pun berhasil mendeteksinya.
+Studi asli Ferguso hanya memiliki N = 18 — jauh terlalu kecil untuk mendeteksi efek sedang-kecil dengan *power* yang cukup. Efek yang ditemukan (*f* ≈ 1.58) adalah efek yang sangat besar — itulah mengapa studi kecil pun berhasil mendeteksinya.
 :::
 
 ## Latihan: Analisis *power* untuk ANOVA
@@ -278,7 +287,7 @@ Pertanyaan untuk didiskusikan:
 
 ## Ada pertanyaan❓
 
-![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFtaDh5ZjZ2eXJ3dmJmZmFmYzBtNHEwdzlqZmZtdGtmbnE0bXZidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igB2Th9e4nW6s/giphy.gif){fig-align="center"}
+![](/slides/libs/closing.JPG){fig-align="center"}
 
 ::: {.callout-note}
 * Paparan disusun dengan menggunakan <i class="fa-brands fa-r-project"></i> dan [**Quarto**](https://quarto.org) dengan _template_ dari [UNAIR Theme](https://github.com/rameliaz/quarto-unair-theme).

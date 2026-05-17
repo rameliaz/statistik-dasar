@@ -669,7 +669,7 @@
     "href": "slides/uji-hipotesis.html#outline",
     "title": "Uji Hipotesis",
     "section": "Outline",
-    "text": "Outline\n\nLogika dasar Null Hypothesis Significance Testing (NHST)\nHipotesis nol dan hipotesis alternatif\nType I error dan Type II error\nStatistical power\nEffect size\nA priori analisis power dengan G*Power"
+    "text": "Outline\n\nLogika dasar Null Hypothesis Significance Testing (NHST)\nHipotesis nol dan hipotesis alternatif\nType I error dan Type II error\nStatistical power\nEffect size\nA priori power analysis"
   },
   {
     "objectID": "slides/uji-hipotesis.html#masalah-esmeralda",
@@ -823,7 +823,7 @@
     "href": "slides/probabilitas.html#dua-pendekatan-probabilitas",
     "title": "Probabilitas",
     "section": "Dua pendekatan probabilitas",
-    "text": "Dua pendekatan probabilitas\n\n\nFrequentist\n\nProbabilitas = proporsi kejadian jika percobaan diulang sangat banyak kali\n“Kalau kita melempar koin 10.000 kali, sekitar 5.000 kali akan muncul gambar”\nTidak bisa digunakan untuk kejadian yang tidak bisa diulang\nFondasi dari statistik klasik (NHST, p-value, confidence interval)\n\n\nBayesian\n\nProbabilitas = derajat keyakinan (degree of belief) yang bisa diperbarui dengan data baru\n“Berdasarkan bukti yang ada, seberapa yakin saya bahwa hipotesis ini benar?”\nMemungkinkan kita menggabungkan pengetahuan sebelumnya (prior) dengan data baru\nSemakin populer di Psikologi — misalnya Bayes Factor sebagai alternatif p-value\n\n\n\n\n\n\n\n\nNote\n\n\nSebagian besar statistik yang kalian pelajari di S1 menggunakan pendekatan frequentist. Penting untuk memahami asumsi ini agar kalian bisa menginterpretasi hasil analisis dengan benar."
+    "text": "Dua pendekatan probabilitas\n\n\nFrequentist\n\nProbabilitas = proporsi kejadian jika percobaan diulang sangat banyak kali\n“Kalau kita melempar koin 10.000 kali, sekitar 5.000 kali akan muncul gambar”\nTidak bisa digunakan untuk kejadian yang tidak bisa diulang\nFondasi dari statistik klasik (NHST, p-value, confidence interval)\n\n\nBayesian\n\nProbabilitas = derajat keyakinan (degree of belief) yang bisa diperbarui dengan data baru\n“Berdasarkan bukti yang ada, seberapa yakin saya bahwa hipotesis ini benar?”\nMemungkinkan kita menggabungkan pengetahuan sebelumnya (prior) dengan data baru\nSemakin populer di Psikologi — misalnya Bayes Factor sebagai alternatif p-value\n\n\n\n\n\n\n\n\nNote\n\n\nSebagian besar statistik yang dipelajari di S1 menggunakan pendekatan frequentist. Penting untuk memahami asumsi ini agar bisa menginterpretasi hasil analisis dengan benar."
   },
   {
     "objectID": "slides/probabilitas.html#aturan-penjumlahan-addition-rule",
@@ -844,7 +844,7 @@
     "href": "slides/probabilitas.html#komplemen",
     "title": "Probabilitas",
     "section": "Komplemen",
-    "text": "Komplemen\n\nProbabilitas kejadian A tidak terjadi:\n\n\\[P(\\bar{A}) = 1 - P(A)\\]\n\nContoh: Jika probabilitas hujan besok = 0.3, maka probabilitas tidak hujan = 1 - 0.3 = 0.7\n\n\n\n\n\n\n\nNote\n\n\nAturan komplemen ini adalah fondasi dari p-value dalam uji hipotesis. Ketika kita mengatakan p = 0.03, artinya probabilitas mendapatkan data seperti yang kita amati (atau lebih ekstrem) jika hipotesis nol benar adalah 0.03 — sangat kecil, sehingga kita meragukan hipotesis nol."
+    "text": "Komplemen\n\nProbabilitas kejadian A tidak terjadi:\n\n\\[P(\\bar{A}) = 1 - P(A)\\]\n\nContoh: Jika probabilitas hujan besok = 0.3, maka probabilitas tidak hujan = 1 - 0.3 = 0.7\n\n\n\n\n\n\n\nNote\n\n\nAturan komplemen ini adalah fondasi dari p-value dalam uji hipotesis. Ketika kita mengatakan p = 0.03, artinya probabilitas mendapatkan data seperti yang kita amati (atau lebih ekstrem) jika hipotesis nol benar adalah 0.03 — sangat kecil, sehingga kita menolak hipotesis nol."
   },
   {
     "objectID": "slides/probabilitas.html#apa-itu-distribusi-probabilitas",
@@ -998,21 +998,21 @@
     "href": "slides/statistik-deskriptif.html#common-sense-vs-scientific-reasoning",
     "title": "Statistik Deskriptif",
     "section": "Common sense vs scientific reasoning",
-    "text": "Common sense vs scientific reasoning\n\nOtak manusia sangat pandai menemukan pola — bahkan di tempat yang tidak ada polanya (apophenia)\nConfirmation bias: kita cenderung mencari bukti yang mendukung keyakinan kita\n“…the first principle is that you must not fool yourself — you’re the easiest person to fool.” — Richard Feynman (1945)\nStatistik membantu kita mendisiplinkan intuisi agar tidak tertipu oleh kebetulan\n\n\n\n\n\n\n\nImportant\n\n\nStatistical thinking jauh lebih penting daripada software-nya. Tidak masalah menggunakan jamovi, JASP, R, atau SPSS — yang terpenting adalah kalian tahu cara kerja setiap tools dan alasan menggunakannya."
+    "text": "Common sense vs scientific reasoning\n\nOtak manusia sangat pandai menemukan pola — bahkan di tempat yang tidak ada polanya (apophenia)\nConfirmation bias: kita cenderung mencari bukti yang mendukung keyakinan kita\n“…the first principle is that you must not fool yourself — you’re the easiest person to fool.” — Richard Feynman (1945)\nStatistik membantu kita mendisiplinkan intuisi agar tidak tertipu oleh kebetulan\n\n\n\n\n\n\n\nImportant\n\n\nStatistical thinking jauh lebih penting daripada software-nya. Tidak masalah menggunakan jamovi, JASP, , atau SPSS, yang terpenting adalah tahu cara kerja setiap tools dan alasan menggunakannya."
   },
   {
     "objectID": "slides/statistik-deskriptif.html#statistik-deskriptif-vs-inferensial",
     "href": "slides/statistik-deskriptif.html#statistik-deskriptif-vs-inferensial",
     "title": "Statistik Deskriptif",
     "section": "Statistik deskriptif vs inferensial",
-    "text": "Statistik deskriptif vs inferensial\n\n\n\n\n\n\n\n\n\nDeskriptif\nInferensial\n\n\n\n\nTujuan\nMenggambarkan, merangkum, meringkas data\nMenarik kesimpulan tentang populasi dari sampel\n\n\nPertanyaan\n“Seperti apa data ini?”\n“Apakah temuan ini berlaku di populasi?”\n\n\nContoh\nRata-rata usia responden = 22 tahun\nApakah ada perbedaan kecemasan antara pria dan wanita?\n\n\nOutput\nMean, SD, histogram, tabel frekuensi\np-value, confidence interval, effect size\n\n\n\n\n\n\n\n\n\nNote\n\n\nStatistik deskriptif selalu merupakan langkah pertama dalam analisis data. Sebelum menguji hipotesis apapun, selalu inspeksi data terlebih dahulu — distribusinya, outlier-nya, dan missing data-nya."
+    "text": "Statistik deskriptif vs inferensial\n\n\n\n\n\n\n\n\n\nDeskriptif\nInferensial\n\n\n\n\nTujuan\nMenggambarkan, merangkum, meringkas data\nMenarik kesimpulan tentang populasi dari sampel\n\n\nPertanyaan\n“Seperti apa data ini?”\n“Apakah temuan ini berlaku di populasi?”\n\n\nContoh\nRata-rata usia responden = 22 tahun\nApakah ada perbedaan kecemasan antara pria dan wanita?\n\n\nOutput\nMean, SD, histogram, tabel frekuensi\np-value, confidence interval, effect size\n\n\n\n\n\n\n\n\n\nCatatan\n\n\nStatistik deskriptif selalu merupakan langkah pertama dalam analisis data. Sebelum menguji hipotesis apapun, selalu inspeksi data terlebih dahulu — distribusinya, outlier-nya, dan missing data-nya."
   },
   {
     "objectID": "slides/statistik-deskriptif.html#mengapa-jamovi",
     "href": "slides/statistik-deskriptif.html#mengapa-jamovi",
     "title": "Statistik Deskriptif",
     "section": "Mengapa jamovi?",
-    "text": "Mengapa jamovi?\n\nProgram berbasis point-and-click dengan GUI yang intuitif\nBerbasis bahasa pemrograman R — transparan dan reproducible\nGratis dan open source (tidak seperti SPSS yang berbayar)\nSecara default menyediakan informasi effect size — yang sering dilupakan SPSS\nAlternatif lain: JASP (UI hampir identik, lebih unggul untuk latent variable modeling)\n\n\n\n\n\n\n\nCara instalasi\n\n\nGunakan jamovi versi stabil terbaru (2.6.44) — unduh untuk Windows atau MacOS. Pastikan juga sudah menginstal module yang diperlukan (GAMLj, jpower, dsb.) sebelum perkuliahan."
+    "text": "Mengapa jamovi?\n\nProgram berbasis point-and-click dengan GUI yang intuitif\nBerbasis bahasa pemrograman  — transparan dan reproducible\nGratis dan open source (tidak seperti SPSS yang berbayar)\nSecara default menyediakan informasi effect size — yang sering dilupakan SPSS\nAlternatif lain: JASP (UI hampir sama, lebih unggul untuk latent variable modeling dan network analysis)\n\n\n\n\n\n\n\nCara instalasi\n\n\nGunakan jamovi versi stabil terbaru (2.6.44) — unduh untuk Windows atau MacOS. Pastikan juga sudah menginstal module yang diperlukan (GAMLj, jpower, dsb.) sebelum perkuliahan."
   },
   {
     "objectID": "slides/statistik-deskriptif.html#meanrata-rata",
@@ -1152,7 +1152,7 @@
     "href": "slides/estimasi-parameter.html#populasi-vs-sampel",
     "title": "Mengestimasi Parameter Populasi",
     "section": "Populasi vs sampel",
-    "text": "Populasi vs sampel\n\n\nPopulasi\n\nKeseluruhan individu/objek yang menjadi target inferensi penelitian kita\nBisa sangat besar, bahkan tidak terbatas (misalnya, “semua orang dewasa yang pernah mengalami depresi”)\nKarakteristik populasi disebut parameter (μ, σ, ρ) — hampir tidak pernah bisa diketahui secara langsung\n\n\nSampel\n\nSebagian kecil individu dari populasi yang benar-benar kita ukur\nKarakteristik sampel disebut statistik (\\(\\bar{X}\\), s, r) — yang kita hitung dari data\nKualitas sampel menentukan seberapa jauh kita bisa menggeneralisasi temuan ke populasi\n\n\n\n\n\n\n\n\nImportant\n\n\nTarget populasi harus didefinisikan dengan jelas sebelum penelitian dimulai. “Mahasiswa Psikologi Unair angkatan 2023” dan “mahasiswa Indonesia” adalah dua populasi yang sangat berbeda — dan membutuhkan strategi sampling yang berbeda pula."
+    "text": "Populasi vs sampel\n\n\nPopulasi\n\nKeseluruhan individu/objek yang menjadi target inferensi penelitian kita\nBisa sangat besar, bahkan tidak terbatas (misalnya, “semua orang dewasa yang pernah mengalami depresi”)\nKarakteristik populasi disebut parameter (μ, σ, ρ) — hampir tidak pernah bisa diketahui secara langsung\n\n\nSampel\n\nSebagian kecil individu dari populasi yang benar-benar kita ukur\nKarakteristik sampel disebut statistik (\\(\\bar{X}\\), s, r) — yang kita hitung dari data\nKualitas sampel menentukan seberapa jauh kita bisa menggeneralisasi temuan ke populasi\n\n\n\n\n\n\n\n\nImportant\n\n\nTarget populasi harus didefinisikan dengan jelas sebelum penelitian dimulai. “Mahasiswa Psikologi Unair angkatan 2023” dan “mahasiswa Indonesia” adalah dua populasi yang sangat berbeda, sehingga membutuhkan strategi sampling yang berbeda pula."
   },
   {
     "objectID": "slides/estimasi-parameter.html#prosedur-sampling-probability-sampling",
@@ -1169,60 +1169,60 @@
     "text": "Prosedur sampling: non-probability sampling\nTeknik-teknik di mana peluang terpilihnya anggota populasi tidak diketahui:\n\n\n\n\n\n\n\n\nTeknik\nCara kerja\nKeterbatasan\n\n\n\n\nConvenience sampling\nAmbil yang paling mudah diakses (misalnya, mahasiswa sendiri)\nRentan bias seleksi\n\n\nPurposive sampling\nPilih berdasarkan kriteria tertentu\nGeneralisasi terbatas\n\n\nSnowball sampling\nResponden merujuk ke responden lain\nJaringan memengaruhi sampel\n\n\n\n\n\n\n\n\n\nImportant\n\n\nSebagian besar penelitian psikologi menggunakan convenience sampling (terutama mahasiswa). Ini membatasi generalisasi — temuan yang valid untuk mahasiswa psikologi belum tentu berlaku untuk populasi umum. Selalu deklarasikan keterbatasan ini dalam laporan penelitian."
   },
   {
-    "objectID": "slides/estimasi-parameter.html#sampling-bias-dan-representativitas",
-    "href": "slides/estimasi-parameter.html#sampling-bias-dan-representativitas",
+    "objectID": "slides/estimasi-parameter.html#sampling-bias-dan-keterwakilan",
+    "href": "slides/estimasi-parameter.html#sampling-bias-dan-keterwakilan",
     "title": "Mengestimasi Parameter Populasi",
-    "section": "Sampling bias dan representativitas",
-    "text": "Sampling bias dan representativitas\n\nSampling bias terjadi ketika sampel kita secara sistematis berbeda dari populasi target\nJenis-jenis sampling bias yang umum:\n\nSelf-selection bias: orang yang setuju berpartisipasi mungkin berbeda dari yang menolak\nSurvivorship bias: hanya mengukur yang “masih ada” — misalnya hanya pasien yang sembuh\nWEIRD problem: sampel dari populasi Western, Educated, Industrialized, Rich, Democratic — yang tidak representatif untuk populasi manusia secara global\n\n\n\n\n\n\n\n\nNote\n\n\nHenrich et al. (2010) menemukan bahwa sekitar 96% sampel dalam jurnal psikologi top berasal dari populasi WEIRD, padahal populasi ini hanya mewakili 12% populasi manusia. Ini adalah krisis representativitas yang serius dalam Psikologi."
+    "section": "Sampling bias dan keterwakilan",
+    "text": "Sampling bias dan keterwakilan\n\nSampling bias terjadi ketika sampel kita secara sistematis berbeda dari populasi target\nJenis-jenis sampling bias yang umum:\n\nSelf-selection bias: orang yang setuju berpartisipasi mungkin berbeda dari yang menolak\nSurvivorship bias: hanya mengukur yang “masih ada” — misalnya hanya pasien yang sembuh\nWEIRD problem: sampel dari populasi Western, Educated, Industrialized, Rich, Democratic — yang tidak representatif untuk populasi manusia secara global\n\n\n\n\n\n\n\n\nSampling bias dalam penelitian psikologi\n\n\nHenrich et al. (2010) menemukan bahwa sekitar 96% sampel dalam jurnal psikologi bereputasi berasal dari populasi WEIRD, padahal populasi ini hanya mewakili 12% populasi manusia di bumi. Ini adalah krisis yang serius dalam Psikologi."
   },
   {
     "objectID": "slides/estimasi-parameter.html#the-law-of-large-numbers-1",
     "href": "slides/estimasi-parameter.html#the-law-of-large-numbers-1",
     "title": "Mengestimasi Parameter Populasi",
     "section": "The law of large numbers",
-    "text": "The law of large numbers\n\nSemakin besar ukuran sampel, semakin dekat statistik sampel (misalnya \\(\\bar{X}\\)) ke parameter populasi yang sebenarnya (μ)\nDengan kata lain: data yang lebih banyak → estimasi yang lebih akurat\n\nIlustrasi:\nBayangkan kita melempar koin yang adil (P(gambar) = 0.5):\n\nSetelah 10 lemparan: mungkin dapat 7 gambar (70%) — jauh dari 50%\nSetelah 100 lemparan: mungkin dapat 53 gambar (53%) — lebih dekat\nSetelah 10.000 lemparan: hampir pasti mendapat sekitar 5.000 gambar (≈50%)\n\n\n\n\n\n\n\nImportant\n\n\nLaw of large numbers menjelaskan mengapa ukuran sampel kecil sangat bermasalah dalam penelitian. Dengan N=20, mean sampel kita bisa sangat jauh dari mean populasi hanya karena kebetulan (sampling error). Inilah mengapa kalkulasi statistical power dan sample size itu penting sebelum penelitian dimulai."
+    "text": "The law of large numbers\n\nSemakin besar ukuran sampel, semakin dekat statistik sampel (misalnya \\(\\bar{X}\\)) ke parameter populasi yang sebenarnya (μ)\nDengan kata lain: data yang lebih banyak → estimasi yang lebih akurat\n\nIlustrasi:\nBayangkan kita melempar koin yang diasumsikan adil/tidak bias (P(gambar) = 0.5):\n\nSetelah 10 lemparan: mungkin dapat 7 gambar (70%) — jauh dari 50%\nSetelah 100 lemparan: mungkin dapat 53 gambar (53%) — lebih dekat\nSetelah 10.000 lemparan: hampir pasti mendapat sekitar 5.000 gambar (≈50%)\n\n\n\n\n\n\n\nPenting diingat\n\n\nLaw of large numbers menjelaskan mengapa ukuran sampel kecil akan menimbulkan bermasalah dalam penelitian. Dengan N=20, mean sampel kita bisa sangat jauh dari mean populasi hanya karena kebetulan (sampling error). Inilah mengapa mengestimasi statistical power dan sample size itu penting sebelum penelitian dimulai."
   },
   {
     "objectID": "slides/estimasi-parameter.html#implikasi-law-of-large-numbers-untuk-penelitian",
     "href": "slides/estimasi-parameter.html#implikasi-law-of-large-numbers-untuk-penelitian",
     "title": "Mengestimasi Parameter Populasi",
     "section": "Implikasi law of large numbers untuk penelitian",
-    "text": "Implikasi law of large numbers untuk penelitian\n\nEfek statistik yang kecil membutuhkan sampel yang besar untuk bisa terdeteksi secara reliabel\nPenelitian dengan sampel kecil (underpowered) lebih rentan:\n\nGagal mendeteksi efek yang sebenarnya ada (Type II error)\nMenghasilkan effect size yang dilebih-lebihkan (winner’s curse)\nTidak dapat direplikasi (replication crisis)\n\nIni adalah inti dari krisis replikasi di Psikologi — banyak temuan dengan N kecil yang tidak bisa direplikasi\n\n\n\n\n\n\n\nNote\n\n\nOpen Science Collaboration (2015) berusaha mereplikasi 100 studi psikologi yang dipublikasikan — hanya 36-39% yang berhasil direplikasi. Salah satu faktor utama: ukuran sampel yang terlalu kecil di studi-studi aslinya."
+    "text": "Implikasi law of large numbers untuk penelitian\n\nEffect size yang kecil membutuhkan sampel yang besar untuk bisa terdeteksi secara konsisten\nPenelitian dengan sampel kecil (underpowered) lebih rentan:\n\nGagal mendeteksi efek yang sebenarnya ada (Type II error)\nMenghasilkan effect size yang overestimated (winner’s curse)\nTidak dapat dicoba ulang (replication)\n\nIni adalah inti dari krisis replikasi di Psikologi — banyak temuan dengan N kecil yang tidak bisa direplikasi\n\n\n\n\n\n\n\nKrisis replikasi di Psikologi: seberapa parah?\n\n\nOpen Science Collaboration (2015) berusaha mereplikasi 100 studi psikologi yang dipublikasikan, tetapi hanya 36-39% yang berhasil direplikasi. Salah satu faktor utama: ukuran sampel yang terlalu kecil di studi-studi aslinya."
   },
   {
     "objectID": "slides/estimasi-parameter.html#distribusi-sampling-ringkasan",
     "href": "slides/estimasi-parameter.html#distribusi-sampling-ringkasan",
     "title": "Mengestimasi Parameter Populasi",
     "section": "Distribusi sampling (ringkasan)",
-    "text": "Distribusi sampling (ringkasan)\n\nDistribusi sampling adalah distribusi teoritis dari suatu statistik (misalnya, mean) yang dihitung dari semua sampel berukuran n yang mungkin diambil dari suatu populasi\nKita tidak pernah benar-benar mengambil ribuan sampel — distribusi sampling adalah konstruk matematis yang memungkinkan kita membuat inferensi dari satu sampel\n\nMengapa ini penting?\n\nSemua uji hipotesis (t-test, ANOVA, chi-square) pada dasarnya membandingkan statistik yang kita observasi dengan distribusi sampling yang diharapkan jika hipotesis nol benar\np-value = probabilitas mendapatkan statistik seekstrem yang kita observasi berdasarkan distribusi sampling ini"
+    "text": "Distribusi sampling (ringkasan)\n\nDistribusi sampling adalah distribusi teoritis dari suatu parameter statistik (misalnya, mean) yang dihitung dari semua sampel berukuran n yang mungkin diambil dari suatu populasi\nKita tidak pernah benar-benar mengambil ribuan sampel, jadi distribusi sampling adalah konstruk matematis yang memungkinkan kita membuat inferensi dari satu sampel\n\nMengapa ini penting?\n\nSemua uji hipotesis (t-test, ANOVA, chi-square) pada dasarnya membandingkan statistik yang kita observasi dengan distribusi sampling yang diharapkan dengan asumsi bahwa hipotesis nol yang benar di populasi\np-value = probabilitas mendapati parameter statistik seekstrem yang saat ini diobservasi berdasarkan distribusi sampling yang asumsinya \\(H_0\\) benar di populasi"
   },
   {
     "objectID": "slides/estimasi-parameter.html#central-limit-theorem-clt",
     "href": "slides/estimasi-parameter.html#central-limit-theorem-clt",
     "title": "Mengestimasi Parameter Populasi",
     "section": "Central Limit Theorem (CLT)",
-    "text": "Central Limit Theorem (CLT)\nTeorema paling penting dalam statistik:\n\nApabila kita mengambil sampel berukuran n dari populasi apapun yang memiliki mean μ dan standar deviasi σ yang terdefinisi, maka distribusi sampling dari mean sampel akan mendekati distribusi normal dengan: * Mean = μ * Standar deviasi = \\(\\frac{\\sigma}{\\sqrt{n}}\\)\n…ketika n cukup besar (umumnya n ≥ 30), terlepas dari bentuk distribusi populasi aslinya."
+    "text": "Central Limit Theorem (CLT)\nTeori paling penting dalam statistik:\n\nApabila kita mengambil sampel berukuran n dari populasi apapun yang memiliki mean μ dan standar deviasi σ yang terdefinisi, maka distribusi sampling dari mean sampel akan mendekati distribusi normal dengan: * Mean = μ * Standar deviasi = \\(\\frac{\\sigma}{\\sqrt{n}}\\)\n…ketika n cukup besar, terlepas dari bentuk distribusi populasi aslinya."
   },
   {
     "objectID": "slides/estimasi-parameter.html#implikasi-clt",
     "href": "slides/estimasi-parameter.html#implikasi-clt",
     "title": "Mengestimasi Parameter Populasi",
     "section": "Implikasi CLT",
-    "text": "Implikasi CLT\n\nKita tidak perlu berasumsi bahwa data individual dalam populasi berdistribusi normal — CLT menjamin bahwa distribusi sampling dari mean akan mendekati normal selama n cukup besar\nIni adalah alasan mengapa teknik statistik parametrik (yang bergantung pada distribusi normal) tetap valid bahkan ketika data populasi tidak normal — asalkan sampelnya cukup besar\nNamun untuk sampel kecil (n &lt; 30), bentuk distribusi populasi lebih penting\n\n\n\n\n\n\n\nImportant\n\n\nCLT tidak berarti data kita harus berdistribusi normal. CLT menjamin normalitas pada distribusi sampling dari mean, bukan pada data individual. Perbedaan ini sering disalahpahami."
+    "text": "Implikasi CLT\n\nKita tidak perlu berasumsi bahwa data individual dalam populasi berdistribusi normal, karena CLT menjamin bahwa distribusi sampling dari mean akan mendekati normal selama n cukup besar\nIni adalah alasan mengapa teknik statistik parametrik (yang bergantung pada distribusi normal) tetap valid bahkan ketika data populasi tidak normal, asalkan sampelnya cukup besar\nNamun untuk sampel kecil (n &lt; 30), bentuk distribusi populasi lebih penting\n\n\n\n\n\n\n\nPenting diingat\n\n\nCLT tidak berarti data kita harus berdistribusi normal. CLT menjamin normalitas pada distribusi sampling dari mean, bukan pada satu dataset/sampel. Perbedaan ini sering disalahpahami."
   },
   {
     "objectID": "slides/estimasi-parameter.html#standard-error-of-the-mean",
     "href": "slides/estimasi-parameter.html#standard-error-of-the-mean",
     "title": "Mengestimasi Parameter Populasi",
     "section": "Standard error of the mean",
-    "text": "Standard error of the mean\n\nStandard error (SE) adalah standar deviasi dari distribusi sampling — mengukur seberapa bervariasi statistik sampel kita jika sampling diulang berkali-kali\n\n\\[SE_{\\bar{X}} = \\frac{\\sigma}{\\sqrt{n}} \\approx \\frac{s}{\\sqrt{n}}\\]\n\nKarena σ populasi jarang diketahui, kita gunakan s (standar deviasi sampel) sebagai estimasinya\nSE memberikan informasi tentang presisi estimasi kita:\n\nSE kecil → estimasi presisi\nSE besar → estimasi tidak presisi\n\n\nFaktor yang memengaruhi SE:\n\nUkuran sampel (n): SE berbanding terbalik dengan \\(\\sqrt{n}\\) → menggandakan n hanya mengurangi SE sebesar faktor \\(\\sqrt{2}\\) ≈ 1.41\nVariabilitas populasi (σ): populasi yang lebih heterogen → SE lebih besar"
+    "text": "Standard error of the mean\n\nStandard error (SE) adalah standar deviasi dari distribusi sampling, yaitu mengukur seberapa bervariasi statistik sampel kita jika sampel diambil berkali-kali\n\n\\[SE_{\\bar{X}} = \\frac{\\sigma}{\\sqrt{n}} \\approx \\frac{s}{\\sqrt{n}}\\]\n\nKarena σ populasi jarang diketahui, kita gunakan s (standar deviasi sampel) sebagai estimasinya\nSE memberikan informasi tentang ketepatan (seberapa presisi) estimasi kita:\n\nSE kecil → estimasi lebih presisi\nSE besar → estimasi kurang presisi\n\n\nFaktor yang memengaruhi SE:\n\nUkuran sampel (n): SE berbanding terbalik dengan \\(\\sqrt{n}\\) → menggandakan n hanya mengurangi SE sebesar faktor \\(\\sqrt{2}\\) ≈ 1.41\nVariabilitas populasi (σ): populasi yang lebih heterogen → SE lebih besar"
   },
   {
     "objectID": "slides/estimasi-parameter.html#ilustrasi-se-of-the-mean",
     "href": "slides/estimasi-parameter.html#ilustrasi-se-of-the-mean",
     "title": "Mengestimasi Parameter Populasi",
     "section": "Ilustrasi: SE of the mean",
-    "text": "Ilustrasi: SE of the mean\nKonteks: Pemerintah ingin mengevaluasi dampak program Makan Bergizi Gratis (MBG) terhadap kemampuan kognitif siswa SD. Salah satu indikatornya adalah skor IQ rata-rata siswa penerima MBG.\nPeneliti mengambil sampel n = 64 siswa dari sekolah penerima MBG di Surabaya, dan mendapatkan \\(\\bar{X}\\) = 97.5 dengan s = 12.\n\\[SE_{\\bar{X}} = \\frac{12}{\\sqrt{64}} = \\frac{12}{8} = 1.5\\]\n\nArtinya, estimasi rata-rata IQ kita memiliki ketidakpastian sekitar ±1.5 poin IQ\nBagaimana kalau peneliti hanya sempat mengukur n = 16 siswa?\n\n\\[SE_{\\bar{X}} = \\frac{12}{\\sqrt{16}} = \\frac{12}{4} = 3.0\\]\n\nSE dua kali lipat lebih besar — estimasi jauh kurang presisi, hanya karena sampelnya lebih kecil\n\n\n\n\n\n\n\nNote\n\n\nPerhatikan: variabilitas data (s = 12) tidak berubah — yang berubah hanya ukuran sampel. Inilah mengapa memperbesar n adalah cara paling langsung untuk meningkatkan presisi estimasi kita."
+    "text": "Ilustrasi: SE of the mean\nKonteks: Pemerintah ingin mengevaluasi dampak program Makan Bergizi Gratis (MBG) terhadap kemampuan kognitif siswa SD. Salah satu indikatornya adalah skor IQ rata-rata siswa penerima MBG.\nPeneliti mengambil sampel n = 64 siswa dari sekolah penerima MBG di Surabaya, dan mendapatkan \\(\\bar{X}\\) = 97.5 dengan s = 12.\n\\[SE_{\\bar{X}} = \\frac{12}{\\sqrt{64}} = \\frac{12}{8} = 1.5\\]\n\nArtinya, estimasi rata-rata IQ kita memiliki ketidakpastian sekitar ±1.5 poin IQ\nBagaimana kalau peneliti hanya sempat mengukur n = 16 siswa?\n\n\\[SE_{\\bar{X}} = \\frac{12}{\\sqrt{16}} = \\frac{12}{4} = 3.0\\]\n\nSE dua kali lipat lebih besar, estimasi jauh kurang presisi akibat karena sampelnya lebih kecil\n\n\n\n\n\n\n\nPerhatikan:\n\n\nVariabilitas sampel (s = 12) tidak berubah, tetapi yang berubah hanya n. Inilah mengapa memperbesar n adalah cara paling langsung untuk meningkatkan ketepatan estimasi kita."
   },
   {
     "objectID": "slides/estimasi-parameter.html#standard-error-of-proportion",
@@ -1236,7 +1236,7 @@
     "href": "slides/estimasi-parameter.html#ilustrasi-se-of-proportion",
     "title": "Mengestimasi Parameter Populasi",
     "section": "Ilustrasi: SE of proportion",
-    "text": "Ilustrasi: SE of proportion\nKonteks: Sebuah lembaga survei melakukan quick count menjelang Pemilihan Wali Kota Surabaya. Dari sampel n = 400 pemilih terdaftar, sebanyak 228 orang (57%) menyatakan akan memilih kandidat A.\n\\[p = \\frac{228}{400} = 0.57\\]\n\\[SE_p = \\sqrt{\\frac{0.57 \\times 0.43}{400}} = \\sqrt{\\frac{0.2451}{400}} = \\sqrt{0.000613} \\approx 0.025\\]\n\nEstimasi dukungan kandidat A adalah 57% ± 2.5%\nJika lembaga lain survei dengan n = 100 saja:\n\n\\[SE_p = \\sqrt{\\frac{0.57 \\times 0.43}{100}} \\approx 0.049\\]\n\nSE hampir dua kali lipat → rentang ketidakpastian ±4.9% — terlalu lebar untuk memprediksi pemenang\n\n\n\n\n\n\n\nImportant\n\n\nInilah mengapa survei politik yang serius menggunakan sampel minimal 400 responden — di bawah itu, margin of error-nya terlalu besar untuk membuat prediksi yang bermakna. Lembaga survei yang baik selalu melaporkan ukuran sampel dan margin of error-nya secara transparan.\n\n\n\n\n\n\n\n\n\nNote\n\n\nSE proporsi mencapai nilai maksimum ketika p = 0.5 — artinya kita paling tidak pasti ketika dukungan mendekati 50:50 (persaingan sangat ketat). Semakin jauh proporsi dari 0.5, semakin kecil SE-nya."
+    "text": "Ilustrasi: SE of proportion\nKonteks: Sebuah lembaga survei melakukan quick count menjelang Pemilihan Wali Kota Surabaya. Dari sampel n = 400 pemilih terdaftar, sebanyak 228 orang (57%) menyatakan akan memilih kandidat A.\n\\[p = \\frac{228}{400} = 0.57\\]\n\\[SE_p = \\sqrt{\\frac{0.57 \\times 0.43}{400}} = \\sqrt{\\frac{0.2451}{400}} = \\sqrt{0.000613} \\approx 0.025\\]\n\nEstimasi dukungan kandidat A adalah 57% ± 2.5%\nJika lembaga lain survei dengan n = 100 saja:\n\n\\[SE_p = \\sqrt{\\frac{0.57 \\times 0.43}{100}} \\approx 0.049\\]\n\nSE hampir dua kali lipat → rentang ketidakpastian ±4.9% — terlalu lebar untuk memprediksi pemenang\n\n\n\n\n\n\n\nUkuran sampel minimal\n\n\nInilah mengapa survei politik yang serius menggunakan sampel minimal 400 responden. Di bawah itu, margin of error-nya terlalu besar untuk membuat prediksi yang bermakna. Lembaga survei yang baik selalu melaporkan ukuran sampel dan margin of error-nya secara transparan.\n\n\n\n\n\n\n\n\n\nNote\n\n\nSE proporsi mencapai nilai maksimum ketika P = 0.5. Artinya, estimasi kita ketidakpastiannya paling besar ketika dukungan mendekati 50:50 (persaingan sangat ketat). Semakin jauh proporsi dari 0.5, semakin kecil SE-nya."
   },
   {
     "objectID": "slides/estimasi-parameter.html#apa-itu-confidence-interval",
@@ -1264,14 +1264,14 @@
     "href": "slides/estimasi-parameter.html#ci-untuk-mean-kembali-ke-contoh-mbg",
     "title": "Mengestimasi Parameter Populasi",
     "section": "CI untuk mean: kembali ke contoh MBG",
-    "text": "CI untuk mean: kembali ke contoh MBG\nDari contoh sebelumnya (n = 64, \\(\\bar{X}\\) = 97.5, SE = 1.5), hitung CI 95%:\n\\[CI_{95\\%} = 97.5 \\pm t_{kritis} \\times 1.5\\]\nDengan df = 63, \\(t_{kritis}\\) ≈ 2.00, sehingga: \\(CI_{95\\%} = 97.5 \\pm 2.00 \\times 1.5 = 97.5 \\pm 3.00 = [94.50,\\ 100.50]\\)\n\n\n\n\n\n\nNote\n\n\nKarena σ populasi tidak diketahui (kita gunakan s), rumus yang tepat menggunakan t-kritis dari distribusi t (bukan z = 1.96). Untuk n = 64 (df = 63), perbedaannya kecil — t ≈ 2.00 vs z = 1.96 — tetapi secara prinsip penting untuk menggunakan distribusi t yang benar.\n\n\n\nInterpretasi: Kita 95% yakin bahwa rata-rata skor IQ seluruh siswa SD penerima MBG di populasi yang diwakili sampel ini berada di antara 94.5 hingga 100.5.\n\nApakah ini bukti bahwa MBG “berhasil”? Belum tentu — kita belum punya data pembanding (kelompok kontrol, atau rata-rata sebelum MBG). CI hanya memberi tahu kita seberapa presisi estimasi kita, bukan apakah efeknya nyata."
+    "text": "CI untuk mean: kembali ke contoh MBG\nDari contoh sebelumnya (n = 64, \\(\\bar{X}\\) = 97.5, SE = 1.5), hitung CI 95%:\n\\[CI_{95\\%} = 97.5 \\pm t_{kritis} \\times 1.5\\]\nDengan df = 63, \\(t_{kritis}\\) ≈ 2.00, sehingga: \\(CI_{95\\%} = 97.5 \\pm 2.00 \\times 1.5 = 97.5 \\pm 3.00 = [94.50,\\ 100.50]\\)\n\n\n\n\n\n\nNote\n\n\nKarena σ populasi tidak diketahui (kita gunakan s), rumus yang tepat menggunakan t-kritis dari distribusi t (bukan z = 1.96). Untuk n = 64 (df = 63), perbedaannya kecil — t ≈ 2.00 vs z = 1.96 — tetapi secara prinsip penting untuk menggunakan distribusi t yang benar.\n\n\n\nInterpretasi: Kita 95% yakin bahwa rata-rata skor IQ seluruh siswa SD penerima MBG di populasi yang diwakili sampel ini berada di antara 94.5 hingga 100.5.\n\nApakah ini bukti bahwa MBG “berhasil”? Belum tentu. Kita belum punya data pembanding (kelompok kontrol, atau rata-rata sebelum MBG). CI hanya memberi tahu kita seberapa presisi estimasi kita, bukan apakah efeknya riil di populasi."
   },
   {
     "objectID": "slides/estimasi-parameter.html#ci-untuk-proporsi-kembali-ke-contoh-pilwali-surabaya",
     "href": "slides/estimasi-parameter.html#ci-untuk-proporsi-kembali-ke-contoh-pilwali-surabaya",
     "title": "Mengestimasi Parameter Populasi",
     "section": "CI untuk proporsi: kembali ke contoh Pilwali Surabaya",
-    "text": "CI untuk proporsi: kembali ke contoh Pilwali Surabaya\n\\[CI_{95\\%} = p \\pm 1.96 \\times SE_p\\]\nDari contoh sebelumnya (n = 400, p = 0.57, SE = 0.025):\n\\[CI_{95\\%} = 0.57 \\pm 1.96 \\times 0.025 = 0.57 \\pm 0.049 = [0.521,\\ 0.619]\\]\nInterpretasi: Kita 95% yakin bahwa dukungan nyata untuk kandidat A di populasi pemilih terdaftar berada di antara 52.1% hingga 61.9%.\n\nBatas bawah CI (52.1%) masih di atas 50% → survei ini memberikan keyakinan yang cukup kuat bahwa kandidat A memimpin\nBandingkan jika CI-nya adalah [48%, 66%] — batas bawah di bawah 50% → kita tidak bisa menyimpulkan siapa yang unggul\n\n\n\n\n\n\n\nTip\n\n\nLembaga survei profesional di Indonesia seperti LSI, Litbang Kompas, dan Indikator Politik selalu melaporkan margin of error (≈ 1.96 × SE) bersama hasil surveinya. Kalau kalian melihat klaim survei tanpa margin of error, itu tanda peringatan."
+    "text": "CI untuk proporsi: kembali ke contoh Pilwali Surabaya\n\\[CI_{95\\%} = p \\pm 1.96 \\times SE_p\\]\nDari contoh sebelumnya (n = 400, p = 0.57, SE = 0.025):\n\\[CI_{95\\%} = 0.57 \\pm 1.96 \\times 0.025 = 0.57 \\pm 0.049 = [0.521,\\ 0.619]\\]\nInterpretasi: Kita 95% yakin bahwa dukungan nyata untuk kandidat A di populasi pemilih terdaftar berada di antara 52.1% hingga 61.9%.\n\nBatas bawah CI (52.1%) masih di atas 50% → survei ini memberikan keyakinan yang cukup kuat bahwa kandidat A memimpin\nBandingkan jika CI-nya adalah [48%, 66%] — batas bawah di bawah 50% → kita tidak bisa menyimpulkan siapa yang unggul\n\n\n\n\n\n\n\nMargin of error dalam survei politik\n\n\nLembaga survei profesional di Indonesia seperti LSI, Litbang Kompas, dan Indikator Politik selalu melaporkan margin of error (≈ 1.96 × SE) bersama hasil surveinya."
   },
   {
     "objectID": "slides/estimasi-parameter.html#latihan-membaca-ci-di-jamovi",
@@ -1439,42 +1439,42 @@
     "href": "slides/anova.html#outline",
     "title": "ANOVA",
     "section": "Outline",
-    "text": "Outline\n\nMengapa ANOVA, bukan t-test berulang?\nLogika ANOVA: partisi varians\nRasio F\nImplementasi di jamovi\nEffect size (η² dan ω²)\nPost-hoc tests\nAsumsi dan uji asumsi\nA priori analisis power"
+    "text": "Outline\n\nMengapa ANOVA, bukan t-test berulang?\nLogika ANOVA: partisi varians\nRasio F\nImplementasi di jamovi\nEffect size (η² dan ω²)\nPost-hoc tests\nAsumsi dan uji asumsi\nMerencanakan jumlah sampel"
   },
   {
     "objectID": "slides/anova.html#masalah-dengan-t-test-berulang",
     "href": "slides/anova.html#masalah-dengan-t-test-berulang",
     "title": "ANOVA",
     "section": "Masalah dengan t-test berulang",
-    "text": "Masalah dengan t-test berulang\nBayangkan kita ingin membandingkan tiga kelompok: placebo, obat lama, dan obat baru. Kita bisa saja menjalankan tiga t-test terpisah:\n\nPlacebo vs obat lama\nPlacebo vs obat baru\nObat lama vs obat baru\n\nMasalah: inflasi Type I error\nJika α = 0.05 per uji, probabilitas tidak membuat false positive dalam satu uji = 0.95.\nUntuk tiga uji independen: \\(P(\\text{tidak ada FP}) = 0.95^3 = 0.857\\)\nArtinya, probabilitas minimal satu false positive = 1 − 0.857 = 14.3% — jauh di atas α = 5%!\n\n\n\n\n\n\nImportant\n\n\nANOVA menjaga family-wise error rate pada α = 0.05 untuk seluruh perbandingan sekaligus. Ia menguji \\(H_0\\) bahwa semua mean kelompok sama, dalam satu uji tunggal."
+    "text": "Masalah dengan t-test berulang\nBayangkan kita ingin membandingkan tiga kelompok: partisipan yang diberi placebo, obat lama, dan obat baru. Kita bisa saja menjalankan tiga t-test terpisah:\n\nPlacebo vs obat lama\nPlacebo vs obat baru\nObat lama vs obat baru\n\nMasalah yang terjadi: inflasi Type I error\nJika α = 0.05 per uji, probabilitas tidak terjadinya false positive dalam satu uji = 0.95.\nUntuk tiga uji independen: \\(P(\\text{tidak ada FP}) = 0.95^3 = 0.857\\)\nArtinya, probabilitas minimal satu false positive = 1 − 0.857 = 14.3% — jauh di atas α = 5%!\n\n\n\n\n\n\nKelebihan ANOVA dibandingkan t-test\n\n\nANOVA menjaga family-wise error rate pada α = 0.05 untuk seluruh perbandingan sekaligus. Ia menguji \\(H_0\\) bahwa semua mean kelompok sama, dalam satu kali uji."
   },
   {
     "objectID": "slides/anova.html#anova-satu-uji-untuk-banyak-kelompok",
     "href": "slides/anova.html#anova-satu-uji-untuk-banyak-kelompok",
     "title": "ANOVA",
     "section": "ANOVA: satu uji untuk banyak kelompok",
-    "text": "ANOVA: satu uji untuk banyak kelompok\nAnalysis of Variance (ANOVA), dikembangkan oleh Sir Ronald Fisher awal abad ke-20, membandingkan mean dari dua atau lebih kelompok secara serentak.\n\\[H_0: \\mu_1 = \\mu_2 = \\mu_3 = \\ldots = \\mu_k\\] \\[H_a: \\text{tidak benar bahwa semua } \\mu_k \\text{ sama}\\]\n\n\n\n\n\n\nNote\n\n\nPerhatikan bahwa \\(H_a\\) hanya menyatakan “tidak semua mean sama” — ia tidak menentukan pasangan mana yang berbeda. Untuk mengetahui perbedaan spesifik antar pasangan kelompok, kita butuh post-hoc test."
+    "text": "ANOVA: satu uji untuk banyak kelompok\nAnalysis of Variance (ANOVA), dikembangkan oleh Sir Ronald Fisher awal abad ke-20, membandingkan mean dari dua atau lebih kelompok secara bersamaan.\n\\[H_0: \\mu_1 = \\mu_2 = \\mu_3 = \\ldots = \\mu_k\\] \\[H_a: \\text{tidak benar bahwa semua } \\mu_k \\text{ sama}\\]\n\n\n\n\n\n\nNote\n\n\nPerhatikan bahwa \\(H_a\\) hanya menyatakan perbedaan mean semua kelompok ≠ 0. Ia tidak menentukan kelompok mana yang berbeda dan seberapa besar perbedaannya. Untuk mengetahui seberapa besar perbedaan spesifik antar pasangan kelompok, kita harus melakukan post-hoc test."
   },
   {
     "objectID": "slides/anova.html#studi-ferguso-obat-flu-baru",
     "href": "slides/anova.html#studi-ferguso-obat-flu-baru",
     "title": "ANOVA",
     "section": "Studi Ferguso: obat flu baru",
-    "text": "Studi Ferguso: obat flu baru\nFerguso ingin menguji apakah obat flu barunya (flungalih) lebih efektif dibanding plasebo dan obat standar (mixagrip). Ia mengacak 18 peserta ke tiga kelompok (N = 6 per kelompok) dan mengukur konsentrasi zat aktif dalam darah setelah pemberian obat.\n\n\n\nKelompok\nMean konsentrasi\nSD\n\n\n\n\nPlasebo\n0.450\n0.281\n\n\nMixagrip\n0.717\n0.392\n\n\nFlungalih\n1.48\n0.214\n\n\n\nDataset: cobaobat.omv"
+    "text": "Studi Ferguso: obat flu baru\nFerguso ingin menguji apakah obat flu barunya (flungalih) lebih efektif dibanding plasebo dan obat standar (mixagrip). Ia mengacak 18 peserta ke tiga kelompok (N = 6 per kelompok) dan mengukur konsentrasi zat aktif dalam darah pasien setelah pemberian obat.\n\n\n\nKelompok\nMean konsentrasi\nSD\n\n\n\n\nPlasebo\n0.450\n0.281\n\n\nMixagrip\n0.717\n0.392\n\n\nFlungalih\n1.48\n0.214\n\n\n\nDataset: cobaobat.omv"
   },
   {
     "objectID": "slides/anova.html#mempartisi-total-varians",
     "href": "slides/anova.html#mempartisi-total-varians",
     "title": "ANOVA",
     "section": "Mempartisi total varians",
-    "text": "Mempartisi total varians\nANOVA mempartisi total variabilitas data menjadi dua sumber:\n\\[SS_{\\text{tot}} = SS_{\\text{between}} + SS_{\\text{within}}\\]\n\\[\\sum_{k}\\sum_{i}(Y_{ik} - \\bar{Y})^2 = \\sum_{k} N_k(\\bar{Y}_k - \\bar{Y})^2 + \\sum_{k}\\sum_{i}(Y_{ik} - \\bar{Y}_k)^2\\]\n\n\n\n\n\n\n\n\nSumber\nSimbol\nInterpretasi\n\n\n\n\nBetween-group\n\\(SS_b\\)\nVariabilitas antar kelompok — efek perlakuan\n\n\nWithin-group\n\\(SS_w\\)\nVariabilitas dalam kelompok — noise / kesalahan pengukuran\n\n\nTotal\n\\(SS_{\\text{tot}}\\)\nTotal variabilitas seluruh data"
+    "text": "Mempartisi total varians\nANOVA mempartisi total variabilitas dataset menjadi dua sumber:\n\\[SS_{\\text{tot}} = SS_{\\text{between}} + SS_{\\text{within}}\\]\n\\[\\sum_{k}\\sum_{i}(Y_{ik} - \\bar{Y})^2 = \\sum_{k} N_k(\\bar{Y}_k - \\bar{Y})^2 + \\sum_{k}\\sum_{i}(Y_{ik} - \\bar{Y}_k)^2\\]\n\n\n\n\n\n\n\n\nSumber\nSimbol\nInterpretasi\n\n\n\n\nBetween-group\n\\(SS_b\\)\nVariabilitas antar kelompok — efek perlakuan\n\n\nWithin-group\n\\(SS_w\\)\nVariabilitas dalam kelompok — noise / kesalahan pengukuran\n\n\nTotal\n\\(SS_{\\text{tot}}\\)\nTotal variabilitas seluruh data"
   },
   {
     "objectID": "slides/anova.html#rasio-f",
     "href": "slides/anova.html#rasio-f",
     "title": "ANOVA",
     "section": "Rasio F",
-    "text": "Rasio F\nDari Sum of Squares, kita hitung Mean Squares dengan membagi degrees of freedom:\n\\[MS_b = \\frac{SS_b}{df_b} \\quad \\text{di mana } df_b = G - 1\\]\n\\[MS_w = \\frac{SS_w}{df_w} \\quad \\text{di mana } df_w = N - G\\]\nKemudian rasio F:\n\\[F = \\frac{MS_b}{MS_w} = \\frac{\\text{varians antar kelompok}}{\\text{varians dalam kelompok}}\\]\n\n\n\n\n\n\nNote\n\n\nIntuisi rasio F: Jika semua kelompok memiliki mean yang sama (\\(H_0\\) benar), \\(MS_b\\) dan \\(MS_w\\) seharusnya mengestimasi kuantitas yang sama — sehingga F ≈ 1. Semakin besar perbedaan antar kelompok relatif terhadap noise, semakin besar F — dan semakin kecil p-value."
+    "text": "Rasio F\nDari Sum of Squares, kita hitung Mean Squares dengan membagi degrees of freedom:\n\\[MS_b = \\frac{SS_b}{df_b} \\quad \\text{di mana } df_b = G - 1\\]\n\\[MS_w = \\frac{SS_w}{df_w} \\quad \\text{di mana } df_w = N - G\\]\nKemudian rasio F:\n\\[F = \\frac{MS_b}{MS_w} = \\frac{\\text{varians antar kelompok}}{\\text{varians dalam kelompok}}\\]\n\n\n\n\n\n\nCara memahami rasio F\n\n\nJika semua kelompok memiliki mean yang sama (\\(H_0\\) benar), \\(MS_b\\) dan \\(MS_w\\) seharusnya mengestimasi kuantitas yang sama, sehingga F ≈ 1. Semakin besar perbedaan antar kelompok relatif terhadap noise, semakin besar nilai F, dan semakin kecil p-value."
   },
   {
     "objectID": "slides/anova.html#langkah-anova-di-jamovi",
@@ -1495,7 +1495,7 @@
     "href": "slides/anova.html#η²-dan-ω²",
     "title": "ANOVA",
     "section": "η² dan ω²",
-    "text": "η² dan ω²\nKedua ukuran ini menggambarkan proporsi varians variabel dependen yang dapat dijelaskan oleh faktor kelompok:\n\\[\\eta^2 = \\frac{SS_b}{SS_{\\text{tot}}}\\]\n\\[\\omega^2 = \\frac{SS_b - (G-1) \\cdot MS_w}{SS_{\\text{tot}} + MS_w}\\]\n\n\n\n\n\n\n\n\n\nη²\nω²\n\n\n\n\nBias\nLebih besar (overestimate)\nLebih konservatif, unbiased\n\n\nDefault software\nSering digunakan karena mudah dihitung\nLebih jarang, tapi lebih disarankan\n\n\nPada contoh\n0.713\n0.662\n\n\n\n\n\n\n\n\n\nTip\n\n\nGunakan ω² sebagai default — ia memberikan estimasi yang lebih akurat tentang effect size populasi. Sebagian besar software statistik secara default melaporkan η² karena lebih mudah dihitung, tapi η² cenderung melebih-lebihkan besaran efek, terutama pada sampel kecil."
+    "text": "η² dan ω²\nKedua ukuran ini menggambarkan proporsi varians variabel dependen yang dapat dijelaskan oleh faktor kelompok:\n\\[\\eta^2 = \\frac{SS_b}{SS_{\\text{tot}}}\\]\n\\[\\omega^2 = \\frac{SS_b - (G-1) \\cdot MS_w}{SS_{\\text{tot}} + MS_w}\\]\n\n\n\n\n\n\n\n\n\nη²\nω²\n\n\n\n\nBias\nLebih besar (overestimate)\nLebih konservatif, unbiased\n\n\nDefault software\nSering digunakan karena mudah dihitung\nLebih jarang, tapi lebih disarankan\n\n\nPada contoh\n0.713\n0.662\n\n\n\n\n\n\n\n\n\nTip\n\n\nGunakan ω² sebagai default, karena ω² memberikan estimasi yang lebih akurat tentang effect size populasi. Sebagian besar software statistik secara default melaporkan η² karena lebih mudah dihitung, tapi η² cenderung mengoverestimate ukuran efek, terutama pada sampel yang kecil."
   },
   {
     "objectID": "slides/anova.html#interpretasi-effect-size-anova-konvensi-cohen",
@@ -1509,14 +1509,14 @@
     "href": "slides/anova.html#mengapa-perlu-post-hoc-test",
     "title": "ANOVA",
     "section": "Mengapa perlu post-hoc test?",
-    "text": "Mengapa perlu post-hoc test?\nANOVA yang signifikan hanya mengatakan “ada perbedaan di suatu tempat.” Post-hoc test mengidentifikasi pasangan kelompok mana yang berbeda secara signifikan, sambil mengontrol Type I error.\nDua pilihan utama di jamovi:\n\nTukey’s HSD (Honestly Significant Difference): Seimbang antara power dan kontrol Type I error — cocok untuk kebanyakan kasus jika asumsi homogenitas varians terpenuhi\nGames-Howell: Gunakan sebagai pengganti Tukey’s HSD jika Levene’s test signifikan (p &lt; .05) — tidak mengasumsikan homogenitas varians\nBonferroni correction: Lebih konservatif — membagi α dengan jumlah perbandingan; lebih tepat jika ada a priori hipotesis spesifik\n\n\n\n\n\n\n\nNote\n\n\nAda puluhan post-hoc test yang berbeda (Scheffé, Dunnett, dll.). Pilih berdasarkan asumsi yang terpenuhi: Tukey’s HSD jika varians homogen, Games-Howell jika tidak. Jangan memilih berdasarkan mana yang memberikan p-value terkecil."
+    "text": "Mengapa perlu post-hoc test?\n\nANOVA yang signifikan hanya memberikan bukti bahwa mean kelompok berbeda signifikan.\nPost-hoc test mengidentifikasi pasangan kelompok mana yang berbeda secara signifikan, tetapi sambil mengontrol Type I error.\n\nTiga pilihan utama di jamovi:\n\nTukey’s HSD (Honestly Significant Difference): Seimbang antara power dan kontrol Type I error — cocok untuk kebanyakan kasus jika asumsi homogenitas varians terpenuhi\nGames-Howell: Gunakan sebagai pengganti Tukey’s HSD jika Levene’s test signifikan (p &lt; .05) — tidak mengasumsikan homogenitas varians\nBonferroni correction: Lebih konservatif — membagi α dengan jumlah perbandingan; lebih tepat jika ada hipotesis spesifik yang sudah dirumuskan sebelumnya\n\n\n\n\n\n\n\nCatatan\n\n\nAda puluhan post-hoc test yang berbeda (Scheffé, Dunnett, dll.). Pilih berdasarkan asumsi yang terpenuhi: Tukey’s HSD jika varians homogen, Games-Howell jika tidak. Jangan memilih berdasarkan mana yang memberikan p-value terkecil."
   },
   {
     "objectID": "slides/anova.html#hasil-post-hoc-test-studi-ferguso",
     "href": "slides/anova.html#hasil-post-hoc-test-studi-ferguso",
     "title": "ANOVA",
     "section": "Hasil post-hoc test: studi Ferguso",
-    "text": "Hasil post-hoc test: studi Ferguso\nPerbandingan berpasangan (Bonferroni):\n\n\n\nPerbandingan\nPerbedaan mean\nSE\np (Bonferroni)\n\n\n\n\nPlasebo vs Mixagrip\n−0.174\n0.174\n0.998\n\n\nPlasebo vs Flungalih\n−0.929\n0.168\n&lt; .001\n\n\nMixagrip vs Flungalih\n−0.755\n0.182\n.003\n\n\n\nInterpretasi:\n\nPlasebo dan mixagrip tidak berbeda signifikan (p = 0.998)\nFlungalih secara signifikan lebih efektif dari plasebo dan mixagrip (keduanya p &lt; .005)\nFlungalih adalah obat baru yang menjanjikan — tapi perlu studi replikasi dengan sampel lebih besar"
+    "text": "Hasil post-hoc test: studi Ferguso\nPerbandingan berpasangan (Bonferroni):\n\n\n\n\n\n\n\n\n\nPerbandingan\nPerbedaan mean\nSE\np (Bonferroni)\n\n\n\n\nPlasebo vs Mixagrip\n−0.174\n0.174\n0.998\n\n\nPlasebo vs Flungalih\n−0.929\n0.168\n&lt; .001\n\n\nMixagrip vs Flungalih\n−0.755\n0.182\n.003\n\n\n\nInterpretasi:\n\nPlasebo dan mixagrip tidak berbeda signifikan (p = 0.998)\nFlungalih secara signifikan lebih efektif dari plasebo dan mixagrip (keduanya p &lt; .05)\nFlungalih adalah obat baru yang menjanjikan — tapi perlu studi replikasi dengan sampel lebih besar"
   },
   {
     "objectID": "slides/anova.html#tiga-asumsi-utama",
@@ -1544,7 +1544,7 @@
     "href": "slides/anova.html#contoh-analisis-power-untuk-studi-3-kelompok",
     "title": "ANOVA",
     "section": "Contoh: analisis power untuk studi 3 kelompok",
-    "text": "Contoh: analisis power untuk studi 3 kelompok\nFerguso berencana mereplikasi studinya dengan sampel lebih besar. Dari literatur, ia memperkirakan efek sedang-kecil (f = 0.2).\nLangkah di G*Power:\n\nTest family  F tests\nStatistical test  ANOVA: Fixed effects, main effects and interactions\nType of power analysis  A priori\nMasukkan: Effect size f = 0.2, α = 0.05, Power = 0.80, Number of groups = 3\nKlik Calculate\n\nHasil: N = 159 (53 per kelompok)\n\n\n\n\n\n\nNote\n\n\nStudi asli Ferguso hanya memiliki N = 18 — jauh terlalu kecil untuk mendeteksi efek sedang-kecil dengan power yang cukup. Efek yang ditemukan (f ≈ 0.87) adalah efek yang sangat besar — itulah mengapa studi kecil pun berhasil mendeteksinya."
+    "text": "Contoh: analisis power untuk studi 3 kelompok\nFerguso berencana mereplikasi studinya dengan sampel lebih besar. Dari literatur, ia memperkirakan efek sedang-kecil (f = 0.2).\nLangkah di G*Power:\n\nTest family  F tests\nStatistical test  ANOVA: Fixed effects, main effects and interactions\nType of power analysis  A priori\nMasukkan: Effect size f = 0.2, α = 0.05, Power = 0.80, Number of groups = 3\nKlik Calculate\n\nHasil: N = 159 (53 per kelompok)\n\n\n\n\n\n\nNote\n\n\nStudi asli Ferguso hanya memiliki N = 18 — jauh terlalu kecil untuk mendeteksi efek sedang-kecil dengan power yang cukup. Efek yang ditemukan (f ≈ 1.58) adalah efek yang sangat besar — itulah mengapa studi kecil pun berhasil mendeteksinya."
   },
   {
     "objectID": "slides/anova.html#latihan-analisis-power-untuk-anova",

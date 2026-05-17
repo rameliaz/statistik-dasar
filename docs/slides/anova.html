@@ -152,14 +152,14 @@ Rizqy Amelia Zein
 <section id="outline" class="slide level2">
 <h2><em>Outline</em></h2>
 <ul>
-<li>Mengapa ANOVA, bukan t-test berulang?</li>
+<li>Mengapa ANOVA, bukan <em>t-test</em> berulang?</li>
 <li>Logika ANOVA: partisi varians</li>
 <li>Rasio F</li>
 <li>Implementasi di jamovi</li>
 <li><em>Effect size</em> (η² dan ω²)</li>
 <li><em>Post-hoc tests</em></li>
 <li>Asumsi dan uji asumsi</li>
-<li><em>A priori</em> analisis <em>power</em></li>
+<li>Merencanakan jumlah sampel</li>
 </ul>
 </section>
 <section>
@@ -168,15 +168,15 @@ Rizqy Amelia Zein
 
 </section>
 <section id="masalah-dengan-t-test-berulang" class="slide level2">
-<h2>Masalah dengan t-test berulang</h2>
-<p>Bayangkan kita ingin membandingkan tiga kelompok: placebo, obat lama, dan obat baru. Kita bisa saja menjalankan tiga t-test terpisah:</p>
+<h2>Masalah dengan <em>t-test</em> berulang</h2>
+<p>Bayangkan kita ingin membandingkan tiga kelompok: partisipan yang diberi placebo, obat lama, dan obat baru. Kita bisa saja menjalankan tiga <em>t-test</em> terpisah:</p>
 <ul>
 <li>Placebo vs obat lama</li>
 <li>Placebo vs obat baru</li>
 <li>Obat lama vs obat baru</li>
 </ul>
-<p><strong>Masalah: <em>inflasi Type I error</em></strong></p>
-<p>Jika α = 0.05 per uji, probabilitas <strong>tidak membuat</strong> <em>false positive</em> dalam satu uji = 0.95.</p>
+<p><strong>Masalah yang terjadi: <em>inflasi Type I error</em></strong></p>
+<p>Jika α = 0.05 per uji, probabilitas <strong>tidak terjadinya</strong> <em>false positive</em> dalam satu uji = 0.95.</p>
 <p>Untuk tiga uji independen: <span class="math inline">\(P(\text{tidak ada FP}) = 0.95^3 = 0.857\)</span></p>
 <p>Artinya, probabilitas <strong>minimal satu</strong> <em>false positive</em> = 1 − 0.857 = <strong>14.3%</strong> — jauh di atas α = 5%!</p>
 <div class="callout callout-important callout-titled callout-style-default">
@@ -185,17 +185,17 @@ Rizqy Amelia Zein
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Important</strong></p>
+<p><strong>Kelebihan ANOVA dibandingkan <em>t-test</em></strong></p>
 </div>
 <div class="callout-content">
-<p><strong>ANOVA menjaga <em>family-wise error rate</em></strong> pada α = 0.05 untuk seluruh perbandingan sekaligus. Ia menguji <span class="math inline">\(H_0\)</span> bahwa <strong>semua</strong> <em>mean</em> kelompok sama, dalam satu uji tunggal.</p>
+<p><strong>ANOVA menjaga <em>family-wise error rate</em></strong> pada α = 0.05 untuk seluruh perbandingan sekaligus. Ia menguji <span class="math inline">\(H_0\)</span> bahwa <strong>semua</strong> <em>mean</em> kelompok sama, dalam satu kali uji.</p>
 </div>
 </div>
 </div>
 </section>
 <section id="anova-satu-uji-untuk-banyak-kelompok" class="slide level2">
 <h2>ANOVA: satu uji untuk banyak kelompok</h2>
-<p><em>Analysis of Variance</em> (ANOVA), dikembangkan oleh Sir Ronald Fisher awal abad ke-20, membandingkan <em>mean</em> dari <strong>dua atau lebih</strong> kelompok secara serentak.</p>
+<p><em>Analysis of Variance</em> (ANOVA), dikembangkan oleh Sir Ronald Fisher awal abad ke-20, membandingkan <em>mean</em> dari <strong>dua atau lebih</strong> kelompok secara bersamaan.</p>
 <p><span class="math display">\[H_0: \mu_1 = \mu_2 = \mu_3 = \ldots = \mu_k\]</span> <span class="math display">\[H_a: \text{tidak benar bahwa semua } \mu_k \text{ sama}\]</span></p>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -206,7 +206,7 @@ Rizqy Amelia Zein
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>Perhatikan bahwa <span class="math inline">\(H_a\)</span> hanya menyatakan “tidak semua <em>mean</em> sama” — ia <strong>tidak</strong> menentukan pasangan mana yang berbeda. Untuk mengetahui perbedaan spesifik antar pasangan kelompok, kita butuh <em>post-hoc test</em>.</p>
+<p>Perhatikan bahwa <span class="math inline">\(H_a\)</span> hanya menyatakan perbedaan <em>mean</em> semua kelompok ≠ 0. Ia <strong>tidak</strong> menentukan kelompok mana yang berbeda dan seberapa besar perbedaannya. Untuk mengetahui seberapa besar perbedaan spesifik antar pasangan kelompok, kita harus melakukan <em>post-hoc test</em>.</p>
 </div>
 </div>
 </div>
@@ -218,7 +218,7 @@ Rizqy Amelia Zein
 </section>
 <section id="studi-ferguso-obat-flu-baru" class="slide level2">
 <h2>Studi Ferguso: obat flu baru</h2>
-<p>Ferguso ingin menguji apakah obat flu barunya (<em>flungalih</em>) lebih efektif dibanding plasebo dan obat standar (<em>mixagrip</em>). Ia mengacak 18 peserta ke tiga kelompok (N = 6 per kelompok) dan mengukur konsentrasi zat aktif dalam darah setelah pemberian obat.</p>
+<p>Ferguso ingin menguji apakah obat flu barunya (<em>flungalih</em>) lebih efektif dibanding plasebo dan obat standar (<em>mixagrip</em>). Ia mengacak 18 peserta ke tiga kelompok (N = 6 per kelompok) dan mengukur konsentrasi zat aktif dalam darah pasien setelah pemberian obat.</p>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -249,14 +249,14 @@ Rizqy Amelia Zein
 </section>
 <section id="mempartisi-total-varians" class="slide level2">
 <h2>Mempartisi total varians</h2>
-<p>ANOVA mempartisi total variabilitas data menjadi dua sumber:</p>
+<p>ANOVA mempartisi total variabilitas dataset menjadi dua sumber:</p>
 <p><span class="math display">\[SS_{\text{tot}} = SS_{\text{between}} + SS_{\text{within}}\]</span></p>
 <p><span class="math display">\[\sum_{k}\sum_{i}(Y_{ik} - \bar{Y})^2 = \sum_{k} N_k(\bar{Y}_k - \bar{Y})^2 + \sum_{k}\sum_{i}(Y_{ik} - \bar{Y}_k)^2\]</span></p>
 <table class="caption-top">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 25%">
+<col style="width: 20%">
+<col style="width: 55%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -297,10 +297,10 @@ Rizqy Amelia Zein
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Note</strong></p>
+<p><strong>Cara memahami rasio F</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Intuisi rasio F:</strong> Jika semua kelompok memiliki <em>mean</em> yang sama (<span class="math inline">\(H_0\)</span> benar), <span class="math inline">\(MS_b\)</span> dan <span class="math inline">\(MS_w\)</span> seharusnya mengestimasi kuantitas yang sama — sehingga F ≈ 1. Semakin besar perbedaan antar kelompok relatif terhadap <em>noise</em>, semakin besar F — dan semakin kecil <em>p-value</em>.</p>
+<p>Jika semua kelompok memiliki <em>mean</em> yang sama (<span class="math inline">\(H_0\)</span> benar), <span class="math inline">\(MS_b\)</span> dan <span class="math inline">\(MS_w\)</span> seharusnya mengestimasi kuantitas yang sama, sehingga F ≈ 1. Semakin besar perbedaan antar kelompok relatif terhadap <em>noise</em>, semakin besar nilai F, dan semakin kecil <em>p-value</em>.</p>
 </div>
 </div>
 </div>
@@ -369,7 +369,7 @@ Rizqy Amelia Zein
 </section></section>
 <section>
 <section id="effect-size-untuk-anova" class="title-slide slide level1 center" data-background-color="#14497F">
-<h1><em>Effect size</em> untuk ANOVA</h1>
+<h1>Effect size untuk ANOVA</h1>
 
 </section>
 <section id="η²-dan-ω²" class="slide level2">
@@ -417,7 +417,7 @@ Rizqy Amelia Zein
 <p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Gunakan ω² sebagai default</strong> — ia memberikan estimasi yang lebih akurat tentang <em>effect size</em> populasi. Sebagian besar <em>software</em> statistik secara <em>default</em> melaporkan η² karena lebih mudah dihitung, tapi η² cenderung melebih-lebihkan besaran efek, terutama pada sampel kecil.</p>
+<p><strong>Gunakan ω² sebagai default</strong>, karena ω² memberikan estimasi yang lebih akurat tentang <em>effect size</em> populasi. Sebagian besar <em>software</em> statistik secara <em>default</em> melaporkan η² karena lebih mudah dihitung, tapi η² cenderung meng<em>overestimate</em> ukuran efek, terutama pada sampel yang kecil.</p>
 </div>
 </div>
 </div>
@@ -450,17 +450,20 @@ Rizqy Amelia Zein
 </section></section>
 <section>
 <section id="post-hoc-tests" class="title-slide slide level1 center" data-background-color="#14497F">
-<h1><em>Post-hoc tests</em></h1>
+<h1>Post-hoc tests</h1>
 
 </section>
 <section id="mengapa-perlu-post-hoc-test" class="slide level2">
 <h2>Mengapa perlu <em>post-hoc test</em>?</h2>
-<p>ANOVA yang signifikan hanya mengatakan “ada perbedaan di suatu tempat.” <em>Post-hoc test</em> mengidentifikasi <strong>pasangan kelompok mana</strong> yang berbeda secara signifikan, sambil mengontrol <em>Type I error</em>.</p>
-<p><strong>Dua pilihan utama di <code>jamovi</code>:</strong></p>
+<ul>
+<li><p>ANOVA yang signifikan hanya memberikan bukti bahwa <em>mean</em> kelompok berbeda signifikan.</p></li>
+<li><p><em>Post-hoc test</em> mengidentifikasi <strong>pasangan kelompok mana</strong> yang berbeda secara signifikan, tetapi sambil mengontrol <em>Type I error</em>.</p></li>
+</ul>
+<p><strong>Tiga pilihan utama di <code>jamovi</code>:</strong></p>
 <ul>
 <li><strong>Tukey’s HSD (<em>Honestly Significant Difference</em>)</strong>: Seimbang antara <em>power</em> dan kontrol <em>Type I error</em> — cocok untuk kebanyakan kasus <strong>jika asumsi homogenitas varians terpenuhi</strong></li>
 <li><strong>Games-Howell</strong>: Gunakan sebagai pengganti Tukey’s HSD jika <strong>Levene’s test signifikan</strong> (<em>p</em> &lt; .05) — tidak mengasumsikan homogenitas varians</li>
-<li><strong>Bonferroni correction</strong>: Lebih konservatif — membagi α dengan jumlah perbandingan; lebih tepat jika ada <em>a priori</em> hipotesis spesifik</li>
+<li><strong>Bonferroni correction</strong>: Lebih konservatif — membagi α dengan jumlah perbandingan; lebih tepat jika ada hipotesis spesifik yang sudah dirumuskan sebelumnya</li>
 </ul>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -468,7 +471,7 @@ Rizqy Amelia Zein
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Note</strong></p>
+<p><strong>Catatan</strong></p>
 </div>
 <div class="callout-content">
 <p>Ada puluhan <em>post-hoc test</em> yang berbeda (Scheffé, Dunnett, dll.). Pilih berdasarkan asumsi yang terpenuhi: <strong>Tukey’s HSD</strong> jika varians homogen, <strong>Games-Howell</strong> jika tidak. Jangan memilih berdasarkan mana yang memberikan <em>p-value</em> terkecil.</p>
@@ -480,6 +483,12 @@ Rizqy Amelia Zein
 <h2>Hasil <em>post-hoc test</em>: studi Ferguso</h2>
 <p><strong>Perbandingan berpasangan (Bonferroni):</strong></p>
 <table class="caption-top">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 22%">
+<col style="width: 13%">
+<col style="width: 25%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Perbandingan</th>
@@ -512,7 +521,7 @@ Rizqy Amelia Zein
 <p>Interpretasi:</p>
 <ul>
 <li>Plasebo dan <em>mixagrip</em> <strong>tidak berbeda signifikan</strong> (<em>p</em> = 0.998)</li>
-<li><em>Flungalih</em> secara signifikan <strong>lebih efektif</strong> dari plasebo dan <em>mixagrip</em> (keduanya <em>p</em> &lt; .005)</li>
+<li><em>Flungalih</em> secara signifikan <strong>lebih efektif</strong> dari plasebo dan <em>mixagrip</em> (keduanya <em>p</em> &lt; .05)</li>
 <li><em>Flungalih</em> adalah obat baru yang menjanjikan — tapi perlu studi replikasi dengan sampel lebih besar</li>
 </ul>
 </section></section>
@@ -525,9 +534,9 @@ Rizqy Amelia Zein
 <h2>Tiga asumsi utama</h2>
 <table class="caption-top">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 28%">
+<col style="width: 30%">
+<col style="width: 42%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -583,8 +592,8 @@ Rizqy Amelia Zein
 </ul>
 </section></section>
 <section>
-<section id="a-priori-analisis-power-untuk-anova" class="title-slide slide level1 center" data-background-color="#14497F">
-<h1><em>A priori</em> analisis <em>power</em> untuk ANOVA</h1>
+<section id="merencanakan-jumlah-sampel" class="title-slide slide level1 center" data-background-color="#14497F">
+<h1>Merencanakan jumlah sampel</h1>
 
 </section>
 <section id="effect-size-f-untuk-gpower" class="slide level2">
@@ -636,7 +645,7 @@ Rizqy Amelia Zein
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>Studi asli Ferguso hanya memiliki N = 18 — jauh terlalu kecil untuk mendeteksi efek sedang-kecil dengan <em>power</em> yang cukup. Efek yang ditemukan (<em>f</em> ≈ 0.87) adalah efek yang sangat besar — itulah mengapa studi kecil pun berhasil mendeteksinya.</p>
+<p>Studi asli Ferguso hanya memiliki N = 18 — jauh terlalu kecil untuk mendeteksi efek sedang-kecil dengan <em>power</em> yang cukup. Efek yang ditemukan (<em>f</em> ≈ 1.58) adalah efek yang sangat besar — itulah mengapa studi kecil pun berhasil mendeteksinya.</p>
 </div>
 </div>
 </div>
@@ -659,7 +668,7 @@ Rizqy Amelia Zein
 <section id="ada-pertanyaan" class="slide level2">
 <h2>Ada pertanyaan❓</h2>
 
-<img data-src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFtaDh5ZjZ2eXJ3dmJmZmFmYzBtNHEwdzlqZmZtdGtmbnE0bXZidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igB2Th9e4nW6s/giphy.gif" class="quarto-figure quarto-figure-center r-stretch"><div class="callout callout-note callout-titled callout-style-default">
+<img data-src="..\slides/libs/closing.JPG" class="quarto-figure quarto-figure-center r-stretch"><div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
