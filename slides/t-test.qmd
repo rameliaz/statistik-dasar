@@ -11,6 +11,8 @@ format:
     progress: true
     transition: slide
     center: false
+    css: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css
+    chalkboard: true
 execute:
   eval: false
   echo: true
@@ -132,7 +134,7 @@ Pertanyaan untuk didiskusikan:
 
 **Hasil analisis:**
 
-* *t*(539) = 1.30, *p* = 0.903
+* *t*(539) = 1.30, *p* = 0.193
 * Cohen's *d* = 0.055 (efek sangat kecil)
 * 95% CI untuk selisih *mean*: hampir mencakup nol
 

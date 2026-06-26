@@ -11,6 +11,8 @@ format:
     progress: true
     transition: slide
     center: false
+    css: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css
+    chalkboard: true    
 execute:
   eval: false
   echo: true
@@ -133,7 +135,7 @@ Frekuensi yang diharapkan (misalnya, untuk sel *Kelompok* × *Lulus tepat waktu*
 χ² membutuhkan frekuensi yang cukup besar agar distribusinya mendekati distribusi $\chi^2$:
 
 * **Semua sel** memiliki frekuensi yang **diharapkan ≥ 5** (aturan praktis umum)
-* Untuk tabel 2×2: gunakan *Yates' continuity correction*
+* Khusus tabel **2×2** (bukan tabel yang lebih besar): gunakan *Yates' continuity correction*
 * Jika frekuensi yang diharapkan kecil (< 5) → gunakan ***Fisher's exact test***
 
 ::: {.callout-important}

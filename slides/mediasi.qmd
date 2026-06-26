@@ -11,6 +11,8 @@ format:
     progress: true
     transition: slide
     center: false
+    css: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css
+    chalkboard: true
 execute:
   eval: false
   echo: true
@@ -170,7 +172,11 @@ Proporsi mediasi bisa melebihi 1 atau bernilai negatif (disebut *inconsistent me
 
 $$\kappa^2 = \frac{a \times b}{\text{varians maksimal a×b yang mungkin}}$$
 
-Nilai $\kappa^2$ antara 0–1. Konvensi: 0.01 kecil, 0.09 sedang, 0.25 besar (Preacher & Kelley, 2011). Pada contoh di atas, jamovi melaporkan $\kappa^2 \approx 0.18$ — termasuk efek **sedang** mendekati besar.
+Pada contoh di atas, jamovi melaporkan $\kappa^2 \approx 0.18$.
+
+::: {.callout-note}
+Preacher & Kelley (2011), yang memperkenalkan $\kappa^2$, justru menyarankan untuk **tidak** memakai ambang batas universal (mis. 0.01/0.09/0.25) karena nilai maksimum $\kappa^2$ bergantung pada desain dan skala pengukuran. $\kappa^2$ juga makin jarang dipakai di literatur terbaru — **proporsi mediasi** atau **standardized indirect effect** lebih disukai sebagai ukuran *effect size* untuk mediasi.
+:::
 
 
 # ⚠️Peringatan⚠️: mediasi dan kausalitas {background-color="#14497F"}
@@ -202,7 +208,7 @@ Kita ukur ketiga variabel dalam satu survei pada hari yang sama. Mungkin saja:
 #### Lalu bagaimana cara menguji mediasi?
 Pengujian mediasi yang lebih baik membutuhkan desain **longitudinal** (X diukur sebelum M, M diukur sebelum Y) atau, yang terbaik, melalui **eksperimen** di mana X (dan M) dimanipulasi secara acak dan efeknya pada M dan Y diamati sepanjang waktu.
 
-Meskipun, pengujian secara longitudinal hanya bisa mengendalikan *confounding* yang *time-invariant* saja. Apabila variabel *cofounding* berubah sepanjang waktu, maka desain *longitudinal* tidak bisa mengendalikan efek *confounding*.
+Namun, pengujian secara longitudinal hanya bisa mengendalikan *confounding* yang *time-invariant* saja. Apabila variabel *confounding* berubah sepanjang waktu, maka desain *longitudinal* tidak bisa mengendalikan efek *confounding* tersebut.
 :::
 
 ## Kapan mediasi *cross-sectional* masih berguna?
@@ -212,7 +218,7 @@ Meski terbatas secara kausal, analisis mediasi *cross-sectional* mungkin bisa be
 * Digunakan untuk **mengeksplorasi mekanisme** yang akan diuji lebih lanjut dengan desain yang lebih kuat
 * Dikombinasikan dengan argumen teoritis yang kuat tentang urutan temporal
 * Variabel X adalah **atribut stabil** atau manipulasi eksperimental (bukan variabel yang berfluktuasi)
-* Disajikan dengan **language yang jujur** — "konsisten dengan mediasi" bukan "membuktikan mediasi"
+* Disajikan dengan **bahasa yang jujur** — "konsisten dengan mediasi" bukan "membuktikan mediasi"
 
 ::: {.callout-tip}
 #### Cara yang disarankan untuk melaporkan mediasi *cross-sectional*:

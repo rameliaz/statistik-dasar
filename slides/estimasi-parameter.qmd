@@ -11,6 +11,8 @@ format:
     progress: true
     transition: slide
     center: false
+    css: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css
+    chalkboard: true
 execute:
   eval: false
   echo: true
@@ -108,7 +110,7 @@ Bayangkan kita melempar koin yang diasumsikan adil/tidak bias (P(gambar) = 0.5):
 
 ::: {.callout-important}
 #### Penting diingat
-*Law of large numbers* menjelaskan mengapa **ukuran sampel kecil akan menimbulkan bermasalah** dalam penelitian. Dengan N=20, *mean* sampel kita bisa sangat jauh dari *mean* populasi hanya karena kebetulan (*sampling error*). Inilah mengapa mengestimasi *statistical power* dan *sample size* itu penting sebelum penelitian dimulai.
+*Law of large numbers* menjelaskan mengapa **ukuran sampel kecil bermasalah** dalam penelitian. Dengan N=20, *mean* sampel kita bisa sangat jauh dari *mean* populasi hanya karena kebetulan (*sampling error*). Inilah mengapa mengestimasi *statistical power* dan *sample size* itu penting sebelum penelitian dimulai.
 :::
 
 ## Implikasi *law of large numbers* untuk penelitian
@@ -191,7 +193,7 @@ $$SE_{\bar{X}} = \frac{12}{\sqrt{64}} = \frac{12}{8} = 1.5$$
 
 $$SE_{\bar{X}} = \frac{12}{\sqrt{16}} = \frac{12}{4} = 3.0$$
 
-* SE **dua kali lipat lebih besar**, estimasi jauh kurang presisi akibat karena sampelnya lebih kecil
+* SE **dua kali lipat lebih besar**, estimasi jauh kurang presisi karena sampelnya lebih kecil
 
 ::: {.callout-note}
 #### Perhatikan: 

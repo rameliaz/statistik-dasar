@@ -11,6 +11,8 @@ format:
     progress: true
     transition: slide
     center: false
+    css: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css
+    chalkboard: true
 execute:
   eval: false
   echo: true
@@ -68,7 +70,7 @@ Dalam penelitian psikologi, kita tidak pernah bisa **membuktikan** sesuatu secar
 ::::
 
 ::: {.callout-note}
-Sebagian besar statistik yang dipelajari di S1 menggunakan **pendekatan *frequentist***. Penting untuk memahami asumsi ini agar bisa menginterpretasi hasil analisis dengan benar.
+Sebagian besar statistik yang dipelajari di S1 menggunakan **pendekatan *frequentist***, jadi interpretasi *p-value* dan CI di mata kuliah ini juga mengikuti logika *frequentist* tersebut.
 :::
 
 

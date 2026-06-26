@@ -11,6 +11,8 @@ format:
     progress: true
     transition: slide
     center: false
+    css: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css
+    chalkboard: true
 execute:
   eval: false
   echo: true
@@ -235,7 +237,7 @@ Cohen sendiri meminta agar *benchmark* ini **tidak digunakan secara mekanis** �
 | ω² (*omega-squared*) | Alternatif η² yang lebih *unbiased* | 0–1 |
 | *r* Pearson | Korelasi dua variabel kontinu | -1 – +1 |
 | Cramér's V | Asosiasi dua variabel kategorikal | 0–1 |
-| *Odds ratio* (OR) | Perbandingan odds antar kelompok | 0–∞ |
+| *Odds ratio* (OR) | Perbandingan odds antar kelompok | 0–∞ (1 = tidak ada efek) |
 
 ::: {.callout-tip}
 **Pelaporan standar APA (edisi ke-7)** mewajibkan pelaporan *effect size* untuk semua analisis inferensial. Jamovi secara *default* sudah menyediakan *effect size* — manfaatkan fitur ini.

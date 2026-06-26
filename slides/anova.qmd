@@ -11,6 +11,8 @@ format:
     progress: true
     transition: slide
     center: false
+    css: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css
+    chalkboard: true
 execute:
   eval: false
   echo: true
@@ -53,7 +55,7 @@ Artinya, probabilitas **minimal satu** *false positive* = 1 − 0.857 = **14.3%*
 
 ## ANOVA: satu uji untuk banyak kelompok
 
-*Analysis of Variance* (ANOVA), dikembangkan oleh Sir Ronald Fisher awal abad ke-20, membandingkan *mean* dari **dua atau lebih** kelompok secara bersamaan.
+*Analysis of Variance* (ANOVA), dikembangkan oleh Ronald Fisher pada awal abad ke-20, membandingkan *mean* dari **dua atau lebih** kelompok secara bersamaan.
 
 $$H_0: \mu_1 = \mu_2 = \mu_3 = \ldots = \mu_k$$
 $$H_a: \text{tidak benar bahwa semua } \mu_k \text{ sama}$$

@@ -11,6 +11,8 @@ format:
     progress: true
     transition: slide
     center: false
+    css: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css
+    chalkboard: true
 execute:
   eval: false
   echo: true
@@ -259,14 +261,14 @@ Dengan dataset [**HDIWDI2010.omv**](/docs/materials/HDIWDI2010.omv), inspeksi di
 * **99.7%** data berada dalam rentang μ ± 3σ
 
 ::: {.callout-note}
-Distribusi normal adalah **asumsi dasar** dari hampir semua teknik statistik parametrik (t-test, ANOVA, regresi). Oleh karena itu, penting untuk selalu memeriksa apakah data kita mendekati distribusi normal sebelum memilih teknik analisis.
+Distribusi normal adalah **asumsi dasar** dari hampir semua teknik statistik parametrik (t-test, ANOVA, regresi) — selalu cek dulu apakah data kita mendekati distribusi normal sebelum memilih teknik analisis.
 :::
 
 ## Mengapa distribusi normal penting?
 
 * Banyak variabel psikologi secara empiris mendekati distribusi normal (tinggi badan, skor IQ, kecemasan dalam populasi umum)
 * Distribusi normal menjadi **fondasi matematika** dari statistik inferensial (*Central Limit Theorem*)
-* Namun perlu dicatat: **tidak semua data psikologi berdistribusi normal**
+* Tapi **tidak semua data psikologi berdistribusi normal**
   - Data *reaction time* cenderung *positively skewed*
   - Skor skala Likert 5-poin bersifat ordinal
   - Data klinis sering memiliki distribusi yang tidak normal

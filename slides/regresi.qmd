@@ -11,6 +11,7 @@ format:
     progress: true
     transition: slide
     css: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css
+    chalkboard: true
 execute:
   eval: false
   echo: true
@@ -331,7 +332,7 @@ Selalu laporkan _unstandardized estimates_ dan _confidence interval_ ([Appelbaum
 * Asumsi lain yang harus dipenuhi adalah **homoskedastisitas**.
 * Residual memenuhi asumsi homoskedastisitas, apabila variansnya **uniform (sama)** meskipun _fitted_ Y (nilai Y yang diestimasi oleh model, plot kanan atas) dan nilai X (plot kanan bawah) berubah-ubah.
   - Hal ini ditunjukkan dari dua plot disamping yang menunjukkan distribusi **varians residual uniform**.
-* Apabila asumsi ini dilanggar, maka residual mengalami **heteroskedastisitas**. Perlu dicatat: koefisien regresi (B) tetap **tidak bias**, namun **_standard error_-nya menjadi bias** — sehingga _p-value_ dan _confidence interval_ tidak dapat diandalkan.
+* Apabila asumsi ini dilanggar, maka residual mengalami **heteroskedastisitas**. Koefisien regresi (B) tetap **tidak bias**, namun **_standard error_-nya menjadi bias** — sehingga _p-value_ dan _confidence interval_ tidak dapat diandalkan.
 * Kalau residual menunjukkan karakteristik **hetero**skedastik, maka distribusi residual akan terlihat seperti kerucut.
 
 :::
@@ -369,7 +370,7 @@ Selalu laporkan _unstandardized estimates_ dan _confidence interval_ ([Appelbaum
   - Seperti grafik di sebelah kanan, penambahan data _outlier_ dapat merubah garis regresi secara drastis.
 * Untuk melihat seberapa 'mengkhawatirkan' data _outlier_ ini dalam mengganggu garis regresi, kita dapat menggunakan _Cook's distance_.
 * _Cook's distance_ mengukur seberapa besar **koefisien regresi berubah** apabila satu observasi dikeluarkan dari model — bukan perubahan statistik deskriptif seperti rata-rata atau SD.
-* Ambang batas umum: _Cook's D_ **> 1** (atau secara konservatif > 4/n) mengindikasikan observasi yang berpengaruh besar (*influential*) terhadap koefisien regresi.
+* Ambang batas umum: _Cook's D_ **> 1** mengindikasikan observasi yang berpengaruh besar (*influential*); ambang yang lebih sensitif/liberal, > 4/n, sering dipakai untuk *n* besar.
 
 :::
 ::: {.column width="45%"}

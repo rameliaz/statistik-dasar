@@ -11,6 +11,8 @@ format:
     progress: true
     transition: slide
     center: false
+    css: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css
+    chalkboard: true
 execute:
   eval: false
   echo: true
@@ -185,7 +187,7 @@ $$F_{\text{corrected}} \text{ menggunakan } df^* = df \times \varepsilon$$
 
 ## Langkah RM-ANOVA di `jamovi`
 
-Buka dataset [**minat-membaca.omv**](/materials/minat-baca.omv), kemudian:
+Buka dataset [**minat-baca.omv**](/materials/minat-baca.omv), kemudian:
 
 1. Klik menu *ANOVA* {{< fa circle-arrow-right >}} ***Repeated Measures ANOVA***
 2. Di kolom *Repeated Measures Factors*: beri nama faktor — mis. **"waktu"** — dan tambahkan 3 level: *minggu1*, *minggu2*, *minggu3*

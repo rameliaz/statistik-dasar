@@ -46,14 +46,14 @@
     "href": "slides/moderasi.html#model-fit",
     "title": "Analisis Moderasi",
     "section": "Model fit",
-    "text": "Model fit\n\nModel 2 (F(2,397) = 74.3, p = .001, Adj. R2 = .424) dapat menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (F(1,398) = 171.8, p = .001, R2 = .300), dengan overlapping variances sebesar 42.4% dibanding 30%.\nInformation criteria (AIC & BIC)\n\nMemberikan “penalti” pada model yang mengandung lebih banyak prediktor — mengatasi kelemahan R2 yang terus naik seiring ditambahnya prediktor\nPilih model dengan AIC dan BIC terkecil (Model 2)"
+    "text": "Model fit\n\nModel 2 (F(2,397) = 74.3, p = .001, Adj. R2 = .424) dapat menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (F(1,398) = 171.8, p = .001, Adj. R2 = .300), dengan overlapping variances sebesar 42.4% dibanding 30%.\nInformation criteria (AIC & BIC)\n\nMemberikan “penalti” pada model yang mengandung lebih banyak prediktor — mengatasi kelemahan R2 yang terus naik seiring ditambahnya prediktor\nPilih model dengan AIC dan BIC terkecil (Model 2)"
   },
   {
     "objectID": "slides/moderasi.html#model-comparison",
     "href": "slides/moderasi.html#model-comparison",
     "title": "Analisis Moderasi",
     "section": "Model comparison",
-    "text": "Model comparison\n\n\nKetika dibandingkan, Model 1 dan Model 2 berbeda signifikan (F(1,397) = 29.5, p = .001). ΔR2 = .128, artinya penambahan suku interaksi meningkatkan kemampuan model menjelaskan varians sebesar 12.8%.\nCoba perhatikan Residuals Model 1 dengan Model 2"
+    "text": "Model comparison\n\n\nKetika dibandingkan, Model 1 dan Model 2 berbeda signifikan (F(1,397) = 29.5, p = .001). ΔAdj. R2 = .124, artinya penambahan suku interaksi meningkatkan kemampuan model menjelaskan varians sebesar 12.4%.\nCoba perhatikan Residuals Model 1 dengan Model 2"
   },
   {
     "objectID": "slides/moderasi.html#koefisien-model-2",
@@ -88,7 +88,7 @@
     "href": "slides/moderasi.html#melaporkan-hasil-ols-dengan-suku-interaksi-1",
     "title": "Analisis Moderasi",
     "section": "Melaporkan hasil OLS dengan suku interaksi 1️⃣",
-    "text": "Melaporkan hasil OLS dengan suku interaksi 1️⃣\n\nUntuk menginvestigasi keterkaitan antara pendapatan keluarga, kecenderungan neuroticism ibu, dan kepercayaan ibu bahwa perkembangan anak dapat terjadi secara natural dengan tingkat kemandirian anak, peneliti melakukan analisis regresi linear hirarkial dengan interaction terms. Peneliti menyusun dua model: model 1 mengestimasi varians tingkat kemandirian anak dengan pendapatan keluarga inti sebagai prediktor, sedangkan pada model 2 peneliti menambahkan interaction terms antara neuroticism dengan trust.\n\n\nKetika dibandingkan, Model 1 dan Model 2 berbeda signifikan (F(1,397) = 29.5, p = .001). Model 2 (F(2,397) = 74.3, p = .001, Adj. R2 = .424, AIC = 2472, BIC = 2496) menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (F(1,398) = 171.8, p = .001, Adj. R2 = .300, AIC = 2547, BIC = 2559), dengan ΔR2 = .128."
+    "text": "Melaporkan hasil OLS dengan suku interaksi 1️⃣\n\nUntuk menginvestigasi keterkaitan antara pendapatan keluarga, kecenderungan neuroticism ibu, dan kepercayaan ibu bahwa perkembangan anak dapat terjadi secara natural dengan tingkat kemandirian anak, peneliti melakukan analisis regresi linear hirarkial dengan interaction terms. Peneliti menyusun dua model: model 1 mengestimasi varians tingkat kemandirian anak dengan pendapatan keluarga inti sebagai prediktor, sedangkan pada model 2 peneliti menambahkan interaction terms antara neuroticism dengan trust.\n\n\nKetika dibandingkan, Model 1 dan Model 2 berbeda signifikan (F(1,397) = 29.5, p = .001). Model 2 (F(2,397) = 74.3, p = .001, Adj. R2 = .424, AIC = 2472, BIC = 2496) menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (F(1,398) = 171.8, p = .001, Adj. R2 = .300, AIC = 2547, BIC = 2559), dengan ΔAdj. R2 = .124."
   },
   {
     "objectID": "slides/moderasi.html#melaporkan-hasil-ols-dengan-suku-interaksi-2",
@@ -102,7 +102,7 @@
     "href": "slides/moderasi.html#apa-itu-medmod",
     "title": "Analisis Moderasi",
     "section": "Apa itu medmod?",
-    "text": "Apa itu medmod?\nmedmod adalah modul jamovi yang dirancang untuk:\n\nAnalisis moderasi (moderation, MOD)\nAnalisis mediasi (mediation, MED)\nAnalisis moderasi-mediasi (moderated mediation) — setara dengan Hayes PROCESS Macro\n\n\n\n\n\n\n\nDi balik layar: lavaan\n\n\nmedmod menggunakan paket R lavaan (latent variable analysis) — framework SEM yang digunakan luas dalam penelitian psikologi. Ini berarti estimasinya menggunakan Maximum Likelihood (ML), bukan Ordinary Least Squares.\n\n\n\n\nDikembangkan oleh Marcello Gallucci (Università degli Studi di Milano-Bicocca)\nDapat diinstal langsung dari jamovi → klik ikon ⊕ (pojok kanan atas) → cari medmod → Install"
+    "text": "Apa itu medmod?\nmedmod adalah modul jamovi yang dirancang untuk:\n\nAnalisis moderasi (moderation, MOD)\nAnalisis mediasi (mediation, MED)\nAnalisis moderasi-mediasi (moderated mediation) — cakupannya analog dengan Hayes PROCESS Macro, meski mesin estimasinya berbeda (lihat catatan di bawah)\n\n\n\n\n\n\n\nDi balik layar: lavaan\n\n\nmedmod menggunakan paket R lavaan (latent variable analysis) — framework SEM yang digunakan luas dalam penelitian psikologi. Ini berarti estimasinya menggunakan Maximum Likelihood (ML), bukan Ordinary Least Squares.\n\n\n\n\nDikembangkan oleh Marcello Gallucci (Università degli Studi di Milano-Bicocca)\nDapat diinstal langsung dari jamovi → klik ikon ⊕ (pojok kanan atas) → cari medmod → Install"
   },
   {
     "objectID": "slides/moderasi.html#ols-interaction-terms-vs.-medmod-apa-bedanya",
@@ -263,7 +263,7 @@
     "href": "slides/anova-rm.html#langkah-rm-anova-di-jamovi",
     "title": "ANOVA Pengukuran Berulang",
     "section": "Langkah RM-ANOVA di jamovi",
-    "text": "Langkah RM-ANOVA di jamovi\nBuka dataset minat-membaca.omv, kemudian:\n\nKlik menu ANOVA  Repeated Measures ANOVA\nDi kolom Repeated Measures Factors: beri nama faktor — mis. “waktu” — dan tambahkan 3 level: minggu1, minggu2, minggu3\nDi kolom Repeated Measures Cells: masukkan variabel durasi_minggu1, durasi_minggu2, durasi_minggu3 ke baris yang sesuai\nDi opsi Effect Size, centang η² dan Generalised η²"
+    "text": "Langkah RM-ANOVA di jamovi\nBuka dataset minat-baca.omv, kemudian:\n\nKlik menu ANOVA  Repeated Measures ANOVA\nDi kolom Repeated Measures Factors: beri nama faktor — mis. “waktu” — dan tambahkan 3 level: minggu1, minggu2, minggu3\nDi kolom Repeated Measures Cells: masukkan variabel durasi_minggu1, durasi_minggu2, durasi_minggu3 ke baris yang sesuai\nDi opsi Effect Size, centang η² dan Generalised η²"
   },
   {
     "objectID": "slides/anova-rm.html#langkah-lanjutan-asumsi-dan-post-hoc",
@@ -396,7 +396,7 @@
     "href": "slides/mediasi.html#proporsi-mediasi",
     "title": "Analisis Mediasi",
     "section": "Proporsi mediasi",
-    "text": "Proporsi mediasi\nSelain signifikansi, kita juga bisa menghitung proporsi total efek yang dimediasi:\n\\[\\text{Proporsi mediasi} = \\frac{a \\times b}{c} = \\frac{-0.26}{-0.42} \\approx 0.61\\]\nArtinya, sekitar 61% dari efek beban akademik pada wellbeing bekerja melalui mekanisme dukungan sosial.\n\n\n\n\n\n\nNote\n\n\nProporsi mediasi bisa melebihi 1 atau bernilai negatif (disebut inconsistent mediation) jika direct effect dan indirect effect berlawanan arah. Dalam kasus seperti ini, interpretasinya lebih kompleks.\n\n\n\nEffect size untuk mediasi:\n\\[\\kappa^2 = \\frac{a \\times b}{\\text{varians maksimal a×b yang mungkin}}\\]\nNilai \\(\\kappa^2\\) antara 0–1. Konvensi: 0.01 kecil, 0.09 sedang, 0.25 besar (Preacher & Kelley, 2011). Pada contoh di atas, jamovi melaporkan \\(\\kappa^2 \\approx 0.18\\) — termasuk efek sedang mendekati besar."
+    "text": "Proporsi mediasi\nSelain signifikansi, kita juga bisa menghitung proporsi total efek yang dimediasi:\n\\[\\text{Proporsi mediasi} = \\frac{a \\times b}{c} = \\frac{-0.26}{-0.42} \\approx 0.61\\]\nArtinya, sekitar 61% dari efek beban akademik pada wellbeing bekerja melalui mekanisme dukungan sosial.\n\n\n\n\n\n\nNote\n\n\nProporsi mediasi bisa melebihi 1 atau bernilai negatif (disebut inconsistent mediation) jika direct effect dan indirect effect berlawanan arah. Dalam kasus seperti ini, interpretasinya lebih kompleks.\n\n\n\nEffect size untuk mediasi:\n\\[\\kappa^2 = \\frac{a \\times b}{\\text{varians maksimal a×b yang mungkin}}\\]\nPada contoh di atas, jamovi melaporkan \\(\\kappa^2 \\approx 0.18\\).\n\n\n\n\n\n\nNote\n\n\nPreacher & Kelley (2011), yang memperkenalkan \\(\\kappa^2\\), justru menyarankan untuk tidak memakai ambang batas universal (mis. 0.01/0.09/0.25) karena nilai maksimum \\(\\kappa^2\\) bergantung pada desain dan skala pengukuran. \\(\\kappa^2\\) juga makin jarang dipakai di literatur terbaru — proporsi mediasi atau standardized indirect effect lebih disukai sebagai ukuran effect size untuk mediasi."
   },
   {
     "objectID": "slides/mediasi.html#data-cross-sectional-dan-klaim-kausalitas",
@@ -410,14 +410,14 @@
     "href": "slides/mediasi.html#contoh-masalah-temporal-ordering",
     "title": "Analisis Mediasi",
     "section": "Contoh masalah temporal ordering",
-    "text": "Contoh masalah temporal ordering\nKembali ke contoh beban akademik → dukungan sosial → wellbeing:\nKita ukur ketiga variabel dalam satu survei pada hari yang sama. Mungkin saja:\n\nMahasiswa dengan wellbeing yang rendah lebih cenderung merasakan beban sebagai berat dan dukungan sebagai kurang (Y memengaruhi persepsi terhadap X dan M)\nDukungan sosial yang rendah menyebabkan mahasiswa mengambil lebih banyak mata kuliah untuk “mengisi waktu” (M → X, bukan X → M)\n\n\n\n\n\n\n\nLalu bagaimana cara menguji mediasi?\n\n\nPengujian mediasi yang lebih baik membutuhkan desain longitudinal (X diukur sebelum M, M diukur sebelum Y) atau, yang terbaik, melalui eksperimen di mana X (dan M) dimanipulasi secara acak dan efeknya pada M dan Y diamati sepanjang waktu.\nMeskipun, pengujian secara longitudinal hanya bisa mengendalikan confounding yang time-invariant saja. Apabila variabel cofounding berubah sepanjang waktu, maka desain longitudinal tidak bisa mengendalikan efek confounding."
+    "text": "Contoh masalah temporal ordering\nKembali ke contoh beban akademik → dukungan sosial → wellbeing:\nKita ukur ketiga variabel dalam satu survei pada hari yang sama. Mungkin saja:\n\nMahasiswa dengan wellbeing yang rendah lebih cenderung merasakan beban sebagai berat dan dukungan sebagai kurang (Y memengaruhi persepsi terhadap X dan M)\nDukungan sosial yang rendah menyebabkan mahasiswa mengambil lebih banyak mata kuliah untuk “mengisi waktu” (M → X, bukan X → M)\n\n\n\n\n\n\n\nLalu bagaimana cara menguji mediasi?\n\n\nPengujian mediasi yang lebih baik membutuhkan desain longitudinal (X diukur sebelum M, M diukur sebelum Y) atau, yang terbaik, melalui eksperimen di mana X (dan M) dimanipulasi secara acak dan efeknya pada M dan Y diamati sepanjang waktu.\nNamun, pengujian secara longitudinal hanya bisa mengendalikan confounding yang time-invariant saja. Apabila variabel confounding berubah sepanjang waktu, maka desain longitudinal tidak bisa mengendalikan efek confounding tersebut."
   },
   {
     "objectID": "slides/mediasi.html#kapan-mediasi-cross-sectional-masih-berguna",
     "href": "slides/mediasi.html#kapan-mediasi-cross-sectional-masih-berguna",
     "title": "Analisis Mediasi",
     "section": "Kapan mediasi cross-sectional masih berguna?",
-    "text": "Kapan mediasi cross-sectional masih berguna?\nMeski terbatas secara kausal, analisis mediasi cross-sectional mungkin bisa bermakna jika:\n\nDigunakan untuk mengeksplorasi mekanisme yang akan diuji lebih lanjut dengan desain yang lebih kuat\nDikombinasikan dengan argumen teoritis yang kuat tentang urutan temporal\nVariabel X adalah atribut stabil atau manipulasi eksperimental (bukan variabel yang berfluktuasi)\nDisajikan dengan language yang jujur — “konsisten dengan mediasi” bukan “membuktikan mediasi”\n\n\n\n\n\n\n\nCara yang disarankan untuk melaporkan mediasi cross-sectional:\n\n\n“Hasil analisis bootstrapping menunjukkan indirect effect yang signifikan (a×b = −0.26, 95% bootstrap persentil CI [−0.31, −0.21]), yang artinya ditemukan pola yang konsisten dengan model mediasi, di mana dukungan sosial mungkin memediasi hubungan antara beban akademik dan wellbeing. Namun, mengingat desain cross-sectional, interpretasi kausalitas tidak dapat dilakukan.”"
+    "text": "Kapan mediasi cross-sectional masih berguna?\nMeski terbatas secara kausal, analisis mediasi cross-sectional mungkin bisa bermakna jika:\n\nDigunakan untuk mengeksplorasi mekanisme yang akan diuji lebih lanjut dengan desain yang lebih kuat\nDikombinasikan dengan argumen teoritis yang kuat tentang urutan temporal\nVariabel X adalah atribut stabil atau manipulasi eksperimental (bukan variabel yang berfluktuasi)\nDisajikan dengan bahasa yang jujur — “konsisten dengan mediasi” bukan “membuktikan mediasi”\n\n\n\n\n\n\n\nCara yang disarankan untuk melaporkan mediasi cross-sectional:\n\n\n“Hasil analisis bootstrapping menunjukkan indirect effect yang signifikan (a×b = −0.26, 95% bootstrap persentil CI [−0.31, −0.21]), yang artinya ditemukan pola yang konsisten dengan model mediasi, di mana dukungan sosial mungkin memediasi hubungan antara beban akademik dan wellbeing. Namun, mengingat desain cross-sectional, interpretasi kausalitas tidak dapat dilakukan.”"
   },
   {
     "objectID": "slides/mediasi.html#apa-itu-collider",
@@ -753,7 +753,7 @@
     "href": "slides/uji-hipotesis.html#effect-size-lainnya",
     "title": "Uji Hipotesis",
     "section": "Effect size lainnya",
-    "text": "Effect size lainnya\n\n\n\n\n\n\n\n\nUkuran efek\nDigunakan untuk\nRentang nilai\n\n\n\n\nCohen’s d\nPerbedaan dua mean (t-test)\nTak terbatas, biasanya 0–3\n\n\nη² (eta-squared)\nANOVA — proporsi varians yang dijelaskan\n0–1\n\n\nω² (omega-squared)\nAlternatif η² yang lebih unbiased\n0–1\n\n\nr Pearson\nKorelasi dua variabel kontinu\n-1 – +1\n\n\nCramér’s V\nAsosiasi dua variabel kategorikal\n0–1\n\n\nOdds ratio (OR)\nPerbandingan odds antar kelompok\n0–∞\n\n\n\n\n\n\n\n\n\nTip\n\n\nPelaporan standar APA (edisi ke-7) mewajibkan pelaporan effect size untuk semua analisis inferensial. Jamovi secara default sudah menyediakan effect size — manfaatkan fitur ini."
+    "text": "Effect size lainnya\n\n\n\n\n\n\n\n\nUkuran efek\nDigunakan untuk\nRentang nilai\n\n\n\n\nCohen’s d\nPerbedaan dua mean (t-test)\nTak terbatas, biasanya 0–3\n\n\nη² (eta-squared)\nANOVA — proporsi varians yang dijelaskan\n0–1\n\n\nω² (omega-squared)\nAlternatif η² yang lebih unbiased\n0–1\n\n\nr Pearson\nKorelasi dua variabel kontinu\n-1 – +1\n\n\nCramér’s V\nAsosiasi dua variabel kategorikal\n0–1\n\n\nOdds ratio (OR)\nPerbandingan odds antar kelompok\n0–∞ (1 = tidak ada efek)\n\n\n\n\n\n\n\n\n\nTip\n\n\nPelaporan standar APA (edisi ke-7) mewajibkan pelaporan effect size untuk semua analisis inferensial. Jamovi secara default sudah menyediakan effect size — manfaatkan fitur ini."
   },
   {
     "objectID": "slides/uji-hipotesis.html#mengapa-a-priori-analisis-power",
@@ -823,7 +823,7 @@
     "href": "slides/probabilitas.html#dua-pendekatan-probabilitas",
     "title": "Probabilitas",
     "section": "Dua pendekatan probabilitas",
-    "text": "Dua pendekatan probabilitas\n\n\nFrequentist\n\nProbabilitas = proporsi kejadian jika percobaan diulang sangat banyak kali\n“Kalau kita melempar koin 10.000 kali, sekitar 5.000 kali akan muncul gambar”\nTidak bisa digunakan untuk kejadian yang tidak bisa diulang\nFondasi dari statistik klasik (NHST, p-value, confidence interval)\n\n\nBayesian\n\nProbabilitas = derajat keyakinan (degree of belief) yang bisa diperbarui dengan data baru\n“Berdasarkan bukti yang ada, seberapa yakin saya bahwa hipotesis ini benar?”\nMemungkinkan kita menggabungkan pengetahuan sebelumnya (prior) dengan data baru\nSemakin populer di Psikologi — misalnya Bayes Factor sebagai alternatif p-value\n\n\n\n\n\n\n\n\nNote\n\n\nSebagian besar statistik yang dipelajari di S1 menggunakan pendekatan frequentist. Penting untuk memahami asumsi ini agar bisa menginterpretasi hasil analisis dengan benar."
+    "text": "Dua pendekatan probabilitas\n\n\nFrequentist\n\nProbabilitas = proporsi kejadian jika percobaan diulang sangat banyak kali\n“Kalau kita melempar koin 10.000 kali, sekitar 5.000 kali akan muncul gambar”\nTidak bisa digunakan untuk kejadian yang tidak bisa diulang\nFondasi dari statistik klasik (NHST, p-value, confidence interval)\n\n\nBayesian\n\nProbabilitas = derajat keyakinan (degree of belief) yang bisa diperbarui dengan data baru\n“Berdasarkan bukti yang ada, seberapa yakin saya bahwa hipotesis ini benar?”\nMemungkinkan kita menggabungkan pengetahuan sebelumnya (prior) dengan data baru\nSemakin populer di Psikologi — misalnya Bayes Factor sebagai alternatif p-value\n\n\n\n\n\n\n\n\nNote\n\n\nSebagian besar statistik yang dipelajari di S1 menggunakan pendekatan frequentist, jadi interpretasi p-value dan CI di mata kuliah ini juga mengikuti logika frequentist tersebut."
   },
   {
     "objectID": "slides/probabilitas.html#aturan-penjumlahan-addition-rule",
@@ -1096,14 +1096,14 @@
     "href": "slides/statistik-deskriptif.html#distribusi-normal-1",
     "title": "Statistik Deskriptif",
     "section": "Distribusi normal",
-    "text": "Distribusi normal\n\nDisebut juga Gaussian distribution atau bell-shaped distribution\nDideskripsikan dengan hanya dua parameter: mean (μ) dan standar deviasi (σ)\nMean, median, dan modus nilainya sama persis\nSimetris sempurna di sekitar mean\n\nAturan empiris (68-95-99.7):\n\n68% data berada dalam rentang μ ± 1σ\n95% data berada dalam rentang μ ± 2σ\n99.7% data berada dalam rentang μ ± 3σ\n\n\n\n\n\n\n\nNote\n\n\nDistribusi normal adalah asumsi dasar dari hampir semua teknik statistik parametrik (t-test, ANOVA, regresi). Oleh karena itu, penting untuk selalu memeriksa apakah data kita mendekati distribusi normal sebelum memilih teknik analisis."
+    "text": "Distribusi normal\n\nDisebut juga Gaussian distribution atau bell-shaped distribution\nDideskripsikan dengan hanya dua parameter: mean (μ) dan standar deviasi (σ)\nMean, median, dan modus nilainya sama persis\nSimetris sempurna di sekitar mean\n\nAturan empiris (68-95-99.7):\n\n68% data berada dalam rentang μ ± 1σ\n95% data berada dalam rentang μ ± 2σ\n99.7% data berada dalam rentang μ ± 3σ\n\n\n\n\n\n\n\nNote\n\n\nDistribusi normal adalah asumsi dasar dari hampir semua teknik statistik parametrik (t-test, ANOVA, regresi) — selalu cek dulu apakah data kita mendekati distribusi normal sebelum memilih teknik analisis."
   },
   {
     "objectID": "slides/statistik-deskriptif.html#mengapa-distribusi-normal-penting",
     "href": "slides/statistik-deskriptif.html#mengapa-distribusi-normal-penting",
     "title": "Statistik Deskriptif",
     "section": "Mengapa distribusi normal penting?",
-    "text": "Mengapa distribusi normal penting?\n\nBanyak variabel psikologi secara empiris mendekati distribusi normal (tinggi badan, skor IQ, kecemasan dalam populasi umum)\nDistribusi normal menjadi fondasi matematika dari statistik inferensial (Central Limit Theorem)\nNamun perlu dicatat: tidak semua data psikologi berdistribusi normal\n\nData reaction time cenderung positively skewed\nSkor skala Likert 5-poin bersifat ordinal\nData klinis sering memiliki distribusi yang tidak normal"
+    "text": "Mengapa distribusi normal penting?\n\nBanyak variabel psikologi secara empiris mendekati distribusi normal (tinggi badan, skor IQ, kecemasan dalam populasi umum)\nDistribusi normal menjadi fondasi matematika dari statistik inferensial (Central Limit Theorem)\nTapi tidak semua data psikologi berdistribusi normal\n\nData reaction time cenderung positively skewed\nSkor skala Likert 5-poin bersifat ordinal\nData klinis sering memiliki distribusi yang tidak normal"
   },
   {
     "objectID": "slides/statistik-deskriptif.html#mengapa-perlu-uji-normalitas",
@@ -1180,7 +1180,7 @@
     "href": "slides/estimasi-parameter.html#the-law-of-large-numbers-1",
     "title": "Mengestimasi Parameter Populasi",
     "section": "The law of large numbers",
-    "text": "The law of large numbers\n\nSemakin besar ukuran sampel, semakin dekat statistik sampel (misalnya \\(\\bar{X}\\)) ke parameter populasi yang sebenarnya (μ)\nDengan kata lain: data yang lebih banyak → estimasi yang lebih akurat\n\nIlustrasi:\nBayangkan kita melempar koin yang diasumsikan adil/tidak bias (P(gambar) = 0.5):\n\nSetelah 10 lemparan: mungkin dapat 7 gambar (70%) — jauh dari 50%\nSetelah 100 lemparan: mungkin dapat 53 gambar (53%) — lebih dekat\nSetelah 10.000 lemparan: hampir pasti mendapat sekitar 5.000 gambar (≈50%)\n\n\n\n\n\n\n\nPenting diingat\n\n\nLaw of large numbers menjelaskan mengapa ukuran sampel kecil akan menimbulkan bermasalah dalam penelitian. Dengan N=20, mean sampel kita bisa sangat jauh dari mean populasi hanya karena kebetulan (sampling error). Inilah mengapa mengestimasi statistical power dan sample size itu penting sebelum penelitian dimulai."
+    "text": "The law of large numbers\n\nSemakin besar ukuran sampel, semakin dekat statistik sampel (misalnya \\(\\bar{X}\\)) ke parameter populasi yang sebenarnya (μ)\nDengan kata lain: data yang lebih banyak → estimasi yang lebih akurat\n\nIlustrasi:\nBayangkan kita melempar koin yang diasumsikan adil/tidak bias (P(gambar) = 0.5):\n\nSetelah 10 lemparan: mungkin dapat 7 gambar (70%) — jauh dari 50%\nSetelah 100 lemparan: mungkin dapat 53 gambar (53%) — lebih dekat\nSetelah 10.000 lemparan: hampir pasti mendapat sekitar 5.000 gambar (≈50%)\n\n\n\n\n\n\n\nPenting diingat\n\n\nLaw of large numbers menjelaskan mengapa ukuran sampel kecil bermasalah dalam penelitian. Dengan N=20, mean sampel kita bisa sangat jauh dari mean populasi hanya karena kebetulan (sampling error). Inilah mengapa mengestimasi statistical power dan sample size itu penting sebelum penelitian dimulai."
   },
   {
     "objectID": "slides/estimasi-parameter.html#implikasi-law-of-large-numbers-untuk-penelitian",
@@ -1222,7 +1222,7 @@
     "href": "slides/estimasi-parameter.html#ilustrasi-se-of-the-mean",
     "title": "Mengestimasi Parameter Populasi",
     "section": "Ilustrasi: SE of the mean",
-    "text": "Ilustrasi: SE of the mean\nKonteks: Pemerintah ingin mengevaluasi dampak program Makan Bergizi Gratis (MBG) terhadap kemampuan kognitif siswa SD. Salah satu indikatornya adalah skor IQ rata-rata siswa penerima MBG.\nPeneliti mengambil sampel n = 64 siswa dari sekolah penerima MBG di Surabaya, dan mendapatkan \\(\\bar{X}\\) = 97.5 dengan s = 12.\n\\[SE_{\\bar{X}} = \\frac{12}{\\sqrt{64}} = \\frac{12}{8} = 1.5\\]\n\nArtinya, estimasi rata-rata IQ kita memiliki ketidakpastian sekitar ±1.5 poin IQ\nBagaimana kalau peneliti hanya sempat mengukur n = 16 siswa?\n\n\\[SE_{\\bar{X}} = \\frac{12}{\\sqrt{16}} = \\frac{12}{4} = 3.0\\]\n\nSE dua kali lipat lebih besar, estimasi jauh kurang presisi akibat karena sampelnya lebih kecil\n\n\n\n\n\n\n\nPerhatikan:\n\n\nVariabilitas sampel (s = 12) tidak berubah, tetapi yang berubah hanya n. Inilah mengapa memperbesar n adalah cara paling langsung untuk meningkatkan ketepatan estimasi kita."
+    "text": "Ilustrasi: SE of the mean\nKonteks: Pemerintah ingin mengevaluasi dampak program Makan Bergizi Gratis (MBG) terhadap kemampuan kognitif siswa SD. Salah satu indikatornya adalah skor IQ rata-rata siswa penerima MBG.\nPeneliti mengambil sampel n = 64 siswa dari sekolah penerima MBG di Surabaya, dan mendapatkan \\(\\bar{X}\\) = 97.5 dengan s = 12.\n\\[SE_{\\bar{X}} = \\frac{12}{\\sqrt{64}} = \\frac{12}{8} = 1.5\\]\n\nArtinya, estimasi rata-rata IQ kita memiliki ketidakpastian sekitar ±1.5 poin IQ\nBagaimana kalau peneliti hanya sempat mengukur n = 16 siswa?\n\n\\[SE_{\\bar{X}} = \\frac{12}{\\sqrt{16}} = \\frac{12}{4} = 3.0\\]\n\nSE dua kali lipat lebih besar, estimasi jauh kurang presisi karena sampelnya lebih kecil\n\n\n\n\n\n\n\nPerhatikan:\n\n\nVariabilitas sampel (s = 12) tidak berubah, tetapi yang berubah hanya n. Inilah mengapa memperbesar n adalah cara paling langsung untuk meningkatkan ketepatan estimasi kita."
   },
   {
     "objectID": "slides/estimasi-parameter.html#standard-error-of-proportion",
@@ -1355,7 +1355,7 @@
     "href": "slides/t-test.html#hasil-apakah-kopi-membantu",
     "title": "T-Test",
     "section": "Hasil: apakah kopi membantu?",
-    "text": "Hasil: apakah kopi membantu?\nHasil analisis:\n\nt(539) = 1.30, p = 0.903\nCohen’s d = 0.055 (efek sangat kecil)\n95% CI untuk selisih mean: hampir mencakup nol\n\n\n\n\n\n\n\nImportant\n\n\nKesimpulan: Kopi tidak signifikan meningkatkan konsentrasi\nMeski 540 mahasiswa adalah sampel yang besar, perbedaan rata-rata konsentrasi sebelum-sesudah minum kopi sangat kecil (d = 0.055) dan tidak signifikan (p = 0.903). Efek kopi mungkin bervariasi antar individu atau tidak ada secara rata-rata.\n\n\n\n\n\n\n\n\n\nNote\n\n\np = 0.903 bukan berarti kopi “terbukti tidak berguna” — kita hanya gagal menemukan bukti bahwa kopi berguna dalam kondisi eksperimen ini. Mungkin prosedur pengukuran, jenis kopi, atau waktu tunggu setelah minum kopi perlu dipertimbangkan."
+    "text": "Hasil: apakah kopi membantu?\nHasil analisis:\n\nt(539) = 1.30, p = 0.193\nCohen’s d = 0.055 (efek sangat kecil)\n95% CI untuk selisih mean: hampir mencakup nol\n\n\n\n\n\n\n\nImportant\n\n\nKesimpulan: Kopi tidak signifikan meningkatkan konsentrasi\nMeski 540 mahasiswa adalah sampel yang besar, perbedaan rata-rata konsentrasi sebelum-sesudah minum kopi sangat kecil (d = 0.055) dan tidak signifikan (p = 0.903). Efek kopi mungkin bervariasi antar individu atau tidak ada secara rata-rata.\n\n\n\n\n\n\n\n\n\nNote\n\n\np = 0.903 bukan berarti kopi “terbukti tidak berguna” — kita hanya gagal menemukan bukti bahwa kopi berguna dalam kondisi eksperimen ini. Mungkin prosedur pengukuran, jenis kopi, atau waktu tunggu setelah minum kopi perlu dipertimbangkan."
   },
   {
     "objectID": "slides/t-test.html#jimat-batu-akik-dan-nilai-ujian",
@@ -1453,7 +1453,7 @@
     "href": "slides/anova.html#anova-satu-uji-untuk-banyak-kelompok",
     "title": "ANOVA",
     "section": "ANOVA: satu uji untuk banyak kelompok",
-    "text": "ANOVA: satu uji untuk banyak kelompok\nAnalysis of Variance (ANOVA), dikembangkan oleh Sir Ronald Fisher awal abad ke-20, membandingkan mean dari dua atau lebih kelompok secara bersamaan.\n\\[H_0: \\mu_1 = \\mu_2 = \\mu_3 = \\ldots = \\mu_k\\] \\[H_a: \\text{tidak benar bahwa semua } \\mu_k \\text{ sama}\\]\n\n\n\n\n\n\nNote\n\n\nPerhatikan bahwa \\(H_a\\) hanya menyatakan perbedaan mean semua kelompok ≠ 0. Ia tidak menentukan kelompok mana yang berbeda dan seberapa besar perbedaannya. Untuk mengetahui seberapa besar perbedaan spesifik antar pasangan kelompok, kita harus melakukan post-hoc test."
+    "text": "ANOVA: satu uji untuk banyak kelompok\nAnalysis of Variance (ANOVA), dikembangkan oleh Ronald Fisher pada awal abad ke-20, membandingkan mean dari dua atau lebih kelompok secara bersamaan.\n\\[H_0: \\mu_1 = \\mu_2 = \\mu_3 = \\ldots = \\mu_k\\] \\[H_a: \\text{tidak benar bahwa semua } \\mu_k \\text{ sama}\\]\n\n\n\n\n\n\nNote\n\n\nPerhatikan bahwa \\(H_a\\) hanya menyatakan perbedaan mean semua kelompok ≠ 0. Ia tidak menentukan kelompok mana yang berbeda dan seberapa besar perbedaannya. Untuk mengetahui seberapa besar perbedaan spesifik antar pasangan kelompok, kita harus melakukan post-hoc test."
   },
   {
     "objectID": "slides/anova.html#studi-ferguso-obat-flu-baru",
@@ -1621,7 +1621,7 @@
     "href": "slides/analisis-kategorikal.html#syarat-penggunaan-χ²",
     "title": "Analisis Data Kategorikal",
     "section": "Syarat penggunaan χ²",
-    "text": "Syarat penggunaan χ²\nχ² membutuhkan frekuensi yang cukup besar agar distribusinya mendekati distribusi \\(\\chi^2\\):\n\nSemua sel memiliki frekuensi yang diharapkan ≥ 5 (aturan praktis umum)\nUntuk tabel 2×2: gunakan Yates’ continuity correction\nJika frekuensi yang diharapkan kecil (&lt; 5) → gunakan Fisher’s exact test\n\n\n\n\n\n\n\nImportant\n\n\nχ² hanya mengukur ada/tidaknya asosiasi — bukan arah atau kekuatannya. Selalu laporkan effect size (Cramér’s V) bersama χ² untuk memberikan gambaran yang lengkap."
+    "text": "Syarat penggunaan χ²\nχ² membutuhkan frekuensi yang cukup besar agar distribusinya mendekati distribusi \\(\\chi^2\\):\n\nSemua sel memiliki frekuensi yang diharapkan ≥ 5 (aturan praktis umum)\nKhusus tabel 2×2 (bukan tabel yang lebih besar): gunakan Yates’ continuity correction\nJika frekuensi yang diharapkan kecil (&lt; 5) → gunakan Fisher’s exact test\n\n\n\n\n\n\n\nImportant\n\n\nχ² hanya mengukur ada/tidaknya asosiasi — bukan arah atau kekuatannya. Selalu laporkan effect size (Cramér’s V) bersama χ² untuk memberikan gambaran yang lengkap."
   },
   {
     "objectID": "slides/analisis-kategorikal.html#latihan-χ²-di-jamovi",
@@ -2020,7 +2020,7 @@
     "href": "slides/regresi.html#diagnostik-model-varians-residual-1",
     "title": "Regresi Linear (Ordinary Least Square)",
     "section": "Diagnostik model: varians residual 1️⃣",
-    "text": "Diagnostik model: varians residual 1️⃣\n\n\n\nAsumsi lain yang harus dipenuhi adalah homoskedastisitas.\nResidual memenuhi asumsi homoskedastisitas, apabila variansnya uniform (sama) meskipun fitted Y (nilai Y yang diestimasi oleh model, plot kanan atas) dan nilai X (plot kanan bawah) berubah-ubah.\n\nHal ini ditunjukkan dari dua plot disamping yang menunjukkan distribusi varians residual uniform.\n\nApabila asumsi ini dilanggar, maka residual mengalami heteroskedastisitas. Perlu dicatat: koefisien regresi (B) tetap tidak bias, namun standard error-nya menjadi bias — sehingga p-value dan confidence interval tidak dapat diandalkan.\nKalau residual menunjukkan karakteristik heteroskedastik, maka distribusi residual akan terlihat seperti kerucut."
+    "text": "Diagnostik model: varians residual 1️⃣\n\n\n\nAsumsi lain yang harus dipenuhi adalah homoskedastisitas.\nResidual memenuhi asumsi homoskedastisitas, apabila variansnya uniform (sama) meskipun fitted Y (nilai Y yang diestimasi oleh model, plot kanan atas) dan nilai X (plot kanan bawah) berubah-ubah.\n\nHal ini ditunjukkan dari dua plot disamping yang menunjukkan distribusi varians residual uniform.\n\nApabila asumsi ini dilanggar, maka residual mengalami heteroskedastisitas. Koefisien regresi (B) tetap tidak bias, namun standard error-nya menjadi bias — sehingga p-value dan confidence interval tidak dapat diandalkan.\nKalau residual menunjukkan karakteristik heteroskedastik, maka distribusi residual akan terlihat seperti kerucut."
   },
   {
     "objectID": "slides/regresi.html#diagnostik-model-varians-residual-2",
@@ -2034,7 +2034,7 @@
     "href": "slides/regresi.html#diagnostik-model-deteksi-outliers-1",
     "title": "Regresi Linear (Ordinary Least Square)",
     "section": "Diagnostik model: deteksi outliers 1️⃣",
-    "text": "Diagnostik model: deteksi outliers 1️⃣\n\n\n\nGerak-gerik data outlier penting untuk diperhatikan.\n\nSeperti grafik di sebelah kanan, penambahan data outlier dapat merubah garis regresi secara drastis.\n\nUntuk melihat seberapa ‘mengkhawatirkan’ data outlier ini dalam mengganggu garis regresi, kita dapat menggunakan Cook’s distance.\nCook’s distance mengukur seberapa besar koefisien regresi berubah apabila satu observasi dikeluarkan dari model — bukan perubahan statistik deskriptif seperti rata-rata atau SD.\nAmbang batas umum: Cook’s D &gt; 1 (atau secara konservatif &gt; 4/n) mengindikasikan observasi yang berpengaruh besar (influential) terhadap koefisien regresi."
+    "text": "Diagnostik model: deteksi outliers 1️⃣\n\n\n\nGerak-gerik data outlier penting untuk diperhatikan.\n\nSeperti grafik di sebelah kanan, penambahan data outlier dapat merubah garis regresi secara drastis.\n\nUntuk melihat seberapa ‘mengkhawatirkan’ data outlier ini dalam mengganggu garis regresi, kita dapat menggunakan Cook’s distance.\nCook’s distance mengukur seberapa besar koefisien regresi berubah apabila satu observasi dikeluarkan dari model — bukan perubahan statistik deskriptif seperti rata-rata atau SD.\nAmbang batas umum: Cook’s D &gt; 1 mengindikasikan observasi yang berpengaruh besar (influential); ambang yang lebih sensitif/liberal, &gt; 4/n, sering dipakai untuk n besar."
   },
   {
     "objectID": "slides/regresi.html#diagnostik-model-deteksi-outliers-2",
