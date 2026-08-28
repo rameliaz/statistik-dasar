@@ -6,12 +6,12 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.10.3">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-06-26">
+  <meta name="dcterms.date" content="2026-08-28">
   <title>Statistik Dasar dalam Penelitian Psikologi – Analisis Mediasi</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -22,10 +22,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -142,7 +145,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Rizqy Amelia Zein 
+Rizqy Amelia Zein
 </div>
         <p class="quarto-title-affiliation">
             <a href="https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/"><em>Departemen Psikologi, Universitas Airlangga</em></a>
@@ -150,7 +153,7 @@ Rizqy Amelia Zein
     </div>
 </div>
 
-  <p class="date">2026-06-26</p>
+  <p class="date">2026-08-28</p>
 </section>
 <section id="outline" class="slide level2">
 <h2><em>Outline</em></h2>
@@ -364,8 +367,8 @@ Rizqy Amelia Zein
 <section id="proporsi-mediasi" class="slide level2">
 <h2>Proporsi mediasi</h2>
 <p>Selain signifikansi, kita juga bisa menghitung <strong>proporsi</strong> total efek yang dimediasi:</p>
-<p><span class="math display">\[\text{Proporsi mediasi} = \frac{a \times b}{c} = \frac{-0.26}{-0.42} \approx 0.61\]</span></p>
-<p>Artinya, sekitar <strong>61%</strong> dari efek beban akademik pada <em>wellbeing</em> bekerja melalui mekanisme dukungan sosial.</p>
+<p><span class="math display">\[\text{Proporsi mediasi} = \frac{a \times b}{c} = \frac{-0.26}{-0.42} \approx 0.62\]</span></p>
+<p>Artinya, sekitar <strong>62%</strong> dari efek beban akademik pada <em>wellbeing</em> bekerja melalui mekanisme dukungan sosial.</p>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -391,7 +394,7 @@ Rizqy Amelia Zein
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>Preacher &amp; Kelley (2011), yang memperkenalkan <span class="math inline">\(\kappa^2\)</span>, justru menyarankan untuk <strong>tidak</strong> memakai ambang batas universal (mis. 0.01/0.09/0.25) karena nilai maksimum <span class="math inline">\(\kappa^2\)</span> bergantung pada desain dan skala pengukuran. <span class="math inline">\(\kappa^2\)</span> juga makin jarang dipakai di literatur terbaru — <strong>proporsi mediasi</strong> atau <strong>standardized indirect effect</strong> lebih disukai sebagai ukuran <em>effect size</em> untuk mediasi.</p>
+<p>Preacher &amp; Kelley (2011), yang memperkenalkan <span class="math inline">\(\kappa^2\)</span>, mengusulkan ambang 0.01/0.09/0.25 (analog dengan konvensi Cohen) hanya sebagai panduan awal, dan memperingatkan agar tidak diinterpretasikan secara <strong>kaku</strong> sebagai ambang universal karena nilai maksimum <span class="math inline">\(\kappa^2\)</span> bergantung pada desain dan skala pengukuran. <span class="math inline">\(\kappa^2\)</span> juga makin jarang dipakai di literatur terbaru — <strong>proporsi mediasi</strong> atau <strong>standardized indirect effect</strong> lebih disukai sebagai ukuran <em>effect size</em> untuk mediasi.</p>
 </div>
 </div>
 </div>
@@ -533,7 +536,7 @@ Rizqy Amelia Zein
 </section>
 <section id="latihan-analisis-mediasi-di-jamovi" class="slide level2">
 <h2>Latihan: analisis mediasi di jamovi</h2>
-<p>Buka dataset <a href="..\docs/materials/mediasi_akademik.omv"><strong>mediasi_akademik.omv</strong></a>, kemudian uji apakah dukungan sosial memediasi hubungan antara beban akademik dan <em>wellbeing</em>:</p>
+<p>Buka dataset <a href="../docs/materials/mediasi_akademik.omv"><strong>mediasi_akademik.omv</strong></a>, kemudian uji apakah dukungan sosial memediasi hubungan antara beban akademik dan <em>wellbeing</em>:</p>
 <ol type="1">
 <li>Inspeksi terlebih dahulu: buat <em>scatterplot</em> untuk pasangan <strong>beban–dukungan_sosial</strong> dan <strong>dukungan_sosial–wellbeing</strong></li>
 <li>Jalankan mediasi dengan <em>bootstrap</em> CI (5.000 sampel)</li>
@@ -550,7 +553,7 @@ Rizqy Amelia Zein
 <section id="ada-pertanyaan" class="slide level2">
 <h2>Ada pertanyaan❓</h2>
 
-<img data-src="..\slides/libs/closing.JPG" class="quarto-figure quarto-figure-center r-stretch"><div class="callout callout-note callout-titled callout-style-default">
+<img data-src="../slides/libs/closing.JPG" class="quarto-figure quarto-figure-center r-stretch"><div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">

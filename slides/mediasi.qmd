@@ -160,9 +160,9 @@ Interpretasi: Beban akademik menurunkan *wellbeing* (total *c* = −0.42). Sebag
 
 Selain signifikansi, kita juga bisa menghitung **proporsi** total efek yang dimediasi:
 
-$$\text{Proporsi mediasi} = \frac{a \times b}{c} = \frac{-0.26}{-0.42} \approx 0.61$$
+$$\text{Proporsi mediasi} = \frac{a \times b}{c} = \frac{-0.26}{-0.42} \approx 0.62$$
 
-Artinya, sekitar **61%** dari efek beban akademik pada *wellbeing* bekerja melalui mekanisme dukungan sosial.
+Artinya, sekitar **62%** dari efek beban akademik pada *wellbeing* bekerja melalui mekanisme dukungan sosial.
 
 ::: {.callout-note}
 Proporsi mediasi bisa melebihi 1 atau bernilai negatif (disebut *inconsistent mediation*) jika *direct effect* dan *indirect effect* berlawanan arah. Dalam kasus seperti ini, interpretasinya lebih kompleks.
@@ -175,7 +175,7 @@ $$\kappa^2 = \frac{a \times b}{\text{varians maksimal a×b yang mungkin}}$$
 Pada contoh di atas, jamovi melaporkan $\kappa^2 \approx 0.18$.
 
 ::: {.callout-note}
-Preacher & Kelley (2011), yang memperkenalkan $\kappa^2$, justru menyarankan untuk **tidak** memakai ambang batas universal (mis. 0.01/0.09/0.25) karena nilai maksimum $\kappa^2$ bergantung pada desain dan skala pengukuran. $\kappa^2$ juga makin jarang dipakai di literatur terbaru — **proporsi mediasi** atau **standardized indirect effect** lebih disukai sebagai ukuran *effect size* untuk mediasi.
+Preacher & Kelley (2011), yang memperkenalkan $\kappa^2$, mengusulkan ambang 0.01/0.09/0.25 (analog dengan konvensi Cohen) hanya sebagai panduan awal, dan memperingatkan agar tidak diinterpretasikan secara **kaku** sebagai ambang universal karena nilai maksimum $\kappa^2$ bergantung pada desain dan skala pengukuran. $\kappa^2$ juga makin jarang dipakai di literatur terbaru — **proporsi mediasi** atau **standardized indirect effect** lebih disukai sebagai ukuran *effect size* untuk mediasi.
 :::
 
 

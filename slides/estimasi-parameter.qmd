@@ -98,7 +98,7 @@ Sebagian besar penelitian psikologi menggunakan ***convenience sampling*** (teru
 ## *The law of large numbers*
 
 * Semakin **besar ukuran sampel**, semakin dekat statistik sampel (misalnya $\bar{X}$) ke parameter populasi yang sebenarnya (μ)
-* Dengan kata lain: **data yang lebih banyak → estimasi yang lebih akurat**
+* **Data yang lebih banyak → estimasi yang lebih akurat**
 
 **Ilustrasi:**
 

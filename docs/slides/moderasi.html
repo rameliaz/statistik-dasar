@@ -6,11 +6,11 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.10.3">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-06-26">
+  <meta name="dcterms.date" content="2026-08-28">
   <title>Statistik Dasar dalam Penelitian Psikologi – Analisis Moderasi</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -21,10 +21,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -140,7 +143,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Rizqy Amelia Zein 
+Rizqy Amelia Zein
 </div>
         <p class="quarto-title-affiliation">
             <a href="https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/"><em>Departemen Psikologi, Universitas Airlangga</em></a>
@@ -148,7 +151,7 @@ Rizqy Amelia Zein
     </div>
 </div>
 
-  <p class="date">2026-06-26</p>
+  <p class="date">2026-08-28</p>
 </section>
 <section id="outline" class="slide level2">
 <h2><em>Outline</em></h2>
@@ -211,7 +214,7 @@ Rizqy Amelia Zein
 <ul>
 <li class="fragment">Mediasi menjawab: “melalui jalur apa?” — X → M → Y</li>
 <li class="fragment">Moderasi menjawab: “seberapa kuat?” — M mengubah panah X → Y</li>
-<li class="fragment">Keduanya sering dikacaukan, padahal secara konseptual sangat berbeda!</li>
+<li class="fragment">Keduanya sering tertukar, padahal secara konseptual sangat berbeda!</li>
 </ul></li>
 </ul>
 </section></section>
@@ -410,7 +413,7 @@ Rizqy Amelia Zein
 </div>
 </div>
 <ul>
-<li>Dikembangkan oleh <a href="https://www.pagelysis.com/">Marcello Gallucci</a> (Università degli Studi di Milano-Bicocca)</li>
+<li>Dikembangkan oleh Ravi Selker, dibangun di atas paket <code>lavaan</code> karya Yves Rosseel</li>
 <li>Dapat diinstal langsung dari <code>jamovi</code> → klik ikon <strong>⊕</strong> (pojok kanan atas) → cari <strong>medmod</strong> → <strong>Install</strong></li>
 </ul>
 </section>
@@ -699,7 +702,7 @@ Rizqy Amelia Zein
 <h2>Output <code>medmod</code>: Johnson-Neyman (<em>Floodlight Analysis</em>)</h2>
 <p><strong>Pertanyaan:</strong> Pada nilai moderator <strong>berapa</strong> efek X terhadap Y berubah dari tidak signifikan menjadi signifikan (atau sebaliknya)?</p>
 <ul>
-<li class="fragment">Disebut juga <em>floodlight analysis</em> (<a href="https://doi.org/10.1086/664734">Spiller et al., 2013</a>)</li>
+<li class="fragment">Disebut juga <em>floodlight analysis</em> (<a href="https://doi.org/10.1509/jmr.12.0420">Spiller et al., 2013</a>)</li>
 <li class="fragment">Menghindari batasan arbitrer “+1SD / −1SD” dari <em>simple slopes</em> — menunjukkan <strong>seluruh rentang</strong> nilai moderator</li>
 <li class="fragment">Titik transisi disebut “<em>regions of significance</em>” — nilai M di mana efek X melewati batas signifikansi</li>
 <li class="fragment"><code>medmod</code> menghasilkan Johnson-Neyman plot secara otomatis</li>
@@ -721,7 +724,7 @@ Rizqy Amelia Zein
 <section id="melaporkan-hasil-analisis-moderasi-dengan-medmod" class="slide level2">
 <h2>Melaporkan hasil analisis moderasi dengan <code>medmod</code></h2>
 <blockquote>
-<p>“Analisis moderasi dilakukan menggunakan modul <code>medmod</code> di <code>jamovi</code> (Gallucci, 2019) dengan estimasi <em>bootstrap</em> (1.000 <em>resample</em>, <em>percentile CI</em>). Variabel <em>neuroticism</em> ibu (X) dan <em>trust in organismic development</em> (M) dimasukkan sebagai prediktor kemandirian anak (Y), dengan pendapatan keluarga sebagai kovariat.</p>
+<p>“Analisis moderasi dilakukan menggunakan modul <code>medmod</code> di <code>jamovi</code> (Selker, 2019) dengan estimasi <em>bootstrap</em> (1.000 <em>resample</em>, <em>percentile CI</em>). Variabel <em>neuroticism</em> ibu (X) dan <em>trust in organismic development</em> (M) dimasukkan sebagai prediktor kemandirian anak (Y), dengan pendapatan keluarga sebagai kovariat.</p>
 <p>Model secara keseluruhan signifikan (_R_² = ._, <em>F</em>(<em>df</em>) = _, <em>p</em> &lt; .001). Koefisien interaksi antara <em>neuroticism</em> dan <em>trust</em> [tidak signifikan / signifikan] (<em>B</em> = _, 95% <em>bootstrap</em> CI [_, _], <em>p</em> = _).</p>
 </blockquote>
 </section>
@@ -812,7 +815,7 @@ Rizqy Amelia Zein
 <section id="ada-pertanyaan" class="slide level2">
 <h2>Ada pertanyaan❓</h2>
 
-<img data-src="..\slides/libs/closing.JPG" class="quarto-figure quarto-figure-center r-stretch"><div class="callout callout-note callout-titled callout-style-default">
+<img data-src="../slides/libs/closing.JPG" class="quarto-figure quarto-figure-center r-stretch"><div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">

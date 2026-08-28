@@ -61,7 +61,7 @@ execute:
 
 * Otak manusia sangat pandai menemukan **pola** — bahkan di tempat yang tidak ada polanya (*apophenia*)
 * *Confirmation bias*: kita cenderung mencari bukti yang **mendukung** keyakinan kita
-* *"…the first principle is that you must not fool yourself — you're the easiest person to fool."* — Richard Feynman (1945)
+* *"…the first principle is that you must not fool yourself — you're the easiest person to fool."* — Richard Feynman (1974)
 * Statistik membantu kita **mendisiplinkan intuisi** agar tidak tertipu oleh kebetulan
 
 ::: {.callout-important}
@@ -215,7 +215,7 @@ Pertanyaan untuk didiskusikan:
 | **_Density plot_** | Versi "dihaluskan" dari histogram; lebih mudah dibaca untuk membandingkan distribusi |
 | **_Box plot_** | Menampilkan median, IQR, dan *outlier* secara ringkas |
 | **_Violin plot_** | Gabungan *box plot* dan *density plot*; menampilkan keseluruhan distribusi |
-| **_Ogive_** | Kurva frekuensi kumulatif; cocok untuk data nominal/ordinal |
+| **_Ogive_** | Kurva frekuensi kumulatif; cocok untuk data kontinu atau interval/rasio |
 
 ## Bentuk distribusi
 

@@ -6,12 +6,12 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.10.3">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-06-26">
+  <meta name="dcterms.date" content="2026-08-28">
   <title>Statistik Dasar dalam Penelitian Psikologi – Statistik Deskriptif</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -22,10 +22,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -142,7 +145,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Rizqy Amelia Zein 
+Rizqy Amelia Zein
 </div>
         <p class="quarto-title-affiliation">
             <a href="https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/"><em>Departemen Psikologi, Universitas Airlangga</em></a>
@@ -150,7 +153,7 @@ Rizqy Amelia Zein
     </div>
 </div>
 
-  <p class="date">2026-06-26</p>
+  <p class="date">2026-08-28</p>
 </section>
 <section id="outline" class="slide level2">
 <h2><em>Outline</em></h2>
@@ -216,7 +219,7 @@ Rizqy Amelia Zein
 <ul>
 <li>Otak manusia sangat pandai menemukan <strong>pola</strong> — bahkan di tempat yang tidak ada polanya (<em>apophenia</em>)</li>
 <li><em>Confirmation bias</em>: kita cenderung mencari bukti yang <strong>mendukung</strong> keyakinan kita</li>
-<li><em>“…the first principle is that you must not fool yourself — you’re the easiest person to fool.”</em> — Richard Feynman (1945)</li>
+<li><em>“…the first principle is that you must not fool yourself — you’re the easiest person to fool.”</em> — Richard Feynman (1974)</li>
 <li>Statistik membantu kita <strong>mendisiplinkan intuisi</strong> agar tidak tertipu oleh kebetulan</li>
 </ul>
 <div class="callout callout-important callout-titled callout-style-default">
@@ -359,7 +362,7 @@ Rizqy Amelia Zein
 </section>
 <section id="latihan-tendensi-sentral-di-jamovi" class="slide level2">
 <h2>Latihan: Tendensi sentral di jamovi</h2>
-<p>Buka dataset <a href="..\docs/materials/HDIWDI2010.omv"><strong>HDIWDI2010</strong></a>, kemudian hitung <em>mean</em>, median, dan modus angka kehamilan remaja (<em>teenfert</em>):</p>
+<p>Buka dataset <a href="../docs/materials/HDIWDI2010.omv"><strong>HDIWDI2010</strong></a>, kemudian hitung <em>mean</em>, median, dan modus angka kehamilan remaja (<em>teenfert</em>):</p>
 <ol type="1">
 <li>Klik menu <em>Exploration</em> <i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i> <em>Descriptives</em></li>
 <li>Masukkan variabel <strong>teenfert</strong> ke kolom <em>Variables</em></li>
@@ -431,7 +434,7 @@ Rizqy Amelia Zein
 </section>
 <section id="latihan-variabilitas-di-jamovi" class="slide level2">
 <h2>Latihan: Variabilitas di jamovi</h2>
-<p>Dengan dataset yang sama (<a href="..\docs/materials/HDIWDI2010.omv"><strong>HDIWDI2010.omv</strong></a>), hitung <em>range</em>, IQR, varians, dan standar deviasi <em>teenfert</em>:</p>
+<p>Dengan dataset yang sama (<a href="../docs/materials/HDIWDI2010.omv"><strong>HDIWDI2010.omv</strong></a>), hitung <em>range</em>, IQR, varians, dan standar deviasi <em>teenfert</em>:</p>
 <ol type="1">
 <li>Di opsi <em>Statistics</em> <i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i> bagian <em>Dispersion</em>, centang <em>Std. deviation</em>, <em>Variance</em>, dan <em>Range</em></li>
 <li>Di opsi <em>Percentile Values</em>, centang <em>Quartiles</em></li>
@@ -493,7 +496,7 @@ Rizqy Amelia Zein
 </tr>
 <tr class="odd">
 <td><strong><em>Ogive</em></strong></td>
-<td>Kurva frekuensi kumulatif; cocok untuk data nominal/ordinal</td>
+<td>Kurva frekuensi kumulatif; cocok untuk data kontinu atau interval/rasio</td>
 </tr>
 </tbody>
 </table>
@@ -520,7 +523,7 @@ Rizqy Amelia Zein
 </section>
 <section id="latihan-visualisasi-di-jamovi" class="slide level2">
 <h2>Latihan: Visualisasi di jamovi</h2>
-<p>Dengan dataset <a href="..\docs/materials/HDIWDI2010.omv"><strong>HDIWDI2010.omv</strong></a>, inspeksi distribusi <em>teenfert</em> secara visual:</p>
+<p>Dengan dataset <a href="../docs/materials/HDIWDI2010.omv"><strong>HDIWDI2010.omv</strong></a>, inspeksi distribusi <em>teenfert</em> secara visual:</p>
 <ol type="1">
 <li>Di opsi <em>Plots</em>, centang <em>Histogram</em>, <em>Density</em>, <em>Box plot</em>, dan <em>Violin</em></li>
 <li>Tambahkan <strong>HDgroup</strong> di kolom <em>Split by</em> untuk membandingkan distribusi antar kelompok</li>
@@ -647,7 +650,7 @@ Rizqy Amelia Zein
 </section>
 <section id="latihan-uji-normalitas-di-jamovi" class="slide level2">
 <h2>Latihan: Uji normalitas di jamovi</h2>
-<p>Dengan dataset <a href="..\docs/materials/HDIWDI2010.omv"><strong>HDIWDI2010.omv</strong></a>, uji normalitas distribusi <em>teenfert</em>:</p>
+<p>Dengan dataset <a href="../docs/materials/HDIWDI2010.omv"><strong>HDIWDI2010.omv</strong></a>, uji normalitas distribusi <em>teenfert</em>:</p>
 <ol type="1">
 <li>Di menu <em>Exploration</em> <i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i> <em>Descriptives</em></li>
 <li>Di opsi <em>Statistics</em> <i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i> bagian <em>Normality</em>, centang <em>Shapiro-Wilk</em></li>
@@ -663,7 +666,7 @@ Rizqy Amelia Zein
 <section id="ada-pertanyaan" class="slide level2">
 <h2>Ada pertanyaan❓</h2>
 
-<img data-src="..\slides/libs/closing.JPG" class="quarto-figure quarto-figure-center r-stretch"><div class="callout callout-note callout-titled callout-style-default">
+<img data-src="../slides/libs/closing.JPG" class="quarto-figure quarto-figure-center r-stretch"><div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">

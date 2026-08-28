@@ -66,7 +66,7 @@ Makin besar perbedaan relatif terhadap variabilitasnya → nilai *t* makin besar
 
 Esmeralda mendapat nilai 60 pada ujian MK Sejarah dan Aliran Psikologi (Sapsi). Nilai rata-rata nasional untuk mahasiswa S1 Psikologi adalah μ = 55 (σ tidak diketahui).
 
-Pertanyaan: Apakah nilai Esmeralda **signifikan berbeda** dari rata-rata nasional?
+Pertanyaan: Apakah nilai Esmeralda **berbeda secara signifikan** dari rata-rata nasional?
 
 *One-sample t-test* membandingkan *mean* sampel kita dengan **nilai referensi** yang sudah diketahui:
 
@@ -140,13 +140,13 @@ Pertanyaan untuk didiskusikan:
 
 ::: {.callout-important}
 
-**Kesimpulan: Kopi tidak signifikan meningkatkan konsentrasi**
+**Kesimpulan: Kopi tidak meningkatkan konsentrasi secara signifikan**
 
-Meski 540 mahasiswa adalah sampel yang besar, perbedaan rata-rata konsentrasi sebelum-sesudah minum kopi sangat kecil (*d* = 0.055) dan tidak signifikan (*p* = 0.903). Efek kopi mungkin **bervariasi antar individu** atau **tidak ada secara rata-rata**.
+Meski 540 mahasiswa adalah sampel yang besar, perbedaan rata-rata konsentrasi sebelum-sesudah minum kopi sangat kecil (*d* = 0.055) dan tidak signifikan (*p* = 0.193). Efek kopi mungkin **bervariasi antar individu** atau **tidak ada secara rata-rata**.
 :::
 
 ::: {.callout-note}
-*p* = 0.903 bukan berarti kopi "terbukti tidak berguna" — kita hanya **gagal menemukan bukti** bahwa kopi berguna dalam kondisi eksperimen ini. Mungkin prosedur pengukuran, jenis kopi, atau waktu tunggu setelah minum kopi perlu dipertimbangkan.
+*p* = 0.193 bukan berarti kopi "terbukti tidak berguna" — kita hanya **gagal menemukan bukti** bahwa kopi berguna dalam kondisi eksperimen ini. Mungkin prosedur pengukuran, jenis kopi, atau waktu tunggu setelah minum kopi perlu dipertimbangkan.
 :::
 
 # *Independent samples t-test* {background-color="#14497F"}
@@ -169,7 +169,7 @@ $$t = \frac{\bar{X}_1 - \bar{X}_2}{s_{\text{pooled}} \sqrt{\frac{1}{n_1} + \frac
 
 **Hasil analisis:**
 
-* *t*(1198) = −3.21, *p* < .001
+* *t*(1198) = −3.21, *p* = .001
 * Cohen's *d* = −0.186 (efek sangat kecil)
 * Kelompok percaya jimat rata-rata mendapat nilai **sedikit lebih rendah**
 

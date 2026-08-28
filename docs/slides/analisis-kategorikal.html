@@ -6,12 +6,12 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.10.3">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-06-26">
+  <meta name="dcterms.date" content="2026-08-28">
   <title>Statistik Dasar dalam Penelitian Psikologi – Analisis Data Kategorikal</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -22,10 +22,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -142,7 +145,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Rizqy Amelia Zein 
+Rizqy Amelia Zein
 </div>
         <p class="quarto-title-affiliation">
             <a href="https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/"><em>Departemen Psikologi, Universitas Airlangga</em></a>
@@ -150,7 +153,7 @@ Rizqy Amelia Zein
     </div>
 </div>
 
-  <p class="date">2026-06-26</p>
+  <p class="date">2026-08-28</p>
 </section>
 <section id="outline" class="slide level2">
 <h2><em>Outline</em></h2>
@@ -289,7 +292,7 @@ Rizqy Amelia Zein
 </section>
 <section id="latihan-binomial-test-di-jamovi" class="slide level2">
 <h2>Latihan: <em>Binomial test</em> di <code>jamovi</code></h2>
-<p>Buka dataset <a href="..\materials/terapi.omv"><strong>terapi.omv</strong></a> yang berisi data 500 klien CBT:</p>
+<p>Buka dataset <a href="../materials/terapi.omv"><strong>terapi.omv</strong></a> yang berisi data 500 klien CBT:</p>
 <ol type="1">
 <li>Klik menu <em>Frequencies</em> <i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i> <em>Proportion Test (Binomial)</em></li>
 <li>Masukkan <strong>hasil_terapi</strong> ke <em>Variable</em></li>
@@ -382,7 +385,7 @@ Rizqy Amelia Zein
 </section>
 <section id="latihan-χ²-di-jamovi" class="slide level2">
 <h2>Latihan: χ² di <code>jamovi</code></h2>
-<p>Buka dataset <a href="..\materials/metodebelajar.omv"><strong>metodebelajar.omv</strong></a>, kemudian uji hubungan antara metode belajar dan kelulusan:</p>
+<p>Buka dataset <a href="../materials/metodebelajar.omv"><strong>metodebelajar.omv</strong></a>, kemudian uji hubungan antara metode belajar dan kelulusan:</p>
 <ol type="1">
 <li>Klik menu <em>Frequencies</em> <i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i> <em>Contingency Tables</em></li>
 <li>Masukkan <strong>metode_belajar</strong> ke <em>Rows</em> dan <strong>kelulusan</strong> ke <em>Columns</em></li>
@@ -608,7 +611,7 @@ Rizqy Amelia Zein
 </section>
 <section id="latihan-analisis-kategorikal-lengkap-di-jamovi" class="slide level2">
 <h2>Latihan: analisis kategorikal lengkap di <code>jamovi</code></h2>
-<p>Buka dataset <a href="..\materials/attitudinal_change.omv"><strong>attitudinal_change.omv</strong></a> yang berisi data mahasiswa sebelum dan sesudah kuliah Psikologi Perkembangan:</p>
+<p>Buka dataset <a href="../materials/attitudinal_change.omv"><strong>attitudinal_change.omv</strong></a> yang berisi data mahasiswa sebelum dan sesudah kuliah Psikologi Perkembangan:</p>
 <ol type="1">
 <li>Jalankan <em>McNemar’s test</em> untuk variabel <strong>sikap_hukuman_fisik</strong> (sebelum vs sesudah)</li>
 <li>Hitung χ² untuk asosiasi <strong>jurusan</strong> × <strong>perubahan_sikap</strong></li>
@@ -624,7 +627,7 @@ Rizqy Amelia Zein
 <section id="ada-pertanyaan" class="slide level2">
 <h2>Ada pertanyaan❓</h2>
 
-<img data-src="..\slides/libs/closing.JPG" class="quarto-figure quarto-figure-center r-stretch"><div class="callout callout-note callout-titled callout-style-default">
+<img data-src="../slides/libs/closing.JPG" class="quarto-figure quarto-figure-center r-stretch"><div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">

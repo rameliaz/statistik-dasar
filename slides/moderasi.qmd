@@ -80,7 +80,7 @@ M **bukan** mediator (tidak berada di jalur X → M → Y). M **mengubah kekuata
 * **Moderasi ≠ mediasi**
   - Mediasi menjawab: "melalui jalur apa?" — X → M → Y
   - Moderasi menjawab: "seberapa kuat?" — M mengubah panah X → Y
-  - Keduanya sering dikacaukan, padahal secara konseptual sangat berbeda!
+  - Keduanya sering tertukar, padahal secara konseptual sangat berbeda!
 
 :::
 
@@ -248,7 +248,7 @@ Garis regresi yang **berpotongan** (_crossed_) menunjukkan interaksi **dis**ordi
 `medmod` menggunakan paket R **`lavaan`** (_latent variable analysis_) — _framework_ SEM yang digunakan luas dalam penelitian psikologi. Ini berarti estimasinya menggunakan **Maximum Likelihood (ML)**, bukan _Ordinary Least Squares_.
 :::
 
-* Dikembangkan oleh [Marcello Gallucci](https://www.pagelysis.com/) (Università degli Studi di Milano-Bicocca)
+* Dikembangkan oleh Ravi Selker, dibangun di atas paket `lavaan` karya Yves Rosseel
 * Dapat diinstal langsung dari `jamovi` → klik ikon **⊕** (pojok kanan atas) → cari **medmod** → **Install**
 
 ## OLS _interaction terms_ vs. `medmod`: apa bedanya?
@@ -403,7 +403,7 @@ Gunakan dataset yang sama: [`dataset-sekolah.omv`](https://rameliaz.github.io/ml
 
 ::: {.incremental}
 
-* Disebut juga _floodlight analysis_ ([Spiller et al., 2013](https://doi.org/10.1086/664734))
+* Disebut juga _floodlight analysis_ ([Spiller et al., 2013](https://doi.org/10.1509/jmr.12.0420))
 * Menghindari batasan arbitrer "+1SD / −1SD" dari _simple slopes_ — menunjukkan **seluruh rentang** nilai moderator
 * Titik transisi disebut "_regions of significance_" — nilai M di mana efek X melewati batas signifikansi
 * `medmod` menghasilkan Johnson-Neyman plot secara otomatis
@@ -417,7 +417,7 @@ Gunakan dataset yang sama: [`dataset-sekolah.omv`](https://rameliaz.github.io/ml
 
 ## Melaporkan hasil analisis moderasi dengan `medmod`
 
-> "Analisis moderasi dilakukan menggunakan modul `medmod` di `jamovi` (Gallucci, 2019) dengan estimasi _bootstrap_ (1.000 _resample_, _percentile CI_). Variabel _neuroticism_ ibu (X) dan _trust in organismic development_ (M) dimasukkan sebagai prediktor kemandirian anak (Y), dengan pendapatan keluarga sebagai kovariat.
+> "Analisis moderasi dilakukan menggunakan modul `medmod` di `jamovi` (Selker, 2019) dengan estimasi _bootstrap_ (1.000 _resample_, _percentile CI_). Variabel _neuroticism_ ibu (X) dan _trust in organismic development_ (M) dimasukkan sebagai prediktor kemandirian anak (Y), dengan pendapatan keluarga sebagai kovariat.
 >
 > Model secara keseluruhan signifikan (_R_² = .\_, _F_(_df_) = \_, _p_ < .001). Koefisien interaksi antara _neuroticism_ dan _trust_ [tidak signifikan / signifikan] (_B_ = \_, 95% _bootstrap_ CI [\_, \_], _p_ = \_).
 

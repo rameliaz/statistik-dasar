@@ -6,12 +6,12 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.10.3">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-06-26">
+  <meta name="dcterms.date" content="2026-08-28">
   <title>Statistik Dasar dalam Penelitian Psikologi – ANOVA Pengukuran Berulang</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -22,10 +22,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -142,7 +145,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Rizqy Amelia Zein 
+Rizqy Amelia Zein
 </div>
         <p class="quarto-title-affiliation">
             <a href="https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/"><em>Departemen Psikologi, Universitas Airlangga</em></a>
@@ -150,7 +153,7 @@ Rizqy Amelia Zein
     </div>
 </div>
 
-  <p class="date">2026-06-26</p>
+  <p class="date">2026-08-28</p>
 </section>
 <section id="outline" class="slide level2">
 <h2><em>Outline</em></h2>
@@ -267,7 +270,7 @@ Rizqy Amelia Zein
 <li><em>Within-subjects factor</em>: <strong>waktu</strong> (minggu ke-1, ke-2, ke-3) — 3 level</li>
 <li>Variabel dependen: <strong>durasi_membaca</strong></li>
 </ul>
-<p>Dataset: <a href="..\docs/materials/minat-baca.omv"><strong>minat-baca.omv</strong></a></p>
+<p>Dataset: <a href="../docs/materials/minat-baca.omv"><strong>minat-baca.omv</strong></a></p>
 </section>
 <section id="mean-durasi-membaca-per-minggu" class="slide level2">
 <h2><em>Mean</em> durasi membaca per minggu</h2>
@@ -287,18 +290,18 @@ Rizqy Amelia Zein
 <tbody>
 <tr class="odd">
 <td>Minggu ke-1</td>
-<td>42.3</td>
-<td>8.14</td>
+<td>3.96</td>
+<td>1.06</td>
 </tr>
 <tr class="even">
 <td>Minggu ke-2</td>
-<td>78.6</td>
-<td>11.5</td>
+<td>13.11</td>
+<td>1.75</td>
 </tr>
 <tr class="odd">
 <td>Minggu ke-3</td>
-<td>130.4</td>
-<td>14.2</td>
+<td>18.52</td>
+<td>0.86</td>
 </tr>
 </tbody>
 </table>
@@ -372,7 +375,7 @@ Rizqy Amelia Zein
 </tr>
 </tbody>
 </table>
-<p>Pada studi Alfonso: Mauchly’s <em>W</em> = 0.812, <em>p</em> = .043 → <strong>asumsi <em>sphericity</em> dilanggar</strong> — perlu koreksi.</p>
+<p>Pada studi Alfonso: Mauchly’s <em>W</em> = 0.838, <em>p</em> &lt; .001 → <strong>asumsi <em>sphericity</em> dilanggar</strong> — perlu koreksi.</p>
 </section>
 <section id="koreksi-sphericity-gg-dan-hf" class="slide level2">
 <h2>Koreksi <em>sphericity</em>: GG dan HF</h2>
@@ -404,7 +407,7 @@ Rizqy Amelia Zein
 <p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Aturan praktis:</strong> periksa nilai ε <em>Greenhouse-Geisser</em> terlebih dahulu. Jika ε &lt; 0.75, gunakan koreksi GG. Jika ε ≥ 0.75, gunakan koreksi HF (lebih <em>powerful</em>). Pada studi Alfonso: ε = 0.831 &gt; 0.75 → gunakan <strong>koreksi Huynh-Feldt</strong>.</p>
+<p><strong>Aturan praktis:</strong> periksa nilai ε <em>Greenhouse-Geisser</em> terlebih dahulu. Jika ε &lt; 0.75, gunakan koreksi GG. Jika ε ≥ 0.75, gunakan koreksi HF (lebih <em>powerful</em>). Pada studi Alfonso: ε = 0.861 &gt; 0.75 → gunakan <strong>koreksi Huynh-Feldt</strong>.</p>
 </div>
 </div>
 </div>
@@ -416,7 +419,7 @@ Rizqy Amelia Zein
 </section>
 <section id="langkah-rm-anova-di-jamovi" class="slide level2">
 <h2>Langkah RM-ANOVA di <code>jamovi</code></h2>
-<p>Buka dataset <a href="..\materials/minat-baca.omv"><strong>minat-baca.omv</strong></a>, kemudian:</p>
+<p>Buka dataset <a href="../materials/minat-baca.omv"><strong>minat-baca.omv</strong></a>, kemudian:</p>
 <ol type="1">
 <li>Klik menu <em>ANOVA</em> <i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i> <strong><em>Repeated Measures ANOVA</em></strong></li>
 <li>Di kolom <em>Repeated Measures Factors</em>: beri nama faktor — mis. <strong>“waktu”</strong> — dan tambahkan 3 level: <em>minggu1</em>, <em>minggu2</em>, <em>minggu3</em></li>
@@ -458,15 +461,15 @@ Rizqy Amelia Zein
 </thead>
 <tbody>
 <tr class="odd">
-<td>0.812</td>
-<td>.043</td>
-<td>0.831</td>
-<td>0.921</td>
+<td>0.838</td>
+<td>&lt; .001</td>
+<td>0.861</td>
+<td>0.874</td>
 </tr>
 </tbody>
 </table>
-<p><em>p</em> = .043 &lt; .05 → <strong><em>sphericity</em> dilanggar</strong> → gunakan koreksi.</p>
-<p>ε (GG) = 0.831 &gt; 0.75 → gunakan <strong>Huynh-Feldt</strong>.</p>
+<p><em>p</em> &lt; .001 → <strong><em>sphericity</em> dilanggar</strong> → gunakan koreksi.</p>
+<p>ε (GG) = 0.861 &gt; 0.75 → gunakan <strong>Huynh-Feldt</strong>.</p>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -507,7 +510,7 @@ Rizqy Amelia Zein
 <tr class="odd">
 <td>waktu</td>
 <td>3292.4</td>
-<td>1.843, 182.4</td>
+<td>1.749, 173.13</td>
 <td>&lt; .001</td>
 <td>0.971</td>
 <td>0.957</td>
@@ -515,7 +518,7 @@ Rizqy Amelia Zein
 <tr class="even">
 <td>Residuals</td>
 <td>—</td>
-<td>182.4</td>
+<td>173.13</td>
 <td>—</td>
 <td>—</td>
 <td>—</td>
@@ -523,7 +526,7 @@ Rizqy Amelia Zein
 </tbody>
 </table>
 <p><strong>Cara melaporkan:</strong></p>
-<p>“Terdapat perbedaan yang signifikan dalam durasi membaca kucing antara minggu ke-1, ke-2, dan ke-3, <em>F</em>(1.843, 182.4) = 3292.4, <em>p</em> &lt; .001, η²G = 0.957 — efek yang sangat besar.”</p>
+<p>“Terdapat perbedaan yang signifikan dalam durasi membaca kucing antara minggu ke-1, ke-2, dan ke-3, <em>F</em>(1.749, 173.13) = 3292.4, <em>p</em> &lt; .001, η²G = 0.957 — efek yang sangat besar.”</p>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -622,23 +625,23 @@ Rizqy Amelia Zein
 <tbody>
 <tr class="odd">
 <td>Minggu 1 vs Minggu 2</td>
-<td><strong>−36.3</strong></td>
-<td>1.42</td>
-<td><strong>−25.6</strong></td>
+<td><strong>−9.15</strong></td>
+<td>0.181</td>
+<td><strong>−50.4</strong></td>
 <td><strong>&lt; .001</strong></td>
 </tr>
 <tr class="even">
 <td>Minggu 1 vs Minggu 3</td>
-<td><strong>−88.1</strong></td>
-<td>1.87</td>
-<td><strong>−47.1</strong></td>
+<td><strong>−14.56</strong></td>
+<td>0.181</td>
+<td><strong>−80.3</strong></td>
 <td><strong>&lt; .001</strong></td>
 </tr>
 <tr class="odd">
 <td>Minggu 2 vs Minggu 3</td>
-<td><strong>−51.8</strong></td>
-<td>1.53</td>
-<td><strong>−33.8</strong></td>
+<td><strong>−5.41</strong></td>
+<td>0.181</td>
+<td><strong>−29.8</strong></td>
 <td><strong>&lt; .001</strong></td>
 </tr>
 </tbody>
@@ -767,7 +770,7 @@ Rizqy Amelia Zein
 <section id="ada-pertanyaan" class="slide level2">
 <h2>Ada pertanyaan❓</h2>
 
-<img data-src="..\slides/libs/closing.JPG" class="quarto-figure quarto-figure-center r-stretch"><div class="callout callout-note callout-titled callout-style-default">
+<img data-src="../slides/libs/closing.JPG" class="quarto-figure quarto-figure-center r-stretch"><div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">

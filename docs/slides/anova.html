@@ -6,12 +6,12 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.10.3">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-06-26">
+  <meta name="dcterms.date" content="2026-08-28">
   <title>Statistik Dasar dalam Penelitian Psikologi – ANOVA</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -22,10 +22,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -142,7 +145,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Rizqy Amelia Zein 
+Rizqy Amelia Zein
 </div>
         <p class="quarto-title-affiliation">
             <a href="https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/"><em>Departemen Psikologi, Universitas Airlangga</em></a>
@@ -150,7 +153,7 @@ Rizqy Amelia Zein
     </div>
 </div>
 
-  <p class="date">2026-06-26</p>
+  <p class="date">2026-08-28</p>
 </section>
 <section id="outline" class="slide level2">
 <h2><em>Outline</em></h2>
@@ -248,7 +251,7 @@ Rizqy Amelia Zein
 </tr>
 </tbody>
 </table>
-<p>Dataset: <a href="..\docs/materials/cobaobat.omv"><strong>cobaobat.omv</strong></a></p>
+<p>Dataset: <a href="../docs/materials/cobaobat.omv"><strong>cobaobat.omv</strong></a></p>
 </section>
 <section id="mempartisi-total-varians" class="slide level2">
 <h2>Mempartisi total varians</h2>
@@ -315,7 +318,7 @@ Rizqy Amelia Zein
 </section>
 <section id="langkah-anova-di-jamovi" class="slide level2">
 <h2>Langkah ANOVA di <code>jamovi</code></h2>
-<p>Buka dataset <a href="..\docs/materials/cobaobat.omv"><strong>cobaobat.omv</strong></a>, kemudian jalankan <em>one-way</em> ANOVA:</p>
+<p>Buka dataset <a href="../docs/materials/cobaobat.omv"><strong>cobaobat.omv</strong></a>, kemudian jalankan <em>one-way</em> ANOVA:</p>
 <ol type="1">
 <li>Klik menu <em>ANOVA</em> <i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i> <em>ANOVA</em></li>
 <li>Masukkan <strong>konsentrasi</strong> ke <em>Dependent Variable</em> dan <strong>obat</strong> ke <em>Fixed Factors</em></li>
@@ -503,27 +506,27 @@ Rizqy Amelia Zein
 <tbody>
 <tr class="odd">
 <td>Plasebo vs Mixagrip</td>
-<td>−0.174</td>
-<td>0.174</td>
-<td>0.998</td>
+<td>−0.267</td>
+<td>0.176</td>
+<td>0.449</td>
 </tr>
 <tr class="even">
 <td>Plasebo vs Flungalih</td>
-<td><strong>−0.929</strong></td>
-<td>0.168</td>
+<td><strong>−1.030</strong></td>
+<td>0.176</td>
 <td><strong>&lt; .001</strong></td>
 </tr>
 <tr class="odd">
 <td>Mixagrip vs Flungalih</td>
-<td><strong>−0.755</strong></td>
-<td>0.182</td>
-<td><strong>.003</strong></td>
+<td><strong>−0.763</strong></td>
+<td>0.176</td>
+<td><strong>.002</strong></td>
 </tr>
 </tbody>
 </table>
 <p>Interpretasi:</p>
 <ul>
-<li>Plasebo dan <em>mixagrip</em> <strong>tidak berbeda signifikan</strong> (<em>p</em> = 0.998)</li>
+<li>Plasebo dan <em>mixagrip</em> <strong>tidak berbeda signifikan</strong> (<em>p</em> = 0.449)</li>
 <li><em>Flungalih</em> secara signifikan <strong>lebih efektif</strong> dari plasebo dan <em>mixagrip</em> (keduanya <em>p</em> &lt; .05)</li>
 <li><em>Flungalih</em> adalah obat baru yang menjanjikan — tapi perlu studi replikasi dengan sampel lebih besar</li>
 </ul>
@@ -638,7 +641,7 @@ Rizqy Amelia Zein
 <li>Masukkan: <em>Effect size f</em> = 0.2, α = 0.05, <em>Power</em> = 0.80, <em>Number of groups</em> = 3</li>
 <li>Klik <em>Calculate</em></li>
 </ol>
-<p><strong>Hasil: N = 159 (53 per kelompok)</strong></p>
+<p><strong>Hasil: N = 246 (82 per kelompok)</strong></p>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -671,7 +674,7 @@ Rizqy Amelia Zein
 <section id="ada-pertanyaan" class="slide level2">
 <h2>Ada pertanyaan❓</h2>
 
-<img data-src="..\slides/libs/closing.JPG" class="quarto-figure quarto-figure-center r-stretch"><div class="callout callout-note callout-titled callout-style-default">
+<img data-src="../slides/libs/closing.JPG" class="quarto-figure quarto-figure-center r-stretch"><div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">

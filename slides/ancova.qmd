@@ -43,7 +43,7 @@ execute:
 * Contoh: usia, baseline skor sebelum intervensi, nilai IQ, tingkat kekebalan tubuh
 
 ::: {.callout-note}
-Secara matematis, ANCOVA adalah ANOVA yang menambahkan satu atau lebih prediktor kontinu ke dalam model. Ia memanfaatkan logika regresi untuk "memisahkan" pengaruh kovariat dari efek perlakuan.
+Secara matematis, ANCOVA adalah ANOVA yang menambahkan satu atau lebih prediktor kontinu ke dalam model. Ia menggunakan logika regresi untuk "memisahkan" pengaruh kovariat dari efek perlakuan.
 :::
 
 ## Mengapa mengontrol kovariat?
