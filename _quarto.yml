@@ -13,16 +13,16 @@ project:
 
 website:
   title: "Statistik Dasar dalam Penelitian Psikologi"
-  navbar:
-    left:
-      - href: https://rameliaz.github.io/
-        icon: house
-        text: "oleh Rizqy Amelia Zein"
-      - icon: github
-        href: https://github.com/rameliaz/statistik-dasar
-    right:
-      - text: "Materi (html)"
-        menu:
+  repo-url: https://github.com/rameliaz/statistik-dasar
+  repo-actions: [edit, source, issue]  
+  repo-branch: master
+  sidebar:
+    style: docked
+    contents:
+      - text: "Beranda"
+        href: index.qmd
+      - section: "Materi"
+        contents:
           - text: "Statistik Deskriptif"
             href: slides/statistik-deskriptif.html
           - text: "Probabilitas"
@@ -51,64 +51,20 @@ website:
             href: slides/moderasi.html
           - text: "Analisis Mediasi"
             href: slides/mediasi.html
-      - text: "Materi (pdf)"
-        menu:
-          - text: "Statistik Deskriptif"
-            href: "slides/statistik-deskriptif.html?print-pdf"
-          - text: "Probabilitas"
-            href: "slides/probabilitas.html?print-pdf"
-          - text: "Estimasi Parameter"
-            href: "slides/estimasi-parameter.html?print-pdf"
-          - text: "Uji Hipotesis"
-            href: "slides/uji-hipotesis.html?print-pdf"
-          - text: "Analisis Kategorikal"
-            href: "slides/analisis-kategorikal.html?print-pdf"
-          - text: "T-Test"
-            href: "slides/t-test.html?print-pdf"
-          - text: "Korelasi"
-            href: "slides/korelasi.html?print-pdf"
-          - text: "ANOVA"
-            href: "slides/anova.html?print-pdf"
-          - text: "ANOVA Faktorial"
-            href: "slides/anova-faktorial.html?print-pdf"
-          - text: "ANOVA Pengukuran Berulang"
-            href: "slides/anova-rm.html?print-pdf"
-          - text: "ANCOVA"
-            href: "slides/ancova.html?print-pdf"
-          - text: "Regresi OLS"
-            href: "slides/regresi.html?print-pdf"
-          - text: "Analisis Moderasi"
-            href: "slides/moderasi.html?print-pdf"
-          - text: "Analisis Mediasi"
-            href: "slides/mediasi.html?print-pdf"
-      - text: "Dataset"
-        menu:
-          - text: "Analisis Kategorikal"
-          - text: "---"
+      - section: "Materi"
+        contents:
           - text: "terapi.omv"
             href: materials/terapi.omv
           - text: "metodebelajar.omv"
             href: materials/metodebelajar.omv
           - text: "attitudinal_change.omv"
             href: materials/attitudinal_change.omv
-          - text: "---"
-          - text: "T-Test"
-          - text: "---"
           - text: "ujian.omv"
             href: materials/ujian.omv
-          - text: "---"
-          - text: "Korelasi"
-          - text: "---"
           - text: "masukangin.omv"
             href: materials/masukangin.omv
-          - text: "---"
-          - text: "ANOVA"
-          - text: "---"
           - text: "cobaobat.omv"
             href: materials/cobaobat.omv
-          - text: "---"
-          - text: "ANOVA Faktorial & Pengukuran Berulang"
-          - text: "---"
           - text: "kucing-membaca.omv"
             href: materials/kucing-membaca.omv
           - text: "minat-baca.omv"
@@ -117,23 +73,21 @@ website:
             href: materials/nilai-ujian.omv
           - text: "stres.omv"
             href: materials/stres.omv
-          - text: "---"
-          - text: "ANCOVA"
-          - text: "---"
           - text: "cobaobat2.omv"
             href: materials/cobaobat2.omv
-          - text: "---"
-          - text: "Regresi OLS & Moderasi"
-          - text: "---"
           - text: "dataset-sekolah.omv"
             href: materials/dataset-sekolah.omv
           - text: "dataset-organisasi.omv"
             href: materials/dataset-organisasi.omv
-          - text: "---"
-          - text: "Mediasi"
-          - text: "---"
           - text: "mediasi_akademik.omv"
             href: materials/mediasi_akademik.omv
+  navbar:
+    left:
+      - href: https://rameliaz.github.io/
+        icon: house
+        text: "oleh Rizqy Amelia Zein"
+      - icon: github
+        href: https://github.com/rameliaz/statistik-dasar
       - icon: envelope
         href: "mailto:amelia.zein@psikologi.unair.ac.id"
       - icon: github
@@ -144,14 +98,16 @@ website:
     location: navbar
     type: overlay
   page-footer:
-      left: "&#169; 2026 Rizqy Amelia Zein"
+      left: |
+        Laman web dibuat dengan [![](https://quarto.org/quarto.png){fig-alt="Quarto" width=65px}](https://quarto.org/)
       center: |
         <a class="link-dark me-1" href="https://github.com/rameliaz" title="github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
         <a class="link-dark me-1" href="mailto:amelia.zein@psikologi.unair.ac.id" title="Email" target="_blank" rel="noopener"><i class="fa-solid fa-envelope"></i></a>
         <a class="link-dark me-1" href="https://bsky.app/profile/ameliazein.bsky.social" title="Bluesky" target="_blank" rel="noopener"><i class="fa-brands fa-bluesky"></i></a>
         <a class="link-dark me-1" href="https://discord.com/users/807046335613632555" title="Discord" target="_blank" rel="noopener"><i class="fa-brands fa-discord"></i></a>
-      right: |
-        <a class="link-dark me-1" href="https://github.com/rameliaz/statistik-dasar"><i class="fa-brands fa-github"></i> Source</a>
+      right: | 
+         &#169; 2026 Rizqy Amelia Zein \ 
+         \ Departemen Psikologi, Universitas Airlangga
 format:
   html:
     theme:
